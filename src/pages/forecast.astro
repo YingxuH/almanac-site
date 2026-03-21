@@ -3,7 +3,15 @@ import Base from '../layouts/Base.astro';
 import GlowCard from '../components/GlowCard.astro';
 import FadeIn from '../components/FadeIn.astro';
 
-import reportContent from '../content/reports/2026-03-21.md?raw';
+// Load all reports, pick the latest by filename (date sort)
+import fs from 'node:fs';
+import path from 'node:path';
+const reportsDir = path.resolve('./src/content/reports');
+const files = fs.readdirSync(reportsDir).filter((f: string) => f.endsWith('.md')).sort().reverse();
+const latestFile = files[0];
+const reportContent = latestFile
+  ? fs.readFileSync(path.join(reportsDir, latestFile), 'utf-8')
+  : '# No report available yet';
 
 // Parse sections from the markdown
 function parseReport(md: string) {
