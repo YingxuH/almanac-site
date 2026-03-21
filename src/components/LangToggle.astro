@@ -1,0 +1,57 @@
+---
+// Language toggle button — CN/EN
+---
+<button
+  id="lang-toggle"
+  aria-label="Toggle language"
+  class="w-9 h-9 flex items-center justify-center rounded-lg border border-almanac-border hover:border-almanac-muted bg-almanac-surface transition-all cursor-pointer text-[10px] font-bold tracking-wider"
+>
+  <span id="lang-label" class="text-almanac-accent">EN</span>
+</button>
+
+<script is:inline>
+  (function() {
+    var lang = localStorage.getItem('almanac-lang') || 'en';
+    document.documentElement.setAttribute('data-lang', lang);
+    var label = document.getElementById('lang-label');
+    if (label) label.textContent = lang === 'zh' ? '中' : 'EN';
+
+    var btn = document.getElementById('lang-toggle');
+    if (btn) {
+      btn.addEventListener('click', function() {
+        var current = document.documentElement.getAttribute('data-lang') || 'en';
+        var next = current === 'en' ? 'zh' : 'en';
+        document.documentElement.setAttribute('data-lang', next);
+        localStorage.setItem('almanac-lang', next);
+        var lbl = document.getElementById('lang-label');
+        if (lbl) lbl.textContent = next === 'zh' ? '中' : 'EN';
+
+        // Swap all translatable text
+        document.querySelectorAll('[data-en][data-zh]').forEach(function(el) {
+          el.textContent = el.getAttribute('data-' + next) || el.textContent;
+        });
+        // Swap HTML content
+        document.querySelectorAll('[data-en-html][data-zh-html]').forEach(function(el) {
+          el.innerHTML = el.getAttribute('data-' + next + '-html') || el.innerHTML;
+        });
+        // Swap placeholders
+        document.querySelectorAll('[data-en-placeholder][data-zh-placeholder]').forEach(function(el) {
+          el.placeholder = el.getAttribute('data-' + next + '-placeholder') || el.placeholder;
+        });
+      });
+    }
+
+    // Apply on load for non-default language
+    if (lang !== 'en') {
+      document.querySelectorAll('[data-en][data-zh]').forEach(function(el) {
+        el.textContent = el.getAttribute('data-zh') || el.textContent;
+      });
+      document.querySelectorAll('[data-en-html][data-zh-html]').forEach(function(el) {
+        el.innerHTML = el.getAttribute('data-zh-html') || el.innerHTML;
+      });
+      document.querySelectorAll('[data-en-placeholder][data-zh-placeholder]').forEach(function(el) {
+        el.placeholder = el.getAttribute('data-zh-placeholder') || el.placeholder;
+      });
+    }
+  })();
+</script>

@@ -40,15 +40,18 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-almanac-green opacity-75"></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-almanac-green"></span>
             </span>
-            Day 2 — March 22, 2026
+            <span data-en="Day 2 — March 22, 2026" data-zh="第2天 — 2026年3月22日">Day 2 — March 22, 2026</span>
           </div>
           <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]">
-            The modern<br/>almanac for<br/>
-            <span class="text-almanac-accent">
-              <Typewriter texts={["an uncertain future", "software engineering", "the next decade", "what comes next"]} speed={70} />
-            </span>
+            <span data-en="The modern" data-zh="面向未来的">The modern</span><br/>
+            <span data-en="almanac for" data-zh="现代年鉴：">almanac for</span><br/>
+            <span class="text-almanac-accent" data-en="software engineering" data-zh="软件工程">software engineering</span>
           </h1>
-          <p class="mt-6 text-lg text-almanac-muted max-w-xl leading-relaxed">
+          <p class="mt-3 text-base text-almanac-muted/60 flex items-center gap-2">
+            <span class="w-4 h-px bg-almanac-accent/50"></span>
+            <Typewriter texts={["an uncertain future", "the next decade", "what comes next", "career decisions"]} speed={70} />
+          </p>
+          <p class="mt-6 text-lg text-almanac-muted max-w-xl leading-relaxed" data-en="AI reads thousands of signals daily. You read what matters — confidence-scored forecasts about the future of software engineering." data-zh="AI 每天分析数千条信号。你只需阅读最重要的 — 带置信度评分的软件工程未来预测，每24小时更新。">
             AI reads thousands of signals daily. You read what matters — confidence-scored forecasts about the future of software engineering.
           </p>
 
@@ -59,14 +62,15 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
             <input type="hidden" name="from_name" value="Almanac Signup" />
             <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
             <input type="email" name="email" required placeholder="you@company.com"
+              data-en-placeholder="you@company.com" data-zh-placeholder="你的邮箱地址"
               class="flex-1 px-4 py-3 rounded-lg bg-almanac-surface border border-almanac-border text-almanac-text placeholder:text-almanac-muted/50 focus:outline-none focus:border-almanac-accent focus:ring-1 focus:ring-almanac-accent/30 transition-all text-sm" />
             <button type="submit"
               class="px-6 py-3 bg-almanac-accent text-almanac-bg font-semibold rounded-lg hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-all duration-300 text-sm whitespace-nowrap cursor-pointer flex items-center gap-2">
-              <span class="btn-text">Get Daily Forecast</span>
+              <span class="btn-text" data-en="Get Daily Forecast" data-zh="获取每日预测">Get Daily Forecast</span>
               <svg class="btn-spinner hidden w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
             </button>
           </form>
-          <p class="mt-2 text-[11px] text-almanac-muted">Free daily email. No spam. Unsubscribe anytime.</p>
+          <p class="mt-2 text-[11px] text-almanac-muted" data-en="Free daily email. No spam. Unsubscribe anytime." data-zh="免费每日邮件，无垃圾信息，随时退订。">Free daily email. No spam. Unsubscribe anytime.</p>
 
           <div class="mt-6 flex flex-wrap gap-3">
             <a href="/almanac-site/forecast" class="group text-sm text-almanac-accent hover:underline flex items-center gap-1">
@@ -123,20 +127,20 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
                 <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-almanac-green opacity-75"></span>
                 <span class="relative inline-flex rounded-full h-2 w-2 bg-almanac-green"></span>
               </span>
-              <span class="text-xs font-mono text-almanac-accent uppercase tracking-widest">Today's Lead Signal</span>
+              <span class="text-xs font-mono text-almanac-accent uppercase tracking-widest" data-en="Today's Lead Signal" data-zh="今日头条信号">Today's Lead Signal</span>
             </div>
             <a href="/almanac-site/forecast" class="text-xs text-almanac-accent hover:underline">Full report &rarr;</a>
           </div>
           <div class="p-6 sm:p-8">
-            <h3 class="text-2xl sm:text-3xl font-bold mb-4 leading-tight">"Vibe Coding" Is Now a Mandatory Job Requirement</h3>
-            <p class="text-almanac-muted leading-relaxed max-w-3xl">
-              Recruiters are explicitly listing "experience building software with LLMs" as a mandatory requirement for standard engineering roles. The definition of a "competent engineer" has permanently shifted — universities are already adapting curricula.
+            <h3 class="text-2xl sm:text-3xl font-bold mb-4 leading-tight" data-en="The 10:1 Ratio: One Human Architect Now Manages Ten Autonomous Feature Agents" data-zh="1:10 比例：一名人类架构师现在管理十个自主功能代理">The 10:1 Ratio: One Human Architect Now Manages Ten Autonomous Feature Agents</h3>
+            <p class="text-almanac-muted leading-relaxed max-w-3xl" data-en="Enterprise teams are reporting a dramatic shift in engineering org structure. Senior architects are now orchestrating fleets of AI coding agents rather than managing junior developers. The human-to-agent ratio has crossed 1:10 at early adopters, fundamentally redefining what 'team lead' means." data-zh="企业团队正在报告工程组织结构的巨大转变。资深架构师现在协调 AI 编程代理舰队，而不是管理初级开发者。早期采用者的人机比已突破 1:10，从根本上重新定义了「技术负责人」的含义。">
+              Enterprise teams are reporting a dramatic shift in engineering org structure. Senior architects are now orchestrating fleets of AI coding agents rather than managing junior developers. The human-to-agent ratio has crossed 1:10 at early adopters, fundamentally redefining what 'team lead' means.
             </p>
             <div class="mt-6 flex flex-wrap items-center gap-4 text-xs text-almanac-muted">
-              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-almanac-red"></span>Impact: Critical</span>
-              <span>Source: Hacker News developer forums</span>
-              <span>Horizon: 1-5 years</span>
-              <span class="font-mono text-almanac-green">4 predictions affected</span>
+              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-almanac-red"></span><span data-en="Impact: Critical" data-zh="影响：关键">Impact: Critical</span></span>
+              <span data-en="Source: Bloomberg, arXiv, HN" data-zh="来源：Bloomberg、arXiv、HN">Source: Bloomberg, arXiv, HN</span>
+              <span data-en="Horizon: 2-7 years" data-zh="时间线：2-7年">Horizon: 2-7 years</span>
+              <span class="font-mono text-almanac-green" data-en="5 predictions affected" data-zh="影响5项预测">5 predictions affected</span>
             </div>
           </div>
         </div>
@@ -149,8 +153,8 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
     <FadeIn>
       <div class="flex items-end justify-between mb-8">
         <div>
-          <h2 class="text-3xl font-bold">Active Predictions</h2>
-          <p class="text-almanac-muted mt-1">8 falsifiable forecasts with daily confidence updates</p>
+          <h2 class="text-3xl font-bold" data-en="Active Predictions" data-zh="活跃预测">Active Predictions</h2>
+          <p class="text-almanac-muted mt-1" data-en="8 falsifiable forecasts with daily confidence updates" data-zh="8项可证伪的预测，每日更新置信度">8 falsifiable forecasts with daily confidence updates</p>
         </div>
         <a href="/almanac-site/predictions" class="text-sm text-almanac-accent hover:underline hidden sm:block">View details &rarr;</a>
       </div>
@@ -211,7 +215,7 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
   <!-- How it works — horizontal flow -->
   <FadeIn>
     <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
-      <h2 class="text-3xl font-bold mb-10 text-center">How it works</h2>
+      <h2 class="text-3xl font-bold mb-10 text-center" data-en="How it works" data-zh="工作原理">How it works</h2>
       <div class="grid sm:grid-cols-3 gap-0 relative">
         {/* Connector lines */}
         <div class="hidden sm:block absolute top-10 left-[33%] w-[34%] h-px bg-gradient-to-r from-almanac-accent/50 to-almanac-accent/50 z-0"></div>
@@ -235,8 +239,8 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
   <!-- Source orbit -->
   <FadeIn>
     <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 text-center">
-      <h2 class="text-2xl font-bold mb-2">Data Sources</h2>
-      <p class="text-almanac-muted text-sm mb-8">11 feeds monitored continuously</p>
+      <h2 class="text-2xl font-bold mb-2" data-en="Data Sources" data-zh="数据来源">Data Sources</h2>
+      <p class="text-almanac-muted text-sm mb-8" data-en="11 feeds monitored continuously" data-zh="持续监控 11 个数据源">11 feeds monitored continuously</p>
       <SourceOrbit />
     </section>
   </FadeIn>
@@ -247,9 +251,9 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
       <div class="relative">
         <div class="absolute -inset-6 bg-almanac-accent/5 rounded-3xl blur-2xl"></div>
         <div class="relative p-10 rounded-xl border border-almanac-border bg-almanac-surface">
-          <h2 class="text-3xl font-bold mb-3">The future updates daily.</h2>
-          <p class="text-almanac-muted mb-2 text-lg">Get tomorrow's forecast in your inbox.</p>
-          <p class="text-almanac-muted mb-8 text-sm">One email per day. Confidence-scored predictions. Source-linked signals.</p>
+          <h2 class="text-3xl font-bold mb-3" data-en="The future updates daily." data-zh="未来，每天更新。">The future updates daily.</h2>
+          <p class="text-almanac-muted mb-2 text-lg" data-en="Get tomorrow's forecast in your inbox." data-zh="在你的收件箱获取明天的预测。">Get tomorrow's forecast in your inbox.</p>
+          <p class="text-almanac-muted mb-8 text-sm" data-en="One email per day. Confidence-scored predictions. Source-linked signals." data-zh="每天一封邮件，带置信度评分和来源链接。">One email per day. Confidence-scored predictions. Source-linked signals.</p>
 
           <form id="cta-form" class="flex flex-col sm:flex-row gap-2.5 max-w-lg mx-auto" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_KEY" />
