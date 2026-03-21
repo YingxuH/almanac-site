@@ -93,15 +93,15 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
           <div class="grid grid-cols-3 gap-4 w-full max-w-xs">
             <div class="text-center">
               <div class="text-xl font-bold font-mono text-almanac-green">+16</div>
-              <div class="text-[10px] text-almanac-muted uppercase tracking-wider">Net Delta</div>
+              <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Net Delta" data-zh="净变化">Net Delta</div>
             </div>
             <div class="text-center">
               <div class="text-xl font-bold font-mono">8</div>
-              <div class="text-[10px] text-almanac-muted uppercase tracking-wider">Tracking</div>
+              <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Tracking" data-zh="追踪中">Tracking</div>
             </div>
             <div class="text-center">
               <div class="text-xl font-bold font-mono text-almanac-accent">270</div>
-              <div class="text-[10px] text-almanac-muted uppercase tracking-wider">Items Scraped</div>
+              <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Items Scraped" data-zh="抓取项目">Items Scraped</div>
             </div>
           </div>
         </div>
@@ -129,7 +129,7 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
               </span>
               <span class="text-xs font-mono text-almanac-accent uppercase tracking-widest" data-en="Today's Lead Signal" data-zh="今日头条信号">Today's Lead Signal</span>
             </div>
-            <a href="/almanac-site/forecast" class="text-xs text-almanac-accent hover:underline">Full report &rarr;</a>
+            <a href="/almanac-site/forecast" class="text-xs text-almanac-accent hover:underline" data-en="Full report →" data-zh="完整报告 →">Full report &rarr;</a>
           </div>
           <div class="p-6 sm:p-8">
             <h3 class="text-2xl sm:text-3xl font-bold mb-4 leading-tight" data-en="The 10:1 Ratio: One Human Architect Now Manages Ten Autonomous Feature Agents" data-zh="1:10 比例：一名人类架构师现在管理十个自主功能代理">The 10:1 Ratio: One Human Architect Now Manages Ten Autonomous Feature Agents</h3>
@@ -165,9 +165,9 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
             Today's panic is actively rewriting the labor market — tech recruiters now mandate LLM-assisted "vibe coding" as a baseline job requirement. Meanwhile, academic consensus is emerging that the natural language specification is the stable artifact of record, relegating implementation code to a transient byproduct.
           </p>
           <div class="flex flex-wrap gap-2">
-            <span class="text-[10px] px-2 py-1 rounded bg-almanac-green/10 text-almanac-green border border-almanac-green/20">P6: Security breach 88% (high)</span>
-            <span class="text-[10px] px-2 py-1 rounded bg-almanac-green/10 text-almanac-green border border-almanac-green/20">P3: AI premium 45% (uncertain)</span>
-            <span class="text-[10px] px-2 py-1 rounded bg-almanac-border text-almanac-muted">P4: Senior shortage 82%</span>
+            <span class="text-[10px] px-2 py-1 rounded bg-almanac-green/10 text-almanac-green border border-almanac-green/20" data-en="P6: Security breach 88% (high)" data-zh="P6: 安全漏洞 88%（高）">P6: Security breach 88% (high)</span>
+            <span class="text-[10px] px-2 py-1 rounded bg-almanac-green/10 text-almanac-green border border-almanac-green/20" data-en="P3: AI premium 45% (uncertain)" data-zh="P3: AI溢价 45%（不确定）">P3: AI premium 45% (uncertain)</span>
+            <span class="text-[10px] px-2 py-1 rounded bg-almanac-border text-almanac-muted" data-en="P4: Senior shortage 82%" data-zh="P4: 资深工程师短缺 82%">P4: Senior shortage 82%</span>
           </div>
         </div>
       </div>
@@ -179,15 +179,15 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
     <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-almanac-muted">
       <span class="flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5 text-almanac-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        <span data-en="8 sources scraped daily" data-zh="每日抓取8个数据源">8 sources scraped daily</span>
+        <span data-en="8 sources scraped daily" data-zh="每日抓取8个数据源" data-en="8 sources scraped daily" data-zh="每日抓取8个数据源">8 sources scraped daily</span>
       </span>
       <span class="flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5 text-almanac-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        <span data-en="Predictions capped at +/-5 per day" data-zh="预测每日变动上限 +/-5">Predictions capped at +/-5 per day</span>
+        <span data-en="Predictions capped at +/-5 per day" data-zh="预测每日变动上限 +/-5" data-en="Predictions capped at +/-5 per day" data-zh="预测每日变动上限 +/-5">Predictions capped at +/-5 per day</span>
       </span>
       <span class="flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5 text-almanac-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-        <span data-en="Open methodology — we publish when we're wrong" data-zh="公开方法论 — 我们会公开错误">Open methodology — we publish when we're wrong</span>
+        <span data-en="Open methodology — we publish when we're wrong" data-zh="公开方法论 — 我们会公开错误" data-en="Open methodology — we publish when we're wrong" data-zh="公开方法论 — 我们会公开错误">Open methodology — we publish when we're wrong</span>
       </span>
     </div>
   </div>
@@ -200,7 +200,7 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
           <h2 class="text-3xl font-bold" data-en="Active Predictions" data-zh="活跃预测">Active Predictions</h2>
           <p class="text-almanac-muted mt-1" data-en="8 falsifiable forecasts with daily confidence updates" data-zh="8项可证伪的预测，每日更新置信度">8 falsifiable forecasts with daily confidence updates</p>
         </div>
-        <a href="/almanac-site/predictions" class="text-sm text-almanac-accent hover:underline hidden sm:block">View details &rarr;</a>
+        <a href="/almanac-site/predictions" class="text-sm text-almanac-accent hover:underline hidden sm:block" data-en="View details →" data-zh="查看详情 →">View details &rarr;</a>
       </div>
     </FadeIn>
 
@@ -252,7 +252,7 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
       })}
     </div>
     <div class="mt-4 sm:hidden">
-      <a href="/almanac-site/predictions" class="text-sm text-almanac-accent hover:underline">View all predictions &rarr;</a>
+      <a href="/almanac-site/predictions" class="text-sm text-almanac-accent hover:underline" data-en="View all predictions →" data-zh="查看所有预测 →">View all predictions &rarr;</a>
     </div>
   </section>
 
@@ -313,7 +313,7 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
             </button>
           </form>
 
-          <p class="mt-3 text-[11px] text-almanac-muted">No spam. No paywalls. Unsubscribe in one click.</p>
+          <p class="mt-3 text-[11px] text-almanac-muted" data-en="No spam. No paywalls. Unsubscribe in one click." data-zh="无垃圾邮件，无付费墙，一键退订。">No spam. No paywalls. Unsubscribe in one click.</p>
 
           <div class="mt-8 flex items-center justify-center gap-6 text-xs text-almanac-muted">
             <div class="flex items-center gap-1.5">
