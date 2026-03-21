@@ -1,0 +1,41 @@
+---
+interface Props {
+  value: number;
+  suffix?: string;
+  label: string;
+}
+const { value, suffix = '', label } = Astro.props;
+---
+<div class="counter-card text-center group" data-target={value}>
+  <div class="text-3xl md:text-4xl font-bold font-mono text-almanac-accent transition-transform group-hover:scale-110 duration-300">
+    <span class="counter-value">0</span>{suffix}
+  </div>
+  <div class="text-xs text-almanac-muted mt-2 uppercase tracking-wider">{label}</div>
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const card = entry.target as HTMLElement;
+      const target = parseInt(card.dataset.target || '0');
+      const el = card.querySelector('.counter-value');
+      if (!el || el.getAttribute('data-done')) return;
+      el.setAttribute('data-done', '1');
+
+      const duration = 1500;
+      const start = performance.now();
+
+      function update(now: number) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        el!.textContent = Math.round(eased * target).toString();
+        if (progress < 1) requestAnimationFrame(update);
+      }
+      requestAnimationFrame(update);
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.counter-card').forEach(el => observer.observe(el));
+</script>

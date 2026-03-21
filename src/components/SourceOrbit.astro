@@ -1,0 +1,67 @@
+---
+// Animated orbit of data sources around a central element
+const sources = [
+  "arXiv", "HN", "Reddit", "GitHub", "RSS", "Metaculus",
+  "FRED", "S.Scholar", "SO", "Adzuna", "PubMed"
+];
+---
+<div class="orbit-container relative w-64 h-64 md:w-80 md:h-80 mx-auto">
+  <!-- Center pulse -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-almanac-accent/10 flex items-center justify-center">
+    <div class="w-12 h-12 rounded-full bg-almanac-accent/20 flex items-center justify-center animate-pulse">
+      <div class="w-6 h-6 rounded-full bg-almanac-accent/60"></div>
+    </div>
+  </div>
+
+  <!-- Orbit ring -->
+  <div class="absolute inset-4 rounded-full border border-almanac-border/40 orbit-ring"></div>
+
+  <!-- Orbiting items -->
+  {sources.map((src, i) => {
+    const angle = (360 / sources.length) * i;
+    return (
+      <div
+        class="orbit-item absolute"
+        style={`--angle: ${angle}deg; --delay: ${i * -0.5}s;`}
+      >
+        <span class="inline-block px-2 py-1 text-xs font-mono rounded-md bg-almanac-surface border border-almanac-border text-almanac-muted whitespace-nowrap hover:text-almanac-accent hover:border-almanac-accent/50 transition-colors">
+          {src}
+        </span>
+      </div>
+    );
+  })}
+</div>
+
+<style>
+  .orbit-ring {
+    animation: spin-slow 60s linear infinite;
+  }
+  .orbit-item {
+    top: 50%;
+    left: 50%;
+    animation: orbit 20s linear infinite;
+    animation-delay: var(--delay);
+  }
+  @keyframes orbit {
+    from {
+      transform: rotate(var(--angle)) translateX(130px) rotate(calc(-1 * var(--angle)));
+    }
+    to {
+      transform: rotate(calc(var(--angle) + 360deg)) translateX(130px) rotate(calc(-1 * (var(--angle) + 360deg)));
+    }
+  }
+  @media (min-width: 768px) {
+    @keyframes orbit {
+      from {
+        transform: rotate(var(--angle)) translateX(160px) rotate(calc(-1 * var(--angle)));
+      }
+      to {
+        transform: rotate(calc(var(--angle) + 360deg)) translateX(160px) rotate(calc(-1 * (var(--angle) + 360deg)));
+      }
+    }
+  }
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+</style>

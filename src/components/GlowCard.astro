@@ -1,0 +1,32 @@
+---
+// Card with animated border glow on hover
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+<div class={`glow-card relative group ${className}`}>
+  <div class="glow-border absolute -inset-[1px] rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-[2px]"></div>
+  <div class="relative rounded-xl border border-almanac-border bg-almanac-surface overflow-hidden">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .glow-border {
+    background: conic-gradient(
+      from 0deg,
+      var(--color-almanac-accent),
+      var(--color-almanac-green),
+      var(--color-almanac-accent),
+      var(--color-almanac-amber),
+      var(--color-almanac-accent)
+    );
+    animation: glow-spin 4s linear infinite;
+    background-size: 200% 200%;
+  }
+  @keyframes glow-spin {
+    0% { filter: blur(2px) hue-rotate(0deg); }
+    100% { filter: blur(2px) hue-rotate(360deg); }
+  }
+</style>

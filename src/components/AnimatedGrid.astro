@@ -1,0 +1,28 @@
+---
+// Subtle animated dot grid background that pulses
+---
+<div class="animated-grid absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+  <div class="grid-inner"></div>
+</div>
+
+<style>
+  .animated-grid {
+    mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, black 40%, transparent 100%);
+  }
+  .grid-inner {
+    width: 100%;
+    height: 100%;
+    background-image:
+      radial-gradient(circle, var(--color-almanac-accent) 0.5px, transparent 0.5px);
+    background-size: 32px 32px;
+    opacity: 0.15;
+    animation: grid-drift 20s ease-in-out infinite;
+  }
+  @keyframes grid-drift {
+    0%, 100% { transform: translate(0, 0); opacity: 0.15; }
+    25% { transform: translate(-8px, -4px); opacity: 0.2; }
+    50% { transform: translate(4px, -8px); opacity: 0.12; }
+    75% { transform: translate(-4px, 4px); opacity: 0.18; }
+  }
+</style>

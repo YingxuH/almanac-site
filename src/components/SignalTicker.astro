@@ -1,0 +1,43 @@
+---
+// Scrolling marquee of live signals — creates urgency and life
+const signals = [
+  { icon: "&#9650;", text: "AI code generation: 68% → 74%", color: "green" },
+  { icon: "&#9679;", text: "arXiv: 90 new papers analyzed", color: "accent" },
+  { icon: "&#9650;", text: "Senior shortage crisis: 77% → 80%", color: "green" },
+  { icon: "&#9679;", text: "HN: 116 threads monitored", color: "accent" },
+  { icon: "&#9650;", text: "Computer Programmer role: 74% → 77%", color: "green" },
+  { icon: "&#9679;", text: "GitHub Trending: 9 repos tracked", color: "accent" },
+  { icon: "&#8212;", text: "AI fluency premium: unchanged at 71%", color: "muted" },
+  { icon: "&#9679;", text: "RSS: 50 articles ingested", color: "accent" },
+];
+
+const colorMap: Record<string, string> = {
+  green: "text-almanac-green",
+  accent: "text-almanac-accent",
+  muted: "text-almanac-muted",
+};
+---
+<div class="ticker-container overflow-hidden border-y border-almanac-border bg-almanac-surface/50 py-2.5">
+  <div class="ticker-track flex gap-12 whitespace-nowrap">
+    {[...signals, ...signals].map(s => (
+      <span class="inline-flex items-center gap-2 text-xs">
+        <span class={colorMap[s.color]} set:html={s.icon} />
+        <span class="text-almanac-muted">{s.text}</span>
+      </span>
+    ))}
+  </div>
+</div>
+
+<style>
+  .ticker-track {
+    animation: scroll-left 30s linear infinite;
+    width: max-content;
+  }
+  .ticker-track:hover {
+    animation-play-state: paused;
+  }
+  @keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+</style>

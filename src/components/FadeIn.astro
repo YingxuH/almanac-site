@@ -1,0 +1,29 @@
+---
+// Scroll-triggered fade-in animation wrapper
+interface Props {
+  direction?: 'up' | 'down' | 'left' | 'right';
+  delay?: number;
+  class?: string;
+}
+const { direction = 'up', delay = 0, class: className = '' } = Astro.props;
+const dirMap = { up: 'translate-y-8', down: '-translate-y-8', left: 'translate-x-8', right: '-translate-x-8' };
+---
+<div
+  class={`fade-in opacity-0 ${dirMap[direction]} transition-all duration-700 ease-out ${className}`}
+  style={delay ? `transition-delay: ${delay}ms` : ''}
+>
+  <slot />
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('opacity-0', 'translate-y-8', '-translate-y-8', 'translate-x-8', '-translate-x-8');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>

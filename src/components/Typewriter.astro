@@ -1,0 +1,68 @@
+---
+interface Props {
+  texts: string[];
+  speed?: number;
+}
+const { texts, speed = 60 } = Astro.props;
+---
+<span class="typewriter-container">
+  <span class="typewriter-text" data-texts={JSON.stringify(texts)} data-speed={speed}></span>
+  <span class="typewriter-cursor">|</span>
+</span>
+
+<style>
+  .typewriter-container {
+    display: inline;
+  }
+  .typewriter-cursor {
+    display: inline-block;
+    color: var(--color-almanac-accent);
+    animation: blink 0.8s step-end infinite;
+    font-weight: 300;
+    margin-left: 1px;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll('.typewriter-text').forEach(el => {
+      const texts = JSON.parse(el.getAttribute('data-texts') || '[]');
+      const speed = parseInt(el.getAttribute('data-speed') || '60');
+      let textIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+      let pauseTime = 0;
+
+      function tick() {
+        const current = texts[textIndex] || '';
+        if (pauseTime > 0) {
+          pauseTime -= 30;
+          requestAnimationFrame(() => setTimeout(tick, 30));
+          return;
+        }
+        if (!isDeleting) {
+          el.textContent = current.slice(0, charIndex + 1);
+          charIndex++;
+          if (charIndex >= current.length) {
+            isDeleting = true;
+            pauseTime = 2000;
+          }
+        } else {
+          el.textContent = current.slice(0, charIndex - 1);
+          charIndex--;
+          if (charIndex <= 0) {
+            isDeleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+          }
+        }
+        const delay = isDeleting ? speed / 2 : speed;
+        requestAnimationFrame(() => setTimeout(tick, delay));
+      }
+      tick();
+    });
+  });
+</script>
