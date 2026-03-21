@@ -8,8 +8,8 @@ import GlowCard from '../components/GlowCard.astro';
   <section class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
 
     <FadeIn>
-      <h1 class="text-4xl font-bold mb-4">About Almanac</h1>
-      <p class="text-xl text-almanac-muted leading-relaxed max-w-2xl">
+      <h1 class="text-4xl font-bold mb-4" data-en="About Almanac" data-zh="关于 Almanac">About Almanac</h1>
+      <p class="text-xl text-almanac-muted leading-relaxed max-w-2xl" data-en="We're cartographers, not prophets. We map the territory of possible futures with no stake in which one arrives." data-zh="我们是制图者，不是预言家。我们绘制可能的未来版图，对哪个会到来不持立场。">
         We're cartographers, not prophets. We map the territory of possible futures with no stake in which one arrives.
       </p>
     </FadeIn>
@@ -20,9 +20,9 @@ import GlowCard from '../components/GlowCard.astro';
         <div class="p-6 rounded-xl border border-almanac-border bg-almanac-surface">
           <h2 class="text-xl font-bold mb-3 flex items-center gap-2">
             <span class="w-1.5 h-6 rounded-full bg-almanac-accent"></span>
-            What This Is
+            <span data-en="What This Is" data-zh="这是什么">What This Is</span>
           </h2>
-          <p class="text-almanac-muted leading-relaxed">
+          <p class="text-almanac-muted leading-relaxed" data-en="Almanac is an AI-powered forecasting system that tracks how software engineering is changing over the next 3-30 years. Every day, our pipeline scrapes 8 data sources, filters hundreds of signals through tiered AI models, and produces a confidence-scored forecast. We track 8 specific, falsifiable predictions and update them daily using LLM-evaluated signal analysis with horizon-scaled dampening." data-zh="Almanac 是一个 AI 驱动的预测系统，追踪软件工程在未来 3-30 年内的变化。每天，我们的流水线从 8 个数据源抓取数据，通过分层 AI 模型筛选数百个信号，并生成置信度评分预测。我们追踪 8 个具体的、可证伪的预测，并使用经过时间范围衰减的 LLM 评估信号分析每日更新。">
             Almanac is an AI-powered forecasting system that tracks how software engineering is changing over the next 3-30 years.
             Every day, our pipeline scrapes 8 data sources, filters hundreds of signals through tiered AI models, and produces
             a confidence-scored forecast. We track 8 specific, falsifiable predictions and update them daily using LLM-evaluated signal analysis with horizon-scaled dampening.
@@ -32,9 +32,9 @@ import GlowCard from '../components/GlowCard.astro';
         <div class="p-6 rounded-xl border border-almanac-border bg-almanac-surface">
           <h2 class="text-xl font-bold mb-3 flex items-center gap-2">
             <span class="w-1.5 h-6 rounded-full bg-almanac-amber"></span>
-            What This Is Not
+            <span data-en="What This Is Not" data-zh="这不是什么">What This Is Not</span>
           </h2>
-          <p class="text-almanac-muted leading-relaxed">
+          <p class="text-almanac-muted leading-relaxed" data-en="We are not an oracle. We are not financial advisors. Our predictions are probabilistic estimates based on available evidence, and they are frequently wrong. The value isn't in any single prediction being correct — it's in the discipline of tracking, updating, and honestly reporting our accuracy over time." data-zh="我们不是神谕，也不是财务顾问。我们的预测是基于现有证据的概率估计，且经常出错。价值不在于某个预测是否正确，而在于追踪、更新并诚实报告我们准确性的这种纪律。">
             We are not an oracle. We are not financial advisors. Our predictions are probabilistic estimates based on available
             evidence, and they are frequently wrong. The value isn't in any single prediction being correct — it's in the
             discipline of tracking, updating, and honestly reporting our accuracy over time.
@@ -46,7 +46,7 @@ import GlowCard from '../components/GlowCard.astro';
     <!-- Methodology -->
     <FadeIn delay={200}>
       <div class="mt-16">
-        <h2 class="text-2xl font-bold mb-8">Methodology</h2>
+        <h2 class="text-2xl font-bold mb-8" data-en="Methodology" data-zh="方法论">Methodology</h2>
 
         <div class="relative">
           {/* Vertical connector */}
@@ -57,31 +57,41 @@ import GlowCard from '../components/GlowCard.astro';
               {
                 num: "01",
                 title: "Data Collection",
+                titleZh: "数据采集",
                 desc: "Every day at 06:00 UTC, automated scrapers collect data from Hacker News (top stories + Ask HN), arXiv (cs.SE, cs.AI, cs.CL), TechCrunch, Ars Technica, MIT Technology Review, The Verge, and GitHub Trending. This yields 200-300 raw items per day.",
+                descZh: "每天 06:00 UTC，自动爬虫从 Hacker News（热门故事 + Ask HN）、arXiv（cs.SE、cs.AI、cs.CL）、TechCrunch、Ars Technica、MIT Technology Review、The Verge 和 GitHub Trending 收集数据。每天产生 200-300 个原始条目。",
                 color: "accent"
               },
               {
                 num: "02",
                 title: "Signal Filtering",
+                titleZh: "信号筛选",
                 desc: "The AI model evaluates each item for relevance to the future of software engineering (3-30 year horizon). Items scoring below 0.6 relevance are discarded. Typically 20-30 signals survive filtering. Each signal is classified by type: AI coding, job market, skills, regulation, tooling, or paradigm.",
+                descZh: "AI 模型评估每个条目与软件工程未来（3-30 年时间范围）的相关性。相关性评分低于 0.6 的条目被丢弃。通常有 20-30 个信号通过筛选。每个信号按类型分类：AI 编码、就业市场、技能、法规、工具或范式。",
                 color: "amber"
               },
               {
                 num: "03",
                 title: "Narrative Synthesis",
+                titleZh: "叙事综合",
                 desc: "The top signals are synthesized into a coherent daily narrative. The AI is provided with yesterday's executive summary for continuity. It identifies the day's most significant developments and explains their 3-30 year implications.",
+                descZh: "将顶级信号综合成连贯的每日叙事。AI 被提供昨天的执行摘要以保持连贯性。它识别当天最重要的进展并解释其 3-30 年的影响。",
                 color: "green"
               },
               {
                 num: "04",
                 title: "Prediction Update",
+                titleZh: "预测更新",
                 desc: "Each of our 8 standing predictions is evaluated against the day's evidence. Confidence scores can move up to +/-5 percentage points per day (horizon-dampened: near-term predictions move more easily than 10+ year forecasts). All movements are logged with reasoning.",
+                descZh: "我们的 8 个持续预测中的每一个都会根据当天的证据进行评估。置信度评分每天最多可移动 +/-5 个百分点（时间范围衰减：近期预测比 10 年以上的预测更容易移动）。所有变动都记录了推理过程。",
                 color: "accent"
               },
               {
                 num: "05",
                 title: "Publication",
+                titleZh: "发布",
                 desc: "The report is committed to our private repository (with prediction deltas in the commit message), then pushed to the public site. The entire pipeline runs in under 2 minutes. Every report is timestamped and immutable.",
+                descZh: "报告提交到我们的私有仓库（提交信息中包含预测变化），然后推送到公开网站。整个流水线在 2 分钟内运行完成。每份报告都有时间戳且不可篡改。",
                 color: "green"
               },
             ].map((step, i) => {
@@ -94,9 +104,9 @@ import GlowCard from '../components/GlowCard.astro';
                   <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface/50">
                     <div class="flex items-center gap-2 mb-2">
                       <span class={`sm:hidden text-sm font-bold font-mono ${cm[step.color]}`}>{step.num}</span>
-                      <h3 class="font-semibold">{step.title}</h3>
+                      <h3 class="font-semibold" data-en={step.title} data-zh={step.titleZh}>{step.title}</h3>
                     </div>
-                    <p class="text-sm text-almanac-muted leading-relaxed">{step.desc}</p>
+                    <p class="text-sm text-almanac-muted leading-relaxed" data-en={step.desc} data-zh={step.descZh}>{step.desc}</p>
                   </div>
                 </div>
               );
@@ -109,27 +119,27 @@ import GlowCard from '../components/GlowCard.astro';
     <!-- Confidence scores explained -->
     <FadeIn delay={300}>
       <div class="mt-16">
-        <h2 class="text-2xl font-bold mb-6">Reading Confidence Scores</h2>
+        <h2 class="text-2xl font-bold mb-6" data-en="Reading Confidence Scores" data-zh="解读置信度评分">Reading Confidence Scores</h2>
         <div class="grid sm:grid-cols-2 gap-4">
           <div class="p-4 rounded-lg border border-almanac-green/20 bg-almanac-green/5">
             <div class="text-2xl font-bold font-mono text-almanac-green mb-1">75-100%</div>
-            <div class="text-sm font-medium mb-1">High Confidence</div>
-            <p class="text-xs text-almanac-muted">Strong evidence base, clear trend direction. We'd be surprised if this doesn't happen.</p>
+            <div class="text-sm font-medium mb-1" data-en="High Confidence" data-zh="高置信度">High Confidence</div>
+            <p class="text-xs text-almanac-muted" data-en="Strong evidence base, clear trend direction. We'd be surprised if this doesn't happen." data-zh="强有力的证据基础，明确的趋势方向。如果这不发生，我们会感到惊讶。">Strong evidence base, clear trend direction. We'd be surprised if this doesn't happen.</p>
           </div>
           <div class="p-4 rounded-lg border border-almanac-amber/20 bg-almanac-amber/5">
             <div class="text-2xl font-bold font-mono text-almanac-amber mb-1">60-74%</div>
-            <div class="text-sm font-medium mb-1">Moderate Confidence</div>
-            <p class="text-xs text-almanac-muted">Good evidence but significant uncertainty remains. Could go either way with new developments.</p>
+            <div class="text-sm font-medium mb-1" data-en="Moderate Confidence" data-zh="中等置信度">Moderate Confidence</div>
+            <p class="text-xs text-almanac-muted" data-en="Good evidence but significant uncertainty remains. Could go either way with new developments." data-zh="有较好的证据，但仍存在显著的不确定性。随着新进展，可能朝任何方向发展。">Good evidence but significant uncertainty remains. Could go either way with new developments.</p>
           </div>
           <div class="p-4 rounded-lg border border-almanac-red/20 bg-almanac-red/5">
             <div class="text-2xl font-bold font-mono text-almanac-red mb-1">40-59%</div>
-            <div class="text-sm font-medium mb-1">Low Confidence</div>
-            <p class="text-xs text-almanac-muted">Genuinely uncertain. Included because the question matters, not because we're confident.</p>
+            <div class="text-sm font-medium mb-1" data-en="Low Confidence" data-zh="低置信度">Low Confidence</div>
+            <p class="text-xs text-almanac-muted" data-en="Genuinely uncertain. Included because the question matters, not because we're confident." data-zh="真正不确定。纳入是因为问题重要，而不是因为我们有把握。">Genuinely uncertain. Included because the question matters, not because we're confident.</p>
           </div>
           <div class="p-4 rounded-lg border border-almanac-border">
             <div class="text-2xl font-bold font-mono text-almanac-muted mb-1">+/-5/day</div>
-            <div class="text-sm font-medium mb-1">Max Daily Movement</div>
-            <p class="text-xs text-almanac-muted">Confidence scores are clamped to prevent overreaction to single-day signals. Big shifts accumulate over weeks.</p>
+            <div class="text-sm font-medium mb-1" data-en="Max Daily Movement" data-zh="每日最大变动">Max Daily Movement</div>
+            <p class="text-xs text-almanac-muted" data-en="Confidence scores are clamped to prevent overreaction to single-day signals. Big shifts accumulate over weeks." data-zh="置信度评分被限制，以防止对单日信号的过度反应。重大变化在数周内累积。">Confidence scores are clamped to prevent overreaction to single-day signals. Big shifts accumulate over weeks.</p>
           </div>
         </div>
       </div>
@@ -138,7 +148,7 @@ import GlowCard from '../components/GlowCard.astro';
     <!-- Tech stack -->
     <FadeIn delay={400}>
       <div class="mt-16">
-        <h2 class="text-2xl font-bold mb-6">Tech Stack</h2>
+        <h2 class="text-2xl font-bold mb-6" data-en="Tech Stack" data-zh="技术栈">Tech Stack</h2>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {[
             { name: "Python 3.12", role: "Pipeline" },
@@ -162,12 +172,12 @@ import GlowCard from '../components/GlowCard.astro';
     <!-- Open source -->
     <FadeIn delay={500}>
       <div class="mt-16 p-8 rounded-xl border border-almanac-accent/20 bg-almanac-accent/5 text-center">
-        <h2 class="text-2xl font-bold mb-3">Open Source</h2>
-        <p class="text-almanac-muted mb-6 max-w-lg mx-auto">
+        <h2 class="text-2xl font-bold mb-3" data-en="Open Source" data-zh="开源">Open Source</h2>
+        <p class="text-almanac-muted mb-6 max-w-lg mx-auto" data-en="The website frontend is open source. The forecasting pipeline is proprietary — we publish our methodology, predictions, and accuracy record publicly so you can evaluate our work without needing the code." data-zh="网站前端是开源的。预测流水线是专有的——我们公开发布我们的方法论、预测和准确性记录，让您无需查看代码即可评估我们的工作。">
           The website frontend is open source. The forecasting pipeline is proprietary — we publish our methodology,
           predictions, and accuracy record publicly so you can evaluate our work without needing the code.
         </p>
-        <a href="https://github.com/YingxuH/almanac-site" class="inline-flex px-6 py-3 border border-almanac-accent/30 rounded-lg text-almanac-accent hover:bg-almanac-accent/10 transition-colors font-medium">
+        <a href="https://github.com/YingxuH/almanac-site" class="inline-flex px-6 py-3 border border-almanac-accent/30 rounded-lg text-almanac-accent hover:bg-almanac-accent/10 transition-colors font-medium" data-en="View Site Source →" data-zh="查看网站源码 →">
           View Site Source &rarr;
         </a>
       </div>

@@ -26,8 +26,8 @@ const reports = files.map(f => {
   <section class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
     <FadeIn>
       <div class="mb-10">
-        <h1 class="text-3xl font-bold mb-2">Forecast Archive</h1>
-        <p class="text-almanac-muted">Every forecast since Day 1 — a timestamped record of how our understanding of the future has evolved.</p>
+        <h1 class="text-3xl font-bold mb-2" data-en="Forecast Archive" data-zh="预测归档">Forecast Archive</h1>
+        <p class="text-almanac-muted" data-en="Every forecast since Day 1 — a timestamped record of how our understanding of the future has evolved." data-zh="自第一天以来的每一份预测 — 我们对未来认知演变的时间戳记录。">Every forecast since Day 1 — a timestamped record of how our understanding of the future has evolved.</p>
       </div>
     </FadeIn>
 
@@ -53,9 +53,9 @@ const reports = files.map(f => {
                     <div class="flex items-center gap-3">
                       <span class="font-mono text-sm text-almanac-accent">{r.date}</span>
                       <span class="text-[10px] px-2 py-0.5 rounded-full bg-almanac-border text-almanac-muted">Day {r.dayNum}</span>
-                      {i === 0 && <span class="text-[10px] px-2 py-0.5 rounded-full bg-almanac-green/10 text-almanac-green border border-almanac-green/20">Latest</span>}
+                      {i === 0 && <span class="text-[10px] px-2 py-0.5 rounded-full bg-almanac-green/10 text-almanac-green border border-almanac-green/20" data-en="Latest" data-zh="最新">Latest</span>}
                     </div>
-                    <span class="text-xs text-almanac-muted">{r.signalCount} signals</span>
+                    <span class="text-xs text-almanac-muted">{r.signalCount} <span data-en="signals" data-zh="信号">signals</span></span>
                   </div>
                   <p class="text-sm text-almanac-muted leading-relaxed">{r.summary}</p>
                 </div>
@@ -68,7 +68,7 @@ const reports = files.map(f => {
       {/* Bottom cap */}
       <div class="relative pl-16 pt-6">
         <div class="absolute left-[20px] top-6 w-3 h-3 rounded-full bg-almanac-border"></div>
-        <p class="text-xs text-almanac-muted italic">The almanac began recording on March 21, 2026.</p>
+        <p class="text-xs text-almanac-muted italic" data-en="The almanac began recording on March 21, 2026." data-zh="年鉴于2026年3月21日开始记录。">The almanac began recording on March 21, 2026.</p>
       </div>
     </div>
   </section>

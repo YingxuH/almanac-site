@@ -97,10 +97,10 @@ const predictions = [
   <div class="max-w-5xl mx-auto px-6 py-12">
 
     <div class="mb-10">
-      <h1 class="text-3xl font-bold mb-2">Prediction Tracker</h1>
+      <h1 class="text-3xl font-bold mb-2" data-en="Prediction Tracker" data-zh="预测追踪器">Prediction Tracker</h1>
       <p class="text-almanac-muted">
-        {predictions.length} specific, falsifiable forecasts about the future of software engineering.
-        Tracked daily with confidence scores. Updated via LLM-evaluated signal analysis as new evidence arrives.
+        {predictions.length} <span data-en="specific, falsifiable forecasts about the future of software engineering. Tracked daily with confidence scores. Updated via LLM-evaluated signal analysis as new evidence arrives." data-zh="关于软件工程未来的具体可证伪预测。每日更新置信度评分。基于LLM评估的信号分析，随新证据更新。">specific, falsifiable forecasts about the future of software engineering.
+        Tracked daily with confidence scores. Updated via LLM-evaluated signal analysis as new evidence arrives.</span>
       </p>
     </div>
 
@@ -108,19 +108,19 @@ const predictions = [
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
       <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
         <div class="text-2xl font-bold font-mono text-almanac-accent">{predictions.length}</div>
-        <div class="text-xs text-almanac-muted mt-1">Active Predictions</div>
+        <div class="text-xs text-almanac-muted mt-1" data-en="Active Predictions" data-zh="活跃预测">Active Predictions</div>
       </div>
       <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
         <div class="text-2xl font-bold font-mono text-almanac-green">3</div>
-        <div class="text-xs text-almanac-muted mt-1">Moved Up Today</div>
+        <div class="text-xs text-almanac-muted mt-1" data-en="Moved Up Today" data-zh="今日上升">Moved Up Today</div>
       </div>
       <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
         <div class="text-2xl font-bold font-mono">0</div>
-        <div class="text-xs text-almanac-muted mt-1">Resolved</div>
+        <div class="text-xs text-almanac-muted mt-1" data-en="Resolved" data-zh="已解决">Resolved</div>
       </div>
       <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
         <div class="text-2xl font-bold font-mono">1</div>
-        <div class="text-xs text-almanac-muted mt-1">Day Tracking</div>
+        <div class="text-xs text-almanac-muted mt-1" data-en="Day Tracking" data-zh="追踪天数">Day Tracking</div>
       </div>
     </div>
 
@@ -137,7 +137,9 @@ const predictions = [
                 <div class={`text-4xl font-bold font-mono ${p.confidence >= 75 ? 'text-almanac-green' : p.confidence >= 60 ? 'text-almanac-amber' : 'text-almanac-red'}`}>
                   {p.confidence}<span class="text-lg">%</span>
                 </div>
-                <div class={`text-xs mt-1 font-mono ${delta > 0 ? 'text-almanac-green' : delta < 0 ? 'text-almanac-red' : 'text-almanac-muted'}`}>
+                <div class={`text-xs mt-1 font-mono ${delta > 0 ? 'text-almanac-green' : delta < 0 ? 'text-almanac-red' : 'text-almanac-muted'}`}
+                  data-en={delta > 0 ? `+${delta} today` : delta < 0 ? `${delta} today` : 'unchanged'}
+                  data-zh={delta > 0 ? `+${delta} 今日` : delta < 0 ? `${delta} 今日` : '不变'}>
                   {delta > 0 ? `+${delta} today` : delta < 0 ? `${delta} today` : 'unchanged'}
                 </div>
               </div>
@@ -148,8 +150,8 @@ const predictions = [
                 <p class="text-sm text-almanac-muted leading-relaxed mb-3">{p.reasoning}</p>
                 <div class="flex flex-wrap items-center gap-3 text-xs text-almanac-muted">
                   <span class="px-2 py-0.5 rounded bg-almanac-border">{p.category}</span>
-                  <span>Horizon: {p.horizon}</span>
-                  <span>Updated: {p.lastUpdated}</span>
+                  <span><span data-en="Horizon:" data-zh="时间线：">Horizon:</span> {p.horizon}</span>
+                  <span><span data-en="Updated:" data-zh="更新于：">Updated:</span> {p.lastUpdated}</span>
                 </div>
               </div>
 
@@ -174,8 +176,8 @@ const predictions = [
 
     <!-- Methodology note -->
     <div class="mt-12 p-6 rounded-xl border border-almanac-border bg-almanac-surface/50">
-      <h3 class="font-semibold mb-2">How confidence scores work</h3>
-      <p class="text-sm text-almanac-muted leading-relaxed">
+      <h3 class="font-semibold mb-2" data-en="How confidence scores work" data-zh="置信度评分机制">How confidence scores work</h3>
+      <p class="text-sm text-almanac-muted leading-relaxed" data-en="Each prediction carries a probability estimate (0-100%) that updates daily as new evidence arrives. A 70% score means we'd expect this outcome to occur in roughly 7 out of 10 similar scenarios. Scores are updated via LLM-evaluated signal analysis with horizon-scaled dampening (near-term predictions can shift more than long-range ones) — near-term predictions can shift significantly from a single signal, while 10-year predictions move slowly. We track our calibration publicly: when we say 70%, it should happen ~70% of the time." data-zh="每项预测都有一个概率估计（0-100%），随新证据每日更新。70%的评分意味着在大约10个类似情景中，我们预计有7个会出现该结果。评分通过基于LLM评估的信号分析更新，并采用时间线缩放衰减（近期预测的变化幅度大于长期预测）——近期预测可能因单个信号而显著变化，而10年期预测则变化缓慢。我们公开追踪校准情况：当我们说70%时，它应该在约70%的情况下发生。">
         Each prediction carries a probability estimate (0-100%) that updates daily as new evidence arrives.
         A 70% score means we'd expect this outcome to occur in roughly 7 out of 10 similar scenarios.
         Scores are updated via LLM-evaluated signal analysis with horizon-scaled dampening (near-term predictions can shift more than long-range ones) — near-term predictions

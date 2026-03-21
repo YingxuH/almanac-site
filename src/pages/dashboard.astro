@@ -46,39 +46,39 @@ const timelineEvents = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-6">
       <div class="flex items-center justify-between mb-6">
         <div>
-          <h1 class="text-2xl sm:text-3xl font-bold tracking-tight">Dashboard</h1>
-          <p class="text-sm text-almanac-muted mt-1">Overview of all tracked predictions and signals (updated daily)</p>
+          <h1 class="text-2xl sm:text-3xl font-bold tracking-tight" data-en="Dashboard" data-zh="数据面板">Dashboard</h1>
+          <p class="text-sm text-almanac-muted mt-1" data-en="Overview of all tracked predictions and signals (updated daily)" data-zh="所有追踪预测和信号的概览（每日更新）">Overview of all tracked predictions and signals (updated daily)</p>
         </div>
         <div class="flex items-center gap-2 text-xs text-almanac-muted">
           <span class="relative flex h-2 w-2">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-almanac-green opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-almanac-green"></span>
           </span>
-          Last updated: March 22, 2026
+          <span data-en="Last updated: March 22, 2026" data-zh="最后更新：2026年3月22日">Last updated: March 22, 2026</span>
         </div>
       </div>
 
       <!-- KPI cards -->
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <div class="p-4 rounded-xl border border-almanac-border bg-almanac-surface/80 backdrop-blur-sm">
-          <div class="text-xs text-almanac-muted uppercase tracking-wider mb-1">Avg Confidence</div>
+          <div class="text-xs text-almanac-muted uppercase tracking-wider mb-1" data-en="Avg Confidence" data-zh="平均置信度">Avg Confidence</div>
           <div class="text-3xl font-bold font-mono text-almanac-accent">{avgConfidence}%</div>
-          <div class="text-xs text-almanac-green mt-1">+{totalDelta}pp net today</div>
+          <div class="text-xs text-almanac-green mt-1">+{totalDelta}pp <span data-en="net today" data-zh="今日净变化">net today</span></div>
         </div>
         <div class="p-4 rounded-xl border border-almanac-border bg-almanac-surface/80 backdrop-blur-sm">
-          <div class="text-xs text-almanac-muted uppercase tracking-wider mb-1">Predictions</div>
+          <div class="text-xs text-almanac-muted uppercase tracking-wider mb-1" data-en="Predictions" data-zh="预测数">Predictions</div>
           <div class="text-3xl font-bold font-mono">{predictions.length}</div>
-          <div class="text-xs text-almanac-green mt-1">{movedUp} moved up today</div>
+          <div class="text-xs text-almanac-green mt-1">{movedUp} <span data-en="moved up today" data-zh="今日上升">moved up today</span></div>
         </div>
         <div class="p-4 rounded-xl border border-almanac-border bg-almanac-surface/80 backdrop-blur-sm">
-          <div class="text-xs text-almanac-muted uppercase tracking-wider mb-1">Signals Today</div>
+          <div class="text-xs text-almanac-muted uppercase tracking-wider mb-1" data-en="Signals Today" data-zh="今日信号">Signals Today</div>
           <div class="text-3xl font-bold font-mono">24</div>
-          <div class="text-xs text-almanac-muted mt-1">from 270 scraped</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="from 270 scraped" data-zh="从270项中筛选">from 270 scraped</div>
         </div>
         <div class="p-4 rounded-xl border border-almanac-border bg-almanac-surface/80 backdrop-blur-sm">
-          <div class="text-xs text-almanac-muted uppercase tracking-wider mb-1">Day</div>
+          <div class="text-xs text-almanac-muted uppercase tracking-wider mb-1" data-en="Day" data-zh="天数">Day</div>
           <div class="text-3xl font-bold font-mono">2</div>
-          <div class="text-xs text-almanac-muted mt-1">consecutive forecasts</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="consecutive forecasts" data-zh="连续预测">consecutive forecasts</div>
         </div>
       </div>
     </div>
@@ -95,8 +95,8 @@ const timelineEvents = [
         <FadeIn>
           <div class="rounded-xl border border-almanac-border bg-almanac-surface p-5">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="font-semibold">Confidence Trends</h3>
-              <span class="text-xs text-almanac-muted font-mono">Last 6 data points</span>
+              <h3 class="font-semibold" data-en="Confidence Trends" data-zh="置信度趋势">Confidence Trends</h3>
+              <span class="text-xs text-almanac-muted font-mono" data-en="Last 6 data points" data-zh="最近6个数据点">Last 6 data points</span>
             </div>
             <div class="space-y-4">
               {predictions.map(p => {
@@ -162,7 +162,7 @@ const timelineEvents = [
         <!-- Signal distribution -->
         <FadeIn delay={100}>
           <div class="rounded-xl border border-almanac-border bg-almanac-surface p-5">
-            <h3 class="font-semibold mb-4">Signal Distribution</h3>
+            <h3 class="font-semibold mb-4" data-en="Signal Distribution" data-zh="信号分布">Signal Distribution</h3>
             <div class="space-y-3">
               {signalsByType.map(s => (
                 <div class="flex items-center gap-3">
@@ -184,7 +184,7 @@ const timelineEvents = [
         <!-- Prediction heatmap grid -->
         <FadeIn delay={200}>
           <div class="rounded-xl border border-almanac-border bg-almanac-surface p-5">
-            <h3 class="font-semibold mb-4">Confidence Heatmap</h3>
+            <h3 class="font-semibold mb-4" data-en="Confidence Heatmap" data-zh="置信度热力图">Confidence Heatmap</h3>
             <div class="grid grid-cols-4 gap-2">
               {predictions.map(p => {
                 const hue = p.confidence >= 80 ? 'bg-almanac-green/20 border-almanac-green/30 text-almanac-green'
@@ -214,7 +214,7 @@ const timelineEvents = [
         <!-- Radar-style category chart -->
         <FadeIn>
           <div class="rounded-xl border border-almanac-border bg-almanac-surface p-5">
-            <h3 class="font-semibold mb-4">Category Health</h3>
+            <h3 class="font-semibold mb-4" data-en="Category Health" data-zh="类别健康度">Category Health</h3>
             <div class="relative w-full aspect-square max-w-[280px] mx-auto">
               <svg viewBox="0 0 200 200" class="w-full h-full">
                 {/* Grid rings */}
@@ -270,20 +270,20 @@ const timelineEvents = [
         <!-- Activity timeline -->
         <FadeIn delay={100}>
           <div class="rounded-xl border border-almanac-border bg-almanac-surface p-5">
-            <h3 class="font-semibold mb-4">Activity Log</h3>
+            <h3 class="font-semibold mb-4" data-en="Activity Log" data-zh="活动日志">Activity Log</h3>
             <div class="space-y-0">
               {[
-                { time: "06:00", action: "Pipeline started", icon: "play", color: "accent" },
-                { time: "06:01", action: "270 items scraped from 8 sources", icon: "download", color: "accent" },
-                { time: "06:02", action: "24 signals filtered (Gemini 3.1 Pro)", icon: "filter", color: "amber" },
-                { time: "06:03", action: "Report synthesized (9,132 chars)", icon: "doc", color: "green" },
-                { time: "06:03", action: "P8 moved 78% → 82% (+4)", icon: "up", color: "green" },
-                { time: "06:03", action: "P1 moved 68% → 74% (+6)", icon: "up", color: "green" },
-                { time: "06:03", action: "P2 moved 74% → 77% (+3)", icon: "up", color: "green" },
-                { time: "06:03", action: "P4 moved 77% → 80% (+3)", icon: "up", color: "green" },
-                { time: "06:04", action: "Committed to almanac repo", icon: "git", color: "accent" },
-                { time: "06:04", action: "Published to site", icon: "globe", color: "accent" },
-                { time: "06:04", action: "Pipeline complete (1.8 min)", icon: "check", color: "green" },
+                { time: "06:00", action: "Pipeline started", actionZh: "流水线启动", icon: "play", color: "accent" },
+                { time: "06:01", action: "270 items scraped from 8 sources", actionZh: "从8个数据源抓取270个项目", icon: "download", color: "accent" },
+                { time: "06:02", action: "24 signals filtered (Gemini 3.1 Pro)", actionZh: "24个信号筛选（Gemini 3.1 Pro）", icon: "filter", color: "amber" },
+                { time: "06:03", action: "Report synthesized (9,132 chars)", actionZh: "报告综合（9,132字符）", icon: "doc", color: "green" },
+                { time: "06:03", action: "P8 moved 78% → 82% (+4)", actionZh: "P8 从78% → 82% (+4)", icon: "up", color: "green" },
+                { time: "06:03", action: "P1 moved 68% → 74% (+6)", actionZh: "P1 从68% → 74% (+6)", icon: "up", color: "green" },
+                { time: "06:03", action: "P2 moved 74% → 77% (+3)", actionZh: "P2 从74% → 77% (+3)", icon: "up", color: "green" },
+                { time: "06:03", action: "P4 moved 77% → 80% (+3)", actionZh: "P4 从77% → 80% (+3)", icon: "up", color: "green" },
+                { time: "06:04", action: "Committed to almanac repo", actionZh: "提交到仓库", icon: "git", color: "accent" },
+                { time: "06:04", action: "Published to site", actionZh: "发布到网站", icon: "globe", color: "accent" },
+                { time: "06:04", action: "Pipeline complete (1.8 min)", actionZh: "流水线完成（1.8分钟）", icon: "check", color: "green" },
               ].map((entry, i) => {
                 const colorClass = entry.color === 'green' ? 'bg-almanac-green' : entry.color === 'amber' ? 'bg-almanac-amber' : 'bg-almanac-accent';
                 return (
@@ -295,7 +295,7 @@ const timelineEvents = [
                     <div class="pb-4 min-w-0">
                       <div class="flex items-center gap-2">
                         <span class="text-[10px] font-mono text-almanac-muted">{entry.time}</span>
-                        <span class="text-xs text-almanac-muted">{entry.action}</span>
+                        <span class="text-xs text-almanac-muted" data-en={entry.action} data-zh={entry.actionZh}>{entry.action}</span>
                       </div>
                     </div>
                   </div>
@@ -308,7 +308,7 @@ const timelineEvents = [
         <!-- Source health -->
         <FadeIn delay={200}>
           <div class="rounded-xl border border-almanac-border bg-almanac-surface p-5">
-            <h3 class="font-semibold mb-4">Source Health</h3>
+            <h3 class="font-semibold mb-4" data-en="Source Health" data-zh="数据源健康">Source Health</h3>
             <div class="space-y-2">
               {[
                 { name: "Hacker News", items: 116, status: "ok" },
