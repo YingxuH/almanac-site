@@ -24,8 +24,8 @@ import GlowCard from '../components/GlowCard.astro';
           </h2>
           <p class="text-almanac-muted leading-relaxed">
             Almanac is an AI-powered forecasting system that tracks how software engineering is changing over the next 3-30 years.
-            Every day, our pipeline scrapes 10+ data sources, filters hundreds of signals through tiered AI models, and produces
-            a confidence-scored forecast. We track 8 specific, falsifiable predictions and update them daily using Bayesian reasoning.
+            Every day, our pipeline scrapes 8 data sources, filters hundreds of signals through tiered AI models, and produces
+            a confidence-scored forecast. We track 8 specific, falsifiable predictions and update them daily using LLM-evaluated signal analysis with horizon-scaled dampening.
           </p>
         </div>
 
@@ -63,7 +63,7 @@ import GlowCard from '../components/GlowCard.astro';
               {
                 num: "02",
                 title: "Signal Filtering",
-                desc: "Gemini 3.1 Pro evaluates each item for relevance to the future of software engineering (3-30 year horizon). Items scoring below 0.6 relevance are discarded. Typically 20-30 signals survive filtering. Each signal is classified by type: AI coding, job market, skills, regulation, tooling, or paradigm.",
+                desc: "The AI model evaluates each item for relevance to the future of software engineering (3-30 year horizon). Items scoring below 0.6 relevance are discarded. Typically 20-30 signals survive filtering. Each signal is classified by type: AI coding, job market, skills, regulation, tooling, or paradigm.",
                 color: "amber"
               },
               {
@@ -164,11 +164,11 @@ import GlowCard from '../components/GlowCard.astro';
       <div class="mt-16 p-8 rounded-xl border border-almanac-accent/20 bg-almanac-accent/5 text-center">
         <h2 class="text-2xl font-bold mb-3">Open Source</h2>
         <p class="text-almanac-muted mb-6 max-w-lg mx-auto">
-          The forecasting methodology, pipeline code, and prediction schema are open source under AGPL-3.0.
-          Inspect, critique, or contribute.
+          The website frontend is open source. The forecasting pipeline is proprietary — we publish our methodology,
+          predictions, and accuracy record publicly so you can evaluate our work without needing the code.
         </p>
-        <a href="https://github.com/YingxuH/almanac" class="inline-flex px-6 py-3 border border-almanac-accent/30 rounded-lg text-almanac-accent hover:bg-almanac-accent/10 transition-colors font-medium">
-          View on GitHub &rarr;
+        <a href="https://github.com/YingxuH/almanac-site" class="inline-flex px-6 py-3 border border-almanac-accent/30 rounded-lg text-almanac-accent hover:bg-almanac-accent/10 transition-colors font-medium">
+          View Site Source &rarr;
         </a>
       </div>
     </FadeIn>

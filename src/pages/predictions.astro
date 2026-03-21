@@ -82,7 +82,7 @@ const predictions = [
   {
     id: 8,
     claim: "The most valuable tech skill by 2036 will be 'AI system judgment', not coding",
-    confidence: 78,
+    confidence: 82,
     previous: 78,
     category: "Skills",
     horizon: "2036",
@@ -100,7 +100,7 @@ const predictions = [
       <h1 class="text-3xl font-bold mb-2">Prediction Tracker</h1>
       <p class="text-almanac-muted">
         {predictions.length} specific, falsifiable forecasts about the future of software engineering.
-        Tracked daily with confidence scores. Updated via Bayesian reasoning as new evidence arrives.
+        Tracked daily with confidence scores. Updated via LLM-evaluated signal analysis as new evidence arrives.
       </p>
     </div>
 
@@ -178,7 +178,7 @@ const predictions = [
       <p class="text-sm text-almanac-muted leading-relaxed">
         Each prediction carries a probability estimate (0-100%) that updates daily as new evidence arrives.
         A 70% score means we'd expect this outcome to occur in roughly 7 out of 10 similar scenarios.
-        Scores are updated via Bayesian reasoning with horizon-scaled dampening — near-term predictions
+        Scores are updated via LLM-evaluated signal analysis with horizon-scaled dampening (near-term predictions can shift more than long-range ones) — near-term predictions
         can shift significantly from a single signal, while 10-year predictions move slowly.
         We track our calibration publicly: when we say 70%, it should happen ~70% of the time.
       </p>
