@@ -1,0 +1,82 @@
+---
+// Email signup component with success/error states
+// Uses a lightweight approach: submissions go to a Google Sheet via Apps Script
+// Or configure with Formspree, Buttondown, beehiiv — just change the action URL
+interface Props {
+  variant?: 'hero' | 'cta';
+  class?: string;
+}
+const { variant = 'hero', class: className = '' } = Astro.props;
+const isHero = variant === 'hero';
+const formId = `signup-${variant}`;
+---
+
+{isHero ? (
+  <!-- Compact hero variant -->
+  <div class={`signup-container ${className}`} data-form-id={formId}>
+    <form class="signup-form flex flex-col sm:flex-row gap-2 max-w-md" data-form-id={formId}>
+      <div class="relative flex-1">
+        <input type="email" name="email" required placeholder="you@company.com"
+          class="w-full px-4 py-3 rounded-lg bg-almanac-surface border border-almanac-border text-almanac-text placeholder:text-almanac-muted/50 focus:outline-none focus:border-almanac-accent focus:ring-1 focus:ring-almanac-accent/30 transition-all text-sm pr-3" />
+      </div>
+      <button type="submit"
+        class="signup-btn px-6 py-3 bg-almanac-accent text-almanac-bg font-semibold rounded-lg hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-all duration-300 text-sm whitespace-nowrap cursor-pointer flex items-center justify-center gap-2">
+        <span class="btn-text">Get Daily Forecast</span>
+        <svg class="btn-spinner hidden w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
+      </button>
+    </form>
+    <p class="signup-meta mt-2 text-[11px] text-almanac-muted">Free daily email. No spam. Unsubscribe anytime.</p>
+    <div class="signup-success hidden mt-2 flex items-center gap-2 text-almanac-green text-sm">
+      <svg class="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+      <span>You're in! First forecast arrives tomorrow at 6 AM UTC.</span>
+    </div>
+    <div class="signup-error hidden mt-2 text-almanac-red text-xs">Something went wrong. Try again?</div>
+  </div>
+) : (
+  <!-- Full CTA variant -->
+  <div class={`signup-container ${className}`} data-form-id={formId}>
+    <div class="relative">
+      <div class="absolute -inset-6 bg-almanac-accent/5 rounded-3xl blur-2xl"></div>
+      <div class="relative p-8 sm:p-10 rounded-xl border border-almanac-border bg-almanac-surface">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-2 text-center">The future updates daily.</h2>
+        <p class="text-almanac-muted text-center mb-1 text-lg">Get tomorrow's forecast in your inbox.</p>
+        <p class="text-almanac-muted text-center mb-8 text-sm">One email. Confidence-scored predictions. Source-linked signals.</p>
+
+        <form class="signup-form flex flex-col sm:flex-row gap-2.5 max-w-lg mx-auto" data-form-id={formId}>
+          <div class="relative flex-1">
+            <input type="email" name="email" required placeholder="you@company.com"
+              class="w-full px-4 py-3.5 rounded-lg bg-almanac-bg border border-almanac-border text-almanac-text placeholder:text-almanac-muted/50 focus:outline-none focus:border-almanac-accent focus:ring-1 focus:ring-almanac-accent/30 transition-all" />
+          </div>
+          <button type="submit"
+            class="signup-btn px-8 py-3.5 bg-almanac-accent text-almanac-bg font-semibold rounded-lg hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-all duration-300 whitespace-nowrap cursor-pointer flex items-center justify-center gap-2">
+            <span class="btn-text">Subscribe Free</span>
+            <svg class="btn-spinner hidden w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
+          </button>
+        </form>
+
+        <p class="signup-meta mt-3 text-[11px] text-almanac-muted text-center">No spam. No paywalls. Unsubscribe in one click.</p>
+
+        <div class="signup-success hidden mt-4 flex items-center justify-center gap-2 text-almanac-green py-3">
+          <svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+          <span class="font-medium">You're in! First forecast arrives tomorrow at 6 AM UTC.</span>
+        </div>
+        <div class="signup-error hidden mt-3 text-almanac-red text-xs text-center">Something went wrong. Try again?</div>
+
+        <div class="signup-meta mt-8 flex items-center justify-center gap-6 text-xs text-almanac-muted">
+          <div class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-almanac-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+            Free forever
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-almanac-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+            Daily at 6 AM UTC
+          </div>
+          <div class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-almanac-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+            Open source
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
