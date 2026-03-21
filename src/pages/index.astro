@@ -51,14 +51,29 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
           <p class="mt-6 text-lg text-almanac-muted max-w-xl leading-relaxed">
             AI reads thousands of signals daily. You read what matters — confidence-scored forecasts about the future of software engineering.
           </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="/almanac-site/forecast" class="group px-7 py-3 bg-almanac-accent text-almanac-bg font-semibold rounded-lg hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-all duration-300">
-              Read Today's Forecast <span class="inline-block transition-transform group-hover:translate-x-1 ml-1">&rarr;</span>
+
+          <!-- Hero email signup -->
+          <form id="hero-form" class="mt-8 flex flex-col sm:flex-row gap-2 max-w-md" action="https://formspree.io/f/xyzgbkwl" method="POST">
+            <input type="email" name="email" required placeholder="you@company.com"
+              class="flex-1 px-4 py-3 rounded-lg bg-almanac-surface border border-almanac-border text-almanac-text placeholder:text-almanac-muted/50 focus:outline-none focus:border-almanac-accent focus:ring-1 focus:ring-almanac-accent/30 transition-all text-sm" />
+            <button type="submit"
+              class="px-6 py-3 bg-almanac-accent text-almanac-bg font-semibold rounded-lg hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-all duration-300 text-sm whitespace-nowrap cursor-pointer">
+              Get Daily Forecast
+            </button>
+            <input type="hidden" name="_subject" value="New Almanac subscriber" />
+          </form>
+          <p class="mt-2 text-[11px] text-almanac-muted">Free daily email. No spam. Unsubscribe anytime.</p>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="/almanac-site/forecast" class="group text-sm text-almanac-accent hover:underline flex items-center gap-1">
+              Read today's forecast <span class="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
             </a>
-            <a href="/almanac-site/dashboard" class="px-7 py-3 border border-almanac-border rounded-lg hover:border-almanac-muted hover:bg-almanac-surface/50 transition-all duration-300">
+            <span class="text-almanac-border">|</span>
+            <a href="/almanac-site/dashboard" class="text-sm text-almanac-muted hover:text-almanac-text transition">
               Dashboard
             </a>
-            <a href="https://github.com/YingxuH/almanac" class="px-7 py-3 border border-almanac-border rounded-lg hover:border-almanac-muted hover:bg-almanac-surface/50 transition-all duration-300">
+            <span class="text-almanac-border">|</span>
+            <a href="https://github.com/YingxuH/almanac" class="text-sm text-almanac-muted hover:text-almanac-text transition">
               GitHub
             </a>
           </div>
@@ -222,25 +237,74 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
     </section>
   </FadeIn>
 
-  <!-- CTA -->
+  <!-- Email signup CTA -->
   <FadeIn>
     <section class="max-w-3xl mx-auto px-4 sm:px-6 py-20 text-center">
       <div class="relative">
         <div class="absolute -inset-6 bg-almanac-accent/5 rounded-3xl blur-2xl"></div>
         <div class="relative p-10 rounded-xl border border-almanac-border bg-almanac-surface">
           <h2 class="text-3xl font-bold mb-3">The future updates daily.</h2>
-          <p class="text-almanac-muted mb-8 text-lg">Open source. Confidence-scored. Source-linked.<br/>Built to be proven wrong.</p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="/almanac-site/forecast" class="group px-8 py-3.5 bg-almanac-accent text-almanac-bg font-semibold rounded-lg hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-all duration-300">
-              Read Today's Forecast <span class="inline-block transition-transform group-hover:translate-x-1 ml-1">&rarr;</span>
-            </a>
-            <a href="/almanac-site/dashboard" class="px-8 py-3.5 border border-almanac-border rounded-lg hover:border-almanac-muted hover:bg-almanac-surface/50 transition-all duration-300">
-              View Dashboard
-            </a>
+          <p class="text-almanac-muted mb-2 text-lg">Get tomorrow's forecast in your inbox.</p>
+          <p class="text-almanac-muted mb-8 text-sm">One email per day. Confidence-scored predictions. Source-linked signals.</p>
+
+          <form id="cta-form" class="flex flex-col sm:flex-row gap-2 max-w-lg mx-auto" action="https://formspree.io/f/xyzgbkwl" method="POST">
+            <input type="email" name="email" required placeholder="you@company.com"
+              class="flex-1 px-4 py-3.5 rounded-lg bg-almanac-bg border border-almanac-border text-almanac-text placeholder:text-almanac-muted/50 focus:outline-none focus:border-almanac-accent focus:ring-1 focus:ring-almanac-accent/30 transition-all" />
+            <button type="submit"
+              class="px-8 py-3.5 bg-almanac-accent text-almanac-bg font-semibold rounded-lg hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-all duration-300 whitespace-nowrap cursor-pointer">
+              Subscribe Free
+            </button>
+            <input type="hidden" name="_subject" value="New Almanac subscriber (CTA)" />
+          </form>
+
+          <p class="mt-3 text-[11px] text-almanac-muted">No spam. No paywalls. Unsubscribe in one click.</p>
+
+          <div class="mt-8 flex items-center justify-center gap-6 text-xs text-almanac-muted">
+            <div class="flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-almanac-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+              Free forever
+            </div>
+            <div class="flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-almanac-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+              Daily at 6 AM UTC
+            </div>
+            <div class="flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-almanac-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+              Open source
+            </div>
           </div>
         </div>
       </div>
     </section>
   </FadeIn>
+
+  <script is:inline>
+    document.querySelectorAll('#hero-form, #cta-form').forEach(function(form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var btn = form.querySelector('button[type="submit"]');
+        var input = form.querySelector('input[type="email"]');
+        var email = input.value;
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+
+        fetch(form.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email: email })
+        }).then(function(r) {
+          if (r.ok) {
+            form.innerHTML = '<div class="flex items-center justify-center gap-2 py-3 text-almanac-green"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span class="font-medium">You\'re in! First forecast arrives tomorrow.</span></div>';
+          } else {
+            btn.textContent = 'Try again';
+            btn.disabled = false;
+          }
+        }).catch(function() {
+          btn.textContent = 'Try again';
+          btn.disabled = false;
+        });
+      });
+    });
+  </script>
 
 </Base>
