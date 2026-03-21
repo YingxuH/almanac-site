@@ -1,0 +1,45 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = "The modern almanac for an uncertain future. AI-powered daily forecasts about humanity's trajectory." } = Astro.props;
+---
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body class="bg-almanac-bg text-almanac-text font-sans antialiased min-h-screen">
+  <nav class="fixed top-0 w-full z-50 border-b border-almanac-border bg-almanac-bg/80 backdrop-blur-xl">
+    <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 text-lg font-semibold tracking-tight">
+        <span class="text-almanac-accent">A</span>lmanac
+      </a>
+      <div class="flex items-center gap-6 text-sm text-almanac-muted">
+        <a href="/forecast" class="hover:text-almanac-text transition">Today's Forecast</a>
+        <a href="/predictions" class="hover:text-almanac-text transition">Predictions</a>
+        <a href="https://github.com/YingxuH/almanac" class="hover:text-almanac-text transition">GitHub</a>
+      </div>
+    </div>
+  </nav>
+  <main class="pt-14">
+    <slot />
+  </main>
+  <footer class="border-t border-almanac-border mt-20 py-12">
+    <div class="max-w-6xl mx-auto px-6 text-center text-sm text-almanac-muted">
+      <p>Almanac — The modern almanac for an uncertain future.</p>
+      <p class="mt-1">"We're cartographers, not prophets."</p>
+    </div>
+  </footer>
+</body>
+</html>
+<style is:global>
+  @import "../styles/global.css";
+</style>

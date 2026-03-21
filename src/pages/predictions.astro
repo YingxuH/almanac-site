@@ -1,0 +1,189 @@
+---
+import Base from '../layouts/Base.astro';
+
+const predictions = [
+  {
+    id: 1,
+    claim: "By 2028, >50% of production code at Fortune 500 companies will be AI-generated",
+    confidence: 74,
+    previous: 68,
+    category: "AI Coding",
+    horizon: "2028",
+    status: "active",
+    lastUpdated: "2026-03-21",
+    reasoning: "The emergence of multi-agent coding factories accelerates enterprise adoption. The sheer volume of AI-generated code makes the 50% threshold look conservative."
+  },
+  {
+    id: 2,
+    claim: "The role of 'Computer Programmer' as distinct job title will cease at large companies by 2031",
+    confidence: 77,
+    previous: 74,
+    category: "Labor",
+    horizon: "2031",
+    status: "active",
+    lastUpdated: "2026-03-21",
+    reasoning: "With domain experts writing production code via AI tools, translating logic into syntax is no longer a standalone profession."
+  },
+  {
+    id: 3,
+    claim: "AI-fluent engineers will earn $40K+ more than non-AI-fluent peers by 2029",
+    confidence: 71,
+    previous: 71,
+    category: "Compensation",
+    horizon: "2029",
+    status: "active",
+    lastUpdated: "2026-03-21",
+    reasoning: "If AI fluency becomes mandatory, it may commoditize rather than command a premium. The salary gap may shift toward domain expertise."
+  },
+  {
+    id: 4,
+    claim: "Senior engineer shortage will be the dominant talent crisis by 2030-2032",
+    confidence: 80,
+    previous: 77,
+    category: "Labor",
+    horizon: "2030-2032",
+    status: "active",
+    lastUpdated: "2026-03-21",
+    reasoning: "The industry faces a massive bottleneck in senior validation. Infinite junior-level AI generation but finite senior review capacity."
+  },
+  {
+    id: 5,
+    claim: "Multi-agent AI systems will handle >30% of all QA work at enterprises by 2028",
+    confidence: 76,
+    previous: 76,
+    category: "Automation",
+    horizon: "2028",
+    status: "active",
+    lastUpdated: "2026-03-21",
+    reasoning: "QA/testing is the most automatable part of SDLC — repetitive, rule-bound, and well-defined."
+  },
+  {
+    id: 6,
+    claim: "A major AI-generated code security breach will occur before 2029",
+    confidence: 72,
+    previous: 72,
+    category: "Security",
+    horizon: "2029",
+    status: "active",
+    lastUpdated: "2026-03-21",
+    reasoning: "29.1% of AI-generated Python code contains vulnerabilities. 90% of Fortune 100 use GitHub Copilot. The math supports a high-profile breach."
+  },
+  {
+    id: 7,
+    claim: "Engineers will spend more time reviewing AI code than writing code by 2032",
+    confidence: 72,
+    previous: 72,
+    category: "Workflow",
+    horizon: "2032",
+    status: "active",
+    lastUpdated: "2026-03-21",
+    reasoning: "Developers already report spending >80% of their day reviewing AI output. At 70-80% AI code generation, this transition is inevitable."
+  },
+  {
+    id: 8,
+    claim: "The most valuable tech skill by 2036 will be 'AI system judgment', not coding",
+    confidence: 78,
+    previous: 78,
+    category: "Skills",
+    horizon: "2036",
+    status: "active",
+    lastUpdated: "2026-03-21",
+    reasoning: "As AI handles execution, humans retain value through judgment. The profession is moving from craft to direction."
+  },
+];
+---
+<Base title="Prediction Tracker — Almanac">
+
+  <div class="max-w-5xl mx-auto px-6 py-12">
+
+    <div class="mb-10">
+      <h1 class="text-3xl font-bold mb-2">Prediction Tracker</h1>
+      <p class="text-almanac-muted">
+        {predictions.length} specific, falsifiable forecasts about the future of software engineering.
+        Tracked daily with confidence scores. Updated via Bayesian reasoning as new evidence arrives.
+      </p>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+      <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
+        <div class="text-2xl font-bold font-mono text-almanac-accent">{predictions.length}</div>
+        <div class="text-xs text-almanac-muted mt-1">Active Predictions</div>
+      </div>
+      <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
+        <div class="text-2xl font-bold font-mono text-almanac-green">3</div>
+        <div class="text-xs text-almanac-muted mt-1">Moved Up Today</div>
+      </div>
+      <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
+        <div class="text-2xl font-bold font-mono">0</div>
+        <div class="text-xs text-almanac-muted mt-1">Resolved</div>
+      </div>
+      <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
+        <div class="text-2xl font-bold font-mono">1</div>
+        <div class="text-xs text-almanac-muted mt-1">Day Tracking</div>
+      </div>
+    </div>
+
+    <!-- Prediction cards -->
+    <div class="space-y-4">
+      {predictions.map((p) => {
+        const delta = p.confidence - p.previous;
+        const deltaStr = delta > 0 ? `+${delta}` : delta === 0 ? '0' : `${delta}`;
+        return (
+          <div class="p-6 rounded-xl border border-almanac-border bg-almanac-surface hover:border-almanac-muted/50 transition">
+            <div class="flex items-start gap-6">
+              <!-- Confidence score -->
+              <div class="flex-shrink-0 text-center w-20">
+                <div class={`text-4xl font-bold font-mono ${p.confidence >= 75 ? 'text-almanac-green' : p.confidence >= 60 ? 'text-almanac-amber' : 'text-almanac-red'}`}>
+                  {p.confidence}<span class="text-lg">%</span>
+                </div>
+                <div class={`text-xs mt-1 font-mono ${delta > 0 ? 'text-almanac-green' : delta < 0 ? 'text-almanac-red' : 'text-almanac-muted'}`}>
+                  {delta > 0 ? `+${delta} today` : delta < 0 ? `${delta} today` : 'unchanged'}
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="flex-1">
+                <h3 class="font-semibold text-lg leading-snug mb-2">{p.claim}</h3>
+                <p class="text-sm text-almanac-muted leading-relaxed mb-3">{p.reasoning}</p>
+                <div class="flex flex-wrap items-center gap-3 text-xs text-almanac-muted">
+                  <span class="px-2 py-0.5 rounded bg-almanac-border">{p.category}</span>
+                  <span>Horizon: {p.horizon}</span>
+                  <span>Updated: {p.lastUpdated}</span>
+                </div>
+              </div>
+
+              <!-- Confidence bar -->
+              <div class="flex-shrink-0 hidden md:block w-32">
+                <div class="w-full h-3 rounded-full bg-almanac-border overflow-hidden">
+                  <div
+                    class={`h-full rounded-full transition-all duration-500 ${p.confidence >= 75 ? 'bg-almanac-green' : p.confidence >= 60 ? 'bg-almanac-amber' : 'bg-almanac-red'}`}
+                    style={`width: ${p.confidence}%`}
+                  ></div>
+                </div>
+                <div class="flex justify-between text-xs text-almanac-muted mt-1 font-mono">
+                  <span>0</span>
+                  <span>100</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Methodology note -->
+    <div class="mt-12 p-6 rounded-xl border border-almanac-border bg-almanac-surface/50">
+      <h3 class="font-semibold mb-2">How confidence scores work</h3>
+      <p class="text-sm text-almanac-muted leading-relaxed">
+        Each prediction carries a probability estimate (0-100%) that updates daily as new evidence arrives.
+        A 70% score means we'd expect this outcome to occur in roughly 7 out of 10 similar scenarios.
+        Scores are updated via Bayesian reasoning with horizon-scaled dampening — near-term predictions
+        can shift significantly from a single signal, while 10-year predictions move slowly.
+        We track our calibration publicly: when we say 70%, it should happen ~70% of the time.
+      </p>
+    </div>
+
+  </div>
+
+</Base>

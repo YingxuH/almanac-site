@@ -1,0 +1,123 @@
+---
+import Base from '../layouts/Base.astro';
+import fs from 'node:fs';
+import path from 'node:path';
+
+// Read the latest report markdown
+const reportPath = path.resolve('../../reports/daily/2026-03-21.md');
+let reportContent = '';
+try {
+  reportContent = fs.readFileSync(reportPath, 'utf-8');
+} catch {
+  reportContent = '# No report available yet\n\nThe pipeline has not generated a report for today.';
+}
+
+// Simple markdown to HTML (basic conversion)
+function mdToHtml(md: string): string {
+  return md
+    // Headers
+    .replace(/^### (.+)$/gm, '<h3 class="text-xl font-semibold mt-10 mb-4">$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2 class="text-2xl font-bold mt-12 mb-4 pb-2 border-b border-almanac-border">$1</h2>')
+    .replace(/^# (.+)$/gm, '<h1 class="text-3xl font-bold mb-2">$1</h1>')
+    // Bold + italic
+    .replace(/\*\*\*(.+?)\*\*\*/g, '<strong class="italic">$1</strong>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong class="text-almanac-text">$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em class="text-almanac-muted">$1</em>')
+    // Links
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-almanac-accent hover:underline" target="_blank" rel="noopener">$1</a>')
+    // Horizontal rules
+    .replace(/^---$/gm, '<hr class="border-almanac-border my-8" />')
+    // Paragraphs (wrap non-tagged lines)
+    .replace(/^(?!<[h|u|o|l|d|p|a|s|b|e|hr])((?!\s*$).+)$/gm, '<p class="mb-4 leading-relaxed text-almanac-muted">$1</p>')
+    // Fix confidence percentages — highlight them
+    .replace(/(\d{1,3})%/g, '<span class="font-mono text-almanac-accent font-medium">$1%</span>')
+    // UP/DOWN movement badges
+    .replace(/Movement: (UP[^*]*)/g, 'Movement: <span class="text-almanac-green font-medium">$1</span>')
+    .replace(/Movement: (DOWN[^*]*)/g, 'Movement: <span class="text-almanac-red font-medium">$1</span>')
+    .replace(/Movement: (UNCHANGED)/g, 'Movement: <span class="text-almanac-muted">$1</span>');
+}
+
+const reportHtml = mdToHtml(reportContent);
+---
+<Base title="Today's Forecast — Almanac" description="Daily AI-powered forecast about the future of software engineering. Confidence-scored predictions updated every 24 hours.">
+
+  <div class="max-w-4xl mx-auto px-6 py-12">
+
+    <!-- Date nav -->
+    <div class="flex items-center justify-between mb-8">
+      <div class="flex items-center gap-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-almanac-border text-xs text-almanac-muted">
+          <span class="w-2 h-2 rounded-full bg-almanac-green animate-pulse"></span>
+          Live
+        </div>
+        <span class="text-sm text-almanac-muted">March 21, 2026</span>
+      </div>
+      <div class="text-sm text-almanac-muted">
+        Sources: 265 items from 6 feeds
+      </div>
+    </div>
+
+    <!-- Diff summary card -->
+    <div class="mb-10 p-5 rounded-xl border border-almanac-accent/30 bg-almanac-accent/5">
+      <h3 class="text-sm font-semibold text-almanac-accent mb-3 uppercase tracking-wider">What Changed Today</h3>
+      <div class="grid sm:grid-cols-2 gap-3 text-sm">
+        <div class="flex items-center gap-2">
+          <span class="text-almanac-green">&#9650;</span>
+          <span>AI-generated code prediction: <span class="font-mono text-almanac-green">68% &rarr; 74%</span></span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-almanac-green">&#9650;</span>
+          <span>Computer Programmer role: <span class="font-mono text-almanac-green">74% &rarr; 77%</span></span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-almanac-green">&#9650;</span>
+          <span>Senior shortage crisis: <span class="font-mono text-almanac-green">77% &rarr; 80%</span></span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-almanac-muted">&mdash;</span>
+          <span class="text-almanac-muted">AI fluency premium: unchanged at 71%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Report content -->
+    <article class="prose-custom">
+      <Fragment set:html={reportHtml} />
+    </article>
+
+    <!-- Bottom nav -->
+    <div class="mt-16 pt-8 border-t border-almanac-border flex items-center justify-between">
+      <span class="text-sm text-almanac-muted">Day 1 of the Almanac</span>
+      <a href="/predictions" class="text-sm text-almanac-accent hover:underline">View all predictions &rarr;</a>
+    </div>
+
+  </div>
+
+</Base>
+
+<style>
+  .prose-custom {
+    @apply text-base leading-relaxed;
+  }
+  .prose-custom :global(h1) {
+    @apply text-3xl font-bold mb-2 text-almanac-text;
+  }
+  .prose-custom :global(h2) {
+    @apply text-2xl font-bold mt-12 mb-4 pb-2 border-b border-almanac-border text-almanac-text;
+  }
+  .prose-custom :global(h3) {
+    @apply text-xl font-semibold mt-10 mb-4 text-almanac-text;
+  }
+  .prose-custom :global(p) {
+    @apply mb-4 leading-relaxed text-almanac-muted;
+  }
+  .prose-custom :global(strong) {
+    @apply text-almanac-text font-semibold;
+  }
+  .prose-custom :global(a) {
+    @apply text-almanac-accent hover:underline;
+  }
+  .prose-custom :global(hr) {
+    @apply border-almanac-border my-8;
+  }
+</style>

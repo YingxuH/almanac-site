@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-almanac-bg: #0a0a0f;
+  --color-almanac-surface: #12121a;
+  --color-almanac-border: #1e1e2e;
+  --color-almanac-text: #e4e4e7;
+  --color-almanac-muted: #71717a;
+  --color-almanac-accent: #22d3ee;
+  --color-almanac-green: #34d399;
+  --color-almanac-red: #f87171;
+  --color-almanac-amber: #fbbf24;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+}
