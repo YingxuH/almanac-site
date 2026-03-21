@@ -17,82 +17,115 @@ const { title, description = "The modern almanac for an uncertain future. AI-pow
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <!-- Prevent flash of wrong theme -->
   <script is:inline>
     (function() {
       var t = localStorage.getItem('almanac-theme');
-      if (t === 'light') {
-        document.documentElement.classList.replace('dark', 'light');
-      } else if (!t) {
-        // Default to dark
-        document.documentElement.classList.add('dark');
-      }
+      if (t === 'light') document.documentElement.classList.replace('dark', 'light');
+      else document.documentElement.classList.add('dark');
     })();
   </script>
 </head>
 <body class="bg-almanac-bg text-almanac-text font-sans antialiased min-h-screen transition-colors duration-300">
+
+  <!-- Nav -->
   <nav class="fixed top-0 w-full z-50 border-b border-almanac-border bg-almanac-bg/80 backdrop-blur-xl">
-    <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-2 text-lg font-semibold tracking-tight">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+      <a href="/almanac-site/" class="flex items-center gap-1.5 text-lg font-semibold tracking-tight">
         <span class="text-almanac-accent">A</span>lmanac
       </a>
-      <div class="flex items-center gap-6 text-sm text-almanac-muted">
-        <a href="/forecast" class="hover:text-almanac-text transition">Today's Forecast</a>
-        <a href="/predictions" class="hover:text-almanac-text transition">Predictions</a>
+
+      <!-- Desktop nav -->
+      <div class="hidden sm:flex items-center gap-6 text-sm text-almanac-muted">
+        <a href="/almanac-site/forecast" class="hover:text-almanac-text transition">Forecast</a>
+        <a href="/almanac-site/predictions" class="hover:text-almanac-text transition">Predictions</a>
         <a href="https://github.com/YingxuH/almanac" class="hover:text-almanac-text transition">GitHub</a>
-        <button
-          id="theme-toggle"
-          aria-label="Toggle dark mode"
-          class="relative w-9 h-9 flex items-center justify-center rounded-lg border border-almanac-border hover:border-almanac-muted bg-almanac-surface transition-all duration-300 cursor-pointer"
-        >
-          <!-- Sun icon (shown in dark mode) -->
-          <svg id="icon-sun" class="w-4 h-4 text-almanac-amber transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="5" />
-            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+        <button id="theme-toggle" aria-label="Toggle theme"
+          class="w-9 h-9 flex items-center justify-center rounded-lg border border-almanac-border hover:border-almanac-muted bg-almanac-surface transition-all cursor-pointer">
+          <svg id="icon-sun" class="w-4 h-4 text-almanac-amber" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
           </svg>
-          <!-- Moon icon (shown in light mode) -->
-          <svg id="icon-moon" class="w-4 h-4 text-almanac-accent transition-transform duration-300 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          <svg id="icon-moon" class="w-4 h-4 text-almanac-accent hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
       </div>
+
+      <!-- Mobile hamburger -->
+      <button id="menu-toggle" class="sm:hidden w-9 h-9 flex items-center justify-center rounded-lg border border-almanac-border bg-almanac-surface" aria-label="Menu">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path id="menu-open-icon" d="M4 6h16M4 12h16M4 18h16"/>
+          <path id="menu-close-icon" class="hidden" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden sm:hidden border-t border-almanac-border bg-almanac-bg/95 backdrop-blur-xl">
+      <div class="px-4 py-4 space-y-3">
+        <a href="/almanac-site/forecast" class="block text-sm text-almanac-muted hover:text-almanac-text transition py-1">Forecast</a>
+        <a href="/almanac-site/predictions" class="block text-sm text-almanac-muted hover:text-almanac-text transition py-1">Predictions</a>
+        <a href="https://github.com/YingxuH/almanac" class="block text-sm text-almanac-muted hover:text-almanac-text transition py-1">GitHub</a>
+        <div class="pt-2 border-t border-almanac-border flex items-center gap-2">
+          <span class="text-xs text-almanac-muted">Theme</span>
+          <button id="theme-toggle-mobile" class="w-8 h-8 flex items-center justify-center rounded-lg border border-almanac-border bg-almanac-surface">
+            <svg class="w-4 h-4 text-almanac-amber theme-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+            <svg class="w-4 h-4 text-almanac-accent hidden theme-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   </nav>
+
   <main class="pt-14">
     <slot />
   </main>
+
   <footer class="border-t border-almanac-border mt-20 py-12">
     <div class="max-w-6xl mx-auto px-6 text-center text-sm text-almanac-muted">
       <p>Almanac — The modern almanac for an uncertain future.</p>
       <p class="mt-1">"We're cartographers, not prophets."</p>
     </div>
   </footer>
+
   <script is:inline>
     (function() {
-      var btn = document.getElementById('theme-toggle');
-      var sun = document.getElementById('icon-sun');
-      var moon = document.getElementById('icon-moon');
-      var html = document.documentElement;
-
-      function update() {
-        var isLight = html.classList.contains('light');
-        sun.classList.toggle('hidden', isLight);
-        moon.classList.toggle('hidden', !isLight);
+      // Theme toggle
+      function updateIcons() {
+        var isLight = document.documentElement.classList.contains('light');
+        document.querySelectorAll('#icon-sun, .theme-sun').forEach(el => el.classList.toggle('hidden', isLight));
+        document.querySelectorAll('#icon-moon, .theme-moon').forEach(el => el.classList.toggle('hidden', !isLight));
       }
-
-      update();
-
-      btn.addEventListener('click', function() {
-        var isLight = html.classList.contains('light');
-        if (isLight) {
-          html.classList.replace('light', 'dark');
-          localStorage.setItem('almanac-theme', 'dark');
-        } else {
-          html.classList.replace('dark', 'light');
-          localStorage.setItem('almanac-theme', 'light');
-        }
-        update();
+      updateIcons();
+      document.querySelectorAll('#theme-toggle, #theme-toggle-mobile').forEach(btn => {
+        btn.addEventListener('click', function() {
+          var html = document.documentElement;
+          if (html.classList.contains('light')) {
+            html.classList.replace('light', 'dark');
+            localStorage.setItem('almanac-theme', 'dark');
+          } else {
+            html.classList.replace('dark', 'light');
+            localStorage.setItem('almanac-theme', 'light');
+          }
+          updateIcons();
+        });
       });
+
+      // Mobile menu
+      var menuBtn = document.getElementById('menu-toggle');
+      var menu = document.getElementById('mobile-menu');
+      var openIcon = document.getElementById('menu-open-icon');
+      var closeIcon = document.getElementById('menu-close-icon');
+      if (menuBtn) {
+        menuBtn.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+          openIcon.classList.toggle('hidden');
+          closeIcon.classList.toggle('hidden');
+        });
+      }
     })();
   </script>
 </body>

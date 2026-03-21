@@ -1,117 +1,247 @@
 ---
 import Base from '../layouts/Base.astro';
+import GlowCard from '../components/GlowCard.astro';
+import FadeIn from '../components/FadeIn.astro';
 
-// Import report as raw text
 import reportContent from '../content/reports/2026-03-21.md?raw';
 
-// Simple markdown to HTML (basic conversion)
-function mdToHtml(md: string): string {
-  return md
-    // Headers
-    .replace(/^### (.+)$/gm, '<h3 class="text-xl font-semibold mt-10 mb-4">$1</h3>')
-    .replace(/^## (.+)$/gm, '<h2 class="text-2xl font-bold mt-12 mb-4 pb-2 border-b border-almanac-border">$1</h2>')
-    .replace(/^# (.+)$/gm, '<h1 class="text-3xl font-bold mb-2">$1</h1>')
-    // Bold + italic
-    .replace(/\*\*\*(.+?)\*\*\*/g, '<strong class="italic">$1</strong>')
-    .replace(/\*\*(.+?)\*\*/g, '<strong class="text-almanac-text">$1</strong>')
-    .replace(/\*(.+?)\*/g, '<em class="text-almanac-muted">$1</em>')
-    // Links
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-almanac-accent hover:underline" target="_blank" rel="noopener">$1</a>')
-    // Horizontal rules
-    .replace(/^---$/gm, '<hr class="border-almanac-border my-8" />')
-    // Paragraphs (wrap non-tagged lines)
-    .replace(/^(?!<[h|u|o|l|d|p|a|s|b|e|hr])((?!\s*$).+)$/gm, '<p class="mb-4 leading-relaxed text-almanac-muted">$1</p>')
-    // Fix confidence percentages — highlight them
-    .replace(/(\d{1,3})%/g, '<span class="font-mono text-almanac-accent font-medium">$1%</span>')
-    // UP/DOWN movement badges
-    .replace(/Movement: (UP[^*]*)/g, 'Movement: <span class="text-almanac-green font-medium">$1</span>')
-    .replace(/Movement: (DOWN[^*]*)/g, 'Movement: <span class="text-almanac-red font-medium">$1</span>')
-    .replace(/Movement: (UNCHANGED)/g, 'Movement: <span class="text-almanac-muted">$1</span>');
+// Parse sections from the markdown
+function parseReport(md: string) {
+  const sections: { type: string; title: string; content: string }[] = [];
+  const lines = md.split('\n');
+  let currentSection = { type: 'intro', title: '', content: '' };
+
+  for (const line of lines) {
+    if (line.startsWith('### ')) {
+      if (currentSection.content.trim()) sections.push({ ...currentSection });
+      currentSection = { type: 'h3', title: line.replace('### ', ''), content: '' };
+    } else if (line.startsWith('## ')) {
+      if (currentSection.content.trim()) sections.push({ ...currentSection });
+      currentSection = { type: 'h2', title: line.replace('## ', ''), content: '' };
+    } else if (line.startsWith('# ')) {
+      // Skip the main title — we render our own
+    } else {
+      currentSection.content += line + '\n';
+    }
+  }
+  if (currentSection.content.trim()) sections.push({ ...currentSection });
+  return sections;
 }
 
-const reportHtml = mdToHtml(reportContent);
+function inlineMd(text: string): string {
+  return text
+    .replace(/\*\*(\d+)\.\s+(".*?")\*\*/g, '<strong class="text-almanac-text text-base">$1. $2</strong>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong class="text-almanac-text">$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em class="text-almanac-muted/80">$1</em>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-almanac-accent hover:underline" target="_blank" rel="noopener">$1</a>')
+    .replace(/^---$/gm, '')
+    .replace(/(\d{1,3})%/g, '<span class="font-mono text-almanac-accent">$1%</span>');
+}
+
+const sections = parseReport(reportContent);
+const execSummary = sections.find(s => s.title.includes('Executive Summary'));
+const topSignals = sections.find(s => s.title.includes('Top Signals'));
+const predictions = sections.find(s => s.title.includes('Predictions'));
+const futuresDiff = sections.find(s => s.title.includes('Futures Diff'));
+const watching = sections.find(s => s.title.includes('Watching'));
+
+// Parse individual signals from the "Top Signals" section
+function parseSignals(content: string) {
+  const signals: { title: string; body: string }[] = [];
+  const parts = content.split(/\*\*\d+\.\s+/);
+  for (const part of parts) {
+    if (!part.trim()) continue;
+    const titleEnd = part.indexOf('**');
+    if (titleEnd > 0) {
+      const title = part.slice(0, titleEnd).trim();
+      const body = part.slice(titleEnd + 2).trim();
+      signals.push({ title, body });
+    }
+  }
+  return signals;
+}
+
+const signalItems = topSignals ? parseSignals(topSignals.content) : [];
+
+// Parse prediction updates
+function parsePredictions(content: string) {
+  const preds: { num: string; claim: string; body: string }[] = [];
+  const parts = content.split(/\*\*(\d+)\.\s+/);
+  for (let i = 1; i < parts.length; i += 2) {
+    const num = parts[i];
+    const rest = parts[i + 1] || '';
+    const claimEnd = rest.indexOf('**');
+    const claim = claimEnd > 0 ? rest.slice(0, claimEnd).replace(/^"/, '').replace(/"$/, '') : '';
+    const body = claimEnd > 0 ? rest.slice(claimEnd + 2).trim() : rest;
+    preds.push({ num, claim, body });
+  }
+  return preds;
+}
+
+const predItems = predictions ? parsePredictions(predictions.content) : [];
 ---
-<Base title="Today's Forecast — Almanac" description="Daily AI-powered forecast about the future of software engineering. Confidence-scored predictions updated every 24 hours.">
+<Base title="Today's Forecast — Almanac" description="Daily AI-powered forecast about the future of software engineering.">
 
-  <div class="max-w-4xl mx-auto px-6 py-12">
-
-    <!-- Date nav -->
-    <div class="flex items-center justify-between mb-8">
-      <div class="flex items-center gap-3">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-almanac-border text-xs text-almanac-muted">
-          <span class="w-2 h-2 rounded-full bg-almanac-green animate-pulse"></span>
-          Live
+  <!-- Hero header -->
+  <section class="relative overflow-hidden border-b border-almanac-border">
+    <div class="absolute inset-0 bg-gradient-to-b from-almanac-accent/5 to-transparent pointer-events-none"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-10 pb-8 relative">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-almanac-green opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-almanac-green"></span>
+          </span>
+          <span class="text-sm font-mono text-almanac-muted">March 21, 2026</span>
         </div>
-        <span class="text-sm text-almanac-muted">March 21, 2026</span>
+        <span class="text-xs text-almanac-muted bg-almanac-surface px-3 py-1 rounded-full border border-almanac-border">
+          265 signals from 6 sources
+        </span>
       </div>
-      <div class="text-sm text-almanac-muted">
-        Sources: 265 items from 6 feeds
-      </div>
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2">Almanac Daily Forecast</h1>
+      <p class="text-almanac-accent text-lg font-medium">The Future of Software Engineering</p>
     </div>
+  </section>
 
-    <!-- Diff summary card -->
-    <div class="mb-10 p-5 rounded-xl border border-almanac-accent/30 bg-almanac-accent/5">
-      <h3 class="text-sm font-semibold text-almanac-accent mb-3 uppercase tracking-wider">What Changed Today</h3>
-      <div class="grid sm:grid-cols-2 gap-3 text-sm">
-        <div class="flex items-center gap-2">
-          <span class="text-almanac-green">&#9650;</span>
-          <span>AI-generated code prediction: <span class="font-mono text-almanac-green">68% &rarr; 74%</span></span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-almanac-green">&#9650;</span>
-          <span>Computer Programmer role: <span class="font-mono text-almanac-green">74% &rarr; 77%</span></span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-almanac-green">&#9650;</span>
-          <span>Senior shortage crisis: <span class="font-mono text-almanac-green">77% &rarr; 80%</span></span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-almanac-muted">&mdash;</span>
-          <span class="text-almanac-muted">AI fluency premium: unchanged at 71%</span>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+
+    <!-- Diff bar -->
+    <FadeIn>
+      <div class="mb-10 p-5 rounded-xl border border-almanac-accent/20 bg-almanac-accent/5 backdrop-blur-sm">
+        <h3 class="text-xs font-semibold text-almanac-accent mb-4 uppercase tracking-widest flex items-center gap-2">
+          <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+          What Changed Today
+        </h3>
+        <div class="grid sm:grid-cols-2 gap-3 text-sm">
+          <div class="flex items-center gap-2.5">
+            <span class="text-almanac-green text-xs">&#9650;</span>
+            <span>AI-generated code: <span class="font-mono text-almanac-green">68% &rarr; 74%</span></span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="text-almanac-green text-xs">&#9650;</span>
+            <span>Programmer role: <span class="font-mono text-almanac-green">74% &rarr; 77%</span></span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="text-almanac-green text-xs">&#9650;</span>
+            <span>Senior shortage: <span class="font-mono text-almanac-green">77% &rarr; 80%</span></span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="text-almanac-muted text-xs">&mdash;</span>
+            <span class="text-almanac-muted">AI fluency premium: unchanged 71%</span>
+          </div>
         </div>
       </div>
-    </div>
+    </FadeIn>
 
-    <!-- Report content -->
-    <article class="prose-custom">
-      <Fragment set:html={reportHtml} />
-    </article>
+    <!-- Executive Summary -->
+    {execSummary && (
+      <FadeIn>
+        <section class="mb-12">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-1 h-6 rounded-full bg-almanac-accent"></div>
+            <h2 class="text-xl font-bold">{execSummary.title}</h2>
+          </div>
+          <div class="text-almanac-muted leading-relaxed text-[15px] pl-4 border-l-2 border-almanac-border">
+            <Fragment set:html={inlineMd(execSummary.content)} />
+          </div>
+        </section>
+      </FadeIn>
+    )}
+
+    <!-- Top Signals -->
+    {signalItems.length > 0 && (
+      <section class="mb-12">
+        <FadeIn>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-1 h-6 rounded-full bg-almanac-amber"></div>
+            <h2 class="text-xl font-bold">Today's Top Signals</h2>
+            <span class="text-xs text-almanac-muted bg-almanac-surface px-2 py-0.5 rounded-full border border-almanac-border">{signalItems.length}</span>
+          </div>
+        </FadeIn>
+        <div class="space-y-4">
+          {signalItems.map((signal, i) => (
+            <FadeIn delay={i * 80}>
+              <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface hover:border-almanac-muted/40 transition-all duration-300">
+                <div class="flex items-start gap-3 mb-3">
+                  <span class="flex-shrink-0 w-7 h-7 rounded-lg bg-almanac-accent/10 text-almanac-accent flex items-center justify-center text-xs font-bold font-mono">{i + 1}</span>
+                  <h3 class="font-semibold text-[15px] leading-snug">{signal.title}</h3>
+                </div>
+                <div class="text-sm text-almanac-muted leading-relaxed pl-10">
+                  <Fragment set:html={inlineMd(signal.body)} />
+                </div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Predictions Update -->
+    {predItems.length > 0 && (
+      <section class="mb-12">
+        <FadeIn>
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-1 h-6 rounded-full bg-almanac-green"></div>
+            <h2 class="text-xl font-bold">Predictions Update</h2>
+          </div>
+        </FadeIn>
+        <div class="space-y-3">
+          {predItems.map((pred, i) => (
+            <FadeIn delay={i * 60}>
+              <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface/50 hover:bg-almanac-surface transition-colors">
+                <div class="flex items-start gap-3">
+                  <span class="flex-shrink-0 w-6 h-6 rounded-full bg-almanac-border text-almanac-muted flex items-center justify-center text-xs font-mono">{pred.num}</span>
+                  <div class="flex-1 min-w-0">
+                    {pred.claim && <p class="text-sm font-medium mb-1.5 leading-snug">"{pred.claim}"</p>}
+                    <div class="text-xs text-almanac-muted leading-relaxed">
+                      <Fragment set:html={inlineMd(pred.body)} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Futures Diff -->
+    {futuresDiff && (
+      <FadeIn>
+        <section class="mb-12">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-1 h-6 rounded-full bg-almanac-muted"></div>
+            <h2 class="text-xl font-bold">{futuresDiff.title}</h2>
+          </div>
+          <div class="text-sm text-almanac-muted leading-relaxed bg-almanac-surface rounded-xl p-5 border border-almanac-border">
+            <Fragment set:html={inlineMd(futuresDiff.content)} />
+          </div>
+        </section>
+      </FadeIn>
+    )}
+
+    <!-- What We're Watching -->
+    {watching && (
+      <FadeIn>
+        <section class="mb-12">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-1 h-6 rounded-full bg-almanac-accent"></div>
+            <h2 class="text-xl font-bold">{watching.title}</h2>
+          </div>
+          <div class="text-sm text-almanac-muted leading-relaxed">
+            <Fragment set:html={inlineMd(watching.content)} />
+          </div>
+        </section>
+      </FadeIn>
+    )}
 
     <!-- Bottom nav -->
-    <div class="mt-16 pt-8 border-t border-almanac-border flex items-center justify-between">
-      <span class="text-sm text-almanac-muted">Day 1 of the Almanac</span>
-      <a href="/predictions" class="text-sm text-almanac-accent hover:underline">View all predictions &rarr;</a>
+    <div class="pt-8 border-t border-almanac-border flex items-center justify-between">
+      <span class="text-sm text-almanac-muted font-mono">Day 1</span>
+      <a href="/almanac-site/predictions" class="text-sm text-almanac-accent hover:underline flex items-center gap-1">
+        View all predictions <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
     </div>
-
   </div>
 
 </Base>
-
-<style>
-  @reference "../styles/global.css";
-
-  .prose-custom {
-    @apply text-base leading-relaxed;
-  }
-  .prose-custom :global(h1) {
-    @apply text-3xl font-bold mb-2 text-almanac-text;
-  }
-  .prose-custom :global(h2) {
-    @apply text-2xl font-bold mt-12 mb-4 pb-2 border-b border-almanac-border text-almanac-text;
-  }
-  .prose-custom :global(h3) {
-    @apply text-xl font-semibold mt-10 mb-4 text-almanac-text;
-  }
-  .prose-custom :global(p) {
-    @apply mb-4 leading-relaxed text-almanac-muted;
-  }
-  .prose-custom :global(strong) {
-    @apply text-almanac-text font-semibold;
-  }
-  .prose-custom :global(a) {
-    @apply text-almanac-accent hover:underline;
-  }
-  .prose-custom :global(hr) {
-    @apply border-almanac-border my-8;
-  }
-</style>
