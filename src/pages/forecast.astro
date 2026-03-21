@@ -1,16 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import fs from 'node:fs';
-import path from 'node:path';
 
-// Read the latest report markdown
-const reportPath = path.resolve('../../reports/daily/2026-03-21.md');
-let reportContent = '';
-try {
-  reportContent = fs.readFileSync(reportPath, 'utf-8');
-} catch {
-  reportContent = '# No report available yet\n\nThe pipeline has not generated a report for today.';
-}
+// Import report as raw text
+import reportContent from '../content/reports/2026-03-21.md?raw';
 
 // Simple markdown to HTML (basic conversion)
 function mdToHtml(md: string): string {
