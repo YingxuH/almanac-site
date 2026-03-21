@@ -51,8 +51,8 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
             <span class="w-4 h-px bg-almanac-accent/50"></span>
             <Typewriter texts={["an uncertain future", "the next decade", "what comes next", "career decisions"]} speed={70} />
           </p>
-          <p class="mt-6 text-lg text-almanac-muted max-w-xl leading-relaxed" data-en="AI reads thousands of signals daily. You read what matters — confidence-scored forecasts about the future of software engineering." data-zh="AI 每天分析数千条信号。你只需阅读最重要的 — 带置信度评分的软件工程未来预测，每24小时更新。">
-            AI reads thousands of signals daily. You read what matters — confidence-scored forecasts about the future of software engineering.
+          <p class="mt-6 text-lg text-almanac-muted max-w-xl leading-relaxed" data-en="A free daily email: AI scrapes 8 sources overnight, filters the noise, and delivers one concise forecast about how software engineering is changing — with confidence scores, not opinions." data-zh="免费每日邮件：AI 在夜间抓取 8 个数据源，过滤噪音，发送一份简洁的软件工程变化预测 — 附带置信度评分，而非主观意见。">
+            A free daily email: AI scrapes 8 sources overnight, filters the noise, and delivers one concise forecast about how software engineering is changing — with confidence scores, not opinions.
           </p>
 
           <!-- Hero email signup -->
@@ -147,6 +147,50 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
       </div>
     </section>
   </FadeIn>
+
+  <!-- Sample forecast preview — shows what you get before subscribing -->
+  <FadeIn>
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+      <div class="rounded-xl border border-almanac-border bg-almanac-surface overflow-hidden">
+        <div class="px-6 py-3 border-b border-almanac-border flex items-center justify-between">
+          <span class="text-xs text-almanac-muted uppercase tracking-widest" data-en="Sample: What you get daily" data-zh="示例：每日推送内容">Sample: What you get daily</span>
+          <a href="/almanac-site/forecast" class="text-xs text-almanac-accent hover:underline" data-en="Read full report" data-zh="阅读完整报告">Read full report &rarr;</a>
+        </div>
+        <div class="p-5 sm:p-6">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-xs font-mono text-almanac-muted bg-almanac-border px-2 py-0.5 rounded">2026-03-22</span>
+            <span class="text-xs text-almanac-green font-mono">3 predictions moved</span>
+          </div>
+          <p class="text-sm text-almanac-muted leading-relaxed mb-4">
+            Today's panic is actively rewriting the labor market — tech recruiters now mandate LLM-assisted "vibe coding" as a baseline job requirement. Meanwhile, academic consensus is emerging that the natural language specification is the stable artifact of record, relegating implementation code to a transient byproduct.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-[10px] px-2 py-1 rounded bg-almanac-green/10 text-almanac-green border border-almanac-green/20">P1: 68% → 74% (+6)</span>
+            <span class="text-[10px] px-2 py-1 rounded bg-almanac-green/10 text-almanac-green border border-almanac-green/20">P4: 77% → 80% (+3)</span>
+            <span class="text-[10px] px-2 py-1 rounded bg-almanac-border text-almanac-muted">P3: 71% unchanged</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </FadeIn>
+
+  <!-- Social proof bar -->
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-4">
+    <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-almanac-muted">
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-almanac-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span data-en="Tracking since March 21, 2026" data-zh="自2026年3月21日开始追踪">Tracking since March 21, 2026</span>
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-almanac-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+        <span data-en="2 consecutive daily forecasts" data-zh="已连续发布2天预测">2 consecutive daily forecasts</span>
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-almanac-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+        <span data-en="Pipeline runs in 1.8 min at $0.05/day" data-zh="流水线运行1.8分钟，成本$0.05/天">Pipeline runs in 1.8 min at $0.05/day</span>
+      </span>
+    </div>
+  </div>
 
   <!-- Prediction cards with sparklines -->
   <section class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
