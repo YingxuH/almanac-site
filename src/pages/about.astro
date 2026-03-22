@@ -22,9 +22,9 @@ import GlowCard from '../components/GlowCard.astro';
             <span class="w-1.5 h-6 rounded-full bg-almanac-accent"></span>
             <span data-en="What This Is" data-zh="这是什么">What This Is</span>
           </h2>
-          <p class="text-almanac-muted leading-relaxed" data-en="Almanac is an AI-powered forecasting system that tracks how software engineering is changing over the next 3-30 years. Every day, our pipeline scrapes 8 data sources, filters hundreds of signals through tiered AI models, and produces a confidence-scored forecast. We track 8 specific, falsifiable predictions and update them daily using LLM-evaluated signal analysis with horizon-scaled dampening." data-zh="Almanac 是一个 AI 驱动的预测系统，追踪软件工程在未来 3-30 年内的变化。每天，我们的流水线从 8 个数据源抓取数据，通过分层 AI 模型筛选数百个信号，并生成置信度评分预测。我们追踪 8 个具体的、可证伪的预测，并使用经过时间范围衰减的 LLM 评估信号分析每日更新。">
+          <p class="text-almanac-muted leading-relaxed" data-en="Almanac is an AI-powered forecasting system that tracks how software engineering is changing over the next 3-30 years. Every day, our pipeline scrapes 15 data sources, filters hundreds of signals through tiered AI models, and produces a confidence-scored forecast. We track 8 specific, falsifiable predictions and update them daily using LLM-evaluated signal analysis with horizon-scaled dampening." data-zh="Almanac 是一个 AI 驱动的预测系统，追踪软件工程在未来 3-30 年内的变化。每天，我们的流水线从 8 个数据源抓取数据，通过分层 AI 模型筛选数百个信号，并生成置信度评分预测。我们追踪 8 个具体的、可证伪的预测，并使用经过时间范围衰减的 LLM 评估信号分析每日更新。">
             Almanac is an AI-powered forecasting system that tracks how software engineering is changing over the next 3-30 years.
-            Every day, our pipeline scrapes 8 data sources, filters hundreds of signals through tiered AI models, and produces
+            Every day, our pipeline scrapes 15 data sources, filters hundreds of signals through tiered AI models, and produces
             a confidence-scored forecast. We track 8 specific, falsifiable predictions and update them daily using LLM-evaluated signal analysis with horizon-scaled dampening.
           </p>
         </div>
@@ -58,8 +58,8 @@ import GlowCard from '../components/GlowCard.astro';
                 num: "01",
                 title: "Data Collection",
                 titleZh: "数据采集",
-                desc: "Every day at 06:00 UTC, automated scrapers collect data from Hacker News (top stories + Ask HN), arXiv (cs.SE, cs.AI, cs.CL), TechCrunch, Ars Technica, MIT Technology Review, The Verge, and GitHub Trending. This yields 200-300 raw items per day.",
-                descZh: "每天 06:00 UTC，自动爬虫从 Hacker News（热门故事 + Ask HN）、arXiv（cs.SE、cs.AI、cs.CL）、TechCrunch、Ars Technica、MIT Technology Review、The Verge 和 GitHub Trending 收集数据。每天产生 200-300 个原始条目。",
+                desc: "Every day at 06:00 UTC, automated scrapers collect data from 15 sources: Hacker News, arXiv, 5 RSS feeds (TechCrunch, Ars Technica, MIT Tech Review, The Verge, Wired), GitHub Trending, Stack Overflow, Semantic Scholar, FRED economic data, SEC EDGAR filings, investor relations feeds from major tech firms, and X/Twitter. This yields 500+ raw items per day.",
+                descZh: "每天 06:00 UTC，自动爬虫从 15 个数据源收集数据：Hacker News、arXiv、5 个 RSS 源（TechCrunch、Ars Technica、MIT Tech Review、The Verge、Wired）、GitHub Trending、Stack Overflow、Semantic Scholar、FRED 经济数据、SEC EDGAR 公司文件、大型科技公司投资者关系动态及 X/Twitter。每天产生 500+ 个原始条目。",
                 color: "accent"
               },
               {

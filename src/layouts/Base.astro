@@ -22,6 +22,9 @@ const { title, description = "The modern almanac for an uncertain future. AI-pow
       var t = localStorage.getItem('almanac-theme');
       if (t === 'light') document.documentElement.classList.replace('dark', 'light');
       else document.documentElement.classList.add('dark');
+      // Apply language BEFORE first paint
+      var lang = localStorage.getItem('almanac-lang') || 'en';
+      document.documentElement.setAttribute('data-lang', lang);
     })();
   </script>
 </head>
@@ -102,9 +105,7 @@ const { title, description = "The modern almanac for an uncertain future. AI-pow
 
   <script is:inline>
     (function() {
-      // Language toggle
-      var lang = localStorage.getItem('almanac-lang') || 'en';
-      document.documentElement.setAttribute('data-lang', lang);
+      // Language system — apply IMMEDIATELY and on every page load event
       function applyLang(l) {
         document.querySelectorAll('[data-en][data-zh]').forEach(function(el) {
           el.textContent = el.getAttribute('data-' + l) || el.textContent;
@@ -119,8 +120,25 @@ const { title, description = "The modern almanac for an uncertain future. AI-pow
           el.textContent = l === 'zh' ? '中' : 'EN';
         });
       }
-      if (lang !== 'en') applyLang(lang);
-      else applyLang('en'); // ensure labels set
+
+      // Apply on initial script execution (before first paint)
+      var lang = localStorage.getItem('almanac-lang') || 'en';
+      document.documentElement.setAttribute('data-lang', lang);
+      applyLang(lang);
+
+      // Re-apply after DOM is fully ready (catches late-rendered elements)
+      document.addEventListener('DOMContentLoaded', function() {
+        var l = localStorage.getItem('almanac-lang') || 'en';
+        applyLang(l);
+      });
+
+      // Re-apply on Astro client-side navigation
+      document.addEventListener('astro:page-load', function() {
+        var l = localStorage.getItem('almanac-lang') || 'en';
+        applyLang(l);
+      });
+
+      // Toggle handler
       document.querySelectorAll('#lang-toggle').forEach(function(btn) {
         btn.addEventListener('click', function() {
           var current = document.documentElement.getAttribute('data-lang') || 'en';

@@ -51,7 +51,7 @@ export const translations = {
     how: {
       title: "How it works",
       steps: [
-        { num: "01", title: "Ingest", desc: "AI agents scrape 8 sources — arXiv, Hacker News, job boards, GitHub, RSS feeds, prediction markets." },
+        { num: "01", title: "Ingest", desc: "AI agents scrape 15 sources — arXiv, Hacker News, job boards, GitHub, RSS feeds, prediction markets." },
         { num: "02", title: "Analyze", desc: "Signals filtered and synthesized. Every claim source-linked. Every prediction gets a confidence score." },
         { num: "03", title: "Forecast", desc: "Predictions update via LLM-evaluated signal analysis. The daily Futures Diff shows what changed and why." },
       ],
@@ -59,7 +59,7 @@ export const translations = {
     // Sources
     sources: {
       title: "Data Sources",
-      subtitle: "8 feeds monitored daily",
+      subtitle: "15 feeds monitored daily",
     },
     // CTA
     cta: {
@@ -143,7 +143,7 @@ export const translations = {
     // Sources
     sources: {
       title: "数据来源",
-      subtitle: "每日监控 8 个数据源",
+      subtitle: "每日监控 15 个数据源",
     },
     // CTA
     cta: {

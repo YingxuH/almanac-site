@@ -51,8 +51,8 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
             <span class="w-4 h-px bg-almanac-accent/50"></span>
             <Typewriter texts={["an uncertain future", "the next decade", "what comes next", "career decisions"]} speed={70} />
           </p>
-          <p class="mt-6 text-lg text-almanac-muted max-w-xl leading-relaxed" data-en="A free daily email: AI scrapes 8 sources overnight, filters the noise, and delivers one concise forecast about how software engineering is changing — with confidence scores, not opinions." data-zh="免费每日邮件：AI 在夜间抓取 8 个数据源，过滤噪音，发送一份简洁的软件工程变化预测 — 附带置信度评分，而非主观意见。">
-            A free daily email: AI scrapes 8 sources overnight, filters the noise, and delivers one concise forecast about how software engineering is changing — with confidence scores, not opinions.
+          <p class="mt-6 text-lg text-almanac-muted max-w-xl leading-relaxed" data-en="A free daily email: AI scrapes 15 sources overnight, filters the noise, and delivers one concise forecast about how software engineering is changing — with confidence scores, not opinions." data-zh="免费每日邮件：AI 在夜间抓取 15 个数据源，过滤噪音，发送一份简洁的软件工程变化预测 — 附带置信度评分，而非主观意见。">
+            A free daily email: AI scrapes 15 sources overnight, filters the noise, and delivers one concise forecast about how software engineering is changing — with confidence scores, not opinions.
           </p>
 
           <!-- Hero email signup -->
@@ -179,15 +179,15 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
     <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-almanac-muted">
       <span class="flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5 text-almanac-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        <span data-en="8 sources scraped daily" data-zh="每日抓取8个数据源" data-en="8 sources scraped daily" data-zh="每日抓取8个数据源">8 sources scraped daily</span>
+        <span data-en="15 sources scraped daily" data-zh="每日抓取15个数据源">15 sources scraped daily</span>
       </span>
       <span class="flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5 text-almanac-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        <span data-en="Predictions capped at +/-5 per day" data-zh="预测每日变动上限 +/-5" data-en="Predictions capped at +/-5 per day" data-zh="预测每日变动上限 +/-5">Predictions capped at +/-5 per day</span>
+        <span data-en="Predictions capped at +/-5 per day" data-zh="预测每日变动上限 +/-5">Predictions capped at +/-5 per day</span>
       </span>
       <span class="flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5 text-almanac-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-        <span data-en="Open methodology — we publish when we're wrong" data-zh="公开方法论 — 我们会公开错误" data-en="Open methodology — we publish when we're wrong" data-zh="公开方法论 — 我们会公开错误">Open methodology — we publish when we're wrong</span>
+        <span data-en="Open methodology — we publish when we're wrong" data-zh="公开方法论 — 我们会公开错误">Open methodology — we publish when we're wrong</span>
       </span>
     </div>
   </div>
@@ -264,7 +264,7 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
         {/* Connector lines */}
         <div class="hidden sm:block absolute top-10 left-[33%] w-[34%] h-px bg-gradient-to-r from-almanac-accent/50 to-almanac-accent/50 z-0"></div>
         {[
-          { num: "01", title: "Ingest", desc: "AI agents scrape 8 sources — arXiv, Hacker News, job boards, GitHub, RSS feeds, prediction markets.", icon: "M12 5v14M5 12h14" },
+          { num: "01", title: "Ingest", desc: "AI agents scrape 15 sources — arXiv, Hacker News, job boards, GitHub, RSS feeds, prediction markets.", icon: "M12 5v14M5 12h14" },
           { num: "02", title: "Analyze", desc: "Signals filtered and synthesized. Every claim source-linked. Every prediction gets a confidence score.", icon: "M9 19V6l12-3v13M9 19c0 1.1-1.3 2-3 2s-3-.9-3-2 1.3-2 3-2 3 .9 3 2zm12-3c0 1.1-1.3 2-3 2s-3-.9-3-2 1.3-2 3-2 3 .9 3 2z" },
           { num: "03", title: "Forecast", desc: "Predictions update via LLM-evaluated signal analysis. The daily Futures Diff shows what changed and why.", icon: "M13 7l5 5m0 0l-5 5m5-5H6" },
         ].map((step, i) => (
@@ -284,7 +284,7 @@ const avgConf = Math.round(predictions.reduce((a, p) => a + p.confidence, 0) / p
   <FadeIn>
     <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 text-center">
       <h2 class="text-2xl font-bold mb-2" data-en="Data Sources" data-zh="数据来源">Data Sources</h2>
-      <p class="text-almanac-muted text-sm mb-8" data-en="8 feeds monitored daily" data-zh="每日监控 8 个数据源">8 feeds monitored daily</p>
+      <p class="text-almanac-muted text-sm mb-8" data-en="15 feeds monitored daily" data-zh="每日监控 15 个数据源">15 feeds monitored daily</p>
       <SourceOrbit />
     </section>
   </FadeIn>
