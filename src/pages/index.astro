@@ -11,8 +11,31 @@ import FadeIn from '../components/FadeIn.astro';
 import ConfidenceGauge from '../components/ConfidenceGauge.astro';
 import LivePulse from '../components/LivePulse.astro';
 import { loadPredictions } from '../lib/data';
+import fs from 'node:fs';
+import path from 'node:path';
 
 const allPreds = loadPredictions();
+
+// Load latest report for the sample preview
+let latestExcerpt = '';
+let latestDate = '';
+try {
+  const reportsDir = path.resolve(process.cwd(), 'src', 'content', 'reports');
+  const reports = fs.readdirSync(reportsDir).filter((f: string) => f.endsWith('.md')).sort().reverse();
+  if (reports.length > 0) {
+    latestDate = reports[0].replace('.md', '');
+    const content = fs.readFileSync(path.join(reportsDir, reports[0]), 'utf-8');
+    // Extract executive summary
+    const match = content.match(/### Executive Summary\s*\n([\s\S]*?)(?=\n###|\n---|\Z)/);
+    if (match) latestExcerpt = match[1].trim().slice(0, 300).replace(/\n/g, ' ');
+  }
+} catch {}
+
+// Find predictions that moved today (for sample preview badges)
+const movedPreds = allPreds
+  .filter((p: any) => p.confidence !== (p.previous ?? p.confidence))
+  .sort((a: any, b: any) => Math.abs(b.confidence - (b.previous ?? b.confidence)) - Math.abs(a.confidence - (a.previous ?? a.confidence)))
+  .slice(0, 3);
 
 // Pick 8 representative predictions for the landing page:
 // 2 highest confidence, 2 lowest, 2 most recently moved, 2 contrarian
@@ -189,7 +212,7 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
     </section>
   </FadeIn>
 
-  <!-- Sample forecast preview — shows what you get before subscribing -->
+  <!-- Sample forecast preview — dynamically generated from latest report + predictions -->
   <FadeIn>
     <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <div class="rounded-xl border border-almanac-border bg-almanac-surface overflow-hidden">
@@ -199,16 +222,26 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
         </div>
         <div class="p-5 sm:p-6">
           <div class="flex items-center gap-3 mb-3">
-            <span class="text-xs font-mono text-almanac-muted bg-almanac-border px-2 py-0.5 rounded">2026-03-22</span>
-            <span class="text-xs text-almanac-green font-mono">3 predictions moved</span>
+            {latestDate && <span class="text-xs font-mono text-almanac-muted bg-almanac-border px-2 py-0.5 rounded">{latestDate}</span>}
+            <span class="text-xs text-almanac-green font-mono">{movedPreds.length > 0 ? `${allPreds.filter((p: any) => p.confidence !== (p.previous ?? p.confidence)).length} predictions moved` : 'Daily forecast'}</span>
           </div>
-          <p class="text-sm text-almanac-muted leading-relaxed mb-4">
-            Today's panic is actively rewriting the labor market — tech recruiters now mandate LLM-assisted "vibe coding" as a baseline job requirement. Meanwhile, academic consensus is emerging that the natural language specification is the stable artifact of record, relegating implementation code to a transient byproduct.
-          </p>
+          {latestExcerpt ? (
+            <p class="text-sm text-almanac-muted leading-relaxed mb-4">{latestExcerpt}...</p>
+          ) : (
+            <p class="text-sm text-almanac-muted leading-relaxed mb-4">Each morning, Almanac synthesizes signals from 15+ sources into a concise forecast with specific, source-linked prediction updates.</p>
+          )}
           <div class="flex flex-wrap gap-2">
-            <span class="text-[10px] px-2 py-1 rounded bg-almanac-green/10 text-almanac-green border border-almanac-green/20" data-en="P6: Security breach 88% (high)" data-zh="P6: 安全漏洞 88%（高）">P6: Security breach 88% (high)</span>
-            <span class="text-[10px] px-2 py-1 rounded bg-almanac-green/10 text-almanac-green border border-almanac-green/20" data-en="P3: AI premium 45% (uncertain)" data-zh="P3: AI溢价 45%（不确定）">P3: AI premium 45% (uncertain)</span>
-            <span class="text-[10px] px-2 py-1 rounded bg-almanac-border text-almanac-muted" data-en="P4: Senior shortage 82%" data-zh="P4: 资深工程师短缺 82%">P4: Senior shortage 82%</span>
+            {movedPreds.length > 0 ? movedPreds.map((p: any) => {
+              const delta = p.confidence - (p.previous ?? p.confidence);
+              const color = delta > 0 ? 'bg-almanac-green/10 text-almanac-green border-almanac-green/20' : 'bg-almanac-red/10 text-almanac-red border-almanac-red/20';
+              return (
+                <span class={`text-[10px] px-2 py-1 rounded border ${color}`}>
+                  P{p.id}: {p.claim.slice(0, 40)}... {p.confidence}% ({delta > 0 ? '+' : ''}{delta})
+                </span>
+              );
+            }) : (
+              <span class="text-[10px] px-2 py-1 rounded bg-almanac-border text-almanac-muted">Subscribe to see daily prediction movements</span>
+            )}
           </div>
         </div>
       </div>
