@@ -1,190 +1,153 @@
 ---
 import Base from '../layouts/Base.astro';
+import FadeIn from '../components/FadeIn.astro';
 
-const predictions = [
-  {
-    id: 1,
-    claim: "By 2028, >50% of production code at Fortune 500 companies will be AI-generated",
-    confidence: 72,
-    previous: 72,
-    category: "AI Coding",
-    horizon: "2028",
-    status: "active",
-    lastUpdated: "2026-03-21",
-    reasoning: "The emergence of multi-agent coding factories accelerates enterprise adoption. The sheer volume of AI-generated code makes the 50% threshold look conservative."
-  },
-  {
-    id: 2,
-    claim: "The role of 'Computer Programmer' as distinct job title will cease at large companies by 2031",
-    confidence: 68,
-    previous: 68,
-    category: "Labor",
-    horizon: "2031",
-    status: "active",
-    lastUpdated: "2026-03-21",
-    reasoning: "With domain experts writing production code via AI tools, translating logic into syntax is no longer a standalone profession."
-  },
-  {
-    id: 3,
-    claim: "AI-fluent engineers will earn $40K+ more than non-AI-fluent peers by 2029",
-    confidence: 45,
-    previous: 45,
-    category: "Compensation",
-    horizon: "2029",
-    status: "active",
-    lastUpdated: "2026-03-21",
-    reasoning: "If AI fluency becomes mandatory, it may commoditize rather than command a premium. The salary gap may shift toward domain expertise."
-  },
-  {
-    id: 4,
-    claim: "Senior engineer shortage will be the dominant talent crisis by 2030-2032",
-    confidence: 82,
-    previous: 82,
-    category: "Labor",
-    horizon: "2030-2032",
-    status: "active",
-    lastUpdated: "2026-03-21",
-    reasoning: "The industry faces a massive bottleneck in senior validation. Infinite junior-level AI generation but finite senior review capacity."
-  },
-  {
-    id: 5,
-    claim: "Multi-agent AI systems will handle >30% of all QA work at enterprises by 2028",
-    confidence: 78,
-    previous: 78,
-    category: "Automation",
-    horizon: "2028",
-    status: "active",
-    lastUpdated: "2026-03-21",
-    reasoning: "QA/testing is the most automatable part of SDLC — repetitive, rule-bound, and well-defined."
-  },
-  {
-    id: 6,
-    claim: "A major AI-generated code security breach will occur before 2029",
-    confidence: 88,
-    previous: 88,
-    category: "Security",
-    horizon: "2029",
-    status: "active",
-    lastUpdated: "2026-03-21",
-    reasoning: "29.1% of AI-generated Python code contains vulnerabilities. 90% of Fortune 100 use GitHub Copilot. The math supports a high-profile breach."
-  },
-  {
-    id: 7,
-    claim: "Engineers will spend more time reviewing AI code than writing code by 2032",
-    confidence: 55,
-    previous: 55,
-    category: "Workflow",
-    horizon: "2032",
-    status: "active",
-    lastUpdated: "2026-03-21",
-    reasoning: "Developers already report spending >80% of their day reviewing AI output. At 70-80% AI code generation, this transition is inevitable."
-  },
-  {
-    id: 8,
-    claim: "The most valuable tech skill by 2036 will be 'AI system judgment', not coding",
-    confidence: 62,
-    previous: 62,
-    category: "Skills",
-    horizon: "2036",
-    status: "active",
-    lastUpdated: "2026-03-21",
-    reasoning: "As AI handles execution, humans retain value through judgment. The profession is moving from craft to direction."
-  },
+const longHorizon = [
+  { id: 1, claim: "By 2028, >50% of production code at Fortune 500 companies will be AI-generated", confidence: 72, previous: 72, category: "AI Coding", horizon: "2028", lastUpdated: "2026-03-22", reasoning: "Multi-agent coding factories are accelerating enterprise adoption.", evidence: [] },
+  { id: 2, claim: "The role of 'Computer Programmer' as distinct job title will cease at large companies by 2031", confidence: 68, previous: 68, category: "Labor", horizon: "2031", lastUpdated: "2026-03-22", reasoning: "Domain experts writing production code via AI tools eliminates standalone syntax translation.", evidence: [] },
+  { id: 3, claim: "AI-fluent engineers will earn $40K+ more than non-AI-fluent peers by 2029", confidence: 45, previous: 45, category: "Compensation", horizon: "2029", lastUpdated: "2026-03-22", reasoning: "AI fluency may commoditize rather than command a premium as it becomes baseline.", evidence: [] },
+  { id: 4, claim: "Senior engineer shortage will be the dominant talent crisis by 2030-2032", confidence: 82, previous: 82, category: "Labor", horizon: "2030-2032", lastUpdated: "2026-03-22", reasoning: "Infinite junior-level AI generation but finite senior review capacity.", evidence: [] },
+  { id: 5, claim: "Multi-agent AI systems will handle >30% of all QA work at enterprises by 2028", confidence: 78, previous: 78, category: "Automation", horizon: "2028", lastUpdated: "2026-03-22", reasoning: "QA/testing is the most automatable part of SDLC — repetitive, rule-bound.", evidence: [] },
+  { id: 6, claim: "A major AI-generated code security breach will occur before 2029", confidence: 88, previous: 88, category: "Security", horizon: "2029", lastUpdated: "2026-03-22", reasoning: "29.1% of AI-generated Python code contains vulnerabilities. 90% of Fortune 100 use Copilot.", evidence: [] },
+  { id: 7, claim: "Software engineers will spend more time reviewing AI code than writing code by 2032", confidence: 55, previous: 55, category: "Workflow", horizon: "2032", lastUpdated: "2026-03-22", reasoning: "Developers report >80% of day reviewing AI output. At 70-80% AI generation, this shifts.", evidence: [] },
+  { id: 8, claim: "The most valuable tech skill by 2036 will be 'AI system judgment', not coding", confidence: 62, previous: 62, category: "Skills", horizon: "2036", lastUpdated: "2026-03-22", reasoning: "As AI handles execution, humans retain value through judgment — craft to direction.", evidence: [] },
 ];
+
+const shortHorizon = [
+  { id: 9, claim: "A top-5 cloud provider will GA a coding agent product (not beta) by April 20, 2026", confidence: 72, previous: 72, category: "30-Day", horizon: "2026-04-20", lastUpdated: "2026-03-22", reasoning: "AWS, Azure, GCP all have preview agents. GA announcement is plausible within 30 days.", resolution: "Press release or product page from AWS/Azure/GCP/Oracle/IBM.", evidence: [] },
+  { id: 10, claim: "GitHub Copilot MAU will exceed 20M by April 20, 2026", confidence: 65, previous: 65, category: "30-Day", horizon: "2026-04-20", lastUpdated: "2026-03-22", reasoning: "Was at 20M in July 2025. Growth rate supports exceeding this but reporting lag is uncertain.", resolution: "Earnings call, blog post, or press release from Microsoft/GitHub.", evidence: [] },
+  { id: 11, claim: "A Fortune 500 company will publicly attribute headcount reduction to AI coding productivity", confidence: 55, previous: 55, category: "30-Day", horizon: "2026-04-20", lastUpdated: "2026-03-22", reasoning: "Meta and Block have cited AI. Explicit 'AI coding' attribution in SEC filing is harder.", resolution: "SEC filing, earnings call, or official statement from a Fortune 500 company.", evidence: [] },
+  { id: 12, claim: "GPT-4-class API inference pricing drops below $2.00/1M output tokens", confidence: 60, previous: 60, category: "30-Day", horizon: "2026-04-20", lastUpdated: "2026-03-22", reasoning: "Pricing is falling fast but GPT-4-class quality at <$2 requires open-source catch-up.", resolution: "Public API pricing page from any provider offering GPT-4-equivalent quality.", evidence: [] },
+  { id: 13, claim: "A developer survey (n>5000) reports >50% daily AI coding tool usage", confidence: 78, previous: 78, category: "30-Day", horizon: "2026-04-20", lastUpdated: "2026-03-22", reasoning: "Pragmatic Engineer survey already shows 95% weekly. Daily >50% is the tighter bar.", resolution: "Stack Overflow, JetBrains, or equivalent survey with n>5000.", evidence: [] },
+];
+
+const allPreds = [...longHorizon, ...shortHorizon];
+const movedUp = allPreds.filter(p => p.confidence > p.previous).length;
 ---
 <Base title="Prediction Tracker — Almanac">
 
-  <div class="max-w-5xl mx-auto px-6 py-12">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
 
-    <div class="mb-10">
-      <h1 class="text-3xl font-bold mb-2" data-en="Prediction Tracker" data-zh="预测追踪器">Prediction Tracker</h1>
-      <p class="text-almanac-muted">
-        {predictions.length} <span data-en="specific, falsifiable forecasts about the future of software engineering. Tracked daily with confidence scores. Updated via LLM-evaluated signal analysis as new evidence arrives." data-zh="关于软件工程未来的具体可证伪预测。每日更新置信度评分。基于LLM评估的信号分析，随新证据更新。">specific, falsifiable forecasts about the future of software engineering.
-        Tracked daily with confidence scores. Updated via LLM-evaluated signal analysis as new evidence arrives.</span>
-      </p>
-    </div>
+    <FadeIn>
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-2" data-en="Prediction Tracker" data-zh="预测追踪器">Prediction Tracker</h1>
+        <p class="text-almanac-muted" data-en="13 specific, falsifiable forecasts. 8 long-horizon (2028-2036) + 5 short-horizon (resolving April 2026). Updated daily via LLM-evaluated signal analysis." data-zh="13项具体可证伪的预测。8项长期预测（2028-2036）+ 5项短期预测（2026年4月到期）。每日通过LLM评估信号分析更新。">
+          13 specific, falsifiable forecasts. 8 long-horizon (2028-2036) + 5 short-horizon (resolving April 2026). Updated daily via LLM-evaluated signal analysis.
+        </p>
+      </div>
+    </FadeIn>
 
     <!-- Stats bar -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-      <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
-        <div class="text-2xl font-bold font-mono text-almanac-accent">{predictions.length}</div>
-        <div class="text-xs text-almanac-muted mt-1" data-en="Active Predictions" data-zh="活跃预测">Active Predictions</div>
+    <FadeIn delay={50}>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
+        <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
+          <div class="text-2xl font-bold font-mono text-almanac-accent">{allPreds.length}</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Active Predictions" data-zh="活跃预测">Active Predictions</div>
+        </div>
+        <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
+          <div class="text-2xl font-bold font-mono text-almanac-green">5</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Resolving in 30 Days" data-zh="30天内到期">Resolving in 30 Days</div>
+        </div>
+        <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
+          <div class="text-2xl font-bold font-mono">0.155</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Hindcast Brier Score" data-zh="回测布里尔分数">Hindcast Brier Score</div>
+        </div>
+        <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
+          <div class="text-2xl font-bold font-mono">0</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Resolved (tracking)" data-zh="已解决（追踪中）">Resolved (tracking)</div>
+        </div>
       </div>
-      <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
-        <div class="text-2xl font-bold font-mono text-almanac-green">3</div>
-        <div class="text-xs text-almanac-muted mt-1" data-en="Moved Up Today" data-zh="今日上升">Moved Up Today</div>
-      </div>
-      <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
-        <div class="text-2xl font-bold font-mono">0</div>
-        <div class="text-xs text-almanac-muted mt-1" data-en="Resolved" data-zh="已解决">Resolved</div>
-      </div>
-      <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
-        <div class="text-2xl font-bold font-mono">1</div>
-        <div class="text-xs text-almanac-muted mt-1" data-en="Day Tracking" data-zh="追踪天数">Day Tracking</div>
-      </div>
-    </div>
+    </FadeIn>
 
-    <!-- Prediction cards -->
-    <div class="space-y-4">
-      {predictions.map((p) => {
-        const delta = p.confidence - p.previous;
-        const deltaStr = delta > 0 ? `+${delta}` : delta === 0 ? '0' : `${delta}`;
-        return (
-          <div class="p-6 rounded-xl border border-almanac-border bg-almanac-surface hover:border-almanac-muted/50 transition">
-            <div class="flex items-start gap-6">
-              <!-- Confidence score -->
-              <div class="flex-shrink-0 text-center w-20">
-                <div class={`text-4xl font-bold font-mono ${p.confidence >= 75 ? 'text-almanac-green' : p.confidence >= 60 ? 'text-almanac-amber' : 'text-almanac-red'}`}>
-                  {p.confidence}<span class="text-lg">%</span>
+    <!-- 30-Day Predictions (highlighted) -->
+    <FadeIn delay={100}>
+      <div class="mb-10">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-1.5 h-6 rounded-full bg-almanac-amber"></div>
+          <h2 class="text-xl font-bold" data-en="30-Day Predictions (resolving April 20, 2026)" data-zh="30天预测（2026年4月20日到期）">30-Day Predictions (resolving April 20, 2026)</h2>
+        </div>
+        <div class="space-y-3">
+          {shortHorizon.map(p => (
+            <details class="group rounded-xl border border-almanac-amber/20 bg-almanac-surface hover:border-almanac-amber/40 transition-colors">
+              <summary class="p-4 cursor-pointer flex items-start gap-4 list-none [&::-webkit-details-marker]:hidden">
+                <div class="flex-shrink-0 w-14 text-center">
+                  <div class={`text-2xl font-bold font-mono ${p.confidence >= 70 ? 'text-almanac-green' : p.confidence >= 50 ? 'text-almanac-amber' : 'text-almanac-red'}`}>
+                    {p.confidence}<span class="text-sm">%</span>
+                  </div>
                 </div>
-                <div class={`text-xs mt-1 font-mono ${delta > 0 ? 'text-almanac-green' : delta < 0 ? 'text-almanac-red' : 'text-almanac-muted'}`}
-                  data-en={delta > 0 ? `+${delta} today` : delta < 0 ? `${delta} today` : 'unchanged'}
-                  data-zh={delta > 0 ? `+${delta} 今日` : delta < 0 ? `${delta} 今日` : '不变'}>
-                  {delta > 0 ? `+${delta} today` : delta < 0 ? `${delta} today` : 'unchanged'}
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm font-medium leading-snug">{p.claim}</p>
+                  <div class="flex items-center gap-2 mt-1.5 text-xs text-almanac-muted">
+                    <span class="px-1.5 py-0.5 rounded bg-almanac-amber/10 text-almanac-amber border border-almanac-amber/20 text-[10px]">30-DAY</span>
+                    <span>Resolves: {p.horizon}</span>
+                  </div>
                 </div>
+                <svg class="w-4 h-4 text-almanac-muted flex-shrink-0 mt-1 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+              </summary>
+              <div class="px-4 pb-4 border-t border-almanac-border/50 pt-3 ml-[72px]">
+                <p class="text-sm text-almanac-muted mb-2"><strong class="text-almanac-text">Reasoning:</strong> {p.reasoning}</p>
+                <p class="text-sm text-almanac-muted"><strong class="text-almanac-text">Resolution criteria:</strong> {p.resolution}</p>
+                <p class="text-xs text-almanac-muted mt-2 italic">Evidence trail will populate as the pipeline runs daily.</p>
               </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </FadeIn>
 
-              <!-- Content -->
-              <div class="flex-1">
-                <h3 class="font-semibold text-lg leading-snug mb-2">{p.claim}</h3>
-                <p class="text-sm text-almanac-muted leading-relaxed mb-3">{p.reasoning}</p>
-                <div class="flex flex-wrap items-center gap-3 text-xs text-almanac-muted">
-                  <span class="px-2 py-0.5 rounded bg-almanac-border">{p.category}</span>
-                  <span><span data-en="Horizon:" data-zh="时间线：">Horizon:</span> {p.horizon}</span>
-                  <span><span data-en="Updated:" data-zh="更新于：">Updated:</span> {p.lastUpdated}</span>
+    <!-- Long-Horizon Predictions -->
+    <FadeIn delay={150}>
+      <div class="mb-10">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-1.5 h-6 rounded-full bg-almanac-accent"></div>
+          <h2 class="text-xl font-bold" data-en="Long-Horizon Predictions (2028-2036)" data-zh="长期预测（2028-2036）">Long-Horizon Predictions (2028-2036)</h2>
+        </div>
+        <div class="space-y-3">
+          {longHorizon.map(p => {
+            const delta = p.confidence - p.previous;
+            return (
+              <details class="group rounded-xl border border-almanac-border bg-almanac-surface hover:border-almanac-muted/50 transition-colors">
+                <summary class="p-4 cursor-pointer flex items-start gap-4 list-none [&::-webkit-details-marker]:hidden">
+                  <div class="flex-shrink-0 w-14 text-center">
+                    <div class={`text-2xl font-bold font-mono ${p.confidence >= 75 ? 'text-almanac-green' : p.confidence >= 50 ? 'text-almanac-amber' : 'text-almanac-red'}`}>
+                      {p.confidence}<span class="text-sm">%</span>
+                    </div>
+                    {delta !== 0 && (
+                      <div class={`text-[10px] font-mono mt-0.5 ${delta > 0 ? 'text-almanac-green' : 'text-almanac-red'}`}>
+                        {delta > 0 ? '+' : ''}{delta}
+                      </div>
+                    )}
+                  </div>
+                  <div class="flex-1 min-w-0">
+                    <p class="text-sm font-medium leading-snug">{p.claim}</p>
+                    <div class="flex flex-wrap items-center gap-2 mt-1.5 text-xs text-almanac-muted">
+                      <span class="px-1.5 py-0.5 rounded bg-almanac-border text-[10px]">{p.category}</span>
+                      <span>Horizon: {p.horizon}</span>
+                      <span>Updated: {p.lastUpdated}</span>
+                    </div>
+                  </div>
+                  <svg class="w-4 h-4 text-almanac-muted flex-shrink-0 mt-1 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+                </summary>
+                <div class="px-4 pb-4 border-t border-almanac-border/50 pt-3 ml-[72px]">
+                  <p class="text-sm text-almanac-muted mb-3"><strong class="text-almanac-text">Reasoning:</strong> {p.reasoning}</p>
+                  <p class="text-xs text-almanac-muted italic">Evidence trail will populate as the pipeline runs daily. Click to see signals that drove this prediction.</p>
                 </div>
-              </div>
-
-              <!-- Confidence bar -->
-              <div class="flex-shrink-0 hidden md:block w-32">
-                <div class="w-full h-3 rounded-full bg-almanac-border overflow-hidden">
-                  <div
-                    class={`h-full rounded-full transition-all duration-500 ${p.confidence >= 75 ? 'bg-almanac-green' : p.confidence >= 60 ? 'bg-almanac-amber' : 'bg-almanac-red'}`}
-                    style={`width: ${p.confidence}%`}
-                  ></div>
-                </div>
-                <div class="flex justify-between text-xs text-almanac-muted mt-1 font-mono">
-                  <span>0</span>
-                  <span>100</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-      })}
-    </div>
+              </details>
+            );
+          })}
+        </div>
+      </div>
+    </FadeIn>
 
     <!-- Methodology note -->
-    <div class="mt-12 p-6 rounded-xl border border-almanac-border bg-almanac-surface/50">
-      <h3 class="font-semibold mb-2" data-en="How confidence scores work" data-zh="置信度评分机制">How confidence scores work</h3>
-      <p class="text-sm text-almanac-muted leading-relaxed" data-en="Each prediction carries a probability estimate (0-100%) that updates daily as new evidence arrives. A 70% score means we'd expect this outcome to occur in roughly 7 out of 10 similar scenarios. Scores are updated via LLM-evaluated signal analysis with horizon-scaled dampening (near-term predictions can shift more than long-range ones) — near-term predictions can shift significantly from a single signal, while 10-year predictions move slowly. We track our calibration publicly: when we say 70%, it should happen ~70% of the time." data-zh="每项预测都有一个概率估计（0-100%），随新证据每日更新。70%的评分意味着在大约10个类似情景中，我们预计有7个会出现该结果。评分通过基于LLM评估的信号分析更新，并采用时间线缩放衰减（近期预测的变化幅度大于长期预测）——近期预测可能因单个信号而显著变化，而10年期预测则变化缓慢。我们公开追踪校准情况：当我们说70%时，它应该在约70%的情况下发生。">
-        Each prediction carries a probability estimate (0-100%) that updates daily as new evidence arrives.
-        A 70% score means we'd expect this outcome to occur in roughly 7 out of 10 similar scenarios.
-        Scores are updated via LLM-evaluated signal analysis with horizon-scaled dampening (near-term predictions can shift more than long-range ones) — near-term predictions
-        can shift significantly from a single signal, while 10-year predictions move slowly.
-        We track our calibration publicly: when we say 70%, it should happen ~70% of the time.
-      </p>
-    </div>
+    <FadeIn delay={200}>
+      <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface/50">
+        <h3 class="font-semibold mb-2" data-en="How confidence scores work" data-zh="置信度评分机制">How confidence scores work</h3>
+        <p class="text-sm text-almanac-muted leading-relaxed" data-en="Each prediction carries a probability estimate (0-100%) that updates daily as new evidence arrives. Scores are updated via LLM-evaluated signal analysis with horizon-scaled dampening (near-term predictions can shift more than long-range ones). Maximum daily movement is +/-5 percentage points. 30-day predictions resolve against specific, pre-committed criteria — the first ones resolve April 20, 2026." data-zh="每项预测都有一个概率估计（0-100%），随着每日新证据到来而更新。通过LLM评估信号分析更新评分，配合时间范围衰减（近期预测变化幅度大于远期）。每日最大变动为+/-5个百分点。30天预测按照预先确定的标准解决——第一批将于2026年4月20日到期。">
+          Each prediction carries a probability estimate (0-100%) that updates daily as new evidence arrives. Scores are updated via LLM-evaluated signal analysis with horizon-scaled dampening (near-term predictions can shift more than long-range ones). Maximum daily movement is +/-5 percentage points. 30-day predictions resolve against specific, pre-committed criteria — the first ones resolve April 20, 2026.
+        </p>
+      </div>
+    </FadeIn>
 
   </div>
 
