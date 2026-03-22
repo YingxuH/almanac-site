@@ -125,21 +125,24 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
           </div>
         </div>
 
-        <!-- Right: Gauge + mini stats -->
-        <div class="lg:col-span-2 flex flex-col items-center gap-6">
+        <!-- Right: Gauge + context + mini stats -->
+        <div class="lg:col-span-2 flex flex-col items-center gap-4">
           <ConfidenceGauge value={avgConf} size={240} />
+          <p class="text-xs text-almanac-muted text-center max-w-[220px] leading-relaxed" data-en="Average across 50 predictions. Near 50% = genuine uncertainty, not low confidence. That's the point." data-zh="50项预测的平均值。接近50% = 真正的不确定性，不是低信心。这正是关键所在。">
+            Average across 50 predictions. Near 50% = genuine uncertainty, not low confidence. That's the point.
+          </p>
           <div class="grid grid-cols-3 gap-4 w-full max-w-xs">
             <div class="text-center">
               <div class="text-xl font-bold font-mono text-almanac-accent">{totalPreds}</div>
               <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Predictions" data-zh="预测数">Predictions</div>
             </div>
             <div class="text-center">
-              <div class="text-xl font-bold font-mono text-almanac-green">0.155</div>
-              <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Brier Score" data-zh="布里尔分数">Brier Score</div>
+              <div class="text-xl font-bold font-mono text-almanac-green">80%</div>
+              <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Direction Accuracy" data-zh="方向准确率">Direction Accuracy</div>
             </div>
             <div class="text-center">
               <div class="text-xl font-bold font-mono">15+</div>
-              <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Sources" data-zh="数据源">Sources</div>
+              <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Daily Sources" data-zh="每日数据源">Daily Sources</div>
             </div>
           </div>
         </div>
@@ -212,25 +215,49 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
     </section>
   </FadeIn>
 
-  <!-- Trust bar -->
+  <!-- Trust bar — plain English, not jargon -->
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-4">
     <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-almanac-muted">
       <a href="/almanac-site/validation" class="flex items-center gap-1.5 hover:text-almanac-accent transition-colors">
         <svg class="w-3.5 h-3.5 text-almanac-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        <span data-en="Brier score 0.155 on 20 backtested predictions" data-zh="20项回测预测的布里尔分数 0.155">Brier score 0.155 on 20 backtested predictions</span>
+        <span data-en="Tested on 20 real events — got direction right 80% of the time" data-zh="在20个真实事件上测试——方向准确率80%">Tested on 20 real events — got direction right 80% of the time</span>
       </a>
       <span class="flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5 text-almanac-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        <span data-en="Bayesian updates with 5-persona forecaster panel" data-zh="贝叶斯更新 + 5人预测面板">Bayesian updates with 5-persona forecaster panel</span>
+        <span data-en="5 AI analysts debate each prediction daily" data-zh="5个AI分析师每天辩论每项预测">5 AI analysts debate each prediction daily</span>
       </span>
       <span class="flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5 text-almanac-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-        <span data-en="Open methodology — we publish our misses" data-zh="公开方法论 — 我们公开失误">Open methodology — we publish our misses</span>
+        <span data-en="We publish our misses — see all 4 we got wrong" data-zh="我们公开失误——查看我们的4次错误">We publish our misses — see all 4 we got wrong</span>
       </span>
     </div>
   </div>
 
-  <!-- Prediction cards with sparklines -->
+  <!-- What it means for your career — the conversion hook -->
+  <FadeIn>
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+      <h2 class="text-2xl font-bold mb-6 text-center" data-en="What the data says about your career" data-zh="数据对你的职业意味着什么">What the data says about your career</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface">
+          <div class="text-2xl font-bold font-mono text-almanac-green mb-2">60%</div>
+          <p class="text-sm font-medium mb-1" data-en="More developers, not fewer" data-zh="更多开发者，而不是更少">More developers, not fewer</p>
+          <p class="text-xs text-almanac-muted" data-en="Our models suggest total developer headcount will likely GROW by 2030. Every previous automation wave expanded employment in the affected sector." data-zh="我们的模型表明，到2030年开发者总数可能会增长。每一次自动化浪潮都扩大了相关行业的就业。">Our models suggest total developer headcount will likely GROW by 2030. Every previous automation wave expanded employment in the affected sector.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface">
+          <div class="text-2xl font-bold font-mono text-almanac-amber mb-2">92%</div>
+          <p class="text-sm font-medium mb-1" data-en="Systems skills pay more" data-zh="系统技能更值钱">Systems skills pay more</p>
+          <p class="text-xs text-almanac-muted" data-en="Rust, C++, and kernel development will command higher premiums as AI handles high-level code generation. Deep technical skills become more valuable, not less." data-zh="随着AI处理高级代码生成，Rust、C++和内核开发将获得更高溢价。深度技术技能变得更有价值。">Rust, C++, and kernel development will command higher premiums as AI handles high-level code generation. Deep technical skills become more valuable, not less.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface">
+          <div class="text-2xl font-bold font-mono text-almanac-red mb-2">62%</div>
+          <p class="text-sm font-medium mb-1" data-en="The floor drops, the ceiling rises" data-zh="底部下降，顶部上升">The floor drops, the ceiling rises</p>
+          <p class="text-xs text-almanac-muted" data-en="Bottom-quartile developer salaries likely decline as AI commoditizes routine work — but Staff+ engineer pay is expected to rise 20%+. The gap widens. Upskilling matters more than ever." data-zh="AI使常规工作商品化，底部薪资可能下降——但Staff+工程师薪酬预计上涨20%以上。差距在扩大。提升技能比以往更重要。">Bottom-quartile developer salaries likely decline as AI commoditizes routine work — but Staff+ engineer pay is expected to rise 20%+. The gap widens. Upskilling matters more than ever.</p>
+        </div>
+      </div>
+    </section>
+  </FadeIn>
+
+  <!-- Prediction cards -->
   <section class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
     <FadeIn>
       <div class="flex items-end justify-between mb-8">
@@ -316,30 +343,6 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
       <h2 class="text-2xl font-bold mb-2" data-en="Data Sources" data-zh="数据来源">Data Sources</h2>
       <p class="text-almanac-muted text-sm mb-8" data-en="15 feeds monitored daily" data-zh="每日监控 15 个数据源">15 feeds monitored daily</p>
       <SourceOrbit />
-    </section>
-  </FadeIn>
-
-  <!-- What it means for your career — translation layer for non-experts -->
-  <FadeIn>
-    <section class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-      <h2 class="text-2xl font-bold mb-6 text-center" data-en="What the data says about your career" data-zh="数据对你的职业意味着什么">What the data says about your career</h2>
-      <div class="grid sm:grid-cols-3 gap-4">
-        <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface">
-          <div class="text-2xl font-bold font-mono text-almanac-green mb-2">60%</div>
-          <p class="text-sm font-medium mb-1" data-en="More developers, not fewer" data-zh="更多开发者，而不是更少">More developers, not fewer</p>
-          <p class="text-xs text-almanac-muted" data-en="Our models suggest total developer headcount will likely GROW by 2030. Every previous automation wave expanded employment in the affected sector." data-zh="我们的模型表明，到2030年开发者总数可能会增长。每一次自动化浪潮都扩大了相关行业的就业。">Our models suggest total developer headcount will likely GROW by 2030. Every previous automation wave expanded employment in the affected sector.</p>
-        </div>
-        <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface">
-          <div class="text-2xl font-bold font-mono text-almanac-amber mb-2">92%</div>
-          <p class="text-sm font-medium mb-1" data-en="Systems skills pay more" data-zh="系统技能更值钱">Systems skills pay more</p>
-          <p class="text-xs text-almanac-muted" data-en="Rust, C++, and kernel development will command higher premiums as AI handles high-level code generation. Deep technical skills become more valuable, not less." data-zh="随着AI处理高级代码生成，Rust、C++和内核开发将获得更高溢价。深度技术技能变得更有价值。">Rust, C++, and kernel development will command higher premiums as AI handles high-level code generation. Deep technical skills become more valuable, not less.</p>
-        </div>
-        <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface">
-          <div class="text-2xl font-bold font-mono text-almanac-red mb-2">62%</div>
-          <p class="text-sm font-medium mb-1" data-en="The floor drops, the ceiling rises" data-zh="底部下降，顶部上升">The floor drops, the ceiling rises</p>
-          <p class="text-xs text-almanac-muted" data-en="Bottom-quartile developer salaries likely decline as AI commoditizes routine work — but Staff+ engineer pay is expected to rise 20%+. The gap widens. Upskilling matters more than ever." data-zh="AI使常规工作商品化，底部薪资可能下降——但Staff+工程师薪酬预计上涨20%以上。差距在扩大。提升技能比以往更重要。">Bottom-quartile developer salaries likely decline as AI commoditizes routine work — but Staff+ engineer pay is expected to rise 20%+. The gap widens. Upskilling matters more than ever.</p>
-        </div>
-      </div>
     </section>
   </FadeIn>
 
