@@ -2,37 +2,217 @@
 import Base from '../layouts/Base.astro';
 import FadeIn from '../components/FadeIn.astro';
 
-const longHorizon = [
-  { id: 1, claim: "By 2028, >50% of production code at Fortune 500 companies will be AI-generated", confidence: 72, previous: 72, category: "AI Coding", horizon: "2028", lastUpdated: "2026-03-22", reasoning: "Multi-agent coding factories are accelerating enterprise adoption.", evidence: [] },
-  { id: 2, claim: "The role of 'Computer Programmer' as distinct job title will cease at large companies by 2031", confidence: 68, previous: 68, category: "Labor", horizon: "2031", lastUpdated: "2026-03-22", reasoning: "Domain experts writing production code via AI tools eliminates standalone syntax translation.", evidence: [] },
-  { id: 3, claim: "AI-fluent engineers will earn $40K+ more than non-AI-fluent peers by 2029", confidence: 45, previous: 45, category: "Compensation", horizon: "2029", lastUpdated: "2026-03-22", reasoning: "AI fluency may commoditize rather than command a premium as it becomes baseline.", evidence: [] },
-  { id: 4, claim: "Senior engineer shortage will be the dominant talent crisis by 2030-2032", confidence: 82, previous: 82, category: "Labor", horizon: "2030-2032", lastUpdated: "2026-03-22", reasoning: "Infinite junior-level AI generation but finite senior review capacity.", evidence: [] },
-  { id: 5, claim: "Multi-agent AI systems will handle >30% of all QA work at enterprises by 2028", confidence: 78, previous: 78, category: "Automation", horizon: "2028", lastUpdated: "2026-03-22", reasoning: "QA/testing is the most automatable part of SDLC — repetitive, rule-bound.", evidence: [] },
-  { id: 6, claim: "A major AI-generated code security breach will occur before 2029", confidence: 88, previous: 88, category: "Security", horizon: "2029", lastUpdated: "2026-03-22", reasoning: "29.1% of AI-generated Python code contains vulnerabilities. 90% of Fortune 100 use Copilot.", evidence: [] },
-  { id: 7, claim: "Software engineers will spend more time reviewing AI code than writing code by 2032", confidence: 55, previous: 55, category: "Workflow", horizon: "2032", lastUpdated: "2026-03-22", reasoning: "Developers report >80% of day reviewing AI output. At 70-80% AI generation, this shifts.", evidence: [] },
-  { id: 8, claim: "The most valuable tech skill by 2036 will be 'AI system judgment', not coding", confidence: 62, previous: 62, category: "Skills", horizon: "2036", lastUpdated: "2026-03-22", reasoning: "As AI handles execution, humans retain value through judgment — craft to direction.", evidence: [] },
+const predictions = [
+  {
+    id: 1,
+    claim: "By 2030, AI coding tool revenue growth will have plateaued below 15% YoY, resembling the RPA hype cycle",
+    confidence: 35,
+    previous: 35,
+    category: "AI Coding",
+    horizon: "2030",
+    lastUpdated: "2026-03-21",
+    reasoning: "AI coding tools may hit a ceiling on what they can reliably automate. Like RPA in 2018-2022, initial excitement gives way to disillusionment as maintenance costs and hallucination-driven bugs accumulate.",
+    consensus: "AI coding is an infinite growth market that will only accelerate.",
+    contrarian: "Enterprise adoption curves flatten when the easy wins are captured. Hallucination cleanup costs, security review overhead, and vendor lock-in friction slow growth to mature-market rates.",
+    resolution: "Combined revenue growth of top 5 AI coding tool providers falls below 15% YoY per earnings calls or market research by end of 2030."
+  },
+  {
+    id: 2,
+    claim: "Junior developer hiring at FAANG companies will be HIGHER in 2029 than in 2024, not lower",
+    confidence: 30,
+    previous: 30,
+    category: "Labor",
+    horizon: "2029",
+    lastUpdated: "2026-03-21",
+    reasoning: "AI makes junior devs far more productive, so companies hire MORE of them at lower cost. The 'AI replaces juniors' narrative ignores Jevons paradox -- cheaper labor input means more demand, not less.",
+    consensus: "AI replaces junior developers. Entry-level hiring collapses.",
+    contrarian: "Every productivity revolution in history increased total employment in the affected sector. Cheaper, AI-augmented juniors expand what's economically viable to build. Demand for software is not fixed.",
+    resolution: "Aggregate entry-level SWE headcount at FAANG in 2029 exceeds 2024 levels per LinkedIn Workforce Reports or earnings disclosures."
+  },
+  {
+    id: 3,
+    claim: "The median salary premium for 'AI engineering' skills will fall below $10K by 2029 as AI fluency becomes table stakes",
+    confidence: 45,
+    previous: 45,
+    category: "Compensation",
+    horizon: "2029",
+    lastUpdated: "2026-03-21",
+    reasoning: "When everyone can use AI tools, the premium collapses -- just like 'internet skills' in 2005 or 'mobile development' by 2018.",
+    consensus: "AI-fluent engineers command massive, growing premiums.",
+    contrarian: "Premiums exist for scarcity. AI tools are getting easier to use, not harder. Within 3 years, not using AI will be like not using an IDE -- unthinkable, but not special.",
+    resolution: "Levels.fyi, Glassdoor, or major comp survey (n>5000) shows <$10K median total comp difference between 'AI engineer' and 'software engineer' roles at comparable experience by end of 2029."
+  },
+  {
+    id: 4,
+    claim: "Open-source AI models will LOSE market share in enterprise coding tools to proprietary models between 2026 and 2030",
+    confidence: 40,
+    previous: 40,
+    category: "AI Coding",
+    horizon: "2030",
+    lastUpdated: "2026-03-21",
+    reasoning: "Enterprises care about liability, support, and integration -- not model weights. As coding agents handle critical workflows, enterprises pay the proprietary premium for contractual guarantees.",
+    consensus: "Open-source AI models inevitably win, just like Linux won servers.",
+    contrarian: "Linux won because servers are infrastructure. AI coding agents are liability-bearing decision-makers. Enterprises want someone to sue when the agent introduces a vulnerability. Open-source wins hobbyists; proprietary wins the Fortune 500.",
+    resolution: "Enterprise AI coding tool market share (by revenue) for proprietary-model tools exceeds their 2026 share per Gartner/IDC by 2031."
+  },
+  {
+    id: 5,
+    claim: "AI-generated code will have a LOWER average CVE density than human-written code by 2029",
+    confidence: 35,
+    previous: 35,
+    category: "Security",
+    horizon: "2029",
+    lastUpdated: "2026-03-21",
+    reasoning: "Models trained on vulnerability databases internalize secure patterns faster than humans learn them. The 'AI code is insecure' narrative is based on 2023-2025 benchmarks; models improve while human error rates stay constant.",
+    consensus: "AI makes code less secure. AI-generated vulnerabilities are a ticking time bomb.",
+    contrarian: "Humans write the same buffer overflows and SQL injections decade after decade. AI models can be trained on every CVE ever filed. The question is whether AI vulnerability rates drop faster than they improve -- and the answer is probably yes.",
+    resolution: "Peer-reviewed study or major security vendor report finds AI-generated code has fewer CVEs per KLOC than human-written code in equivalent production codebases by end of 2029."
+  },
+  {
+    id: 6,
+    claim: "Total global software developer headcount will be HIGHER in 2030 than in 2025",
+    confidence: 60,
+    previous: 60,
+    category: "Labor",
+    horizon: "2030",
+    lastUpdated: "2026-03-21",
+    reasoning: "Every wave of developer productivity tools (compilers, IDEs, cloud, open-source) increased total employment. AI is a productivity multiplier, not a replacement. More software gets built, more jobs are created.",
+    consensus: "AI causes mass developer unemployment. 50-80% of coding jobs disappear.",
+    contrarian: "The demand for software is effectively infinite. Most businesses still run on spreadsheets and manual processes. AI lowers the cost of software, which increases demand. ATMs didn't kill bank tellers; they made branches cheaper, so banks opened more branches.",
+    resolution: "BLS, Eurostat, or credible global estimate shows total software developer employment in 2030 exceeding 2025 levels."
+  },
+  {
+    id: 7,
+    claim: "By 2028, at least 3 major companies will publicly roll back autonomous AI coding agent deployments due to quality/cost issues",
+    confidence: 50,
+    previous: 50,
+    category: "Automation",
+    horizon: "2028",
+    lastUpdated: "2026-03-21",
+    reasoning: "Autonomous agents sound great in demos but create unmaintainable code at scale. Technical debt accumulates silently until a crisis forces rollback.",
+    consensus: "Autonomous coding agents are the future and adoption only accelerates.",
+    contrarian: "We have seen this movie before: microservices, blockchain, NoSQL -- technologies adopted in hype, rolled back in pain. Autonomous agents that write code nobody understands will create a maintenance crisis that forces public retreats.",
+    resolution: "3+ companies with >1000 engineers publicly announce scaling back or discontinuing autonomous AI coding agent programs per press releases or credible journalism by end of 2028."
+  },
+  {
+    id: 8,
+    claim: "China will produce the leading AI coding tool by market share outside the US by 2029",
+    confidence: 40,
+    previous: 40,
+    category: "Geopolitics",
+    horizon: "2029",
+    lastUpdated: "2026-03-21",
+    reasoning: "DeepSeek, Alibaba, and ByteDance are investing massively. Export controls push China to build independent tooling. China has more developers than the US.",
+    consensus: "US companies (GitHub, Cursor, OpenAI) dominate AI coding tools globally.",
+    contrarian: "The non-US developer market is larger than the US market. Chinese tools will be cheaper, work offline, respect data sovereignty, and be optimized for non-English languages. DeepSeek R1 already proved China can match frontier performance at a fraction of the cost.",
+    resolution: "A Chinese-origin AI coding tool holds largest market share by MAU or revenue in 3+ non-US countries with >100K developers per credible analyst report by end of 2029."
+  },
+  {
+    id: 9,
+    claim: "Natural language will NOT replace code as the primary software specification medium by 2032",
+    confidence: 70,
+    previous: 70,
+    category: "Workflow",
+    horizon: "2032",
+    lastUpdated: "2026-03-21",
+    reasoning: "Natural language is fundamentally ambiguous. Formal languages exist because precision matters. Engineers will still write code -- just different code.",
+    consensus: "Natural language programming will make traditional coding obsolete.",
+    contrarian: "Try specifying a distributed consensus algorithm in English. Or a financial reconciliation pipeline. Natural language works for CRUD apps and scripts. For anything requiring precision, you need formal specification. The 'end of code' narrative confuses demo complexity with production complexity.",
+    resolution: ">50% of production software artifacts at Fortune 500 companies are still primarily specified in formal programming languages (not NL prompts) as of 2032 per developer surveys or enterprise tooling reports."
+  },
+  {
+    id: 10,
+    claim: "The 'vibe coding' movement will trigger regulatory intervention in at least one G7 country by 2028",
+    confidence: 30,
+    previous: 30,
+    category: "Regulation",
+    horizon: "2028",
+    lastUpdated: "2026-03-21",
+    reasoning: "Non-engineers building production systems they don't understand will cause failures in healthcare, finance, or infrastructure. This triggers professional licensing or AI-code liability laws.",
+    consensus: "Vibe coding democratizes software development. More builders is always good.",
+    contrarian: "When unqualified people build medical record systems, trading platforms, or infrastructure controllers using AI they don't understand, people get hurt. The first major incident triggers a regulatory response -- professional licensing for software, mandatory code audits, or AI-code liability frameworks.",
+    resolution: "Any G7 country passes legislation or regulatory rule specifically addressing AI-generated code quality, liability, or mandatory review by end of 2028."
+  },
+  {
+    id: 11,
+    claim: "Cursor will not exist as an independent entity by end of 2028 (acquired or defunct)",
+    confidence: 55,
+    previous: 55,
+    category: "Market",
+    horizon: "2028",
+    lastUpdated: "2026-03-21",
+    reasoning: "IDE-layer AI tools are a thin wrapper over foundation models. When model providers ship native IDE features, standalone AI IDE companies get squeezed. Cursor's $50B valuation is the peak.",
+    consensus: "Cursor is the next great developer platform. $50B+ valuation is justified.",
+    contrarian: "Cursor's moat is UX, not technology. OpenAI, Google, and Microsoft are all shipping competing IDE integrations. The model providers will vertically integrate, just like Google killed standalone map apps and Apple killed standalone music players. Thin wrappers don't survive platform shifts.",
+    resolution: "Anysphere (Cursor's parent) is acquired, merges, or ceases operations by end of 2028."
+  },
+  {
+    id: 12,
+    claim: "By 2030, >30% of professional developers will primarily use AI tools from a NON-US company",
+    confidence: 45,
+    previous: 45,
+    category: "Geopolitics",
+    horizon: "2030",
+    lastUpdated: "2026-03-21",
+    reasoning: "US dominance in AI tooling is not guaranteed. DeepSeek R1 matches frontier US models at a fraction of the cost. European and Asian developers may prefer local alternatives.",
+    consensus: "US AI companies will dominate developer tools globally, like they dominate cloud.",
+    contrarian: "Cloud had massive infrastructure moats. AI coding tools do not -- they are software on top of downloadable model weights. Sovereignty concerns, GDPR, cost pressure, and non-English optimization all favor local alternatives. The next Copilot may be European or Chinese.",
+    resolution: "Global developer survey (n>10000) or market analysis shows >30% of professional developers primarily using AI coding tools from non-US companies by end of 2030."
+  },
+  {
+    id: 13,
+    claim: "The senior engineer shortage will NOT materialize: AI will democratize senior-level judgment by 2030",
+    confidence: 35,
+    previous: 35,
+    category: "Labor",
+    horizon: "2030",
+    lastUpdated: "2026-03-21",
+    reasoning: "AI doesn't just replace junior work -- it codifies senior patterns. Architecture review, system design, and debugging heuristics get embedded in AI tools, democratizing expertise.",
+    consensus: "Senior engineers become the critical bottleneck as AI handles junior work.",
+    contrarian: "The premise that AI only automates junior tasks is wrong. AI is already helping with architecture decisions, code review, and system design. Senior judgment is pattern recognition -- exactly what LLMs excel at. The shortage never materializes because AI fills the gap.",
+    resolution: "'Senior software engineer' does NOT appear in top 10 hardest-to-fill tech positions in Hays, Robert Half, or equivalent reports for 2029 or 2030."
+  },
+  {
+    id: 14,
+    claim: "At least one major AI lab will suffer a sustained >6 month plateau in coding benchmark performance before 2028",
+    confidence: 55,
+    previous: 55,
+    category: "AI Capability",
+    horizon: "2028",
+    lastUpdated: "2026-03-21",
+    reasoning: "Scaling laws have limits. Code training data is finite. The next capability jump may require architectural breakthroughs that don't arrive on schedule.",
+    consensus: "AI coding capabilities will improve steadily and rapidly through 2030+.",
+    contrarian: "We are in the steep part of the S-curve and everyone assumes it continues. But code is a constrained domain -- there are only so many GitHub repos to train on. Synthetic data helps but introduces distribution shift. A plateau would deflate the entire 'AI replaces programmers' narrative overnight.",
+    resolution: "Any top-3 AI lab's flagship model shows <2% improvement on SWE-bench, HumanEval, or equivalent benchmarks across two consecutive major releases spanning >6 months before end of 2028."
+  },
+  {
+    id: 15,
+    claim: "The biggest economic winners from AI coding tools by 2030 will be non-tech companies, not tech companies",
+    confidence: 50,
+    previous: 50,
+    category: "Market",
+    horizon: "2030",
+    lastUpdated: "2026-03-21",
+    reasoning: "Tech companies already have great developers. AI coding tools give the biggest marginal improvement to companies with weak engineering orgs -- banks, manufacturers, retailers, governments.",
+    consensus: "Silicon Valley and tech companies benefit most from AI coding tools.",
+    contrarian: "This is basic economics: diminishing marginal returns. A tool that makes a 10x engineer 12x productive adds 20%. A tool that makes a 1x enterprise developer 5x productive adds 400%. The real AI coding revolution happens at JPMorgan, Toyota, and Walmart -- not at Google.",
+    resolution: "McKinsey, BCG, or equivalent consultancy analysis shows non-tech-sector companies captured more economic value from AI coding tools than tech-sector companies by 2030."
+  }
 ];
 
-const shortHorizon = [
-  { id: 9, claim: "A top-5 cloud provider will GA a coding agent product (not beta) by April 20, 2026", confidence: 72, previous: 72, category: "30-Day", horizon: "2026-04-20", lastUpdated: "2026-03-22", reasoning: "AWS, Azure, GCP all have preview agents. GA announcement is plausible within 30 days.", resolution: "Press release or product page from AWS/Azure/GCP/Oracle/IBM.", evidence: [] },
-  { id: 10, claim: "GitHub Copilot MAU will exceed 20M by April 20, 2026", confidence: 65, previous: 65, category: "30-Day", horizon: "2026-04-20", lastUpdated: "2026-03-22", reasoning: "Was at 20M in July 2025. Growth rate supports exceeding this but reporting lag is uncertain.", resolution: "Earnings call, blog post, or press release from Microsoft/GitHub.", evidence: [] },
-  { id: 11, claim: "A Fortune 500 company will publicly attribute headcount reduction to AI coding productivity", confidence: 55, previous: 55, category: "30-Day", horizon: "2026-04-20", lastUpdated: "2026-03-22", reasoning: "Meta and Block have cited AI. Explicit 'AI coding' attribution in SEC filing is harder.", resolution: "SEC filing, earnings call, or official statement from a Fortune 500 company.", evidence: [] },
-  { id: 12, claim: "GPT-4-class API inference pricing drops below $2.00/1M output tokens", confidence: 60, previous: 60, category: "30-Day", horizon: "2026-04-20", lastUpdated: "2026-03-22", reasoning: "Pricing is falling fast but GPT-4-class quality at <$2 requires open-source catch-up.", resolution: "Public API pricing page from any provider offering GPT-4-equivalent quality.", evidence: [] },
-  { id: 13, claim: "A developer survey (n>5000) reports >50% daily AI coding tool usage", confidence: 78, previous: 78, category: "30-Day", horizon: "2026-04-20", lastUpdated: "2026-03-22", reasoning: "Pragmatic Engineer survey already shows 95% weekly. Daily >50% is the tighter bar.", resolution: "Stack Overflow, JetBrains, or equivalent survey with n>5000.", evidence: [] },
-];
-
-const allPreds = [...longHorizon, ...shortHorizon];
-const movedUp = allPreds.filter(p => p.confidence > p.previous).length;
+const avgConfidence = Math.round(predictions.reduce((sum, p) => sum + p.confidence, 0) / predictions.length);
+const highContrarian = predictions.filter(p => p.confidence >= 50).length;
+const lowContrarian = predictions.filter(p => p.confidence < 40).length;
 ---
-<Base title="Prediction Tracker — Almanac">
+<Base title="Contrarian Predictions -- Almanac">
 
   <div class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
 
     <FadeIn>
       <div class="mb-8">
-        <h1 class="text-3xl font-bold mb-2" data-en="Prediction Tracker" data-zh="预测追踪器">Prediction Tracker</h1>
-        <p class="text-almanac-muted" data-en="13 specific, falsifiable forecasts. 8 long-horizon (2028-2036) + 5 short-horizon (resolving April 2026). Updated daily via LLM-evaluated signal analysis." data-zh="13项具体可证伪的预测。8项长期预测（2028-2036）+ 5项短期预测（2026年4月到期）。每日通过LLM评估信号分析更新。">
-          13 specific, falsifiable forecasts. 8 long-horizon (2028-2036) + 5 short-horizon (resolving April 2026). Updated daily via LLM-evaluated signal analysis.
+        <h1 class="text-3xl font-bold mb-2" data-en="Contrarian Prediction Tracker" data-zh="逆向预测追踪器">Contrarian Prediction Tracker</h1>
+        <p class="text-almanac-muted" data-en="15 predictions that bet against the consensus. These are not what we WANT to happen -- they are where we think the crowd might be wrong. Updated daily." data-zh="15项逆向共识预测。这些不是我们希望发生的——而是我们认为大众可能判断错误的地方。每日更新。">
+          15 predictions that bet against the consensus. These are not what we WANT to happen -- they are where we think the crowd might be wrong. Updated daily.
         </p>
       </div>
     </FadeIn>
@@ -41,75 +221,49 @@ const movedUp = allPreds.filter(p => p.confidence > p.previous).length;
     <FadeIn delay={50}>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10">
         <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
-          <div class="text-2xl font-bold font-mono text-almanac-accent">{allPreds.length}</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Active Predictions" data-zh="活跃预测">Active Predictions</div>
+          <div class="text-2xl font-bold font-mono text-almanac-accent">{predictions.length}</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Contrarian Bets" data-zh="逆向预测">Contrarian Bets</div>
         </div>
         <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
-          <div class="text-2xl font-bold font-mono text-almanac-green">5</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Resolving in 30 Days" data-zh="30天内到期">Resolving in 30 Days</div>
+          <div class="text-2xl font-bold font-mono text-almanac-amber">{avgConfidence}%</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Avg. Confidence" data-zh="平均置信度">Avg. Confidence</div>
         </div>
         <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
-          <div class="text-2xl font-bold font-mono">0.155</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Hindcast Brier Score" data-zh="回测布里尔分数">Hindcast Brier Score</div>
+          <div class="text-2xl font-bold font-mono text-almanac-green">{highContrarian}</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="More Likely Than Not" data-zh="可能性过半">More Likely Than Not</div>
         </div>
         <div class="p-4 rounded-lg border border-almanac-border bg-almanac-surface text-center">
-          <div class="text-2xl font-bold font-mono">0</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Resolved (tracking)" data-zh="已解决（追踪中）">Resolved (tracking)</div>
+          <div class="text-2xl font-bold font-mono text-almanac-red">{lowContrarian}</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Long Shots (< 40%)" data-zh="低概率 (< 40%)">Long Shots (&lt; 40%)</div>
         </div>
       </div>
     </FadeIn>
 
-    <!-- 30-Day Predictions (highlighted) -->
+    <!-- Manifesto -->
+    <FadeIn delay={75}>
+      <div class="p-5 rounded-xl border border-almanac-amber/30 bg-almanac-amber/5 mb-10">
+        <h3 class="font-semibold mb-2 text-almanac-amber" data-en="Why contrarian?" data-zh="为什么逆向思维？">Why contrarian?</h3>
+        <p class="text-sm text-almanac-muted leading-relaxed" data-en="Prediction markets are only useful when they surface genuine disagreement. If every forecast says 'AI will transform everything,' you learn nothing. The interesting question is: where is the crowd wrong? These 15 predictions are designed to be uncomfortable. Some will be spectacularly wrong. But the ones that are right will be the most valuable forecasts we make." data-zh="预测市场只有在呈现真正分歧时才有用。如果每个预测都说"AI将改变一切"，你什么也学不到。有趣的问题是：大众在哪里判断错误？这15项预测旨在令人不安。有些会大错特错。但正确的那些将是我们做出的最有价值的预测。">
+          Prediction markets are only useful when they surface genuine disagreement. If every forecast says "AI will transform everything," you learn nothing. The interesting question is: where is the crowd wrong? These 15 predictions are designed to be uncomfortable. Some will be spectacularly wrong. But the ones that are right will be the most valuable forecasts we make.
+        </p>
+      </div>
+    </FadeIn>
+
+    <!-- Predictions -->
     <FadeIn delay={100}>
       <div class="mb-10">
         <div class="flex items-center gap-3 mb-4">
-          <div class="w-1.5 h-6 rounded-full bg-almanac-amber"></div>
-          <h2 class="text-xl font-bold" data-en="30-Day Predictions (resolving April 20, 2026)" data-zh="30天预测（2026年4月20日到期）">30-Day Predictions (resolving April 20, 2026)</h2>
-        </div>
-        <div class="space-y-3">
-          {shortHorizon.map(p => (
-            <details class="group rounded-xl border border-almanac-amber/20 bg-almanac-surface hover:border-almanac-amber/40 transition-colors">
-              <summary class="p-4 cursor-pointer flex items-start gap-4 list-none [&::-webkit-details-marker]:hidden">
-                <div class="flex-shrink-0 w-14 text-center">
-                  <div class={`text-2xl font-bold font-mono ${p.confidence >= 70 ? 'text-almanac-green' : p.confidence >= 50 ? 'text-almanac-amber' : 'text-almanac-red'}`}>
-                    {p.confidence}<span class="text-sm">%</span>
-                  </div>
-                </div>
-                <div class="flex-1 min-w-0">
-                  <p class="text-sm font-medium leading-snug">{p.claim}</p>
-                  <div class="flex items-center gap-2 mt-1.5 text-xs text-almanac-muted">
-                    <span class="px-1.5 py-0.5 rounded bg-almanac-amber/10 text-almanac-amber border border-almanac-amber/20 text-[10px]">30-DAY</span>
-                    <span>Resolves: {p.horizon}</span>
-                  </div>
-                </div>
-                <svg class="w-4 h-4 text-almanac-muted flex-shrink-0 mt-1 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
-              </summary>
-              <div class="px-4 pb-4 border-t border-almanac-border/50 pt-3 ml-[72px]">
-                <p class="text-sm text-almanac-muted mb-2"><strong class="text-almanac-text">Reasoning:</strong> {p.reasoning}</p>
-                <p class="text-sm text-almanac-muted"><strong class="text-almanac-text">Resolution criteria:</strong> {p.resolution}</p>
-                <p class="text-xs text-almanac-muted mt-2 italic">Evidence trail will populate as the pipeline runs daily.</p>
-              </div>
-            </details>
-          ))}
-        </div>
-      </div>
-    </FadeIn>
-
-    <!-- Long-Horizon Predictions -->
-    <FadeIn delay={150}>
-      <div class="mb-10">
-        <div class="flex items-center gap-3 mb-4">
           <div class="w-1.5 h-6 rounded-full bg-almanac-accent"></div>
-          <h2 class="text-xl font-bold" data-en="Long-Horizon Predictions (2028-2036)" data-zh="长期预测（2028-2036）">Long-Horizon Predictions (2028-2036)</h2>
+          <h2 class="text-xl font-bold" data-en="15 Contrarian Predictions (2028-2032)" data-zh="15项逆向预测（2028-2032）">15 Contrarian Predictions (2028-2032)</h2>
         </div>
         <div class="space-y-3">
-          {longHorizon.map(p => {
+          {predictions.map((p, i) => {
             const delta = p.confidence - p.previous;
             return (
               <details class="group rounded-xl border border-almanac-border bg-almanac-surface hover:border-almanac-muted/50 transition-colors">
                 <summary class="p-4 cursor-pointer flex items-start gap-4 list-none [&::-webkit-details-marker]:hidden">
                   <div class="flex-shrink-0 w-14 text-center">
-                    <div class={`text-2xl font-bold font-mono ${p.confidence >= 75 ? 'text-almanac-green' : p.confidence >= 50 ? 'text-almanac-amber' : 'text-almanac-red'}`}>
+                    <div class={`text-2xl font-bold font-mono ${p.confidence >= 55 ? 'text-almanac-green' : p.confidence >= 40 ? 'text-almanac-amber' : 'text-almanac-red'}`}>
                       {p.confidence}<span class="text-sm">%</span>
                     </div>
                     {delta !== 0 && (
@@ -121,16 +275,28 @@ const movedUp = allPreds.filter(p => p.confidence > p.previous).length;
                   <div class="flex-1 min-w-0">
                     <p class="text-sm font-medium leading-snug">{p.claim}</p>
                     <div class="flex flex-wrap items-center gap-2 mt-1.5 text-xs text-almanac-muted">
+                      <span class="px-1.5 py-0.5 rounded bg-almanac-amber/10 text-almanac-amber border border-almanac-amber/20 text-[10px]">CONTRARIAN</span>
                       <span class="px-1.5 py-0.5 rounded bg-almanac-border text-[10px]">{p.category}</span>
                       <span>Horizon: {p.horizon}</span>
-                      <span>Updated: {p.lastUpdated}</span>
                     </div>
                   </div>
                   <svg class="w-4 h-4 text-almanac-muted flex-shrink-0 mt-1 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
                 </summary>
                 <div class="px-4 pb-4 border-t border-almanac-border/50 pt-3 ml-[72px]">
-                  <p class="text-sm text-almanac-muted mb-3"><strong class="text-almanac-text">Reasoning:</strong> {p.reasoning}</p>
-                  <p class="text-xs text-almanac-muted italic">Evidence trail will populate as the pipeline runs daily. Click to see signals that drove this prediction.</p>
+                  <div class="space-y-3">
+                    <div>
+                      <p class="text-xs font-semibold text-almanac-red mb-1">The consensus says:</p>
+                      <p class="text-sm text-almanac-muted">{p.consensus}</p>
+                    </div>
+                    <div>
+                      <p class="text-xs font-semibold text-almanac-green mb-1">The contrarian case:</p>
+                      <p class="text-sm text-almanac-muted">{p.contrarian}</p>
+                    </div>
+                    <div>
+                      <p class="text-xs font-semibold text-almanac-text mb-1">Resolution criteria:</p>
+                      <p class="text-sm text-almanac-muted">{p.resolution}</p>
+                    </div>
+                  </div>
                 </div>
               </details>
             );
@@ -142,9 +308,9 @@ const movedUp = allPreds.filter(p => p.confidence > p.previous).length;
     <!-- Methodology note -->
     <FadeIn delay={200}>
       <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface/50">
-        <h3 class="font-semibold mb-2" data-en="How confidence scores work" data-zh="置信度评分机制">How confidence scores work</h3>
-        <p class="text-sm text-almanac-muted leading-relaxed" data-en="Each prediction carries a probability estimate (0-100%) that updates daily as new evidence arrives. Scores are updated via LLM-evaluated signal analysis with horizon-scaled dampening (near-term predictions can shift more than long-range ones). Maximum daily movement is +/-5 percentage points. 30-day predictions resolve against specific, pre-committed criteria — the first ones resolve April 20, 2026." data-zh="每项预测都有一个概率估计（0-100%），随着每日新证据到来而更新。通过LLM评估信号分析更新评分，配合时间范围衰减（近期预测变化幅度大于远期）。每日最大变动为+/-5个百分点。30天预测按照预先确定的标准解决——第一批将于2026年4月20日到期。">
-          Each prediction carries a probability estimate (0-100%) that updates daily as new evidence arrives. Scores are updated via LLM-evaluated signal analysis with horizon-scaled dampening (near-term predictions can shift more than long-range ones). Maximum daily movement is +/-5 percentage points. 30-day predictions resolve against specific, pre-committed criteria — the first ones resolve April 20, 2026.
+        <h3 class="font-semibold mb-2" data-en="How contrarian scoring works" data-zh="逆向评分机制">How contrarian scoring works</h3>
+        <p class="text-sm text-almanac-muted leading-relaxed" data-en="Each contrarian prediction carries a probability estimate of the CONTRARIAN outcome being correct. A 35% confidence means we think there is a 35% chance the consensus is wrong on this specific claim. These probabilities update daily as new evidence arrives. The most interesting predictions are those near 50% -- where we genuinely cannot tell if the crowd or the contrarian is right." data-zh="每项逆向预测都有逆向结果正确的概率估计。35%的置信度意味着我们认为共识在这个特定问题上有35%的可能是错误的。这些概率随着每日新证据更新。最有趣的预测接近50%——我们真的无法判断大众还是逆向思维者是对的。">
+          Each contrarian prediction carries a probability estimate of the CONTRARIAN outcome being correct. A 35% confidence means we think there is a 35% chance the consensus is wrong on this specific claim. These probabilities update daily as new evidence arrives. The most interesting predictions are those near 50% -- where we genuinely cannot tell if the crowd or the contrarian is right.
         </p>
       </div>
     </FadeIn>
