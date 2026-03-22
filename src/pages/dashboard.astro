@@ -2,28 +2,13 @@
 import Base from '../layouts/Base.astro';
 import FadeIn from '../components/FadeIn.astro';
 import GlowCard from '../components/GlowCard.astro';
-import fs from 'node:fs';
-import path from 'node:path';
+import { loadPredictions } from '../lib/data';
 
-// Load predictions from data/predictions.json
-let predictions: any[] = [];
-try {
-  const dataPath = path.resolve(process.cwd(), '..', 'data', 'predictions.json');
-  predictions = JSON.parse(fs.readFileSync(dataPath, 'utf-8')).map((p: any) => ({
-    ...p,
-    history: [p.confidence],
-    delta: p.confidence - (p.previous ?? p.confidence),
-  }));
-} catch {
-  try {
-    const altPath = path.resolve(process.cwd(), '..', '..', 'data', 'predictions.json');
-    predictions = JSON.parse(fs.readFileSync(altPath, 'utf-8')).map((p: any) => ({
-      ...p,
-      history: [p.confidence],
-      delta: p.confidence - (p.previous ?? p.confidence),
-    }));
-  } catch { predictions = []; }
-}
+const predictions = loadPredictions().map((p: any) => ({
+  ...p,
+  history: [p.confidence],
+  delta: p.confidence - (p.previous ?? p.confidence),
+}));
 
 const categories = [...new Set(predictions.map((p: any) => p.category))].sort();
 const categoryColors: Record<string, string> = {

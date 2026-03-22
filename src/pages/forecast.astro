@@ -2,21 +2,12 @@
 import Base from '../layouts/Base.astro';
 import GlowCard from '../components/GlowCard.astro';
 import FadeIn from '../components/FadeIn.astro';
+import { loadPredictions } from '../lib/data';
 
 import fs from 'node:fs';
 import path from 'node:path';
 
-// Load predictions to show "What Moved Today"
-let allPredictions: any[] = [];
-try {
-  const predPath = path.resolve(process.cwd(), '..', 'data', 'predictions.json');
-  allPredictions = JSON.parse(fs.readFileSync(predPath, 'utf-8'));
-} catch {
-  try {
-    const altPath = path.resolve(process.cwd(), '..', '..', 'data', 'predictions.json');
-    allPredictions = JSON.parse(fs.readFileSync(altPath, 'utf-8'));
-  } catch { allPredictions = []; }
-}
+const allPredictions = loadPredictions();
 const movedPredictions = allPredictions.filter((p: any) => p.confidence !== (p.previous ?? p.confidence));
 
 // Load all reports, pick the latest by filename (date sort)

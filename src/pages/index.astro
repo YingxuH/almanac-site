@@ -10,20 +10,9 @@ import GlowCard from '../components/GlowCard.astro';
 import FadeIn from '../components/FadeIn.astro';
 import ConfidenceGauge from '../components/ConfidenceGauge.astro';
 import LivePulse from '../components/LivePulse.astro';
-import fs from 'node:fs';
-import path from 'node:path';
+import { loadPredictions } from '../lib/data';
 
-// Load predictions from data/predictions.json
-let allPreds: any[] = [];
-try {
-  const dataPath = path.resolve(process.cwd(), '..', 'data', 'predictions.json');
-  allPreds = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
-} catch {
-  try {
-    const altPath = path.resolve(process.cwd(), '..', '..', 'data', 'predictions.json');
-    allPreds = JSON.parse(fs.readFileSync(altPath, 'utf-8'));
-  } catch { allPreds = []; }
-}
+const allPreds = loadPredictions();
 
 // Pick 8 representative predictions for the landing page:
 // 2 highest confidence, 2 lowest, 2 most recently moved, 2 contrarian

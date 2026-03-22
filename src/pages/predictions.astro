@@ -1,23 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import FadeIn from '../components/FadeIn.astro';
-import fs from 'node:fs';
-import path from 'node:path';
+import { loadPredictions } from '../lib/data';
 
-// Load predictions from data/predictions.json
-let predictions: any[] = [];
-try {
-  const dataPath = path.resolve(process.cwd(), '..', 'data', 'predictions.json');
-  predictions = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
-} catch {
-  // Fallback: try from site root
-  try {
-    const altPath = path.resolve(process.cwd(), '..', '..', 'data', 'predictions.json');
-    predictions = JSON.parse(fs.readFileSync(altPath, 'utf-8'));
-  } catch {
-    predictions = [];
-  }
-}
+const predictions = loadPredictions();
 
 // Compute stats
 const total = predictions.length;
