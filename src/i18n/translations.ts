@@ -43,7 +43,7 @@ export const translations = {
     // Predictions
     predictions: {
       title: "Active Predictions",
-      subtitle: "8 falsifiable forecasts with daily confidence updates",
+      subtitle: "50 falsifiable forecasts with daily Bayesian updates",
       view_details: "View details",
       view_all: "View all predictions",
     },
