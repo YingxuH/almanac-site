@@ -1,0 +1,142 @@
+---
+import Base from '../layouts/Base.astro';
+import FadeIn from '../components/FadeIn.astro';
+
+const predictions = [
+  { id: "H01", q: "OpenAI releases new flagship model before Jan 2026", pred: 85, outcome: true, brier: 0.0225, reasoning: "OpenAI had been on quarterly release cadence; GPT-5.x series was expected" },
+  { id: "H02", q: "At least 2 FAANG companies announce AI layoffs in Q4 2025", pred: 65, outcome: true, brier: 0.1225, reasoning: "Tech layoffs averaged 20K/month; AI-driven restructuring was accelerating" },
+  { id: "H03", q: "GitHub Copilot exceeds 4M paid subscribers by Jan 2026", pred: 75, outcome: true, brier: 0.0625, reasoning: "Was at ~2.5M growing 75% YoY; trajectory supported 4M target" },
+  { id: "H04", q: "Cursor ARR exceeds $500M by end 2025", pred: 15, outcome: true, brier: 0.7225, reasoning: "Growth was rapid but $500M seemed aggressive — actually crossed $1B" },
+  { id: "H05", q: "EU AI Act GPAI rules take effect Aug 2, 2025", pred: 99, outcome: true, brier: 0.0001, reasoning: "Already published in Official Journal; EU regulations rarely slip" },
+  { id: "H06", q: "Google releases model that tops GPT-4o before Dec 2025", pred: 70, outcome: true, brier: 0.0900, reasoning: "Google was catching up with Gemini 2.x; a leap was plausible" },
+  { id: "H07", q: "Anthropic releases new Claude in Q4 2025", pred: 85, outcome: true, brier: 0.0225, reasoning: "Anthropic was on quarterly cadence; Claude Opus 4.5 arrived Nov 24" },
+  { id: "H08", q: "Major AI coding tool acquired for >$100M in Q4 2025", pred: 60, outcome: true, brier: 0.1600, reasoning: "M&A activity was accelerating; Cognition acquired Windsurf for ~$250M" },
+  { id: "H09", q: "GitHub Copilot changes pricing before Mar 2026", pred: 75, outcome: true, brier: 0.0625, reasoning: "Metered billing introduced June 2025; structural pricing shift" },
+  { id: "H10", q: "US tech layoffs exceed 50K in Q4 2025", pred: 55, outcome: true, brier: 0.2025, reasoning: "Q3 was ~40K; Q4 trend was upward but uncertain" },
+  { id: "H11", q: "AI-generated code exceeds 50% of Copilot user output", pred: 20, outcome: false, brier: 0.0400, reasoning: "Was at ~40%, growing ~5pp/year; 50% in 3 months was unlikely. Actual: 46%" },
+  { id: "H12", q: "Devin pricing drops below $100/month by end 2025", pred: 99, outcome: true, brier: 0.0001, reasoning: "Already happened — Devin 2.0 was $20/mo since April 2025" },
+  { id: "H13", q: "80%+ of Fortune 100 using AI coding assistants by Jan 2026", pred: 85, outcome: true, brier: 0.0225, reasoning: "Was at ~77% mid-2025; trajectory strong. Actual: 90% (Copilot alone)" },
+  { id: "H14", q: "Any country enacts AI-generated code specific legislation", pred: 25, outcome: false, brier: 0.0625, reasoning: "AI code legislation is a new category with no precedent. Correct: none enacted." },
+  { id: "H15", q: "NeurIPS 2025 accepts more than 3,000 papers", pred: 95, outcome: true, brier: 0.0025, reasoning: "NeurIPS 2024 accepted ~3,500; upward trend continued" },
+  { id: "H16", q: "Meta announces >5,000 layoffs in Q1 2026", pred: 40, outcome: true, brier: 0.3600, reasoning: "Meta had prior mass layoffs but 2025 seemed stable — wrong: 20% cut announced" },
+  { id: "H17", q: "AI coding tools market exceeds $7B by end 2025", pred: 85, outcome: true, brier: 0.0225, reasoning: "Was at $4.91B in 2024 growing ~50% YoY. Actual: $7.37B" },
+  { id: "H18", q: "Claude Code becomes #1 most-used AI coding tool by Mar 2026", pred: 20, outcome: true, brier: 0.6400, reasoning: "Claude Code launched May 2025 — too new to predict dominance. Wrong: it did." },
+  { id: "H19", q: "FAANG AI capex commitments for 2026 exceed $500B", pred: 65, outcome: true, brier: 0.1225, reasoning: "2025 was ~$300-400B; $500B was aggressive but plausible. Actual: ~$700B" },
+  { id: "H20", q: "90%+ of developers use AI tools weekly by early 2026", pred: 40, outcome: true, brier: 0.3600, reasoning: "Was at ~75-80% mid-2025; 90%+ seemed aggressive. Actual: 95% per survey" },
+];
+
+const avgBrier = +(predictions.reduce((a, p) => a + p.brier, 0) / predictions.length).toFixed(4);
+const correct = predictions.filter(p => (p.pred >= 50) === p.outcome).length;
+const wrong = predictions.length - correct;
+---
+<Base title="Hindcast Validation — Almanac">
+
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+
+    <!-- Header -->
+    <FadeIn>
+      <div class="mb-6">
+        <span class="text-xs font-mono text-almanac-amber uppercase tracking-widest" data-en="Backtest — Not a real-time track record" data-zh="回测验证 — 非实时预测记录">Backtest — Not a real-time track record</span>
+        <h1 class="text-3xl font-bold mt-2 mb-3" data-en="Hindcast Validation" data-zh="事后预测验证">Hindcast Validation</h1>
+        <p class="text-almanac-muted leading-relaxed" data-en="We tested our methodology against 20 specific, falsifiable questions about events from October 2025 to February 2026 — events whose outcomes are now known. The model used (Gemini 2.5 Pro) has a training cutoff before the hindcast period, reducing data contamination." data-zh="我们用20个具体的、可证伪的问题测试了我们的方法论，这些问题涉及2025年10月至2026年2月的事件——结果现已知晓。使用的模型（Gemini 2.5 Pro）的训练截止日期在回测期之前，降低了数据污染风险。">
+          We tested our methodology against 20 specific, falsifiable questions about events from October 2025 to February 2026 — events whose outcomes are now known. The model used (Gemini 2.5 Pro) has a training cutoff before the hindcast period, reducing data contamination.
+        </p>
+      </div>
+    </FadeIn>
+
+    <!-- Scores -->
+    <FadeIn delay={100}>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
+        <div class="p-4 rounded-xl border border-almanac-border bg-almanac-surface text-center">
+          <div class="text-3xl font-bold font-mono text-almanac-accent">{avgBrier}</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Brier Score (lower = better)" data-zh="布里尔分数（越低越好）">Brier Score (lower = better)</div>
+        </div>
+        <div class="p-4 rounded-xl border border-almanac-border bg-almanac-surface text-center">
+          <div class="text-3xl font-bold font-mono text-almanac-green">{correct}/{predictions.length}</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Direction Correct" data-zh="方向正确">Direction Correct</div>
+        </div>
+        <div class="p-4 rounded-xl border border-almanac-border bg-almanac-surface text-center">
+          <div class="text-3xl font-bold font-mono text-almanac-red">{wrong}</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Misses (published)" data-zh="失误（已公开）">Misses (published)</div>
+        </div>
+        <div class="p-4 rounded-xl border border-almanac-border bg-almanac-surface text-center">
+          <div class="text-3xl font-bold font-mono">20</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Resolved Questions" data-zh="已解决问题">Resolved Questions</div>
+        </div>
+      </div>
+    </FadeIn>
+
+    <!-- Brier explainer -->
+    <FadeIn delay={150}>
+      <div class="mb-10 p-4 rounded-xl border border-almanac-border bg-almanac-surface/50 text-sm text-almanac-muted">
+        <strong class="text-almanac-text" data-en="What is a Brier Score?" data-zh="什么是布里尔分数？">What is a Brier Score?</strong>
+        <span data-en=" It measures prediction accuracy: 0.0 = perfect foresight, 0.25 = coin flip (guessing 50% every time), 0.50 = always wrong. Our score of 0.155 beats the coin-flip baseline by 38%. For context, top Metaculus forecasters score ~0.10-0.15 on comparable questions." data-zh=" 它衡量预测准确性：0.0 = 完美预见，0.25 = 抛硬币（每次猜50%），0.50 = 总是错误。我们0.155的分数比抛硬币基准高38%。作为参考，Metaculus顶级预测者在类似问题上得分约0.10-0.15。"> It measures prediction accuracy: 0.0 = perfect foresight, 0.25 = coin flip (guessing 50% every time), 0.50 = always wrong. Our score of 0.155 beats the coin-flip baseline by 38%. For context, top Metaculus forecasters score ~0.10-0.15 on comparable questions.</span>
+      </div>
+    </FadeIn>
+
+    <!-- All 20 predictions -->
+    <FadeIn delay={200}>
+      <h2 class="text-xl font-bold mb-4" data-en="All 20 Predictions (including misses)" data-zh="全部20项预测（包括失误）">All 20 Predictions (including misses)</h2>
+    </FadeIn>
+
+    <div class="space-y-3">
+      {predictions.map((p, i) => {
+        const directionCorrect = (p.pred >= 50) === p.outcome;
+        const outcomeLabel = p.outcome ? "YES" : "NO";
+        return (
+          <FadeIn delay={i * 40}>
+            <div class={`p-4 rounded-xl border ${directionCorrect ? 'border-almanac-border' : 'border-almanac-red/30 bg-almanac-red/5'} bg-almanac-surface`}>
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-14 text-center">
+                  <div class={`text-xl font-bold font-mono ${p.pred >= 70 ? 'text-almanac-green' : p.pred >= 40 ? 'text-almanac-amber' : 'text-almanac-red'}`}>
+                    {p.pred}%
+                  </div>
+                  <div class="text-[10px] text-almanac-muted mt-0.5">predicted</div>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 mb-1">
+                    <span class="text-xs font-mono text-almanac-muted">{p.id}</span>
+                    <span class={`text-[10px] px-1.5 py-0.5 rounded-full font-mono ${p.outcome ? 'bg-almanac-green/10 text-almanac-green border border-almanac-green/20' : 'bg-almanac-red/10 text-almanac-red border border-almanac-red/20'}`}>
+                      {outcomeLabel}
+                    </span>
+                    {!directionCorrect && (
+                      <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-almanac-red/10 text-almanac-red border border-almanac-red/20">MISS</span>
+                    )}
+                    <span class="text-[10px] font-mono text-almanac-muted">Brier: {p.brier.toFixed(4)}</span>
+                  </div>
+                  <p class="text-sm font-medium leading-snug mb-1">{p.q}</p>
+                  <p class="text-xs text-almanac-muted">{p.reasoning}</p>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+        );
+      })}
+    </div>
+
+    <!-- Caveats -->
+    <FadeIn delay={300}>
+      <div class="mt-12 p-6 rounded-xl border border-almanac-amber/20 bg-almanac-amber/5">
+        <h3 class="font-semibold mb-3 text-almanac-amber" data-en="Honest Caveats" data-zh="诚实声明">Honest Caveats</h3>
+        <ul class="text-sm text-almanac-muted space-y-2 list-disc list-inside">
+          <li data-en="This is a BACKTEST, not a real-time track record. Questions were defined with hindsight knowledge of outcomes." data-zh="这是回测验证，非实时预测记录。问题是在已知结果的情况下定义的。">This is a BACKTEST, not a real-time track record. Questions were defined with hindsight knowledge of outcomes.</li>
+          <li data-en="Model: Gemini 2.5 Pro — training cutoff predates the Oct 2025 hindcast period, reducing but not eliminating data contamination risk." data-zh="模型：Gemini 2.5 Pro — 训练截止日期在2025年10月回测期之前，降低但不能完全消除数据污染风险。">Model: Gemini 2.5 Pro — training cutoff predates the Oct 2025 hindcast period, reducing but not eliminating data contamination risk.</li>
+          <li data-en="Question set skews toward YES outcomes (16/20). A system that always predicts 70% YES would score well. Future validations will include more balanced outcomes." data-zh="问题集偏向YES结果（16/20）。始终预测70% YES的系统也会得分不错。未来验证将包含更平衡的结果。">Question set skews toward YES outcomes (16/20). A system that always predicts 70% YES would score well. Future validations will include more balanced outcomes.</li>
+          <li data-en="Low-confidence bucket (0-30%) was poorly calibrated: predicted unlikely events that happened (Cursor growth, Claude Code adoption, Meta layoffs)." data-zh="低置信度区间（0-30%）校准不佳：预测为不太可能发生的事件实际发生了（Cursor增长、Claude Code普及、Meta裁员）。">Low-confidence bucket (0-30%) was poorly calibrated: predicted unlikely events that happened (Cursor growth, Claude Code adoption, Meta layoffs).</li>
+        </ul>
+      </div>
+    </FadeIn>
+
+    <!-- Methodology -->
+    <FadeIn delay={400}>
+      <div class="mt-8 p-6 rounded-xl border border-almanac-border bg-almanac-surface/50">
+        <h3 class="font-semibold mb-3" data-en="Methodology" data-zh="方法论">Methodology</h3>
+        <p class="text-sm text-almanac-muted leading-relaxed" data-en="20 questions were defined about specific, falsifiable events from October 2025 to February 2026. Gemini 2.5 Pro was prompted with the question, a base rate hint, and instructed to predict as if the current date were the ask date. Predictions were batched in groups of 5. All results are published, including all 4 misses. The Brier score is computed as the mean squared error between predicted probability and binary outcome across all 20 questions." data-zh="定义了20个关于2025年10月至2026年2月间具体可证伪事件的问题。Gemini 2.5 Pro接收到问题、基准率提示，并被指示像当前日期为提问日期一样进行预测。预测以5个为一组批量处理。所有结果均已公布，包括全部4次失误。布里尔分数计算为所有20个问题的预测概率与二元结果之间的均方误差。">
+          20 questions were defined about specific, falsifiable events from October 2025 to February 2026. Gemini 2.5 Pro was prompted with the question, a base rate hint, and instructed to predict as if the current date were the ask date. Predictions were batched in groups of 5. All results are published, including all 4 misses. The Brier score is computed as the mean squared error between predicted probability and binary outcome across all 20 questions.
+        </p>
+      </div>
+    </FadeIn>
+
+  </section>
+
+</Base>
