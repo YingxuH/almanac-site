@@ -29,6 +29,27 @@ const typeCount = {
       </div>
     </FadeIn>
 
+    <!-- How to read this — translation layer for non-experts -->
+    <FadeIn delay={25}>
+      <div class="mb-8 p-4 rounded-xl border border-almanac-border bg-almanac-surface/50">
+        <h3 class="text-sm font-semibold mb-2" data-en="How to read predictions" data-zh="如何解读预测">How to read predictions</h3>
+        <div class="grid sm:grid-cols-3 gap-3 text-xs text-almanac-muted">
+          <div>
+            <span class="inline-block px-1.5 py-0.5 rounded border text-almanac-amber border-almanac-amber/20 bg-almanac-amber/10 mb-1">CONTRARIAN</span>
+            <p data-en="Bets AGAINST the consensus view. A 30% contrarian prediction means we think there's a 30% chance the crowd is wrong." data-zh="与共识相反的预测。30%的逆向预测意味着我们认为大众有30%的概率判断错误。">Bets AGAINST the consensus view. A 30% contrarian prediction means we think there's a 30% chance the crowd is wrong.</p>
+          </div>
+          <div>
+            <span class="inline-block px-1.5 py-0.5 rounded border text-almanac-green border-almanac-green/20 bg-almanac-green/10 mb-1">CONSENSUS</span>
+            <p data-en="Aligns with the mainstream view. Higher confidence = stronger agreement with conventional wisdom." data-zh="与主流观点一致。更高的置信度 = 与传统观点更强的一致性。">Aligns with the mainstream view. Higher confidence = stronger agreement with conventional wisdom.</p>
+          </div>
+          <div>
+            <span class="inline-block px-1.5 py-0.5 rounded border text-blue-400 border-blue-400/20 bg-blue-400/10 mb-1">NEAR-TERM</span>
+            <p data-en="Resolves within 1-2 years. These build our track record — you'll know soon if we were right or wrong." data-zh="1-2年内可验证。这些建立我们的记录——你很快就会知道我们对不对。">Resolves within 1-2 years. These build our track record — you'll know soon if we were right or wrong.</p>
+          </div>
+        </div>
+      </div>
+    </FadeIn>
+
     <!-- Stats bar -->
     <FadeIn delay={50}>
       <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8">
