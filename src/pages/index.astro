@@ -182,15 +182,28 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
               <div class="text-xl font-bold font-mono text-almanac-accent">{totalPreds}</div>
               <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Predictions" data-zh="预测数">Predictions</div>
             </div>
-            <div class="text-center">
-              <div class="text-xl font-bold font-mono text-almanac-green">{movedToday || '—'}</div>
-              <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Moved Today" data-zh="今日变动">Moved Today</div>
-            </div>
+            <a href="/almanac-site/forecast" class="text-center group">
+              <div class="text-xl font-bold font-mono text-almanac-green group-hover:text-almanac-accent transition-colors">{movedToday || '—'}</div>
+              <div class="text-[10px] text-almanac-muted uppercase tracking-wider group-hover:text-almanac-text transition-colors" data-en="Moved Today" data-zh="今日变动">Moved Today</div>
+            </a>
             <div class="text-center">
               <div class="text-xl font-bold font-mono">17+</div>
               <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Daily Sources" data-zh="每日数据源">Daily Sources</div>
             </div>
           </div>
+          {/* Contrarian teaser below stats */}
+          {contrarian.length > 0 && (() => {
+            const pick = contrarian.find(p => p.confidence !== (p.previous ?? p.confidence)) || contrarian[0];
+            return (
+              <a href="/almanac-site/predictions" class="mt-3 block w-full max-w-xs p-2.5 rounded-lg border border-almanac-amber/20 bg-almanac-amber/5 hover:border-almanac-amber/40 transition-colors text-left">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-[10px] font-bold text-almanac-amber uppercase tracking-wider" data-en="Contrarian" data-zh="逆向预测">Contrarian</span>
+                  <span class="text-sm font-bold font-mono text-almanac-amber">{pick.confidence}%</span>
+                </div>
+                <p class="text-xs text-almanac-muted leading-snug line-clamp-2" data-en={pick.claim} data-zh={pick.claim_zh || pick.claim}>{pick.claim}</p>
+              </a>
+            );
+          })()}
         </div>
       </div>
     </div>
