@@ -15,6 +15,17 @@
   --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
 }
 
+/* Mobile touch target sizing — ensure 44px minimum for interactive elements */
+@media (max-width: 640px) {
+  a[class*="text-almanac-accent"]:not(button):not([class*="px-"]) {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+
 /* Light mode overrides */
 html.light {
   --color-almanac-bg: #fafaf8;

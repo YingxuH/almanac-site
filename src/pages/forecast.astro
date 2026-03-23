@@ -76,6 +76,16 @@ function parseSignals(content: string) {
 
 const signalItems = topSignals ? parseSignals(topSignals.content) : [];
 
+// Find contested predictions (where panel LR diverges > 3x from median — marked by pipeline)
+const contested = allPredictions.filter((p: any) => p.contested);
+
+// Find biggest moves for editorial highlights
+const sortedMoves = movedPredictions
+  .map((p: any) => ({ ...p, delta: p.confidence - p.previous }))
+  .sort((a: any, b: any) => Math.abs(b.delta) - Math.abs(a.delta));
+const biggestUp = sortedMoves.find((p: any) => p.delta > 0);
+const biggestDown = sortedMoves.find((p: any) => p.delta < 0);
+
 // Parse prediction updates
 function parsePredictions(content: string) {
   const preds: { num: string; claim: string; body: string }[] = [];
@@ -107,8 +117,8 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
           </span>
           <span class="text-sm font-mono text-almanac-muted">March 21, 2026</span>
         </div>
-        <span class="text-xs text-almanac-muted bg-almanac-surface px-3 py-1 rounded-full border border-almanac-border" data-en="555 items from 15 sources" data-zh="来自15个数据源的555个项目">
-          555 items from 15 sources
+        <span class="text-xs text-almanac-muted bg-almanac-surface px-3 py-1 rounded-full border border-almanac-border" data-en="555 items from 17+ sources" data-zh="来自17+个数据源的555个项目">
+          555 items from 17+ sources
         </span>
       </div>
       <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2" data-en="Almanac Daily Forecast" data-zh="Almanac 每日预测">Almanac Daily Forecast</h1>
@@ -193,6 +203,60 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
           </div>
           <div class="text-almanac-muted leading-relaxed text-[15px] pl-4 border-l-2 border-almanac-border">
             <Fragment set:html={inlineMd(execSummary.content)} />
+          </div>
+        </section>
+      </FadeIn>
+    )}
+
+    <!-- Editorial: What Surprised Us + Contested Predictions -->
+    {(biggestUp || biggestDown || contested.length > 0) && (
+      <FadeIn>
+        <section class="mb-12">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-1 h-6 rounded-full bg-almanac-amber"></div>
+            <h2 class="text-xl font-bold" data-en="What Surprised Us Today" data-zh="今日出乎意料">What Surprised Us Today</h2>
+          </div>
+          <div class="space-y-3">
+            {biggestUp && (
+              <div class="p-4 rounded-xl border border-almanac-green/20 bg-almanac-green/5">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-xs font-bold text-almanac-green uppercase tracking-wider" data-en="Biggest Rise" data-zh="最大上涨">Biggest Rise</span>
+                  <span class="font-mono text-sm text-almanac-green">+{biggestUp.delta}pp → {biggestUp.confidence}%</span>
+                </div>
+                <p class="text-sm text-almanac-text leading-relaxed">{biggestUp.claim}</p>
+                {biggestUp.last_evidence && biggestUp.last_evidence !== 'No relevant signal today' && (
+                  <p class="text-xs text-almanac-muted mt-1" data-en={`Why: ${biggestUp.last_evidence}`} data-zh={`原因：${biggestUp.last_evidence}`}>Why: {biggestUp.last_evidence}</p>
+                )}
+              </div>
+            )}
+            {biggestDown && (
+              <div class="p-4 rounded-xl border border-almanac-red/20 bg-almanac-red/5">
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="text-xs font-bold text-almanac-red uppercase tracking-wider" data-en="Biggest Drop" data-zh="最大下降">Biggest Drop</span>
+                  <span class="font-mono text-sm text-almanac-red">{biggestDown.delta}pp → {biggestDown.confidence}%</span>
+                </div>
+                <p class="text-sm text-almanac-text leading-relaxed">{biggestDown.claim}</p>
+                {biggestDown.last_evidence && biggestDown.last_evidence !== 'No relevant signal today' && (
+                  <p class="text-xs text-almanac-muted mt-1" data-en={`Why: ${biggestDown.last_evidence}`} data-zh={`原因：${biggestDown.last_evidence}`}>Why: {biggestDown.last_evidence}</p>
+                )}
+              </div>
+            )}
+            {contested.length > 0 && (
+              <div class="p-4 rounded-xl border border-almanac-amber/20 bg-almanac-amber/5">
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="text-xs font-bold text-almanac-amber uppercase tracking-wider" data-en="Personas Disagree" data-zh="角色分歧">Personas Disagree</span>
+                </div>
+                <p class="text-xs text-almanac-muted mb-2" data-en="These predictions had >3x divergence between our forecaster personas — the Techno-Optimist and Security Hawk see very different worlds." data-zh="这些预测在预测角色间存在>3倍的分歧——技术乐观派和安全鹰派看到了截然不同的世界。">
+                  These predictions had &gt;3x divergence between our forecaster personas — the Techno-Optimist and Security Hawk see very different worlds.
+                </p>
+                {contested.slice(0, 3).map((p: any) => (
+                  <div class="flex items-center gap-2 text-sm py-1">
+                    <span class="font-mono text-almanac-amber w-10 text-right">{p.confidence}%</span>
+                    <span class="text-almanac-text truncate">{p.claim}</span>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </section>
       </FadeIn>

@@ -16,6 +16,12 @@ import path from 'node:path';
 
 const allPreds = loadPredictions();
 
+// Dynamic career stats from predictions.json
+const findPred = (id: number) => allPreds.find((p: any) => p.id === id);
+const devGrowth = findPred(6)?.confidence ?? 60;    // "Total developer headcount HIGHER in 2030"
+const systemsSkills = findPred(36)?.confidence ?? 92; // "Systems programming premium HIGHER"
+const bottomQuartile = findPred(23)?.confidence ?? 63; // "Bottom quartile salaries LOWER"
+
 // Days since pipeline started running live
 const launchDate = new Date('2026-03-20');
 const daysLive = Math.max(1, Math.floor((Date.now() - launchDate.getTime()) / 86400000));
@@ -214,17 +220,17 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
       <h2 class="text-2xl font-bold mb-6 text-center" data-en="What the data says about your career" data-zh="数据对你的职业意味着什么">What the data says about your career</h2>
       <div class="grid sm:grid-cols-3 gap-4">
         <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface">
-          <div class="text-2xl font-bold font-mono text-almanac-green mb-2">60%</div>
+          <div class="text-2xl font-bold font-mono text-almanac-green mb-2">{devGrowth}%</div>
           <p class="text-sm font-medium mb-1" data-en="More developers, not fewer" data-zh="更多开发者，而不是更少">More developers, not fewer</p>
           <p class="text-xs text-almanac-muted" data-en="Our models suggest total developer headcount will likely GROW by 2030. Every previous automation wave expanded employment in the affected sector." data-zh="我们的模型表明，到2030年开发者总数可能会增长。每一次自动化浪潮都扩大了相关行业的就业。">Our models suggest total developer headcount will likely GROW by 2030. Every previous automation wave expanded employment in the affected sector.</p>
         </div>
         <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface">
-          <div class="text-2xl font-bold font-mono text-almanac-amber mb-2">92%</div>
+          <div class="text-2xl font-bold font-mono text-almanac-amber mb-2">{systemsSkills}%</div>
           <p class="text-sm font-medium mb-1" data-en="Systems skills pay more" data-zh="系统技能更值钱">Systems skills pay more</p>
           <p class="text-xs text-almanac-muted" data-en="Rust, C++, and kernel development will command higher premiums as AI handles high-level code generation. Deep technical skills become more valuable, not less." data-zh="随着AI处理高级代码生成，Rust、C++和内核开发将获得更高溢价。深度技术技能变得更有价值。">Rust, C++, and kernel development will command higher premiums as AI handles high-level code generation. Deep technical skills become more valuable, not less.</p>
         </div>
         <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface">
-          <div class="text-2xl font-bold font-mono text-almanac-red mb-2">62%</div>
+          <div class="text-2xl font-bold font-mono text-almanac-red mb-2">{bottomQuartile}%</div>
           <p class="text-sm font-medium mb-1" data-en="The floor drops, the ceiling rises" data-zh="底部下降，顶部上升">The floor drops, the ceiling rises</p>
           <p class="text-xs text-almanac-muted" data-en="Bottom-quartile developer salaries likely decline as AI commoditizes routine work — but Staff+ engineer pay is expected to rise 20%+. The gap widens. Upskilling matters more than ever." data-zh="AI使常规工作商品化，底部薪资可能下降——但Staff+工程师薪酬预计上涨20%以上。差距在扩大。提升技能比以往更重要。">Bottom-quartile developer salaries likely decline as AI commoditizes routine work — but Staff+ engineer pay is expected to rise 20%+. The gap widens. Upskilling matters more than ever.</p>
         </div>

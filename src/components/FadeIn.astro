@@ -1,29 +1,66 @@
 ---
 // Scroll-triggered fade-in animation wrapper
+// Progressive enhancement: content is visible by default, animation is added via JS
 interface Props {
   direction?: 'up' | 'down' | 'left' | 'right';
   delay?: number;
   class?: string;
 }
 const { direction = 'up', delay = 0, class: className = '' } = Astro.props;
-const dirMap = { up: 'translate-y-8', down: '-translate-y-8', left: 'translate-x-8', right: '-translate-x-8' };
 ---
 <div
-  class={`fade-in opacity-0 ${dirMap[direction]} transition-all duration-700 ease-out ${className}`}
+  class={`fade-in-section ${className}`}
+  data-fade-direction={direction}
   style={delay ? `transition-delay: ${delay}ms` : ''}
 >
   <slot />
 </div>
 
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.remove('opacity-0', 'translate-y-8', '-translate-y-8', 'translate-x-8', '-translate-x-8');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+<style>
+  /* Content visible by default — no opacity:0 in initial render */
+  .fade-in-section {
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  /* JS adds this class to enable animation */
+  .fade-in-section.fade-pending {
+    opacity: 0;
+  }
+  .fade-in-section.fade-pending[data-fade-direction="up"] { transform: translateY(2rem); }
+  .fade-in-section.fade-pending[data-fade-direction="down"] { transform: translateY(-2rem); }
+  .fade-in-section.fade-pending[data-fade-direction="left"] { transform: translateX(2rem); }
+  .fade-in-section.fade-pending[data-fade-direction="right"] { transform: translateX(-2rem); }
+  .fade-in-section.fade-visible {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+  }
+</style>
 
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+<script>
+  function initFadeIn() {
+    const sections = document.querySelectorAll('.fade-in-section');
+    if (!('IntersectionObserver' in window)) return; // No JS animation, content stays visible
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('fade-pending');
+          entry.target.classList.add('fade-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+
+    sections.forEach(el => {
+      // Only animate elements that are below the current viewport
+      const rect = el.getBoundingClientRect();
+      if (rect.top > window.innerHeight * 0.85) {
+        el.classList.add('fade-pending');
+      }
+      observer.observe(el);
+    });
+  }
+
+  // Run on initial load and Astro page transitions
+  initFadeIn();
+  document.addEventListener('astro:page-load', initFadeIn);
 </script>

@@ -51,7 +51,7 @@ export const translations = {
     how: {
       title: "How it works",
       steps: [
-        { num: "01", title: "Ingest", desc: "AI agents scrape 15 sources — arXiv, Hacker News, job boards, GitHub, RSS feeds, prediction markets." },
+        { num: "01", title: "Ingest", desc: "AI agents scrape 17+ sources — arXiv, Hacker News, job boards, GitHub, RSS feeds, Reddit, prediction markets." },
         { num: "02", title: "Analyze", desc: "Signals filtered and synthesized. Every claim source-linked. Every prediction gets a confidence score." },
         { num: "03", title: "Forecast", desc: "Predictions update via LLM-evaluated signal analysis. The daily Futures Diff shows what changed and why." },
       ],
@@ -59,7 +59,7 @@ export const translations = {
     // Sources
     sources: {
       title: "Data Sources",
-      subtitle: "15 feeds monitored daily",
+      subtitle: "17+ feeds monitored daily",
     },
     // CTA
     cta: {
@@ -135,7 +135,7 @@ export const translations = {
     how: {
       title: "工作原理",
       steps: [
-        { num: "01", title: "数据采集", desc: "AI 代理每天抓取 10+ 数据源 — arXiv论文、Hacker News、招聘网站、GitHub趋势、RSS订阅、预测市场。" },
+        { num: "01", title: "数据采集", desc: "AI 代理每天抓取 17+ 数据源 — arXiv论文、Hacker News、招聘网站、GitHub趋势、RSS订阅、Reddit、预测市场。" },
         { num: "02", title: "智能分析", desc: "信号经过过滤和综合分析。每项声明都有来源链接，每项预测都有置信度评分。" },
         { num: "03", title: "生成预测", desc: "预测通过贝叶斯推理更新。每日「未来差异报告」展示变化内容及原因。" },
       ],
@@ -143,7 +143,7 @@ export const translations = {
     // Sources
     sources: {
       title: "数据来源",
-      subtitle: "每日监控 15 个数据源",
+      subtitle: "每日监控 17+ 个数据源",
     },
     // CTA
     cta: {
