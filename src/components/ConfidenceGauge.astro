@@ -5,7 +5,7 @@ interface Props {
   label?: string;
   size?: number;
 }
-const { value, label = "System Confidence", size = 200 } = Astro.props;
+const { value, label = "Avg Confidence", size = 200 } = Astro.props;
 const circumference = 2 * Math.PI * 70;
 const offset = circumference - (value / 100) * circumference * 0.75; // 270 degree arc
 const color = value >= 75 ? 'var(--color-almanac-green)' : value >= 60 ? 'var(--color-almanac-amber)' : 'var(--color-almanac-red)';
@@ -28,7 +28,7 @@ const color = value >= 75 ? 'var(--color-almanac-green)' : value >= 60 ? 'var(--
       class="gauge-fill" />
   </svg>
   <div class="absolute inset-0 flex flex-col items-center justify-center">
-    <span class="text-4xl font-bold font-mono gauge-number" data-value={value}>0</span>
+    <span class="text-4xl font-bold font-mono gauge-number" data-value={value}>{value}%</span>
     <span class="text-[10px] text-almanac-muted uppercase tracking-widest mt-1">{label}</span>
   </div>
 </div>
