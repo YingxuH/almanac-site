@@ -1,9 +1,10 @@
 ---
 import Base from '../layouts/Base.astro';
 import FadeIn from '../components/FadeIn.astro';
-import { loadPredictions } from '../lib/data';
+import { loadPredictions, loadJSON } from '../lib/data';
 
 const predictions = loadPredictions();
+const evidenceData = loadJSON('prediction_evidence.json', {} as Record<string, any[]>);
 
 // Compute stats
 const total = predictions.length;
@@ -35,15 +36,15 @@ const typeCount = {
         <h3 class="text-sm font-semibold mb-2" data-en="How to read predictions" data-zh="如何解读预测">How to read predictions</h3>
         <div class="grid sm:grid-cols-3 gap-3 text-xs text-almanac-muted">
           <div>
-            <span class="inline-block px-1.5 py-0.5 rounded border text-almanac-amber border-almanac-amber/20 bg-almanac-amber/10 mb-1">CONTRARIAN</span>
+            <span class="inline-block px-1.5 py-0.5 rounded border text-almanac-amber border-almanac-amber/20 bg-almanac-amber/10 mb-1" data-en="CONTRARIAN" data-zh="逆向预测">CONTRARIAN</span>
             <p data-en="Bets AGAINST the consensus view. A 30% contrarian prediction means we think there's a 30% chance the crowd is wrong." data-zh="与共识相反的预测。30%的逆向预测意味着我们认为大众有30%的概率判断错误。">Bets AGAINST the consensus view. A 30% contrarian prediction means we think there's a 30% chance the crowd is wrong.</p>
           </div>
           <div>
-            <span class="inline-block px-1.5 py-0.5 rounded border text-almanac-green border-almanac-green/20 bg-almanac-green/10 mb-1">CONSENSUS</span>
+            <span class="inline-block px-1.5 py-0.5 rounded border text-almanac-green border-almanac-green/20 bg-almanac-green/10 mb-1" data-en="CONSENSUS" data-zh="共识预测">CONSENSUS</span>
             <p data-en="Aligns with the mainstream view. Higher confidence = stronger agreement with conventional wisdom." data-zh="与主流观点一致。更高的置信度 = 与传统观点更强的一致性。">Aligns with the mainstream view. Higher confidence = stronger agreement with conventional wisdom.</p>
           </div>
           <div>
-            <span class="inline-block px-1.5 py-0.5 rounded border text-blue-400 border-blue-400/20 bg-blue-400/10 mb-1">NEAR-TERM</span>
+            <span class="inline-block px-1.5 py-0.5 rounded border text-blue-400 border-blue-400/20 bg-blue-400/10 mb-1" data-en="NEAR-TERM" data-zh="近期预测">NEAR-TERM</span>
             <p data-en="Resolves within 1-2 years. These build our track record — you'll know soon if we were right or wrong." data-zh="1-2年内可验证。这些建立我们的记录——你很快就会知道我们对不对。">Resolves within 1-2 years. These build our track record — you'll know soon if we were right or wrong.</p>
           </div>
         </div>
@@ -119,6 +120,7 @@ const typeCount = {
       {predictions.map((p: any, i: number) => {
         const delta = p.confidence - (p.previous ?? p.confidence);
         const typeLabel = p.type === 'contrarian' ? 'CONTRARIAN' : p.type === 'near_term' ? 'NEAR-TERM' : 'CONSENSUS';
+        const typeLabelZh = p.type === 'contrarian' ? '逆向预测' : p.type === 'near_term' ? '近期预测' : '共识预测';
         const typeColor = p.type === 'contrarian' ? 'text-almanac-amber border-almanac-amber/20 bg-almanac-amber/10' :
                           p.type === 'near_term' ? 'text-blue-400 border-blue-400/20 bg-blue-400/10' :
                           'text-almanac-green border-almanac-green/20 bg-almanac-green/10';
@@ -151,10 +153,10 @@ const typeCount = {
               <div class="flex-1 min-w-0">
                 <p class="text-sm font-medium leading-snug truncate sm:whitespace-normal" data-en={p.claim} data-zh={p.claim_zh || p.claim}>{p.claim}</p>
                 <div class="flex flex-wrap items-center gap-1.5 mt-1 text-[10px]">
-                  <span class={`px-1.5 py-0.5 rounded border ${typeColor}`}>{typeLabel}</span>
+                  <span class={`px-1.5 py-0.5 rounded border ${typeColor}`} data-en={typeLabel} data-zh={typeLabelZh}>{typeLabel}</span>
                   <span class="px-1.5 py-0.5 rounded bg-almanac-border text-almanac-muted" data-en={p.category} data-zh={p.category_zh || p.category}>{p.category}</span>
                   <span class="text-almanac-muted">{p.horizon}</span>
-                  {contested && <span class="px-1.5 py-0.5 rounded bg-red-500/10 text-red-400 border border-red-400/20">CONTESTED</span>}
+                  {contested && <span class="px-1.5 py-0.5 rounded bg-red-500/10 text-red-400 border border-red-400/20" data-en="CONTESTED" data-zh="有争议">CONTESTED</span>}
                 </div>
               </div>
 
@@ -169,7 +171,7 @@ const typeCount = {
             </summary>
 
             <div class="px-3 pb-3 border-t border-almanac-border/50 pt-3 ml-[60px]">
-              <div class="space-y-2 text-sm">
+              <div class="space-y-3 text-sm">
                 {p.reasoning && (
                   <div>
                     <p class="text-xs font-semibold text-almanac-accent mb-0.5" data-en="Reasoning" data-zh="推理依据">Reasoning</p>
@@ -182,6 +184,31 @@ const typeCount = {
                     <p class="text-almanac-muted">{p.last_evidence}</p>
                   </div>
                 )}
+                {/* Evidence trail from prediction_evidence.json */}
+                {(() => {
+                  const entries = evidenceData[String(p.id)] || [];
+                  const recentSignals = entries.flatMap((e: any) => (e.signals || []).map((s: any) => ({ ...s, date: e.date, delta: e.delta })));
+                  if (recentSignals.length === 0) return null;
+                  return (
+                    <div>
+                      <p class="text-xs font-semibold text-almanac-amber mb-1" data-en="Evidence trail" data-zh="证据链">Evidence trail</p>
+                      <div class="space-y-1">
+                        {recentSignals.slice(0, 3).map((s: any) => (
+                          <div class="flex items-start gap-2 text-xs">
+                            <span class={`flex-shrink-0 mt-0.5 ${s.direction === 'up' ? 'text-almanac-green' : 'text-almanac-red'}`}>
+                              {s.direction === 'up' ? '↑' : '↓'}
+                            </span>
+                            <div>
+                              <span class="text-almanac-text font-medium">{s.title}</span>
+                              {s.source && <span class="text-almanac-muted"> · {s.source}</span>}
+                              {s.reasoning && <p class="text-almanac-muted mt-0.5">{s.reasoning}</p>}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })()}
                 {p.resolution && (
                   <div>
                     <p class="text-xs font-semibold text-almanac-muted mb-0.5" data-en="Resolution criteria" data-zh="验证标准">Resolution criteria</p>

@@ -17,7 +17,7 @@ const colorMap: Record<string, string> = {
   muted: "text-almanac-muted",
 };
 ---
-<div class="ticker-container overflow-hidden border-y border-almanac-border bg-almanac-surface/50 py-2.5">
+<div class="ticker-container overflow-hidden border-y border-almanac-border bg-almanac-surface/50 py-2.5 hidden sm:block">
   <div class="ticker-track flex gap-12 whitespace-nowrap">
     {[...signals, ...signals].map(s => (
       <span class="inline-flex items-center gap-2 text-xs">
