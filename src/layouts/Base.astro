@@ -8,7 +8,7 @@ interface Props {
 const { title, description = "The modern almanac for an uncertain future. AI-powered daily forecasts about humanity's trajectory." } = Astro.props;
 ---
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" class="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,8 +20,8 @@ const { title, description = "The modern almanac for an uncertain future. AI-pow
   <script is:inline>
     (function() {
       var t = localStorage.getItem('almanac-theme');
-      if (t === 'light') document.documentElement.classList.replace('dark', 'light');
-      else document.documentElement.classList.add('dark');
+      if (t === 'dark') document.documentElement.classList.replace('light', 'dark');
+      else document.documentElement.classList.add('light');
       // Apply language BEFORE first paint
       var lang = localStorage.getItem('almanac-lang') || 'en';
       document.documentElement.setAttribute('data-lang', lang);
@@ -99,9 +99,10 @@ const { title, description = "The modern almanac for an uncertain future. AI-pow
   </main>
 
   <footer class="border-t border-almanac-border mt-20 py-12">
-    <div class="max-w-6xl mx-auto px-6 text-center text-sm text-almanac-muted">
+    <div class="max-w-6xl mx-auto px-6 text-center text-sm text-almanac-muted space-y-3">
       <p data-en="Almanac — The modern almanac for an uncertain future." data-zh="Almanac — 面向不确定未来的现代年鉴。">Almanac — The modern almanac for an uncertain future.</p>
-      <p class="mt-1" data-en="&quot;We're cartographers, not prophets.&quot;" data-zh="「我们是制图者，不是预言家。」">"We're cartographers, not prophets."</p>
+      <p class="text-xs max-w-md mx-auto" data-en="Built by a software engineer who wanted to know what comes next for the industry. One person, one pipeline, full transparency. If this stops running, the code and data are open source." data-zh="由一位想了解行业未来走向的软件工程师构建。一个人，一条流水线，完全透明。如果停止运行，代码和数据都是开源的。">Built by a software engineer who wanted to know what comes next for the industry. One person, one pipeline, full transparency. If this stops running, the code and data are open source.</p>
+      <p class="text-xs" data-en="&quot;We're cartographers, not prophets.&quot;" data-zh="「我们是制图者，不是预言家。」">"We're cartographers, not prophets."</p>
     </div>
   </footer>
 

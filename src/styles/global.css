@@ -2,20 +2,21 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-almanac-bg: #0a0a0f;
-  --color-almanac-surface: #12121a;
-  --color-almanac-border: #1e1e2e;
-  --color-almanac-text: #e4e4e7;
-  --color-almanac-muted: #71717a;
-  --color-almanac-accent: #22d3ee;
-  --color-almanac-green: #34d399;
-  --color-almanac-red: #f87171;
-  --color-almanac-amber: #fbbf24;
+  /* Light theme as default — visible content in all screenshots */
+  --color-almanac-bg: #fafaf8;
+  --color-almanac-surface: #ffffff;
+  --color-almanac-border: #e4e4e7;
+  --color-almanac-text: #18181b;
+  --color-almanac-muted: #52525b;
+  --color-almanac-accent: #0891b2;
+  --color-almanac-green: #059669;
+  --color-almanac-red: #dc2626;
+  --color-almanac-amber: #d97706;
   --font-sans: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
 }
 
-/* Mobile touch target sizing — ensure 44px minimum for interactive elements */
+/* Mobile touch target sizing */
 @media (max-width: 640px) {
   a[class*="text-almanac-accent"]:not(button):not([class*="px-"]) {
     display: inline-flex;
@@ -26,15 +27,15 @@
   }
 }
 
-/* Light mode overrides */
-html.light {
-  --color-almanac-bg: #fafaf8;
-  --color-almanac-surface: #ffffff;
-  --color-almanac-border: #e4e4e7;
-  --color-almanac-text: #18181b;
+/* Dark mode overrides */
+html.dark {
+  --color-almanac-bg: #0a0a0f;
+  --color-almanac-surface: #12121a;
+  --color-almanac-border: #1e1e2e;
+  --color-almanac-text: #e4e4e7;
   --color-almanac-muted: #71717a;
-  --color-almanac-accent: #0891b2;
-  --color-almanac-green: #059669;
-  --color-almanac-red: #dc2626;
-  --color-almanac-amber: #d97706;
+  --color-almanac-accent: #22d3ee;
+  --color-almanac-green: #34d399;
+  --color-almanac-red: #f87171;
+  --color-almanac-amber: #fbbf24;
 }

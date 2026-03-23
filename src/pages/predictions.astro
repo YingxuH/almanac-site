@@ -101,13 +101,14 @@ const typeCount = {
     <!-- Category filter tabs -->
     <FadeIn delay={100}>
       <div class="flex flex-wrap gap-2 mb-6" id="category-tabs">
-        <button data-category="all" class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium border border-almanac-accent bg-almanac-accent/10 text-almanac-accent">
+        <button data-category="all" class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium border border-almanac-accent bg-almanac-accent/10 text-almanac-accent" data-en={`All (${total})`} data-zh={`全部 (${total})`}>
           All ({total})
         </button>
         {categories.map((cat: string) => {
           const count = predictions.filter((p: any) => p.category === cat).length;
+          const catZh = predictions.find((p: any) => p.category === cat)?.category_zh || cat;
           return (
-            <button data-category={cat} class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium border border-almanac-border text-almanac-muted hover:border-almanac-accent hover:text-almanac-accent transition-colors">
+            <button data-category={cat} class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium border border-almanac-border text-almanac-muted hover:border-almanac-accent hover:text-almanac-accent transition-colors" data-en={`${cat} (${count})`} data-zh={`${catZh} (${count})`}>
               {cat} ({count})
             </button>
           );

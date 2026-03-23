@@ -1,0 +1,157 @@
+{
+  "1": [],
+  "2": [],
+  "3": [],
+  "4": [
+    {
+      "date": "2026-03-22",
+      "delta": -6,
+      "signals": [
+        {
+          "title": "The Rise of Agent Middleware and SuperAgents",
+          "url": null,
+          "source": "ByteDance",
+          "direction": "down",
+          "reasoning": "ByteDance's open-source deer-flow SuperAgent harness provides a strong counterbalance to proprietary models, reducing the likelihood of open-source losing market share."
+        }
+      ]
+    }
+  ],
+  "5": [],
+  "6": [],
+  "7": [],
+  "8": [
+    {
+      "date": "2026-03-22",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "Geopolitically Fragmented Financial Agents",
+          "url": null,
+          "source": "Open Source",
+          "direction": "up",
+          "reasoning": "The trending of Chinese-localized multi-agent frameworks signals aggressive, globally competitive open-source development originating from Chinese tech ecosystems."
+        },
+        {
+          "title": "The Rise of Agent Middleware and SuperAgents",
+          "url": null,
+          "source": "ByteDance",
+          "direction": "up",
+          "reasoning": "The trending of ByteDance's Deer-flow framework highlights globally competitive open-source development originating from China."
+        }
+      ]
+    }
+  ],
+  "9": [],
+  "10": [],
+  "11": [
+    {
+      "date": "2026-03-22",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "The Rise of Agent Middleware and SuperAgents",
+          "url": null,
+          "source": "Press / Open Source",
+          "direction": "up",
+          "reasoning": "Cursor's massive valuation and its targeting by new open-source performance harnesses makes it a prime target for a mega-acquisition."
+        }
+      ]
+    }
+  ],
+  "12": [],
+  "13": [],
+  "14": [],
+  "15": [],
+  "16": [],
+  "17": [],
+  "18": [],
+  "19": [],
+  "20": [],
+  "21": [],
+  "22": [],
+  "23": [],
+  "24": [],
+  "25": [],
+  "26": [],
+  "27": [
+    {
+      "date": "2026-03-22",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Fully Autonomous Cybersecurity Testing",
+          "url": null,
+          "source": "Open Source",
+          "direction": "up",
+          "reasoning": "The emergence of open-source autonomous penetration testing agents like pentagi will force enterprise vendors to integrate AI-native countermeasures."
+        }
+      ]
+    }
+  ],
+  "28": [],
+  "29": [
+    {
+      "date": "2026-03-22",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "AI Saturation in Game Development Workflows",
+          "url": null,
+          "source": "GDC Festival of Gaming",
+          "direction": "up",
+          "reasoning": "The pervasive use of AI for automated QA at the GDC gaming conference provides commercial evidence that full-spectrum test automation is becoming standard."
+        },
+        {
+          "title": "The \"Agent-First\" Web Transition",
+          "url": null,
+          "source": "Open Source",
+          "direction": "up",
+          "reasoning": "Agent-optimized tools like browser-use show direct commercial evidence of full-spectrum test automation gaining traction."
+        }
+      ]
+    }
+  ],
+  "30": [],
+  "31": [],
+  "32": [],
+  "33": [],
+  "34": [],
+  "35": [],
+  "36": [],
+  "37": [],
+  "38": [],
+  "39": [],
+  "40": [],
+  "41": [],
+  "42": [],
+  "43": [],
+  "44": [],
+  "45": [],
+  "46": [],
+  "47": [],
+  "48": [
+    {
+      "date": "2026-03-22",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Geopolitically Fragmented Financial Agents",
+          "url": null,
+          "source": "Open Source",
+          "direction": "up",
+          "reasoning": "The regional forking of agentic frameworks points to an accelerating separation of AI tooling along geopolitical fault lines."
+        },
+        {
+          "title": "The Rise of Agent Middleware and SuperAgents",
+          "url": null,
+          "source": "ByteDance",
+          "direction": "up",
+          "reasoning": "ByteDance's standalone SuperAgent ecosystem indicates an accelerating separation of ecosystems between the US and China."
+        }
+      ]
+    }
+  ],
+  "49": [],
+  "50": []
+}
