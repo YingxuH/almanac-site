@@ -51,9 +51,11 @@ function addPred(p: any) {
   const delta = p.confidence - (p.previous ?? p.confidence);
   predictions.push({
     claim: p.claim,
+    claim_zh: p.claim_zh || p.claim,
     confidence: p.confidence,
     delta: delta === 0 ? "0" : (delta > 0 ? `+${delta}` : `${delta}`),
     category: p.category,
+    category_zh: p.category_zh || p.category,
     history: [p.confidence],
     type: p.type || 'consensus',
   });
@@ -322,12 +324,12 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
                         {p.delta}
                       </span>
                     )}
-                    <span class="text-[10px] text-almanac-muted px-1.5 py-0.5 rounded bg-almanac-border uppercase tracking-wider">{p.category}</span>
+                    <span class="text-[10px] text-almanac-muted px-1.5 py-0.5 rounded bg-almanac-border uppercase tracking-wider" data-en={p.category} data-zh={p.category_zh}>{p.category}</span>
                     {typeLabel && (
                       <span class={`text-[10px] px-1.5 py-0.5 rounded border ${typeColor}`}>{typeLabel}</span>
                     )}
                   </div>
-                  <p class="text-sm leading-snug">{p.claim}</p>
+                  <p class="text-sm leading-snug" data-en={p.claim} data-zh={p.claim_zh}>{p.claim}</p>
                 </div>
                 {/* Confidence bar */}
                 <div class="flex-shrink-0 w-12 mt-2">
@@ -354,16 +356,16 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
         {/* Connector lines */}
         <div class="hidden sm:block absolute top-10 left-[33%] w-[34%] h-px bg-gradient-to-r from-almanac-accent/50 to-almanac-accent/50 z-0"></div>
         {[
-          { num: "01", title: "Ingest", desc: "AI agents scrape 15 sources — arXiv, Hacker News, job boards, GitHub, RSS feeds, prediction markets.", icon: "M12 5v14M5 12h14" },
-          { num: "02", title: "Analyze", desc: "Signals filtered and synthesized. Every claim source-linked. Every prediction gets a confidence score.", icon: "M9 19V6l12-3v13M9 19c0 1.1-1.3 2-3 2s-3-.9-3-2 1.3-2 3-2 3 .9 3 2zm12-3c0 1.1-1.3 2-3 2s-3-.9-3-2 1.3-2 3-2 3 .9 3 2z" },
-          { num: "03", title: "Forecast", desc: "Predictions update via LLM-evaluated signal analysis. The daily Futures Diff shows what changed and why.", icon: "M13 7l5 5m0 0l-5 5m5-5H6" },
+          { num: "01", title: "Ingest", titleZh: "数据采集", desc: "AI agents scrape 15 sources — arXiv, Hacker News, job boards, GitHub, RSS feeds, prediction markets.", descZh: "AI智能体每日抓取15个数据源——arXiv、Hacker News、招聘板、GitHub、RSS订阅、预测市场。" },
+          { num: "02", title: "Analyze", titleZh: "信号分析", desc: "Signals filtered and synthesized. Every claim source-linked. Every prediction gets a confidence score.", descZh: "信号过滤与综合。每个观点都有来源链接。每项预测都获得置信度评分。" },
+          { num: "03", title: "Forecast", titleZh: "预测更新", desc: "Predictions update via LLM-evaluated signal analysis. The daily Futures Diff shows what changed and why.", descZh: "预测通过LLM信号分析更新。每日未来差异报告显示变化内容及原因。" },
         ].map((step, i) => (
           <div class="relative z-10 text-center px-6 py-4">
             <div class="w-20 h-20 mx-auto mb-4 rounded-2xl border border-almanac-border bg-almanac-surface flex items-center justify-center group-hover:border-almanac-accent transition-colors">
               <span class="text-2xl font-bold font-mono text-almanac-accent">{step.num}</span>
             </div>
-            <h3 class="font-semibold text-lg mb-2">{step.title}</h3>
-            <p class="text-sm text-almanac-muted leading-relaxed">{step.desc}</p>
+            <h3 class="font-semibold text-lg mb-2" data-en={step.title} data-zh={step.titleZh}>{step.title}</h3>
+            <p class="text-sm text-almanac-muted leading-relaxed" data-en={step.desc} data-zh={step.descZh}>{step.desc}</p>
           </div>
         ))}
       </div>
