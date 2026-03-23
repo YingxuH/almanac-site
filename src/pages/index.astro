@@ -111,7 +111,7 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
     <AnimatedGrid />
     <GlowOrb />
     <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-      <div class="grid lg:grid-cols-5 gap-8 items-center min-h-[85vh] py-16">
+      <div class="grid lg:grid-cols-5 gap-8 items-center min-h-[60vh] sm:min-h-[85vh] py-10 sm:py-16">
 
         <!-- Left: Text -->
         <div class="lg:col-span-3">
@@ -122,7 +122,7 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
             </span>
             <span data-en={`Live — Day ${daysLive} of daily tracking`} data-zh={`实时运行 — 第${daysLive}天持续追踪`}>Live — Day {daysLive} of daily tracking</span>
           </div>
-          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]">
+          <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]">
             <span data-en="The modern" data-zh="面向未来的">The modern</span><br/>
             <span data-en="almanac for" data-zh="现代年鉴：">almanac for</span><br/>
             <span class="text-almanac-accent" data-en="software engineering" data-zh="软件工程">software engineering</span>
@@ -131,11 +131,11 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
             <span class="w-4 h-px bg-almanac-accent/50"></span>
             <Typewriter texts={["an uncertain future", "the next decade", "what comes next", "career decisions"]} textsZh={["不确定的未来", "下一个十年", "即将到来的变化", "职业抉择"]} speed={70} />
           </p>
-          <p class="mt-6 text-lg text-almanac-muted max-w-xl leading-relaxed" data-en="50 predictions about how software engineering is changing — each with a probability score, updated daily. We scrape 17 sources, 5 AI personas debate the evidence, and every number moves for documented reasons. Free daily email." data-zh="关于软件工程变化趋势的50项量化预测——每项都有概率评分，每日更新。我们抓取17个数据源，5个AI角色辩论证据，每个数字的变动都有记录在案的理由。免费每日邮件。">
+          <p class="mt-4 sm:mt-6 text-base sm:text-lg text-almanac-muted max-w-xl leading-relaxed" data-en="50 predictions about how software engineering is changing — each with a probability score, updated daily. We scrape 17 sources, 5 AI personas debate the evidence, and every number moves for documented reasons. Free daily email." data-zh="关于软件工程变化趋势的50项量化预测——每项都有概率评分，每日更新。我们抓取17个数据源，5个AI角色辩论证据，每个数字的变动都有记录在案的理由。免费每日邮件。">
             50 predictions about how software engineering is changing — each with a probability score, updated daily. We scrape 17 sources, 5 AI personas debate the evidence, and every number moves for documented reasons. Free daily email.
           </p>
 
-          <p class="mt-3 text-xs text-almanac-muted/70" data-en="Unlike prediction markets, we track software-engineering-specific forecasts no one else covers — from AI debugging job emergence to Rust salary premiums — with daily updates tied to specific news events." data-zh="与预测市场不同，我们追踪无人覆盖的软件工程专属预测——从AI调试岗位出现到Rust薪资溢价——每日更新均关联具体新闻事件。">
+          <p class="mt-3 text-xs text-almanac-muted/70 hidden sm:block" data-en="Unlike prediction markets, we track software-engineering-specific forecasts no one else covers — from AI debugging job emergence to Rust salary premiums — with daily updates tied to specific news events." data-zh="与预测市场不同，我们追踪无人覆盖的软件工程专属预测——从AI调试岗位出现到Rust薪资溢价——每日更新均关联具体新闻事件。">
             Unlike prediction markets, we track software-engineering-specific forecasts no one else covers — from AI debugging job emergence to Rust salary premiums — with daily updates tied to specific news events.
           </p>
 
