@@ -12,11 +12,17 @@ const movedPredictions = allPredictions.filter((p: any) => p.confidence !== (p.p
 
 // Load all reports, pick the latest by filename (date sort)
 const reportsDir = path.resolve('./src/content/reports');
-const files = fs.readdirSync(reportsDir).filter((f: string) => f.endsWith('.md')).sort().reverse();
+const files = fs.readdirSync(reportsDir).filter((f: string) => f.endsWith('.md') && !f.includes('.zh.')).sort().reverse();
 const latestFile = files[0];
 const reportContent = latestFile
   ? fs.readFileSync(path.join(reportsDir, latestFile), 'utf-8')
   : '# No report available yet';
+
+// Try to load Chinese translation
+const latestDate = latestFile?.replace('.md', '') || '';
+const zhFile = path.join(reportsDir, `${latestDate}.zh.md`);
+const hasZhReport = fs.existsSync(zhFile);
+const zhReportContent = hasZhReport ? fs.readFileSync(zhFile, 'utf-8') : '';
 
 // Parse sections from the markdown
 function parseReport(md: string) {
