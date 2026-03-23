@@ -55,23 +55,23 @@ const typeCount = {
       <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8">
         <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center">
           <div class="text-2xl font-bold font-mono text-almanac-accent">{total}</div>
-          <div class="text-xs text-almanac-muted mt-1">Predictions</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Predictions" data-zh="预测数">Predictions</div>
         </div>
         <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center">
           <div class="text-2xl font-bold font-mono text-almanac-amber">{avgConfidence}%</div>
-          <div class="text-xs text-almanac-muted mt-1">Avg Confidence</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Avg Confidence" data-zh="平均置信度">Avg Confidence</div>
         </div>
         <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center">
           <div class="text-2xl font-bold font-mono text-almanac-green">{movedToday}</div>
-          <div class="text-xs text-almanac-muted mt-1">Moved Today</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Moved Today" data-zh="今日变动">Moved Today</div>
         </div>
         <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center">
           <div class="text-2xl font-bold font-mono">{typeCount.contrarian}</div>
-          <div class="text-xs text-almanac-muted mt-1">Contrarian</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Contrarian" data-zh="逆向预测">Contrarian</div>
         </div>
         <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center">
           <div class="text-2xl font-bold font-mono">{typeCount.near_term}</div>
-          <div class="text-xs text-almanac-muted mt-1">Near-Term</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Near-Term" data-zh="近期预测">Near-Term</div>
         </div>
       </div>
     </FadeIn>
@@ -83,14 +83,16 @@ const typeCount = {
           type="text"
           id="pred-search"
           placeholder="Search predictions..."
+          data-en-placeholder="Search predictions..."
+          data-zh-placeholder="搜索预测..."
           class="flex-1 px-3 py-2 rounded-lg border border-almanac-border bg-almanac-surface text-sm focus:outline-none focus:border-almanac-accent"
         />
         <select id="pred-sort" class="px-3 py-2 rounded-lg border border-almanac-border bg-almanac-surface text-sm">
-          <option value="id">Sort: ID</option>
-          <option value="confidence-desc">Confidence (high first)</option>
-          <option value="confidence-asc">Confidence (low first)</option>
-          <option value="moved">Moved today first</option>
-          <option value="horizon">Horizon (nearest first)</option>
+          <option value="id" data-en="Sort: ID" data-zh="排序：编号">Sort: ID</option>
+          <option value="confidence-desc" data-en="Confidence (high first)" data-zh="置信度（由高到低）">Confidence (high first)</option>
+          <option value="confidence-asc" data-en="Confidence (low first)" data-zh="置信度（由低到高）">Confidence (low first)</option>
+          <option value="moved" data-en="Moved today first" data-zh="今日变动优先">Moved today first</option>
+          <option value="horizon" data-en="Horizon (nearest first)" data-zh="时间线（最近优先）">Horizon (nearest first)</option>
         </select>
       </div>
     </FadeIn>

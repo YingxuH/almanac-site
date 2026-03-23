@@ -82,8 +82,8 @@ import GlowCard from '../components/GlowCard.astro';
                 num: "04",
                 title: "Prediction Update",
                 titleZh: "预测更新",
-                desc: "Each of our 8 standing predictions is evaluated against the day's evidence. Confidence scores can move up to +/-5 percentage points per day (horizon-dampened: near-term predictions move more easily than 10+ year forecasts). All movements are logged with reasoning.",
-                descZh: "我们的 8 个持续预测中的每一个都会根据当天的证据进行评估。置信度评分每天最多可移动 +/-5 个百分点（时间范围衰减：近期预测比 10 年以上的预测更容易移动）。所有变动都记录了推理过程。",
+                desc: "Each of our 50 standing predictions is evaluated against the day's evidence via Bayesian likelihood ratio analysis. A 5-persona forecaster panel (Techno-Optimist, Labor Economist, Security Hawk, Contrarian, Base Rate Empiricist) votes independently. Confidence can move up to +/-5 percentage points per day. All movements are logged with evidence trails.",
+                descZh: "我们的 50 个持续预测中的每一个都会通过贝叶斯似然比分析根据当天的证据进行评估。5 人预测面板（技术乐观派、劳动经济学家、安全鹰派、逆向思考者、基准率经验主义者）独立投票。置信度每天最多可变动 +/-5 个百分点。所有变动都记录了证据链。",
                 color: "accent"
               },
               {
@@ -151,18 +151,18 @@ import GlowCard from '../components/GlowCard.astro';
         <h2 class="text-2xl font-bold mb-6" data-en="Tech Stack" data-zh="技术栈">Tech Stack</h2>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {[
-            { name: "Python 3.12", role: "Pipeline" },
-            { name: "Gemini 3.1 Pro", role: "Analysis" },
-            { name: "litellm", role: "LLM Routing" },
-            { name: "httpx", role: "HTTP Client" },
-            { name: "Astro", role: "Website" },
-            { name: "Tailwind 4", role: "Styling" },
-            { name: "GitHub Actions", role: "Automation" },
-            { name: "GitHub Pages", role: "Hosting" },
+            { name: "Python 3.12", role: "Pipeline", roleZh: "流水线" },
+            { name: "Gemini 3.1 Pro", role: "Analysis", roleZh: "分析" },
+            { name: "litellm", role: "LLM Routing", roleZh: "LLM 路由" },
+            { name: "httpx", role: "HTTP Client", roleZh: "HTTP 客户端" },
+            { name: "Astro", role: "Website", roleZh: "网站" },
+            { name: "Tailwind 4", role: "Styling", roleZh: "样式" },
+            { name: "GitHub Actions", role: "Automation", roleZh: "自动化" },
+            { name: "GitHub Pages", role: "Hosting", roleZh: "托管" },
           ].map(t => (
             <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center hover:border-almanac-accent/30 transition-colors">
               <div class="text-sm font-semibold">{t.name}</div>
-              <div class="text-[10px] text-almanac-muted uppercase tracking-wider mt-0.5">{t.role}</div>
+              <div class="text-[10px] text-almanac-muted uppercase tracking-wider mt-0.5" data-en={t.role} data-zh={t.roleZh}>{t.role}</div>
             </div>
           ))}
         </div>

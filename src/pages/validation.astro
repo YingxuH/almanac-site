@@ -3,26 +3,26 @@ import Base from '../layouts/Base.astro';
 import FadeIn from '../components/FadeIn.astro';
 
 const predictions = [
-  { id: "H01", q: "OpenAI releases new flagship model before Jan 2026", pred: 85, outcome: true, brier: 0.0225, reasoning: "OpenAI had been on quarterly release cadence; GPT-5.x series was expected" },
-  { id: "H02", q: "At least 2 FAANG companies announce AI layoffs in Q4 2025", pred: 65, outcome: true, brier: 0.1225, reasoning: "Tech layoffs averaged 20K/month; AI-driven restructuring was accelerating" },
-  { id: "H03", q: "GitHub Copilot exceeds 4M paid subscribers by Jan 2026", pred: 75, outcome: true, brier: 0.0625, reasoning: "Was at ~2.5M growing 75% YoY; trajectory supported 4M target" },
-  { id: "H04", q: "Cursor ARR exceeds $500M by end 2025", pred: 15, outcome: true, brier: 0.7225, reasoning: "Growth was rapid but $500M seemed aggressive — actually crossed $1B" },
-  { id: "H05", q: "EU AI Act GPAI rules take effect Aug 2, 2025", pred: 99, outcome: true, brier: 0.0001, reasoning: "Already published in Official Journal; EU regulations rarely slip" },
-  { id: "H06", q: "Google releases model that tops GPT-4o before Dec 2025", pred: 70, outcome: true, brier: 0.0900, reasoning: "Google was catching up with Gemini 2.x; a leap was plausible" },
-  { id: "H07", q: "Anthropic releases new Claude in Q4 2025", pred: 85, outcome: true, brier: 0.0225, reasoning: "Anthropic was on quarterly cadence; Claude Opus 4.5 arrived Nov 24" },
-  { id: "H08", q: "Major AI coding tool acquired for >$100M in Q4 2025", pred: 60, outcome: true, brier: 0.1600, reasoning: "M&A activity was accelerating; Cognition acquired Windsurf for ~$250M" },
-  { id: "H09", q: "GitHub Copilot changes pricing before Mar 2026", pred: 75, outcome: true, brier: 0.0625, reasoning: "Metered billing introduced June 2025; structural pricing shift" },
-  { id: "H10", q: "US tech layoffs exceed 50K in Q4 2025", pred: 55, outcome: true, brier: 0.2025, reasoning: "Q3 was ~40K; Q4 trend was upward but uncertain" },
-  { id: "H11", q: "AI-generated code exceeds 50% of Copilot user output", pred: 20, outcome: false, brier: 0.0400, reasoning: "Was at ~40%, growing ~5pp/year; 50% in 3 months was unlikely. Actual: 46%" },
-  { id: "H12", q: "Devin pricing drops below $100/month by end 2025", pred: 99, outcome: true, brier: 0.0001, reasoning: "Already happened — Devin 2.0 was $20/mo since April 2025" },
-  { id: "H13", q: "80%+ of Fortune 100 using AI coding assistants by Jan 2026", pred: 85, outcome: true, brier: 0.0225, reasoning: "Was at ~77% mid-2025; trajectory strong. Actual: 90% (Copilot alone)" },
-  { id: "H14", q: "Any country enacts AI-generated code specific legislation", pred: 25, outcome: false, brier: 0.0625, reasoning: "AI code legislation is a new category with no precedent. Correct: none enacted." },
-  { id: "H15", q: "NeurIPS 2025 accepts more than 3,000 papers", pred: 95, outcome: true, brier: 0.0025, reasoning: "NeurIPS 2024 accepted ~3,500; upward trend continued" },
-  { id: "H16", q: "Meta announces >5,000 layoffs in Q1 2026", pred: 40, outcome: true, brier: 0.3600, reasoning: "Meta had prior mass layoffs but 2025 seemed stable — wrong: 20% cut announced" },
-  { id: "H17", q: "AI coding tools market exceeds $7B by end 2025", pred: 85, outcome: true, brier: 0.0225, reasoning: "Was at $4.91B in 2024 growing ~50% YoY. Actual: $7.37B" },
-  { id: "H18", q: "Claude Code becomes #1 most-used AI coding tool by Mar 2026", pred: 20, outcome: true, brier: 0.6400, reasoning: "Claude Code launched May 2025 — too new to predict dominance. Wrong: it did." },
-  { id: "H19", q: "FAANG AI capex commitments for 2026 exceed $500B", pred: 65, outcome: true, brier: 0.1225, reasoning: "2025 was ~$300-400B; $500B was aggressive but plausible. Actual: ~$700B" },
-  { id: "H20", q: "90%+ of developers use AI tools weekly by early 2026", pred: 40, outcome: true, brier: 0.3600, reasoning: "Was at ~75-80% mid-2025; 90%+ seemed aggressive. Actual: 95% per survey" },
+  { id: "H01", q: "OpenAI releases new flagship model before Jan 2026", qZh: "OpenAI在2026年1月前发布新旗舰模型", pred: 85, outcome: true, brier: 0.0225, reasoning: "OpenAI had been on quarterly release cadence; GPT-5.x series was expected", reasoningZh: "OpenAI保持季度发布节奏；GPT-5.x系列在预期之中" },
+  { id: "H02", q: "At least 2 FAANG companies announce AI layoffs in Q4 2025", qZh: "至少2家FAANG公司在2025年Q4宣布AI相关裁员", pred: 65, outcome: true, brier: 0.1225, reasoning: "Tech layoffs averaged 20K/month; AI-driven restructuring was accelerating", reasoningZh: "科技裁员月均2万人；AI驱动的重组正在加速" },
+  { id: "H03", q: "GitHub Copilot exceeds 4M paid subscribers by Jan 2026", qZh: "GitHub Copilot付费用户在2026年1月前超过400万", pred: 75, outcome: true, brier: 0.0625, reasoning: "Was at ~2.5M growing 75% YoY; trajectory supported 4M target", reasoningZh: "当时约250万用户，年增长75%；增长轨迹支持400万目标" },
+  { id: "H04", q: "Cursor ARR exceeds $500M by end 2025", qZh: "Cursor年化收入在2025年底前超过5亿美元", pred: 15, outcome: true, brier: 0.7225, reasoning: "Growth was rapid but $500M seemed aggressive — actually crossed $1B", reasoningZh: "增长迅速但5亿美元看似激进——实际突破了10亿美元" },
+  { id: "H05", q: "EU AI Act GPAI rules take effect Aug 2, 2025", qZh: "欧盟AI法案GPAI规则于2025年8月2日生效", pred: 99, outcome: true, brier: 0.0001, reasoning: "Already published in Official Journal; EU regulations rarely slip", reasoningZh: "已在官方公报发布；欧盟法规很少延期" },
+  { id: "H06", q: "Google releases model that tops GPT-4o before Dec 2025", qZh: "Google在2025年12月前发布超越GPT-4o的模型", pred: 70, outcome: true, brier: 0.0900, reasoning: "Google was catching up with Gemini 2.x; a leap was plausible", reasoningZh: "Google通过Gemini 2.x正在追赶；实现飞跃是可能的" },
+  { id: "H07", q: "Anthropic releases new Claude in Q4 2025", qZh: "Anthropic在2025年Q4发布新版Claude", pred: 85, outcome: true, brier: 0.0225, reasoning: "Anthropic was on quarterly cadence; Claude Opus 4.5 arrived Nov 24", reasoningZh: "Anthropic保持季度发布节奏；Claude Opus 4.5于11月24日发布" },
+  { id: "H08", q: "Major AI coding tool acquired for >$100M in Q4 2025", qZh: "2025年Q4有重大AI编程工具以超1亿美元被收购", pred: 60, outcome: true, brier: 0.1600, reasoning: "M&A activity was accelerating; Cognition acquired Windsurf for ~$250M", reasoningZh: "并购活动加速；Cognition以约2.5亿美元收购了Windsurf" },
+  { id: "H09", q: "GitHub Copilot changes pricing before Mar 2026", qZh: "GitHub Copilot在2026年3月前调整定价", pred: 75, outcome: true, brier: 0.0625, reasoning: "Metered billing introduced June 2025; structural pricing shift", reasoningZh: "2025年6月引入按量计费；定价结构发生根本变化" },
+  { id: "H10", q: "US tech layoffs exceed 50K in Q4 2025", qZh: "2025年Q4美国科技行业裁员超5万人", pred: 55, outcome: true, brier: 0.2025, reasoning: "Q3 was ~40K; Q4 trend was upward but uncertain", reasoningZh: "Q3约4万人；Q4趋势向上但不确定" },
+  { id: "H11", q: "AI-generated code exceeds 50% of Copilot user output", qZh: "AI生成代码占Copilot用户产出的比例超过50%", pred: 20, outcome: false, brier: 0.0400, reasoning: "Was at ~40%, growing ~5pp/year; 50% in 3 months was unlikely. Actual: 46%", reasoningZh: "当时约40%，年增长约5个百分点；3个月内达到50%不太可能。实际：46%" },
+  { id: "H12", q: "Devin pricing drops below $100/month by end 2025", qZh: "Devin在2025年底前降价至月费100美元以下", pred: 99, outcome: true, brier: 0.0001, reasoning: "Already happened — Devin 2.0 was $20/mo since April 2025", reasoningZh: "已经发生——Devin 2.0自2025年4月起月费20美元" },
+  { id: "H13", q: "80%+ of Fortune 100 using AI coding assistants by Jan 2026", qZh: "到2026年1月超80%的财富100强公司使用AI编程助手", pred: 85, outcome: true, brier: 0.0225, reasoning: "Was at ~77% mid-2025; trajectory strong. Actual: 90% (Copilot alone)", reasoningZh: "2025年中约77%；增长势头强劲。实际：仅Copilot就达90%" },
+  { id: "H14", q: "Any country enacts AI-generated code specific legislation", qZh: "任何国家颁布专门针对AI生成代码的立法", pred: 25, outcome: false, brier: 0.0625, reasoning: "AI code legislation is a new category with no precedent. Correct: none enacted.", reasoningZh: "AI代码立法是无先例的新领域。正确：无国家颁布。" },
+  { id: "H15", q: "NeurIPS 2025 accepts more than 3,000 papers", qZh: "NeurIPS 2025接收论文超过3000篇", pred: 95, outcome: true, brier: 0.0025, reasoning: "NeurIPS 2024 accepted ~3,500; upward trend continued", reasoningZh: "NeurIPS 2024接收约3500篇；上升趋势持续" },
+  { id: "H16", q: "Meta announces >5,000 layoffs in Q1 2026", qZh: "Meta在2026年Q1宣布裁员超5000人", pred: 40, outcome: true, brier: 0.3600, reasoning: "Meta had prior mass layoffs but 2025 seemed stable — wrong: 20% cut announced", reasoningZh: "Meta此前有大规模裁员但2025年看似稳定——错误：宣布裁员20%" },
+  { id: "H17", q: "AI coding tools market exceeds $7B by end 2025", qZh: "AI编程工具市场在2025年底前超过70亿美元", pred: 85, outcome: true, brier: 0.0225, reasoning: "Was at $4.91B in 2024 growing ~50% YoY. Actual: $7.37B", reasoningZh: "2024年为49.1亿美元，年增长约50%。实际：73.7亿美元" },
+  { id: "H18", q: "Claude Code becomes #1 most-used AI coding tool by Mar 2026", qZh: "Claude Code在2026年3月前成为使用最多的AI编程工具", pred: 20, outcome: true, brier: 0.6400, reasoning: "Claude Code launched May 2025 — too new to predict dominance. Wrong: it did.", reasoningZh: "Claude Code于2025年5月发布——太新难以预测主导地位。错误：它做到了。" },
+  { id: "H19", q: "FAANG AI capex commitments for 2026 exceed $500B", qZh: "FAANG 2026年AI资本支出承诺超过5000亿美元", pred: 65, outcome: true, brier: 0.1225, reasoning: "2025 was ~$300-400B; $500B was aggressive but plausible. Actual: ~$700B", reasoningZh: "2025年约3000-4000亿美元；5000亿美元激进但合理。实际：约7000亿美元" },
+  { id: "H20", q: "90%+ of developers use AI tools weekly by early 2026", qZh: "到2026年初超90%的开发者每周使用AI工具", pred: 40, outcome: true, brier: 0.3600, reasoning: "Was at ~75-80% mid-2025; 90%+ seemed aggressive. Actual: 95% per survey", reasoningZh: "2025年中约75-80%；90%以上看似激进。实际：调查显示95%" },
 ];
 
 const avgBrier = +(predictions.reduce((a, p) => a + p.brier, 0) / predictions.length).toFixed(4);
@@ -104,8 +104,8 @@ const wrong = predictions.length - correct;
                     )}
                     <span class="text-[10px] font-mono text-almanac-muted">Brier: {p.brier.toFixed(4)}</span>
                   </div>
-                  <p class="text-sm font-medium leading-snug mb-1">{p.q}</p>
-                  <p class="text-xs text-almanac-muted">{p.reasoning}</p>
+                  <p class="text-sm font-medium leading-snug mb-1" data-en={p.q} data-zh={p.qZh}>{p.q}</p>
+                  <p class="text-xs text-almanac-muted" data-en={p.reasoning} data-zh={p.reasoningZh}>{p.reasoning}</p>
                 </div>
               </div>
             </div>
