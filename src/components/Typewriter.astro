@@ -1,12 +1,13 @@
 ---
 interface Props {
   texts: string[];
+  textsZh?: string[];
   speed?: number;
 }
-const { texts, speed = 60 } = Astro.props;
+const { texts, textsZh, speed = 60 } = Astro.props;
 ---
 <span class="typewriter-container">
-  <span class="typewriter-text" data-texts={JSON.stringify(texts)} data-speed={speed}></span>
+  <span class="typewriter-text" data-texts={JSON.stringify(texts)} data-texts-zh={textsZh ? JSON.stringify(textsZh) : ''} data-speed={speed}></span>
   <span class="typewriter-cursor">|</span>
 </span>
 
@@ -30,15 +31,23 @@ const { texts, speed = 60 } = Astro.props;
 <script>
   document.addEventListener('astro:page-load', () => {
     document.querySelectorAll('.typewriter-text').forEach(el => {
-      const texts = JSON.parse(el.getAttribute('data-texts') || '[]');
+      const textsEn = JSON.parse(el.getAttribute('data-texts') || '[]');
+      const textsZhRaw = el.getAttribute('data-texts-zh');
+      const textsZh = textsZhRaw ? JSON.parse(textsZhRaw) : null;
       const speed = parseInt(el.getAttribute('data-speed') || '60');
       let textIndex = 0;
       let charIndex = 0;
       let isDeleting = false;
       let pauseTime = 0;
 
+      function getTexts() {
+        var lang = document.documentElement.getAttribute('data-lang') || 'en';
+        return (lang === 'zh' && textsZh) ? textsZh : textsEn;
+      }
+
       function tick() {
-        const current = texts[textIndex] || '';
+        const texts = getTexts();
+        const current = texts[textIndex % texts.length] || '';
         if (pauseTime > 0) {
           pauseTime -= 30;
           requestAnimationFrame(() => setTimeout(tick, 30));
