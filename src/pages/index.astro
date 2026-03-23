@@ -88,6 +88,7 @@ for (let i = midStart; i < sorted.length && predictions.length < 8; i++) {
   addPred(sorted[i]);
 }
 
+const movedToday = moved.length;
 const totalPreds = allPreds.length;
 const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) => a + p.confidence, 0) / totalPreds) : 50;
 ---
@@ -120,6 +121,10 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
           </p>
           <p class="mt-6 text-lg text-almanac-muted max-w-xl leading-relaxed" data-en="50 predictions about how software engineering is changing — each with a probability score, updated daily. We scrape 17 sources, 5 AI personas debate the evidence, and every number moves for documented reasons. Free daily email." data-zh="关于软件工程变化趋势的50项量化预测——每项都有概率评分，每日更新。我们抓取17个数据源，5个AI角色辩论证据，每个数字的变动都有记录在案的理由。免费每日邮件。">
             50 predictions about how software engineering is changing — each with a probability score, updated daily. We scrape 17 sources, 5 AI personas debate the evidence, and every number moves for documented reasons. Free daily email.
+          </p>
+
+          <p class="mt-3 text-xs text-almanac-muted/70" data-en="Unlike prediction markets, we track software-engineering-specific forecasts no one else covers — from AI debugging job emergence to Rust salary premiums — with daily updates tied to specific news events." data-zh="与预测市场不同，我们追踪无人覆盖的软件工程专属预测——从AI调试岗位出现到Rust薪资溢价——每日更新均关联具体新闻事件。">
+            Unlike prediction markets, we track software-engineering-specific forecasts no one else covers — from AI debugging job emergence to Rust salary premiums — with daily updates tied to specific news events.
           </p>
 
           <!-- Hero email signup -->
@@ -166,8 +171,8 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
               <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Predictions" data-zh="预测数">Predictions</div>
             </div>
             <div class="text-center">
-              <div class="text-xl font-bold font-mono text-almanac-green">{daysLive}</div>
-              <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Days Live" data-zh="运行天数">Days Live</div>
+              <div class="text-xl font-bold font-mono text-almanac-green">{movedToday || '—'}</div>
+              <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Moved Today" data-zh="今日变动">Moved Today</div>
             </div>
             <div class="text-center">
               <div class="text-xl font-bold font-mono">17+</div>
@@ -184,7 +189,7 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
     <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-almanac-muted">
       <a href="/almanac-site/validation" class="flex items-center gap-1.5 hover:text-almanac-accent transition-colors">
         <svg class="w-3.5 h-3.5 text-almanac-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        <span data-en="Hindcast: 16/20 direction-correct (backtest, n=20 — not live)" data-zh="回溯测试：16/20方向正确（回测，n=20——非实时）">Hindcast: 16/20 direction-correct (backtest, n=20 — not live)</span>
+        <span data-en="Tested against 20 past events: got 16 right (pre-launch test, not live data yet)" data-zh="对20个历史事件测试：答对16个（上线前测试，非实时数据）">Tested against 20 past events: got 16 right (pre-launch test, not live data yet)</span>
       </a>
       <span class="flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5 text-almanac-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
@@ -429,6 +434,21 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
           <h2 class="text-3xl font-bold mb-3" data-en="The future updates daily." data-zh="未来，每天更新。">The future updates daily.</h2>
           <p class="text-almanac-muted mb-2 text-lg" data-en="Get tomorrow's forecast in your inbox." data-zh="在你的收件箱获取明天的预测。">Get tomorrow's forecast in your inbox.</p>
           <p class="text-almanac-muted mb-4 text-sm" data-en="One email per day. Confidence-scored predictions. Source-linked signals." data-zh="每天一封邮件，带置信度评分和来源链接。">One email per day. Confidence-scored predictions. Source-linked signals.</p>
+          <!-- Email preview mockup -->
+          <div class="mb-6 max-w-md mx-auto text-left rounded-lg border border-almanac-border bg-almanac-bg/50 overflow-hidden">
+            <div class="px-3 py-2 border-b border-almanac-border bg-almanac-surface/50 flex items-center gap-2">
+              <div class="w-2 h-2 rounded-full bg-almanac-accent"></div>
+              <span class="text-[10px] text-almanac-muted font-mono" data-en="Preview: tomorrow's email" data-zh="预览：明天的邮件">Preview: tomorrow's email</span>
+            </div>
+            <div class="px-3 py-2 text-[11px] text-almanac-muted space-y-1">
+              <div><span class="text-almanac-muted/60">From:</span> Almanac &lt;forecast@almanac&gt;</div>
+              <div><span class="text-almanac-muted/60">Subject:</span> <span class="text-almanac-text">Almanac Forecast — {latestDate || '2026-03-23'}</span></div>
+              <div class="pt-1 border-t border-almanac-border/50 text-almanac-muted/80 leading-relaxed">
+                {movedToday > 0 ? `${movedToday} predictions moved today.` : '20 predictions moved today.'} Top signal: AI architect-to-agent ratio crosses 1:10. P4 drops to 34% (-6), P8 rises to 45% (+5)...
+              </div>
+            </div>
+          </div>
+
           <p class="text-almanac-accent text-xs font-medium mb-6" data-en="Be one of our first readers — we're building this track record with you." data-zh="成为我们的首批读者——我们与你一起建立这份记录。">Be one of our first readers — we're building this track record with you.</p>
 
           <form id="cta-form" class="flex flex-col sm:flex-row gap-2.5 max-w-lg mx-auto" action="https://api.web3forms.com/submit" method="POST">
