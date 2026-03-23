@@ -215,7 +215,7 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
   </div>
 
   <!-- What it means for your career — moved up as the emotional hook right after trust -->
-  <div class="bg-almanac-surface/50 border-y border-almanac-border/30">
+  <div class="bg-[#141420] border-y border-almanac-border">
   <FadeIn>
     <section class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
       <h2 class="text-2xl font-bold mb-6 text-center" data-en="What the data says about your career" data-zh="数据对你的职业意味着什么">What the data says about your career</h2>
@@ -322,7 +322,7 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
   )}
 
   <!-- Prediction cards -->
-  <div class="bg-almanac-surface/30 border-y border-almanac-border/50 py-4">
+  <div class="py-4">
   <section class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
     <FadeIn>
       <div class="flex items-end justify-between mb-8">
@@ -382,7 +382,7 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
   </div><!-- end prediction cards bg -->
 
   <!-- How it works — horizontal flow -->
-  <div class="bg-almanac-surface/50 border-y border-almanac-border/30">
+  <div class="bg-[#141420] border-y border-almanac-border">
   <FadeIn>
     <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
       <h2 class="text-3xl font-bold mb-10 text-center" data-en="How it works" data-zh="工作原理"><span class="text-almanac-accent">How</span> it works</h2>
@@ -441,6 +441,7 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
   </FadeIn>
 
   <!-- Source orbit -->
+  <div class="bg-[#141420] border-y border-almanac-border">
   <FadeIn>
     <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 text-center">
       <h2 class="text-2xl font-bold mb-2" data-en="Data Sources" data-zh="数据来源">Data Sources</h2>
@@ -448,6 +449,8 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
       <SourceOrbit />
     </section>
   </FadeIn>
+
+  </div><!-- end source orbit bg -->
 
   <!-- Email signup CTA — with social proof frame -->
   <FadeIn>
