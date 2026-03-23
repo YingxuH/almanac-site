@@ -16,6 +16,10 @@ import path from 'node:path';
 
 const allPreds = loadPredictions();
 
+// Days since pipeline started running live
+const launchDate = new Date('2026-03-20');
+const daysLive = Math.max(1, Math.floor((Date.now() - launchDate.getTime()) / 86400000));
+
 // Load latest report for the sample preview
 let latestExcerpt = '';
 let latestDate = '';
@@ -103,7 +107,7 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-almanac-green opacity-75"></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-almanac-green"></span>
             </span>
-            <span data-en="Live — Updated daily at 06:00 UTC" data-zh="实时更新 — 每日 06:00 UTC">Live — Updated daily at 06:00 UTC</span>
+            <span data-en={`Live — Day ${daysLive} of daily tracking`} data-zh={`实时运行 — 第${daysLive}天持续追踪`}>Live — Day {daysLive} of daily tracking</span>
           </div>
           <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]">
             <span data-en="The modern" data-zh="面向未来的">The modern</span><br/>
@@ -114,8 +118,8 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
             <span class="w-4 h-px bg-almanac-accent/50"></span>
             <Typewriter texts={["an uncertain future", "the next decade", "what comes next", "career decisions"]} speed={70} />
           </p>
-          <p class="mt-6 text-lg text-almanac-muted max-w-xl leading-relaxed" data-en="A free daily email: AI scrapes 15 sources overnight, filters the noise, and delivers one concise forecast about how software engineering is changing — with confidence scores, not opinions." data-zh="免费每日邮件：AI 在夜间抓取 15 个数据源，过滤噪音，发送一份简洁的软件工程变化预测 — 附带置信度评分，而非主观意见。">
-            A free daily email: AI scrapes 15 sources overnight, filters the noise, and delivers one concise forecast about how software engineering is changing — with confidence scores, not opinions.
+          <p class="mt-6 text-lg text-almanac-muted max-w-xl leading-relaxed" data-en="50 predictions about how software engineering is changing — each with a probability score, updated daily. We scrape 17 sources, 5 AI personas debate the evidence, and every number moves for documented reasons. Free daily email." data-zh="关于软件工程变化趋势的50项量化预测——每项都有概率评分，每日更新。我们抓取17个数据源，5个AI角色辩论证据，每个数字的变动都有记录在案的理由。免费每日邮件。">
+            50 predictions about how software engineering is changing — each with a probability score, updated daily. We scrape 17 sources, 5 AI personas debate the evidence, and every number moves for documented reasons. Free daily email.
           </p>
 
           <!-- Hero email signup -->
@@ -129,22 +133,22 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
               class="flex-1 px-4 py-3 rounded-lg bg-almanac-surface border border-almanac-border text-almanac-text placeholder:text-almanac-muted/50 focus:outline-none focus:border-almanac-accent focus:ring-1 focus:ring-almanac-accent/30 transition-all text-sm" />
             <button type="submit"
               class="px-6 py-3 bg-almanac-accent text-almanac-bg font-semibold rounded-lg hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-all duration-300 text-sm whitespace-nowrap cursor-pointer flex items-center gap-2">
-              <span class="btn-text" data-en="Get Daily Forecast" data-zh="获取每日预测">Get Daily Forecast</span>
+              <span class="btn-text" data-en="Get Tomorrow's Forecast" data-zh="获取明天的预测">Get Tomorrow's Forecast</span>
               <svg class="btn-spinner hidden w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
             </button>
           </form>
           <p class="mt-2 text-[11px] text-almanac-muted" data-en="Free daily email. No spam. Unsubscribe anytime." data-zh="免费每日邮件，无垃圾信息，随时退订。">Free daily email. No spam. Unsubscribe anytime.</p>
 
           <div class="mt-6 flex flex-wrap gap-3">
-            <a href="/almanac-site/forecast" class="group text-sm text-almanac-accent hover:underline flex items-center gap-1">
+            <a href="/almanac-site/forecast" class="group text-sm text-almanac-accent hover:underline flex items-center gap-1" data-en="Read today's forecast" data-zh="阅读今日预测">
               Read today's forecast <span class="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
             </a>
             <span class="text-almanac-border">|</span>
-            <a href="/almanac-site/dashboard" class="text-sm text-almanac-muted hover:text-almanac-text transition">
+            <a href="/almanac-site/dashboard" class="text-sm text-almanac-muted hover:text-almanac-text transition" data-en="Dashboard" data-zh="数据面板">
               Dashboard
             </a>
             <span class="text-almanac-border">|</span>
-            <a href="https://github.com/YingxuH/almanac-site" class="text-sm text-almanac-muted hover:text-almanac-text transition">
+            <a href="https://github.com/YingxuH/almanac" class="text-sm text-almanac-muted hover:text-almanac-text transition">
               GitHub
             </a>
           </div>
@@ -153,8 +157,8 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
         <!-- Right: Gauge + context + mini stats -->
         <div class="lg:col-span-2 flex flex-col items-center gap-4">
           <ConfidenceGauge value={avgConf} size={240} />
-          <p class="text-xs text-almanac-muted text-center max-w-[220px] leading-relaxed" data-en="Average across 50 predictions. Near 50% = genuine uncertainty, not low confidence. That's the point." data-zh="50项预测的平均值。接近50% = 真正的不确定性，不是低信心。这正是关键所在。">
-            Average across 50 predictions. Near 50% = genuine uncertainty, not low confidence. That's the point.
+          <p class="text-xs text-almanac-muted text-center max-w-[240px] leading-relaxed" data-en={`${avgConf}% means roughly ${avgConf}-in-100 chance. Near 50% = genuine uncertainty — we quantify what we don't know, not just what we do.`} data-zh={`${avgConf}%意味着约${avgConf}/100的概率。接近50% = 真正的不确定性——我们不仅量化已知，也量化未知。`}>
+            {avgConf}% means roughly {avgConf}-in-100 chance. Near 50% = genuine uncertainty — we quantify what we don't know, not just what we do.
           </p>
           <div class="grid grid-cols-3 gap-4 w-full max-w-xs">
             <div class="text-center">
@@ -162,11 +166,11 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
               <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Predictions" data-zh="预测数">Predictions</div>
             </div>
             <div class="text-center">
-              <div class="text-xl font-bold font-mono text-almanac-green">16/20</div>
-              <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Backtest Accuracy" data-zh="回测准确率">Backtest Accuracy</div>
+              <div class="text-xl font-bold font-mono text-almanac-green">{daysLive}</div>
+              <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Days Live" data-zh="运行天数">Days Live</div>
             </div>
             <div class="text-center">
-              <div class="text-xl font-bold font-mono">15+</div>
+              <div class="text-xl font-bold font-mono">17+</div>
               <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Daily Sources" data-zh="每日数据源">Daily Sources</div>
             </div>
           </div>
@@ -175,13 +179,91 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
     </div>
   </section>
 
+  <!-- Trust bar — moved up, right after hero. Plain English, honest caveats inline -->
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-4">
+    <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-almanac-muted">
+      <a href="/almanac-site/validation" class="flex items-center gap-1.5 hover:text-almanac-accent transition-colors">
+        <svg class="w-3.5 h-3.5 text-almanac-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        <span data-en="Hindcast: 16/20 direction-correct (backtest, n=20 — not live)" data-zh="回溯测试：16/20方向正确（回测，n=20——非实时）">Hindcast: 16/20 direction-correct (backtest, n=20 — not live)</span>
+      </a>
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-almanac-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        <span data-en="5 AI personas (not humans) with different worldviews challenge each prediction" data-zh="5个AI角色（非真人），以不同世界观挑战每项预测">5 AI personas (not humans) with different worldviews challenge each prediction</span>
+      </span>
+      <span class="flex items-center gap-1.5">
+        <svg class="w-3.5 h-3.5 text-almanac-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+        <span data-en="We publish our misses — see all 4 we got wrong" data-zh="我们公开失误——查看我们的4次错误">We publish our misses — see all 4 we got wrong</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- What it means for your career — moved up as the emotional hook right after trust -->
+  <FadeIn>
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+      <h2 class="text-2xl font-bold mb-6 text-center" data-en="What the data says about your career" data-zh="数据对你的职业意味着什么">What the data says about your career</h2>
+      <div class="grid sm:grid-cols-3 gap-4">
+        <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface">
+          <div class="text-2xl font-bold font-mono text-almanac-green mb-2">60%</div>
+          <p class="text-sm font-medium mb-1" data-en="More developers, not fewer" data-zh="更多开发者，而不是更少">More developers, not fewer</p>
+          <p class="text-xs text-almanac-muted" data-en="Our models suggest total developer headcount will likely GROW by 2030. Every previous automation wave expanded employment in the affected sector." data-zh="我们的模型表明，到2030年开发者总数可能会增长。每一次自动化浪潮都扩大了相关行业的就业。">Our models suggest total developer headcount will likely GROW by 2030. Every previous automation wave expanded employment in the affected sector.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface">
+          <div class="text-2xl font-bold font-mono text-almanac-amber mb-2">92%</div>
+          <p class="text-sm font-medium mb-1" data-en="Systems skills pay more" data-zh="系统技能更值钱">Systems skills pay more</p>
+          <p class="text-xs text-almanac-muted" data-en="Rust, C++, and kernel development will command higher premiums as AI handles high-level code generation. Deep technical skills become more valuable, not less." data-zh="随着AI处理高级代码生成，Rust、C++和内核开发将获得更高溢价。深度技术技能变得更有价值。">Rust, C++, and kernel development will command higher premiums as AI handles high-level code generation. Deep technical skills become more valuable, not less.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface">
+          <div class="text-2xl font-bold font-mono text-almanac-red mb-2">62%</div>
+          <p class="text-sm font-medium mb-1" data-en="The floor drops, the ceiling rises" data-zh="底部下降，顶部上升">The floor drops, the ceiling rises</p>
+          <p class="text-xs text-almanac-muted" data-en="Bottom-quartile developer salaries likely decline as AI commoditizes routine work — but Staff+ engineer pay is expected to rise 20%+. The gap widens. Upskilling matters more than ever." data-zh="AI使常规工作商品化，底部薪资可能下降——但Staff+工程师薪酬预计上涨20%以上。差距在扩大。提升技能比以往更重要。">Bottom-quartile developer salaries likely decline as AI commoditizes routine work — but Staff+ engineer pay is expected to rise 20%+. The gap widens. Upskilling matters more than ever.</p>
+        </div>
+      </div>
+    </section>
+  </FadeIn>
+
   <!-- Live data flow -->
   <LivePulse />
+
+  <!-- Sample forecast preview — dynamically generated from latest report + predictions -->
+  <FadeIn>
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+      <div class="rounded-xl border border-almanac-border bg-almanac-surface overflow-hidden">
+        <div class="px-6 py-3 border-b border-almanac-border flex items-center justify-between">
+          <span class="text-xs text-almanac-muted uppercase tracking-widest" data-en="Sample: What you get daily" data-zh="示例：每日推送内容">Sample: What you get daily</span>
+          <a href="/almanac-site/forecast" class="text-xs text-almanac-accent hover:underline" data-en="Read full report" data-zh="阅读完整报告">Read full report &rarr;</a>
+        </div>
+        <div class="p-5 sm:p-6">
+          <div class="flex items-center gap-3 mb-3">
+            {latestDate && <span class="text-xs font-mono text-almanac-muted bg-almanac-border px-2 py-0.5 rounded">{latestDate}</span>}
+            <span class="text-xs text-almanac-green font-mono">{movedPreds.length > 0 ? `${allPreds.filter((p: any) => p.confidence !== (p.previous ?? p.confidence)).length} predictions moved` : 'Daily forecast'}</span>
+          </div>
+          {latestExcerpt ? (
+            <p class="text-sm text-almanac-muted leading-relaxed mb-4">{latestExcerpt}...</p>
+          ) : (
+            <p class="text-sm text-almanac-muted leading-relaxed mb-4">Each morning, Almanac synthesizes signals from 17+ sources into a concise forecast with specific, source-linked prediction updates.</p>
+          )}
+          <div class="flex flex-wrap gap-2">
+            {movedPreds.length > 0 ? movedPreds.map((p: any) => {
+              const delta = p.confidence - (p.previous ?? p.confidence);
+              const color = delta > 0 ? 'bg-almanac-green/10 text-almanac-green border-almanac-green/20' : 'bg-almanac-red/10 text-almanac-red border-almanac-red/20';
+              return (
+                <span class={`text-[10px] px-2 py-1 rounded border ${color}`}>
+                  P{p.id}: {p.claim.slice(0, 40)}... {p.confidence}% ({delta > 0 ? '+' : ''}{delta})
+                </span>
+              );
+            }) : (
+              <span class="text-[10px] px-2 py-1 rounded bg-almanac-border text-almanac-muted" data-en="Subscribe to see daily prediction movements" data-zh="订阅查看每日预测变动">Subscribe to see daily prediction movements</span>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  </FadeIn>
 
   <!-- Signal Ticker -->
   <SignalTicker />
 
-  <!-- Today's headline signal — big card -->
+  <!-- Today's headline signal — with career context and source attribution -->
   <FadeIn>
     <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
       <div class="relative">
@@ -202,91 +284,16 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
             <p class="text-almanac-muted leading-relaxed max-w-3xl" data-en="Enterprise teams are reporting a dramatic shift in engineering org structure. Senior architects are now orchestrating fleets of AI coding agents rather than managing junior developers. The human-to-agent ratio has crossed 1:10 at early adopters, fundamentally redefining what 'team lead' means." data-zh="企业团队正在报告工程组织结构的巨大转变。资深架构师现在协调 AI 编程代理舰队，而不是管理初级开发者。早期采用者的人机比已突破 1:10，从根本上重新定义了「技术负责人」的含义。">
               Enterprise teams are reporting a dramatic shift in engineering org structure. Senior architects are now orchestrating fleets of AI coding agents rather than managing junior developers. The human-to-agent ratio has crossed 1:10 at early adopters, fundamentally redefining what 'team lead' means.
             </p>
+            <p class="mt-3 text-sm text-almanac-accent/80 italic" data-en="What this means for your career: architecture and orchestration skills become the premium, not coding speed. Senior roles grow; the path up matters more than ever." data-zh="这对你的职业意味着：架构和协调能力成为核心竞争力，而非编码速度。高级岗位增长，向上发展的路径比以往更重要。">
+              What this means for your career: architecture and orchestration skills become the premium, not coding speed. Senior roles grow; the path up matters more than ever.
+            </p>
             <div class="mt-6 flex flex-wrap items-center gap-4 text-xs text-almanac-muted">
               <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-almanac-red"></span><span data-en="Impact: Critical" data-zh="影响：关键">Impact: Critical</span></span>
-              <span data-en="Source: arXiv, Hacker News" data-zh="来源：arXiv、Hacker News">Source: arXiv, Hacker News</span>
+              <span data-en="Sources: aggregated from arXiv preprints + HN discussion threads" data-zh="来源：汇总自 arXiv 预印本 + HN 讨论帖">Sources: aggregated from arXiv preprints + HN discussion threads</span>
               <span data-en="Horizon: 2-7 years" data-zh="时间线：2-7年">Horizon: 2-7 years</span>
               <span class="font-mono text-almanac-green" data-en="5 predictions affected" data-zh="影响5项预测">5 predictions affected</span>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-  </FadeIn>
-
-  <!-- Sample forecast preview — dynamically generated from latest report + predictions -->
-  <FadeIn>
-    <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
-      <div class="rounded-xl border border-almanac-border bg-almanac-surface overflow-hidden">
-        <div class="px-6 py-3 border-b border-almanac-border flex items-center justify-between">
-          <span class="text-xs text-almanac-muted uppercase tracking-widest" data-en="Sample: What you get daily" data-zh="示例：每日推送内容">Sample: What you get daily</span>
-          <a href="/almanac-site/forecast" class="text-xs text-almanac-accent hover:underline" data-en="Read full report" data-zh="阅读完整报告">Read full report &rarr;</a>
-        </div>
-        <div class="p-5 sm:p-6">
-          <div class="flex items-center gap-3 mb-3">
-            {latestDate && <span class="text-xs font-mono text-almanac-muted bg-almanac-border px-2 py-0.5 rounded">{latestDate}</span>}
-            <span class="text-xs text-almanac-green font-mono">{movedPreds.length > 0 ? `${allPreds.filter((p: any) => p.confidence !== (p.previous ?? p.confidence)).length} predictions moved` : 'Daily forecast'}</span>
-          </div>
-          {latestExcerpt ? (
-            <p class="text-sm text-almanac-muted leading-relaxed mb-4">{latestExcerpt}...</p>
-          ) : (
-            <p class="text-sm text-almanac-muted leading-relaxed mb-4">Each morning, Almanac synthesizes signals from 15+ sources into a concise forecast with specific, source-linked prediction updates.</p>
-          )}
-          <div class="flex flex-wrap gap-2">
-            {movedPreds.length > 0 ? movedPreds.map((p: any) => {
-              const delta = p.confidence - (p.previous ?? p.confidence);
-              const color = delta > 0 ? 'bg-almanac-green/10 text-almanac-green border-almanac-green/20' : 'bg-almanac-red/10 text-almanac-red border-almanac-red/20';
-              return (
-                <span class={`text-[10px] px-2 py-1 rounded border ${color}`}>
-                  P{p.id}: {p.claim.slice(0, 40)}... {p.confidence}% ({delta > 0 ? '+' : ''}{delta})
-                </span>
-              );
-            }) : (
-              <span class="text-[10px] px-2 py-1 rounded bg-almanac-border text-almanac-muted">Subscribe to see daily prediction movements</span>
-            )}
-          </div>
-        </div>
-      </div>
-    </section>
-  </FadeIn>
-
-  <!-- Trust bar — plain English, not jargon -->
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-4">
-    <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-almanac-muted">
-      <a href="/almanac-site/validation" class="flex items-center gap-1.5 hover:text-almanac-accent transition-colors">
-        <svg class="w-3.5 h-3.5 text-almanac-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        <span data-en="Backtest: 16/20 direction-correct on historical events (not live)" data-zh="回测：20个历史事件中16个方向正确（非实时）">Backtest: 16/20 direction-correct on historical events (not live)</span>
-      </a>
-      <span class="flex items-center gap-1.5">
-        <svg class="w-3.5 h-3.5 text-almanac-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        <span data-en="5 AI analysts debate each prediction daily" data-zh="5个AI分析师每天辩论每项预测">5 AI analysts debate each prediction daily</span>
-      </span>
-      <span class="flex items-center gap-1.5">
-        <svg class="w-3.5 h-3.5 text-almanac-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-        <span data-en="We publish our misses — see all 4 we got wrong" data-zh="我们公开失误——查看我们的4次错误">We publish our misses — see all 4 we got wrong</span>
-      </span>
-    </div>
-  </div>
-
-  <!-- What it means for your career — the conversion hook -->
-  <FadeIn>
-    <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
-      <h2 class="text-2xl font-bold mb-6 text-center" data-en="What the data says about your career" data-zh="数据对你的职业意味着什么">What the data says about your career</h2>
-      <div class="grid sm:grid-cols-3 gap-4">
-        <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface">
-          <div class="text-2xl font-bold font-mono text-almanac-green mb-2">60%</div>
-          <p class="text-sm font-medium mb-1" data-en="More developers, not fewer" data-zh="更多开发者，而不是更少">More developers, not fewer</p>
-          <p class="text-xs text-almanac-muted" data-en="Our models suggest total developer headcount will likely GROW by 2030. Every previous automation wave expanded employment in the affected sector." data-zh="我们的模型表明，到2030年开发者总数可能会增长。每一次自动化浪潮都扩大了相关行业的就业。">Our models suggest total developer headcount will likely GROW by 2030. Every previous automation wave expanded employment in the affected sector.</p>
-        </div>
-        <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface">
-          <div class="text-2xl font-bold font-mono text-almanac-amber mb-2">92%</div>
-          <p class="text-sm font-medium mb-1" data-en="Systems skills pay more" data-zh="系统技能更值钱">Systems skills pay more</p>
-          <p class="text-xs text-almanac-muted" data-en="Rust, C++, and kernel development will command higher premiums as AI handles high-level code generation. Deep technical skills become more valuable, not less." data-zh="随着AI处理高级代码生成，Rust、C++和内核开发将获得更高溢价。深度技术技能变得更有价值。">Rust, C++, and kernel development will command higher premiums as AI handles high-level code generation. Deep technical skills become more valuable, not less.</p>
-        </div>
-        <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface">
-          <div class="text-2xl font-bold font-mono text-almanac-red mb-2">62%</div>
-          <p class="text-sm font-medium mb-1" data-en="The floor drops, the ceiling rises" data-zh="底部下降，顶部上升">The floor drops, the ceiling rises</p>
-          <p class="text-xs text-almanac-muted" data-en="Bottom-quartile developer salaries likely decline as AI commoditizes routine work — but Staff+ engineer pay is expected to rise 20%+. The gap widens. Upskilling matters more than ever." data-zh="AI使常规工作商品化，底部薪资可能下降——但Staff+工程师薪酬预计上涨20%以上。差距在扩大。提升技能比以往更重要。">Bottom-quartile developer salaries likely decline as AI commoditizes routine work — but Staff+ engineer pay is expected to rise 20%+. The gap widens. Upskilling matters more than ever.</p>
         </div>
       </div>
     </section>
@@ -356,9 +363,9 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
         {/* Connector lines */}
         <div class="hidden sm:block absolute top-10 left-[33%] w-[34%] h-px bg-gradient-to-r from-almanac-accent/50 to-almanac-accent/50 z-0"></div>
         {[
-          { num: "01", title: "Ingest", titleZh: "数据采集", desc: "AI agents scrape 15 sources — arXiv, Hacker News, job boards, GitHub, RSS feeds, prediction markets.", descZh: "AI智能体每日抓取15个数据源——arXiv、Hacker News、招聘板、GitHub、RSS订阅、预测市场。" },
-          { num: "02", title: "Analyze", titleZh: "信号分析", desc: "Signals filtered and synthesized. Every claim source-linked. Every prediction gets a confidence score.", descZh: "信号过滤与综合。每个观点都有来源链接。每项预测都获得置信度评分。" },
-          { num: "03", title: "Forecast", titleZh: "预测更新", desc: "Predictions update via LLM-evaluated signal analysis. The daily Futures Diff shows what changed and why.", descZh: "预测通过LLM信号分析更新。每日未来差异报告显示变化内容及原因。" },
+          { num: "01", title: "Ingest", titleZh: "数据采集", desc: "AI agents scrape 17+ sources — arXiv, Hacker News, job boards, GitHub, RSS feeds, Reddit, prediction markets.", descZh: "AI智能体每日抓取17+个数据源——arXiv、Hacker News、招聘板、GitHub、RSS订阅、Reddit、预测市场。" },
+          { num: "02", title: "Analyze", titleZh: "信号分析", desc: "Signals filtered and synthesized. Every claim source-linked. Every prediction gets a confidence score with likelihood ratios.", descZh: "信号过滤与综合。每个观点都有来源链接。每项预测都获得带似然比的置信度评分。" },
+          { num: "03", title: "Forecast", titleZh: "预测更新", desc: "Bayesian updates with 0.3 dampening. 5 AI personas with different worldviews vote independently. Max 5pp daily move.", descZh: "0.3阻尼因子的贝叶斯更新。5个不同世界观的AI角色独立投票。每日最大变动5个百分点。" },
         ].map((step, i) => (
           <div class="relative z-10 text-center px-6 py-4">
             <div class="w-20 h-20 mx-auto mb-4 rounded-2xl border border-almanac-border bg-almanac-surface flex items-center justify-center group-hover:border-almanac-accent transition-colors">
@@ -372,16 +379,48 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
     </section>
   </FadeIn>
 
+  <!-- Transparency — building a track record in public -->
+  <FadeIn>
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+      <h2 class="text-2xl font-bold mb-6 text-center" data-en="Building a Track Record in Public" data-zh="公开构建预测记录">Building a Track Record in Public</h2>
+      <div class="grid grid-cols-3 gap-4 mb-6">
+        <div class="text-center p-4 rounded-xl border border-almanac-border bg-almanac-surface">
+          <div class="text-2xl font-bold font-mono text-almanac-accent">{daysLive}</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Days of daily tracking" data-zh="每日追踪天数">Days of daily tracking</div>
+        </div>
+        <div class="text-center p-4 rounded-xl border border-almanac-border bg-almanac-surface">
+          <div class="text-2xl font-bold font-mono text-almanac-green">{totalPreds}</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Pre-registered predictions" data-zh="预注册预测">Pre-registered predictions</div>
+        </div>
+        <div class="text-center p-4 rounded-xl border border-almanac-border bg-almanac-surface">
+          <div class="text-2xl font-bold font-mono text-almanac-muted">0</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Resolved (so far)" data-zh="已验证（目前）">Resolved (so far)</div>
+        </div>
+      </div>
+      <div class="text-sm text-almanac-muted leading-relaxed space-y-2 max-w-3xl mx-auto">
+        <p data-en="Every prediction was committed to git before the pipeline started running — timestamps are public and verifiable. Every daily update is a git commit you can audit." data-zh="每项预测在流水线运行前已提交至git——时间戳公开可验证。每次每日更新都是可审计的git提交。">
+          Every prediction was committed to git before the pipeline started running — timestamps are public and verifiable. Every daily update is a git commit you can audit.
+        </p>
+        <p data-en="We have a hindcast (backtest) of 20 historical events scoring Brier 0.155 — but we're honest that backtest is not a track record. We'll publish our first live calibration curve when 50+ predictions resolve." data-zh="我们有20个历史事件的回溯测试，Brier评分0.155——但我们坦诚地说，回测不等于实际记录。当50+项预测验证后，我们将发布首份实时校准曲线。">
+          We have a hindcast (backtest) of 20 historical events scoring Brier 0.155 — but we're honest that backtest is not a track record. We'll publish our first live calibration curve when 50+ predictions resolve.
+        </p>
+      </div>
+      <div class="mt-4 text-center">
+        <a href="/almanac-site/validation" class="text-sm text-almanac-accent hover:underline" data-en="See our honest validation page →" data-zh="查看我们的诚实验证页面 →">See our honest validation page &rarr;</a>
+      </div>
+    </section>
+  </FadeIn>
+
   <!-- Source orbit -->
   <FadeIn>
     <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 text-center">
       <h2 class="text-2xl font-bold mb-2" data-en="Data Sources" data-zh="数据来源">Data Sources</h2>
-      <p class="text-almanac-muted text-sm mb-8" data-en="15 feeds monitored daily" data-zh="每日监控 15 个数据源">15 feeds monitored daily</p>
+      <p class="text-almanac-muted text-sm mb-8" data-en="17+ feeds monitored daily" data-zh="每日监控 17+ 个数据源">17+ feeds monitored daily</p>
       <SourceOrbit />
     </section>
   </FadeIn>
 
-  <!-- Email signup CTA -->
+  <!-- Email signup CTA — with social proof frame -->
   <FadeIn>
     <section class="max-w-3xl mx-auto px-4 sm:px-6 py-20 text-center">
       <div class="relative">
@@ -389,7 +428,8 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
         <div class="relative p-10 rounded-xl border border-almanac-border bg-almanac-surface">
           <h2 class="text-3xl font-bold mb-3" data-en="The future updates daily." data-zh="未来，每天更新。">The future updates daily.</h2>
           <p class="text-almanac-muted mb-2 text-lg" data-en="Get tomorrow's forecast in your inbox." data-zh="在你的收件箱获取明天的预测。">Get tomorrow's forecast in your inbox.</p>
-          <p class="text-almanac-muted mb-8 text-sm" data-en="One email per day. Confidence-scored predictions. Source-linked signals." data-zh="每天一封邮件，带置信度评分和来源链接。">One email per day. Confidence-scored predictions. Source-linked signals.</p>
+          <p class="text-almanac-muted mb-4 text-sm" data-en="One email per day. Confidence-scored predictions. Source-linked signals." data-zh="每天一封邮件，带置信度评分和来源链接。">One email per day. Confidence-scored predictions. Source-linked signals.</p>
+          <p class="text-almanac-accent text-xs font-medium mb-6" data-en="Be one of our first readers — we're building this track record with you." data-zh="成为我们的首批读者——我们与你一起建立这份记录。">Be one of our first readers — we're building this track record with you.</p>
 
           <form id="cta-form" class="flex flex-col sm:flex-row gap-2.5 max-w-lg mx-auto" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="56e74bc1-d00f-4ff8-ad35-a00eb74f716d" />
@@ -397,10 +437,11 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
             <input type="hidden" name="from_name" value="Almanac Signup" />
             <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
             <input type="email" name="email" required placeholder="you@company.com"
+              data-en-placeholder="you@company.com" data-zh-placeholder="你的邮箱地址"
               class="flex-1 px-4 py-3.5 rounded-lg bg-almanac-bg border border-almanac-border text-almanac-text placeholder:text-almanac-muted/50 focus:outline-none focus:border-almanac-accent focus:ring-1 focus:ring-almanac-accent/30 transition-all" />
             <button type="submit"
               class="px-8 py-3.5 bg-almanac-accent text-almanac-bg font-semibold rounded-lg hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-all duration-300 whitespace-nowrap cursor-pointer flex items-center gap-2">
-              <span class="btn-text">Subscribe Free</span>
+              <span class="btn-text" data-en="Subscribe Free" data-zh="免费订阅">Subscribe Free</span>
               <svg class="btn-spinner hidden w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
             </button>
           </form>
@@ -410,15 +451,15 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
           <div class="mt-8 flex items-center justify-center gap-6 text-xs text-almanac-muted">
             <div class="flex items-center gap-1.5">
               <svg class="w-3.5 h-3.5 text-almanac-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
-              Free forever
+              <span data-en="Free forever" data-zh="永久免费">Free forever</span>
             </div>
             <div class="flex items-center gap-1.5">
               <svg class="w-3.5 h-3.5 text-almanac-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
-              Daily at 6 AM UTC
+              <span data-en="Daily at 6 AM UTC" data-zh="每日 UTC 6:00 发送">Daily at 6 AM UTC</span>
             </div>
             <div class="flex items-center gap-1.5">
               <svg class="w-3.5 h-3.5 text-almanac-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
-              Open source
+              <span data-en="Open source" data-zh="开源">Open source</span>
             </div>
           </div>
         </div>
