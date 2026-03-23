@@ -216,7 +216,7 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
 
   <!-- What it means for your career — moved up as the emotional hook right after trust -->
   <FadeIn>
-    <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+    <section class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
       <h2 class="text-2xl font-bold mb-6 text-center" data-en="What the data says about your career" data-zh="数据对你的职业意味着什么">What the data says about your career</h2>
       <div class="grid sm:grid-cols-3 gap-4">
         <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface">
@@ -319,6 +319,7 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
   )}
 
   <!-- Prediction cards -->
+  <div class="bg-almanac-surface/30 border-y border-almanac-border/50 py-4">
   <section class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
     <FadeIn>
       <div class="flex items-end justify-between mb-8">
@@ -375,10 +376,12 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
     </div>
   </section>
 
+  </div><!-- end prediction cards bg -->
+
   <!-- How it works — horizontal flow -->
   <FadeIn>
     <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
-      <h2 class="text-3xl font-bold mb-10 text-center" data-en="How it works" data-zh="工作原理">How it works</h2>
+      <h2 class="text-3xl font-bold mb-10 text-center" data-en="How it works" data-zh="工作原理"><span class="text-almanac-accent">How</span> it works</h2>
       <div class="grid sm:grid-cols-3 gap-0 relative">
         {/* Connector lines */}
         <div class="hidden sm:block absolute top-10 left-[33%] w-[34%] h-px bg-gradient-to-r from-almanac-accent/50 to-almanac-accent/50 z-0"></div>
