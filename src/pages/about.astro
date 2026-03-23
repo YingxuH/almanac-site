@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import FadeIn from '../components/FadeIn.astro';
+import BayesCalculator from '../components/BayesCalculator.astro';
 ---
 <Base title="About — Almanac">
 
@@ -165,6 +166,17 @@ import FadeIn from '../components/FadeIn.astro';
             </div>
           ))}
         </div>
+      </div>
+    </FadeIn>
+
+    <!-- Bayesian Calculator -->
+    <FadeIn delay={325}>
+      <div class="mt-16">
+        <h2 class="text-2xl font-bold mb-3" data-en="Try the Formula Yourself" data-zh="亲自尝试公式">Try the Formula Yourself</h2>
+        <p class="text-sm text-almanac-muted mb-6" data-en="This calculator runs the exact same Bayesian update formula our pipeline uses every day. Use the presets to see how source credibility and evidence strength interact." data-zh="此计算器使用我们流水线每天运行的完全相同的贝叶斯更新公式。使用预设按钮查看来源可信度和证据强度如何相互作用。">
+          This calculator runs the exact same Bayesian update formula our pipeline uses every day. Use the presets to see how source credibility and evidence strength interact.
+        </p>
+        <BayesCalculator />
       </div>
     </FadeIn>
 

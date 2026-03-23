@@ -34,3 +34,49 @@ export function loadPredictions(): any[] {
 export function loadPredictionHistory(): any[] {
   return loadJSON('prediction_history.json', []);
 }
+
+export function loadPredictionTrajectories(): Record<number, { points: { date: string; confidence: number }[]; events: any[] }> {
+  try {
+    const history = loadJSON('prediction_history.json', []);
+    const evidence = loadJSON('prediction_evidence.json', {});
+
+    const trajectories: Record<number, { points: { date: string; confidence: number }[]; events: any[] }> = {};
+
+    // Build time-series points from history snapshots
+    const histArr = Array.isArray(history) ? history : [];
+    for (const snapshot of histArr) {
+      if (!snapshot || !snapshot.predictions) continue;
+      const predsArr = Array.isArray(snapshot.predictions) ? snapshot.predictions : [];
+      for (const pred of predsArr) {
+        if (!pred || !pred.id) continue;
+        if (!trajectories[pred.id]) trajectories[pred.id] = { points: [], events: [] };
+        trajectories[pred.id].points.push({ date: snapshot.date || '', confidence: pred.confidence || 0 });
+      }
+    }
+
+    // Attach evidence events
+    const evObj = (evidence && typeof evidence === 'object' && !Array.isArray(evidence)) ? evidence : {};
+    const evEntries = Object.entries(evObj);
+    for (let i = 0; i < evEntries.length; i++) {
+      const [pid, entries] = evEntries[i];
+      const id = parseInt(pid);
+      if (!trajectories[id] || !Array.isArray(entries)) continue;
+      for (let j = 0; j < (entries as any[]).length; j++) {
+        const entry = (entries as any[])[j];
+        if (!entry || !Array.isArray(entry.signals)) continue;
+        for (const signal of entry.signals) {
+          trajectories[id].events.push({
+            date: entry.date || '',
+            delta: entry.delta || 0,
+            title: signal.title || '',
+            direction: signal.direction || 'up',
+          });
+        }
+      }
+    }
+
+    return trajectories;
+  } catch {
+    return {};
+  }
+}

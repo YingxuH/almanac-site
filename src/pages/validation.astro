@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import FadeIn from '../components/FadeIn.astro';
+import CalibrationPlot from '../components/CalibrationPlot.astro';
 
 const predictions = [
   { id: "H01", q: "OpenAI releases new flagship model before Jan 2026", qZh: "OpenAI在2026年1月前发布新旗舰模型", pred: 85, outcome: true, brier: 0.0225, reasoning: "OpenAI had been on quarterly release cadence; GPT-5.x series was expected", reasoningZh: "OpenAI保持季度发布节奏；GPT-5.x系列在预期之中" },
@@ -71,6 +72,25 @@ const wrong = predictions.length - correct;
       <div class="mb-10 p-4 rounded-xl border border-almanac-border bg-almanac-surface/50 text-sm text-almanac-muted">
         <strong class="text-almanac-text" data-en="What is a Brier Score?" data-zh="什么是布里尔分数？">What is a Brier Score?</strong>
         <span data-en=" It measures prediction accuracy: 0.0 = perfect foresight, 0.25 = coin flip (guessing 50% every time), 0.50 = always wrong. Our score of 0.155 beats the coin-flip baseline by 38%. For context, top Metaculus forecasters score ~0.10-0.15 on comparable questions." data-zh=" 它衡量预测准确性：0.0 = 完美预见，0.25 = 抛硬币（每次猜50%），0.50 = 总是错误。我们0.155的分数比抛硬币基准高38%。作为参考，Metaculus顶级预测者在类似问题上得分约0.10-0.15。"> It measures prediction accuracy: 0.0 = perfect foresight, 0.25 = coin flip (guessing 50% every time), 0.50 = always wrong. Our score of 0.155 beats the coin-flip baseline by 38%. For context, top Metaculus forecasters score ~0.10-0.15 on comparable questions.</span>
+      </div>
+    </FadeIn>
+
+    <!-- Calibration Plot -->
+    <FadeIn delay={175}>
+      <div class="mb-10">
+        <div class="mb-4">
+          <h2 class="text-xl font-bold" data-en="Calibration Analysis" data-zh="校准分析">Calibration Analysis</h2>
+          <p class="text-sm text-almanac-muted mt-1" data-en="A well-calibrated forecaster who says 70% should be right 70% of the time. Each circle represents one probability bucket; size reflects sample count." data-zh="一个良好校准的预测者说70%时应该有70%的概率是正确的。每个圆圈代表一个概率区间；大小反映样本量。">
+            A well-calibrated forecaster who says 70% should be right 70% of the time. Each circle represents one probability bucket; size reflects sample count.
+          </p>
+        </div>
+        <CalibrationPlot predictions={predictions.map(p => ({ pred: p.pred, outcome: p.outcome }))} />
+        <div class="mt-4 p-4 rounded-xl border border-almanac-amber/20 bg-almanac-amber/5 text-sm text-almanac-muted">
+          <strong class="text-almanac-amber" data-en="Reading this chart:" data-zh="如何读图：">Reading this chart:</strong>
+          <span data-en=" Circles on the dashed diagonal = perfect calibration. Red circles below the line = overconfident (we predicted higher than reality delivered). Green circles above the line = underconfident. The low-confidence bucket (0-25%) shows significant overconfidence — we assigned low odds to events that often happened." data-zh=" 虚线上的圆圈 = 完美校准。线以下的红色圆圈 = 过度自信（我们预测的比实际发生的要高）。线以上的绿色圆圈 = 信心不足。低置信区间（0-25%）显示明显的过度自信——我们对经常发生的事件给予了较低概率。">
+            Circles on the dashed diagonal = perfect calibration. Red circles below the line = overconfident (we predicted higher than reality delivered). Green circles above the line = underconfident. The low-confidence bucket (0-25%) shows significant overconfidence — we assigned low odds to events that often happened.
+          </span>
+        </div>
       </div>
     </FadeIn>
 

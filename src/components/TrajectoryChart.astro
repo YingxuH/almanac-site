@@ -1,0 +1,371 @@
+---
+/**
+ * TrajectoryChart — SVG sparkline showing a prediction's confidence over time.
+ *
+ * Props:
+ *   points   — time-series data: { date: string; confidence: number }[]
+ *   events   — annotated evidence events: { date: string; delta: number; title: string; direction: string }[]
+ *   width    — SVG width in px (default 280)
+ *   height   — SVG height in px (default 60)
+ *   color    — stroke color (default var(--color-almanac-accent))
+ *
+ * The live-data boundary is 2026-03-20 (anything on or after that date is live
+ * pipeline output; everything before is backfilled).
+ */
+interface Props {
+  points: { date: string; confidence: number }[];
+  events?: { date: string; delta: number; title: string; direction: string }[];
+  width?: number;
+  height?: number;
+  color?: string;
+}
+
+const {
+  points = [],
+  events = [],
+  width = 280,
+  height = 60,
+  color = 'var(--color-almanac-accent)',
+} = Astro.props;
+
+// ─── layout constants ────────────────────────────────────────────────────────
+const PAD_LEFT   = 4;
+const PAD_RIGHT  = 4;
+const PAD_TOP    = 8;
+const PAD_BOTTOM = 8;
+const INNER_W    = width  - PAD_LEFT - PAD_RIGHT;
+const INNER_H    = height - PAD_TOP  - PAD_BOTTOM;
+
+// ─── helpers ─────────────────────────────────────────────────────────────────
+function dateToMs(d: string) { return new Date(d).getTime(); }
+
+// Map a confidence value (0-100) to a y coordinate (higher confidence = lower y)
+function yOf(conf: number) {
+  return PAD_TOP + INNER_H * (1 - conf / 100);
+}
+
+// Map a date string to an x coordinate
+function xOf(ms: number, minMs: number, maxMs: number) {
+  if (maxMs === minMs) return PAD_LEFT + INNER_W / 2;
+  return PAD_LEFT + ((ms - minMs) / (maxMs - minMs)) * INNER_W;
+}
+
+// ─── compute coordinates ─────────────────────────────────────────────────────
+const sorted = [...points].sort((a, b) => dateToMs(a.date) - dateToMs(b.date));
+
+const LIVE_BOUNDARY = '2026-03-20';
+const liveBoundaryMs = dateToMs(LIVE_BOUNDARY);
+
+let polylineStr = '';
+let dotMarkers: { x: number; y: number; conf: number }[] = [];
+let liveX: number | null = null;
+
+if (sorted.length >= 2) {
+  const minMs = dateToMs(sorted[0].date);
+  const maxMs = dateToMs(sorted[sorted.length - 1].date);
+
+  dotMarkers = sorted.map(pt => ({
+    x: xOf(dateToMs(pt.date), minMs, maxMs),
+    y: yOf(pt.confidence),
+    conf: pt.confidence,
+  }));
+
+  polylineStr = dotMarkers.map(d => `${d.x.toFixed(2)},${d.y.toFixed(2)}`).join(' ');
+
+  // x position of the live boundary line
+  if (liveBoundaryMs >= minMs && liveBoundaryMs <= maxMs) {
+    liveX = xOf(liveBoundaryMs, minMs, maxMs);
+  } else if (liveBoundaryMs > maxMs) {
+    // all data is backfill — no live line
+    liveX = null;
+  } else {
+    // all data is live — put line at left edge
+    liveX = PAD_LEFT;
+  }
+
+  // Build event diamond markers (one per unique date, using the first event at that date)
+  // Deduplicate by date so we don't stack diamonds on identical dates
+} else if (sorted.length === 1) {
+  const pt = sorted[0];
+  const x = PAD_LEFT + INNER_W / 2;
+  const y = yOf(pt.confidence);
+  dotMarkers = [{ x, y, conf: pt.confidence }];
+}
+
+// Event diamond markers
+const eventDateMap = new Map<string, { date: string; delta: number; title: string; direction: string }>();
+for (const ev of events) {
+  if (!eventDateMap.has(ev.date)) eventDateMap.set(ev.date, ev);
+}
+
+let eventMarkers: { x: number; y: number; direction: string; title: string; date: string }[] = [];
+if (sorted.length >= 2) {
+  const minMs = dateToMs(sorted[0].date);
+  const maxMs = dateToMs(sorted[sorted.length - 1].date);
+
+  for (const [date, ev] of eventDateMap) {
+    const ms = dateToMs(date);
+    if (ms < minMs || ms > maxMs) continue;
+    const ex = xOf(ms, minMs, maxMs);
+    // Find the closest point's y (interpolate between nearest points)
+    let ey = yOf(50); // fallback
+    for (let i = 0; i < sorted.length - 1; i++) {
+      const aMs = dateToMs(sorted[i].date);
+      const bMs = dateToMs(sorted[i + 1].date);
+      if (ms >= aMs && ms <= bMs) {
+        const t = bMs === aMs ? 0 : (ms - aMs) / (bMs - aMs);
+        const conf = sorted[i].confidence + t * (sorted[i + 1].confidence - sorted[i].confidence);
+        ey = yOf(conf);
+        break;
+      }
+    }
+    eventMarkers.push({ x: ex, y: ey, direction: ev.direction, title: ev.title, date });
+  }
+}
+
+// ─── gradient fill path ──────────────────────────────────────────────────────
+// Closed path: polyline + down to bottom-right + across bottom + up to start
+const fillPath = sorted.length >= 2
+  ? `M ${dotMarkers[0].x.toFixed(2)},${dotMarkers[0].y.toFixed(2)} ` +
+    dotMarkers.slice(1).map(d => `L ${d.x.toFixed(2)},${d.y.toFixed(2)}`).join(' ') +
+    ` L ${dotMarkers[dotMarkers.length - 1].x.toFixed(2)},${(PAD_TOP + INNER_H).toFixed(2)}` +
+    ` L ${dotMarkers[0].x.toFixed(2)},${(PAD_TOP + INNER_H).toFixed(2)} Z`
+  : '';
+
+// ─── 50% baseline y ──────────────────────────────────────────────────────────
+const y50 = yOf(50);
+
+// unique id to avoid SVG def collision when multiple charts on page
+const uid = `tc-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<div class="trajectory-chart-wrapper" style={`width:${width}px`}>
+  <svg
+    viewBox={`0 0 ${width} ${height}`}
+    width={width}
+    height={height}
+    aria-hidden="true"
+    class="trajectory-svg overflow-visible"
+  >
+    <defs>
+      <!-- Gradient fill under the line -->
+      <linearGradient id={`${uid}-grad`} x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color={color} stop-opacity="0.18" />
+        <stop offset="100%" stop-color={color} stop-opacity="0.01" />
+      </linearGradient>
+      <!-- Clip to chart area -->
+      <clipPath id={`${uid}-clip`}>
+        <rect x={PAD_LEFT} y={PAD_TOP} width={INNER_W} height={INNER_H} />
+      </clipPath>
+    </defs>
+
+    <!-- 50% dashed baseline -->
+    <line
+      x1={PAD_LEFT}
+      y1={y50}
+      x2={PAD_LEFT + INNER_W}
+      y2={y50}
+      stroke="var(--color-almanac-muted)"
+      stroke-width="0.75"
+      stroke-dasharray="3 3"
+      opacity="0.4"
+    />
+    <!-- "50%" label -->
+    <text
+      x={PAD_LEFT + 2}
+      y={y50 - 2}
+      font-size="7"
+      fill="var(--color-almanac-muted)"
+      opacity="0.6"
+      font-family="var(--font-mono, monospace)"
+    >50%</text>
+
+    {/* Gradient fill under trajectory */}
+    {fillPath && (
+      <path
+        d={fillPath}
+        fill={`url(#${uid}-grad)`}
+        clip-path={`url(#${uid}-clip)`}
+      />
+    )}
+
+    {/* Live-boundary vertical divider */}
+    {liveX !== null && (
+      <>
+        <!-- Shaded backfill region -->
+        <rect
+          x={PAD_LEFT}
+          y={PAD_TOP}
+          width={Math.max(0, liveX - PAD_LEFT)}
+          height={INNER_H}
+          fill="var(--color-almanac-muted)"
+          opacity="0.04"
+          clip-path={`url(#${uid}-clip)`}
+        />
+        <!-- Vertical dashed line -->
+        <line
+          x1={liveX}
+          y1={PAD_TOP - 2}
+          x2={liveX}
+          y2={PAD_TOP + INNER_H + 2}
+          stroke="var(--color-almanac-accent)"
+          stroke-width="0.75"
+          stroke-dasharray="2 2"
+          opacity="0.55"
+        />
+        <!-- "Live" label above the line -->
+        <text
+          x={liveX + 2}
+          y={PAD_TOP + 6}
+          font-size="7"
+          fill="var(--color-almanac-accent)"
+          font-family="var(--font-mono, monospace)"
+          font-weight="600"
+          opacity="0.85"
+        >Live</text>
+      </>
+    )}
+
+    {/* Trajectory polyline */}
+    {polylineStr && (
+      <polyline
+        points={polylineStr}
+        fill="none"
+        stroke={color}
+        stroke-width="1.5"
+        stroke-linejoin="round"
+        stroke-linecap="round"
+        clip-path={`url(#${uid}-clip)`}
+      />
+    )}
+
+    {/* Small dot markers at each data point */}
+    {dotMarkers.map(d => (
+      <circle
+        cx={d.x}
+        cy={d.y}
+        r="2"
+        fill={color}
+        opacity="0.7"
+        clip-path={`url(#${uid}-clip)`}
+      />
+    ))}
+
+    {/* Diamond event markers */}
+    {eventMarkers.map(ev => {
+      const evColor = ev.direction === 'up'
+        ? 'var(--color-almanac-green)'
+        : 'var(--color-almanac-red)';
+      const s = 4; // half-size of diamond
+      // diamond as polygon: top, right, bottom, left
+      const pts = [
+        `${ev.x},${ev.y - s}`,
+        `${ev.x + s},${ev.y}`,
+        `${ev.x},${ev.y + s}`,
+        `${ev.x - s},${ev.y}`,
+      ].join(' ');
+      return (
+        <g clip-path={`url(#${uid}-clip)`}>
+          <polygon
+            points={pts}
+            fill={evColor}
+            stroke="var(--color-almanac-surface)"
+            stroke-width="0.75"
+            opacity="0.9"
+          >
+            <title>{ev.date}: {ev.title}</title>
+          </polygon>
+        </g>
+      );
+    })}
+  </svg>
+
+  {/* Legend row */}
+  <div class="trajectory-legend">
+    {liveX !== null && (
+      <span class="legend-item">
+        <span class="legend-dot backfill"></span>
+        <span class="legend-text" data-en="Backfilled" data-zh="回填数据">Backfilled</span>
+      </span>
+    )}
+    {eventMarkers.length > 0 && (
+      <>
+        <span class="legend-item">
+          <span class="legend-diamond up"></span>
+          <span class="legend-text" data-en="Signal up" data-zh="信号上升">Signal up</span>
+        </span>
+        <span class="legend-item">
+          <span class="legend-diamond down"></span>
+          <span class="legend-text" data-en="Signal down" data-zh="信号下降">Signal down</span>
+        </span>
+      </>
+    )}
+    <span class="legend-item legend-fifty">
+      <span class="legend-dash"></span>
+      <span class="legend-text" data-en="50% baseline" data-zh="50%基准线">50% baseline</span>
+    </span>
+  </div>
+</div>
+
+<style>
+  .trajectory-chart-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .trajectory-svg {
+    display: block;
+  }
+
+  .trajectory-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .legend-text {
+    font-size: 9px;
+    color: var(--color-almanac-muted);
+    font-family: var(--font-mono, monospace);
+  }
+
+  .legend-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  .legend-dot.backfill {
+    background: var(--color-almanac-muted);
+    opacity: 0.45;
+  }
+
+  /* tiny CSS diamond via clip-path */
+  .legend-diamond {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+
+  .legend-diamond.up   { background: var(--color-almanac-green); }
+  .legend-diamond.down { background: var(--color-almanac-red); }
+
+  .legend-dash {
+    display: inline-block;
+    width: 12px;
+    height: 1px;
+    border-top: 1.5px dashed var(--color-almanac-muted);
+    opacity: 0.55;
+    margin-bottom: 1px;
+  }
+</style>

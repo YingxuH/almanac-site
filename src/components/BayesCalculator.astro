@@ -1,0 +1,342 @@
+---
+// Interactive Bayesian update calculator — all logic runs client-side
+// Formula matches the pipeline exactly:
+//   effectiveLR = lr ^ credibility
+//   newLogOdds  = log(prior/(1-prior)) + dampening * log(effectiveLR)
+//   newProb     = sigmoid(newLogOdds), clamped [3,97], max 5pp daily move
+---
+
+<div class="bayes-calc rounded-xl border border-almanac-border bg-almanac-surface p-6">
+
+  <!-- Header -->
+  <div class="mb-5">
+    <h3 class="text-lg font-bold" data-en="Bayesian Update Calculator" data-zh="贝叶斯更新计算器">Bayesian Update Calculator</h3>
+    <p class="text-sm text-almanac-muted mt-1" data-en="Mirrors the exact formula used by our daily pipeline. Adjust sliders to see how evidence moves a prediction." data-zh="与我们每日流水线使用的完全相同公式。调整滑块查看证据如何改变预测。">
+      Mirrors the exact formula used by our daily pipeline. Adjust sliders to see how evidence moves a prediction.
+    </p>
+  </div>
+
+  <!-- Preset buttons -->
+  <div class="flex flex-wrap gap-2 mb-6">
+    <span class="text-xs text-almanac-muted self-center mr-1" data-en="Presets:" data-zh="预设：">Presets:</span>
+    <button class="bayes-preset text-[11px] px-3 py-1.5 rounded-lg border border-almanac-border bg-almanac-surface hover:border-almanac-accent/40 hover:text-almanac-accent transition-colors font-mono"
+      data-lr="3.0" data-cred="1.0"
+      data-en="Strong FOR (LR=3.0)" data-zh="强支持 (LR=3.0)">
+      Strong FOR (LR=3.0)
+    </button>
+    <button class="bayes-preset text-[11px] px-3 py-1.5 rounded-lg border border-almanac-border bg-almanac-surface hover:border-almanac-accent/40 hover:text-almanac-accent transition-colors font-mono"
+      data-lr="0.5" data-cred="1.0"
+      data-en="Weak AGAINST (LR=0.5)" data-zh="弱反对 (LR=0.5)">
+      Weak AGAINST (LR=0.5)
+    </button>
+    <button class="bayes-preset text-[11px] px-3 py-1.5 rounded-lg border border-almanac-border bg-almanac-surface hover:border-almanac-accent/40 hover:text-almanac-accent transition-colors font-mono"
+      data-lr="1.5" data-cred="1.3"
+      data-en="arXiv source (cred=1.3)" data-zh="arXiv 来源 (cred=1.3)">
+      arXiv source (cred=1.3)
+    </button>
+    <button class="bayes-preset text-[11px] px-3 py-1.5 rounded-lg border border-almanac-border bg-almanac-surface hover:border-almanac-accent/40 hover:text-almanac-accent transition-colors font-mono"
+      data-lr="1.5" data-cred="0.7"
+      data-en="Twitter source (cred=0.7)" data-zh="Twitter 来源 (cred=0.7)">
+      Twitter source (cred=0.7)
+    </button>
+  </div>
+
+  <div class="grid sm:grid-cols-2 gap-6">
+
+    <!-- Left: Inputs -->
+    <div class="space-y-5">
+
+      <!-- Prior probability -->
+      <div>
+        <div class="flex justify-between items-center mb-1.5">
+          <label class="text-xs font-medium text-almanac-muted" data-en="Prior probability" data-zh="先验概率">Prior probability</label>
+          <span class="text-sm font-bold font-mono text-almanac-accent bayes-prior-display">50%</span>
+        </div>
+        <input type="range" id="bayes-prior" class="bayes-slider w-full" min="3" max="97" value="50" step="1" />
+        <div class="flex justify-between text-[10px] text-almanac-muted mt-0.5">
+          <span>3%</span><span>97%</span>
+        </div>
+      </div>
+
+      <!-- Likelihood Ratio -->
+      <div>
+        <div class="flex justify-between items-center mb-1.5">
+          <label class="text-xs font-medium text-almanac-muted" data-en="Likelihood Ratio (LR)" data-zh="似然比 (LR)">Likelihood Ratio (LR)</label>
+          <span class="text-sm font-bold font-mono text-almanac-accent bayes-lr-display">1.5×</span>
+        </div>
+        <input type="range" id="bayes-lr" class="bayes-slider w-full" min="0.2" max="5.0" value="1.5" step="0.1" />
+        <div class="flex justify-between text-[10px] text-almanac-muted mt-0.5">
+          <span data-en="0.2× (strong against)" data-zh="0.2×（强烈反对）">0.2× (strong against)</span>
+          <span data-en="5.0× (strong for)" data-zh="5.0×（强烈支持）">5.0× (strong for)</span>
+        </div>
+      </div>
+
+      <!-- Dampening -->
+      <div>
+        <div class="flex justify-between items-center mb-1.5">
+          <label class="text-xs font-medium text-almanac-muted" data-en="Dampening" data-zh="阻尼系数">Dampening</label>
+          <span class="text-sm font-bold font-mono text-almanac-accent bayes-damp-display">0.30</span>
+        </div>
+        <input type="range" id="bayes-damp" class="bayes-slider w-full" min="0.0" max="1.0" value="0.3" step="0.05" />
+        <div class="flex justify-between text-[10px] text-almanac-muted mt-0.5">
+          <span data-en="0.0 (no update)" data-zh="0.0（不更新）">0.0 (no update)</span>
+          <span data-en="1.0 (full Bayes)" data-zh="1.0（完整贝叶斯）">1.0 (full Bayes)</span>
+        </div>
+      </div>
+
+      <!-- Source credibility -->
+      <div>
+        <div class="flex justify-between items-center mb-1.5">
+          <label class="text-xs font-medium text-almanac-muted" data-en="Source credibility" data-zh="来源可信度">Source credibility</label>
+          <span class="text-sm font-bold font-mono text-almanac-accent bayes-cred-display">1.0</span>
+        </div>
+        <input type="range" id="bayes-cred" class="bayes-slider w-full" min="0.5" max="1.5" value="1.0" step="0.1" />
+        <div class="flex justify-between text-[10px] text-almanac-muted mt-0.5">
+          <span data-en="0.5 (social/noise)" data-zh="0.5（社交/噪音）">0.5 (social/noise)</span>
+          <span data-en="1.5 (research paper)" data-zh="1.5（研究论文）">1.5 (research paper)</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right: Output -->
+    <div class="flex flex-col gap-4">
+
+      <!-- Result display -->
+      <div class="p-5 rounded-xl border border-almanac-accent/20 bg-almanac-accent/5 text-center">
+        <div class="text-xs text-almanac-muted mb-1" data-en="New probability" data-zh="新概率">New probability</div>
+        <div class="text-5xl font-bold font-mono text-almanac-accent bayes-result-prob">50%</div>
+        <div class="text-sm font-mono mt-2 bayes-result-delta text-almanac-muted">+0.0 pp</div>
+        <div class="mt-3 inline-flex items-center gap-1.5 text-xs px-2.5 py-1 rounded-full bg-almanac-surface border border-almanac-border">
+          <span class="w-2 h-2 rounded-full bayes-capped-dot bg-almanac-muted"></span>
+          <span class="bayes-capped-label text-almanac-muted" data-en="No cap applied" data-zh="无上限">No cap applied</span>
+        </div>
+      </div>
+
+      <!-- Step-by-step math -->
+      <div class="p-4 rounded-xl border border-almanac-border bg-almanac-surface/50">
+        <div class="text-xs font-semibold text-almanac-muted uppercase tracking-wider mb-3" data-en="Step-by-step math" data-zh="逐步计算">Step-by-step math</div>
+        <div class="space-y-2 font-mono text-xs">
+          <div class="flex justify-between">
+            <span class="text-almanac-muted" data-en="Log-odds (prior):" data-zh="对数几率（先验）:">Log-odds (prior):</span>
+            <span class="text-almanac-text bayes-math-lo-prior">0.000</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-almanac-muted" data-en="Effective LR (LR^cred):" data-zh="有效似然比 (LR^cred):">Effective LR (LR^cred):</span>
+            <span class="text-almanac-text bayes-math-eff-lr">1.500</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-almanac-muted" data-en="Log(eff. LR):" data-zh="Log(有效LR):">Log(eff. LR):</span>
+            <span class="text-almanac-text bayes-math-log-lr">0.405</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-almanac-muted" data-en="× Dampening:" data-zh="× 阻尼系数:">× Dampening:</span>
+            <span class="text-almanac-text bayes-math-damp-adj">0.122</span>
+          </div>
+          <div class="h-px bg-almanac-border my-1"></div>
+          <div class="flex justify-between font-semibold">
+            <span class="text-almanac-muted" data-en="New log-odds:" data-zh="新对数几率:">New log-odds:</span>
+            <span class="text-almanac-accent bayes-math-lo-new">0.122</span>
+          </div>
+          <div class="flex justify-between font-semibold">
+            <span class="text-almanac-muted" data-en="Sigmoid → prob:" data-zh="Sigmoid → 概率:">Sigmoid → prob:</span>
+            <span class="text-almanac-accent bayes-math-sigmoid">53.0%</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-almanac-muted" data-en="After 5pp cap:" data-zh="5pp 上限后:">After 5pp cap:</span>
+            <span class="text-almanac-text bayes-math-capped">53.0%</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-almanac-muted" data-en="After [3,97] bounds:" data-zh="[3,97] 边界后:">After [3,97] bounds:</span>
+            <span class="text-almanac-text bayes-math-bounded">53.0%</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<style>
+  .bayes-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--color-almanac-border);
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  .bayes-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-almanac-accent);
+    cursor: pointer;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-almanac-accent) 20%, transparent);
+    transition: box-shadow 0.15s;
+  }
+  .bayes-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-almanac-accent);
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-almanac-accent) 20%, transparent);
+  }
+  .bayes-slider:hover::-webkit-slider-thumb {
+    box-shadow: 0 0 0 5px color-mix(in srgb, var(--color-almanac-accent) 25%, transparent);
+  }
+  .bayes-slider:hover::-moz-range-thumb {
+    box-shadow: 0 0 0 5px color-mix(in srgb, var(--color-almanac-accent) 25%, transparent);
+  }
+</style>
+
+<script>
+  function initBayesCalc() {
+    const container = document.querySelector('.bayes-calc');
+    if (!container) return;
+
+    // Elements
+    const priorSlider  = container.querySelector('#bayes-prior')  as HTMLInputElement;
+    const lrSlider     = container.querySelector('#bayes-lr')     as HTMLInputElement;
+    const dampSlider   = container.querySelector('#bayes-damp')   as HTMLInputElement;
+    const credSlider   = container.querySelector('#bayes-cred')   as HTMLInputElement;
+
+    const priorDisplay = container.querySelector('.bayes-prior-display') as HTMLElement;
+    const lrDisplay    = container.querySelector('.bayes-lr-display')    as HTMLElement;
+    const dampDisplay  = container.querySelector('.bayes-damp-display')  as HTMLElement;
+    const credDisplay  = container.querySelector('.bayes-cred-display')  as HTMLElement;
+
+    const resultProb   = container.querySelector('.bayes-result-prob')   as HTMLElement;
+    const resultDelta  = container.querySelector('.bayes-result-delta')  as HTMLElement;
+    const cappedDot    = container.querySelector('.bayes-capped-dot')    as HTMLElement;
+    const cappedLabel  = container.querySelector('.bayes-capped-label')  as HTMLElement;
+
+    const mathLoPrior  = container.querySelector('.bayes-math-lo-prior')  as HTMLElement;
+    const mathEffLr    = container.querySelector('.bayes-math-eff-lr')    as HTMLElement;
+    const mathLogLr    = container.querySelector('.bayes-math-log-lr')    as HTMLElement;
+    const mathDampAdj  = container.querySelector('.bayes-math-damp-adj')  as HTMLElement;
+    const mathLoNew    = container.querySelector('.bayes-math-lo-new')    as HTMLElement;
+    const mathSigmoid  = container.querySelector('.bayes-math-sigmoid')   as HTMLElement;
+    const mathCapped   = container.querySelector('.bayes-math-capped')    as HTMLElement;
+    const mathBounded  = container.querySelector('.bayes-math-bounded')   as HTMLElement;
+
+    if (!priorSlider || !lrSlider || !dampSlider || !credSlider) return;
+
+    function compute() {
+      const prior = parseFloat(priorSlider.value);      // 3–97
+      const lr    = parseFloat(lrSlider.value);          // 0.2–5.0
+      const damp  = parseFloat(dampSlider.value);        // 0.0–1.0
+      const cred  = parseFloat(credSlider.value);        // 0.5–1.5
+
+      // Update displays
+      priorDisplay.textContent = prior + '%';
+      lrDisplay.textContent    = lr.toFixed(1) + '×';
+      dampDisplay.textContent  = damp.toFixed(2);
+      credDisplay.textContent  = cred.toFixed(1);
+
+      // === Pipeline formula ===
+      const priorFrac   = prior / 100;
+      const logOddsPrior = Math.log(priorFrac / (1 - priorFrac));
+      const effectiveLR  = Math.pow(lr, cred);
+      const logEffLR     = Math.log(effectiveLR);
+      const dampAdj      = damp * logEffLR;
+      const logOddsNew   = logOddsPrior + dampAdj;
+      const sigmoidProb  = 1 / (1 + Math.exp(-logOddsNew));
+      const sigPct       = sigmoidProb * 100;
+
+      // 5pp max daily move
+      const rawDelta     = sigPct - prior;
+      const cappedDelta  = Math.max(-5, Math.min(5, rawDelta));
+      const afterCap     = prior + cappedDelta;
+      const isCapped     = Math.abs(rawDelta) > 5;
+
+      // [3, 97] bounds
+      const afterBounds  = Math.max(3, Math.min(97, afterCap));
+      const isBounded    = afterCap < 3 || afterCap > 97;
+
+      const finalDelta   = afterBounds - prior;
+
+      // Update math breakdown
+      mathLoPrior.textContent = logOddsPrior.toFixed(4);
+      mathEffLr.textContent   = effectiveLR.toFixed(4);
+      mathLogLr.textContent   = logEffLR.toFixed(4);
+      mathDampAdj.textContent = dampAdj.toFixed(4);
+      mathLoNew.textContent   = logOddsNew.toFixed(4);
+      mathSigmoid.textContent = sigPct.toFixed(1) + '%';
+      mathCapped.textContent  = afterCap.toFixed(1) + '%';
+      mathBounded.textContent = afterBounds.toFixed(1) + '%';
+
+      // Update result display
+      const finalPct = Math.round(afterBounds);
+      resultProb.textContent = finalPct + '%';
+
+      const deltaSign = finalDelta >= 0 ? '+' : '';
+      resultDelta.textContent = deltaSign + finalDelta.toFixed(1) + ' pp';
+
+      // Delta color
+      if (finalDelta > 0) {
+        resultDelta.style.color = 'var(--color-almanac-green)';
+      } else if (finalDelta < 0) {
+        resultDelta.style.color = 'var(--color-almanac-red)';
+      } else {
+        resultDelta.style.color = 'var(--color-almanac-muted)';
+      }
+
+      // Cap indicator
+      if (isCapped || isBounded) {
+        cappedDot.style.background   = 'var(--color-almanac-amber)';
+        // Respect current UI language
+        const lang = document.documentElement.getAttribute('data-lang') || 'en';
+        if (isCapped && isBounded) {
+          cappedLabel.setAttribute('data-en', '5pp cap + [3,97] bound applied');
+          cappedLabel.setAttribute('data-zh', '已应用5pp上限 + [3,97]边界');
+          cappedLabel.textContent = lang === 'zh' ? '已应用5pp上限 + [3,97]边界' : '5pp cap + [3,97] bound applied';
+        } else if (isCapped) {
+          cappedLabel.setAttribute('data-en', '5pp daily cap applied');
+          cappedLabel.setAttribute('data-zh', '已应用每日5pp上限');
+          cappedLabel.textContent = lang === 'zh' ? '已应用每日5pp上限' : '5pp daily cap applied';
+        } else {
+          cappedLabel.setAttribute('data-en', '[3,97] bound applied');
+          cappedLabel.setAttribute('data-zh', '已应用[3,97]边界');
+          cappedLabel.textContent = lang === 'zh' ? '已应用[3,97]边界' : '[3,97] bound applied';
+        }
+      } else {
+        cappedDot.style.background = 'var(--color-almanac-muted)';
+        const lang = document.documentElement.getAttribute('data-lang') || 'en';
+        cappedLabel.setAttribute('data-en', 'No cap applied');
+        cappedLabel.setAttribute('data-zh', '无上限');
+        cappedLabel.textContent = lang === 'zh' ? '无上限' : 'No cap applied';
+      }
+    }
+
+    // Slider listeners
+    [priorSlider, lrSlider, dampSlider, credSlider].forEach(el => {
+      el.addEventListener('input', compute);
+    });
+
+    // Preset buttons
+    container.querySelectorAll('.bayes-preset').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lr   = btn.getAttribute('data-lr');
+        const cred = btn.getAttribute('data-cred');
+        if (lr)   { lrSlider.value   = lr;   }
+        if (cred) { credSlider.value = cred; }
+        compute();
+      });
+    });
+
+    // Initial render
+    compute();
+  }
+
+  // Run on page load and Astro client-side navigation
+  initBayesCalc();
+  document.addEventListener('astro:page-load', initBayesCalc);
+</script>

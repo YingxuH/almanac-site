@@ -1,0 +1,268 @@
+---
+// Calibration plot: predicted probability vs observed frequency
+// 4 buckets, circles sized by sample count, colored by calibration direction
+interface Prediction {
+  pred: number;   // predicted probability 0-100
+  outcome: boolean;
+}
+
+interface Props {
+  predictions: Prediction[];
+}
+
+const { predictions } = Astro.props;
+
+// Build 4 buckets: [0,25), [25,50), [50,75), [75,100]
+const bucketDefs = [
+  { label: "0-25%",  labelZh: "0-25%",  lo: 0,  hi: 25  },
+  { label: "25-50%", labelZh: "25-50%", lo: 25, hi: 50  },
+  { label: "50-75%", labelZh: "50-75%", lo: 50, hi: 75  },
+  { label: "75-100%",labelZh: "75-100%",lo: 75, hi: 100 },
+];
+
+interface BucketResult {
+  midX: number;
+  obsFrac: number;
+  count: number;
+  lo: number;
+  hi: number;
+  label: string;
+  labelZh: string;
+}
+
+const buckets: BucketResult[] = bucketDefs.map(b => {
+  const items = predictions.filter(p => p.pred >= b.lo && (b.hi === 100 ? p.pred <= b.hi : p.pred < b.hi));
+  const count = items.length;
+  const trueCount = items.filter(p => p.outcome).length;
+  const midX = (b.lo + b.hi) / 2;
+  const obsFrac = count > 0 ? trueCount / count : 0;
+  return { midX, obsFrac, count, lo: b.lo, hi: b.hi, label: b.label, labelZh: b.labelZh };
+});
+
+// SVG coordinate system: 200x200 viewBox
+// Plot area: x [30,185], y [15,170]  (leaving room for axes)
+const PLOT_X0 = 30;
+const PLOT_X1 = 185;
+const PLOT_Y0 = 15;
+const PLOT_Y1 = 170;
+
+function toSvgX(pct: number): number {
+  return PLOT_X0 + (pct / 100) * (PLOT_X1 - PLOT_X0);
+}
+function toSvgY(frac: number): number {
+  // SVG Y is inverted: frac=1 → top, frac=0 → bottom
+  return PLOT_Y1 - frac * (PLOT_Y1 - PLOT_Y0);
+}
+
+// Diagonal perfect-calibration line endpoints
+const diagX1 = toSvgX(0);
+const diagY1 = toSvgY(0);
+const diagX2 = toSvgX(100);
+const diagY2 = toSvgY(1);
+
+// Max circle radius (for largest bucket), min radius
+const maxCount = Math.max(...buckets.map(b => b.count), 1);
+const MAX_R = 14;
+const MIN_R = 5;
+
+function circleRadius(count: number): number {
+  if (count === 0) return 0;
+  return MIN_R + (count / maxCount) * (MAX_R - MIN_R);
+}
+---
+
+<div class="calibration-plot-wrapper">
+  <!-- Title -->
+  <div class="flex items-center justify-between mb-3">
+    <div>
+      <h3 class="font-semibold text-sm" data-en="Calibration Plot" data-zh="校准图">Calibration Plot</h3>
+      <p class="text-xs text-almanac-muted mt-0.5" data-en="Predicted probability vs observed frequency — perfect calibration follows the dashed line" data-zh="预测概率 vs 观测频率 — 完美校准沿虚线分布">
+        Predicted probability vs observed frequency — perfect calibration follows the dashed line
+      </p>
+    </div>
+    <!-- Legend -->
+    <div class="flex flex-col gap-1 text-[10px] text-almanac-muted shrink-0 ml-4">
+      <div class="flex items-center gap-1.5">
+        <span class="w-3 h-3 rounded-full bg-almanac-red inline-block opacity-70"></span>
+        <span data-en="Overconfident" data-zh="过度自信">Overconfident</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="w-3 h-3 rounded-full bg-almanac-green inline-block opacity-70"></span>
+        <span data-en="Underconfident" data-zh="信心不足">Underconfident</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span class="w-4 border-t-2 border-dashed border-almanac-accent inline-block"></span>
+        <span data-en="Perfect" data-zh="完美">Perfect</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SVG plot -->
+  <div class="rounded-xl border border-almanac-border bg-almanac-surface p-2">
+    <svg viewBox="0 0 200 200" class="w-full max-w-sm mx-auto block" aria-label="Calibration plot">
+      <!-- Grid lines (light) -->
+      {[0, 25, 50, 75, 100].map(v => (
+        <line
+          x1={toSvgX(v)} y1={PLOT_Y0}
+          x2={toSvgX(v)} y2={PLOT_Y1}
+          stroke="var(--color-almanac-border)" stroke-width="0.5" opacity="0.7"
+        />
+      ))}
+      {[0, 0.25, 0.5, 0.75, 1].map(v => (
+        <line
+          x1={PLOT_X0} y1={toSvgY(v)}
+          x2={PLOT_X1} y2={toSvgY(v)}
+          stroke="var(--color-almanac-border)" stroke-width="0.5" opacity="0.7"
+        />
+      ))}
+
+      <!-- Perfect calibration diagonal (dashed) -->
+      <line
+        x1={diagX1} y1={diagY1}
+        x2={diagX2} y2={diagY2}
+        stroke="var(--color-almanac-accent)"
+        stroke-width="1.2"
+        stroke-dasharray="4 3"
+        opacity="0.8"
+      />
+
+      <!-- Bucket data points -->
+      {buckets.map(b => {
+        const cx = toSvgX(b.midX);
+        const cy = toSvgY(b.obsFrac);
+        const r = circleRadius(b.count);
+        if (b.count === 0) return null;
+        // below diagonal = overconfident (pred > obs) → red
+        // above diagonal = underconfident (pred < obs) → green
+        const isOverconfident = (b.midX / 100) > b.obsFrac;
+        const fillColor = isOverconfident
+          ? 'var(--color-almanac-red)'
+          : 'var(--color-almanac-green)';
+        return (
+          <>
+            {/* Drop shadow circle */}
+            <circle cx={cx} cy={cy} r={r + 1} fill={fillColor} opacity="0.12" />
+            {/* Main circle */}
+            <circle
+              cx={cx} cy={cy} r={r}
+              fill={fillColor} opacity="0.75"
+              class="calibration-dot"
+              data-pred={b.midX}
+              data-obs={Math.round(b.obsFrac * 100)}
+              data-count={b.count}
+            />
+            {/* Count label inside circle */}
+            {r >= 8 && (
+              <text
+                x={cx} y={cy + 1}
+                text-anchor="middle" dominant-baseline="middle"
+                font-size="7" font-family="JetBrains Mono, monospace"
+                fill="white" font-weight="600"
+              >
+                {b.count}
+              </text>
+            )}
+            {/* Count label outside small circles */}
+            {r < 8 && (
+              <text
+                x={cx} y={cy - r - 3}
+                text-anchor="middle"
+                font-size="6" font-family="JetBrains Mono, monospace"
+                fill={fillColor}
+              >
+                n={b.count}
+              </text>
+            )}
+            {/* Observed % label */}
+            <text
+              x={cx} y={cy + r + 7}
+              text-anchor="middle"
+              font-size="6.5" font-family="JetBrains Mono, monospace"
+              fill="var(--color-almanac-muted)"
+            >
+              {Math.round(b.obsFrac * 100)}%
+            </text>
+          </>
+        );
+      })}
+
+      <!-- X-axis labels -->
+      {[0, 25, 50, 75, 100].map(v => (
+        <text
+          x={toSvgX(v)} y={PLOT_Y1 + 9}
+          text-anchor="middle"
+          font-size="6" font-family="JetBrains Mono, monospace"
+          fill="var(--color-almanac-muted)"
+        >
+          {v}%
+        </text>
+      ))}
+
+      <!-- Y-axis labels -->
+      {[0, 25, 50, 75, 100].map(v => (
+        <text
+          x={PLOT_X0 - 3} y={toSvgY(v / 100) + 2}
+          text-anchor="end"
+          font-size="6" font-family="JetBrains Mono, monospace"
+          fill="var(--color-almanac-muted)"
+        >
+          {v}%
+        </text>
+      ))}
+
+      <!-- Axis label: X -->
+      <text
+        x={(PLOT_X0 + PLOT_X1) / 2} y="197"
+        text-anchor="middle"
+        font-size="6.5" font-family="Inter, sans-serif"
+        fill="var(--color-almanac-muted)"
+      >
+        Predicted probability
+      </text>
+
+      <!-- Axis label: Y (rotated) -->
+      <text
+        x="6" y={(PLOT_Y0 + PLOT_Y1) / 2}
+        text-anchor="middle"
+        font-size="6.5" font-family="Inter, sans-serif"
+        fill="var(--color-almanac-muted)"
+        transform={`rotate(-90, 6, ${(PLOT_Y0 + PLOT_Y1) / 2})`}
+      >
+        Observed freq.
+      </text>
+
+      <!-- Axes -->
+      <line x1={PLOT_X0} y1={PLOT_Y0} x2={PLOT_X0} y2={PLOT_Y1}
+        stroke="var(--color-almanac-border)" stroke-width="1" />
+      <line x1={PLOT_X0} y1={PLOT_Y1} x2={PLOT_X1} y2={PLOT_Y1}
+        stroke="var(--color-almanac-border)" stroke-width="1" />
+    </svg>
+  </div>
+
+  <!-- Bucket breakdown table -->
+  <div class="mt-3 grid grid-cols-4 gap-2">
+    {buckets.map(b => {
+      const isOverconfident = b.count > 0 && (b.midX / 100) > b.obsFrac;
+      const isUnderconfident = b.count > 0 && (b.midX / 100) < b.obsFrac;
+      const borderClass = isOverconfident
+        ? 'border-almanac-red/30 bg-almanac-red/5'
+        : isUnderconfident
+        ? 'border-almanac-green/30 bg-almanac-green/5'
+        : 'border-almanac-border bg-almanac-surface';
+      return (
+        <div class={`p-2 rounded-lg border ${borderClass} text-center`}>
+          <div class="text-[10px] font-mono text-almanac-muted">{b.label}</div>
+          <div class="text-sm font-bold font-mono mt-0.5">
+            {b.count > 0 ? `${Math.round(b.obsFrac * 100)}%` : '—'}
+          </div>
+          <div class="text-[10px] text-almanac-muted">
+            {b.count > 0 ? `n=${b.count}` : 'empty'}
+          </div>
+        </div>
+      );
+    })}
+  </div>
+  <p class="text-[10px] text-almanac-muted text-center mt-2" data-en="Observed frequency per bucket (circle size = sample count)" data-zh="每个区间的观测频率（圆圈大小 = 样本量）">
+    Observed frequency per bucket (circle size = sample count)
+  </p>
+</div>

@@ -1,10 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
 import FadeIn from '../components/FadeIn.astro';
-import { loadPredictions, loadJSON } from '../lib/data';
+import TrajectoryChart from '../components/TrajectoryChart.astro';
+import { loadPredictions, loadJSON, loadPredictionTrajectories } from '../lib/data';
 
 const predictions = loadPredictions();
 const evidenceData = loadJSON('prediction_evidence.json', {} as Record<string, any[]>);
+const trajectories = loadPredictionTrajectories();
 
 // Compute stats
 const total = predictions.length;
@@ -179,6 +181,22 @@ const typeCount = {
                     <p class="text-almanac-muted" data-en={p.reasoning} data-zh={p.reasoning_zh || p.reasoning}>{p.reasoning}</p>
                   </div>
                 )}
+                {/* Confidence trajectory chart */}
+                {(() => {
+                  const traj = trajectories[p.id];
+                  if (!traj || traj.points.length < 2) return null;
+                  return (
+                    <div>
+                      <p class="text-xs font-semibold text-almanac-muted mb-1.5" data-en="Confidence trajectory" data-zh="置信度走势">Confidence trajectory</p>
+                      <TrajectoryChart
+                        points={traj.points}
+                        events={traj.events}
+                        width={280}
+                        height={60}
+                      />
+                    </div>
+                  );
+                })()}
                 {p.last_evidence && p.last_evidence !== 'No relevant signal today' && (
                   <div>
                     <p class="text-xs font-semibold text-almanac-green mb-0.5" data-en={`Latest evidence (LR: ${p.last_lr?.toFixed(2) ?? '—'})`} data-zh={`最新证据 (LR: ${p.last_lr?.toFixed(2) ?? '—'})`}>Latest evidence (LR: {p.last_lr?.toFixed(2) ?? '—'})</p>
