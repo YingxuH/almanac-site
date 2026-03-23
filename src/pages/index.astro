@@ -89,6 +89,12 @@ for (let i = midStart; i < sorted.length && predictions.length < 8; i++) {
 }
 
 const movedToday = moved.length;
+
+// Top moved prediction for dynamic "Biggest Move" section
+const topMoved = movedPreds.length > 0 ? movedPreds[0] : null;
+const topMovedDelta = topMoved ? topMoved.confidence - (topMoved.previous ?? topMoved.confidence) : 0;
+const topMovedDeltaStr = topMovedDelta > 0 ? `+${topMovedDelta}` : `${topMovedDelta}`;
+
 const totalPreds = allPreds.length;
 const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) => a + p.confidence, 0) / totalPreds) : 50;
 ---
@@ -268,41 +274,43 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
   <!-- Signal Ticker -->
   <SignalTicker />
 
-  <!-- Today's headline signal — with career context and source attribution -->
-  <FadeIn>
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
-      <div class="relative">
-        <div class="absolute -inset-2 bg-almanac-accent/5 rounded-2xl blur-2xl"></div>
-        <div class="relative rounded-xl border border-almanac-accent/20 bg-almanac-surface overflow-hidden">
-          <div class="px-6 py-3 border-b border-almanac-border flex items-center justify-between bg-almanac-accent/5">
-            <div class="flex items-center gap-2">
-              <span class="relative flex h-2 w-2">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-almanac-green opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-2 w-2 bg-almanac-green"></span>
-              </span>
-              <span class="text-xs font-mono text-almanac-accent uppercase tracking-widest" data-en="Today's Lead Signal" data-zh="今日头条信号">Today's Lead Signal</span>
+  <!-- Today's biggest move — DYNAMIC from pipeline data, only shown when predictions moved -->
+  {topMoved && (
+    <FadeIn>
+      <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+        <div class="relative">
+          <div class="absolute -inset-2 bg-almanac-accent/5 rounded-2xl blur-2xl"></div>
+          <div class="relative rounded-xl border border-almanac-accent/20 bg-almanac-surface overflow-hidden">
+            <div class="px-6 py-3 border-b border-almanac-border flex items-center justify-between bg-almanac-accent/5">
+              <div class="flex items-center gap-2">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-almanac-green opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-almanac-green"></span>
+                </span>
+                <span class="text-xs font-mono text-almanac-accent uppercase tracking-widest" data-en="Today's Biggest Move" data-zh="今日最大变动">Today's Biggest Move</span>
+              </div>
+              <a href="/almanac-site/forecast" class="text-xs text-almanac-accent hover:underline" data-en="Full report →" data-zh="完整报告 →">Full report &rarr;</a>
             </div>
-            <a href="/almanac-site/forecast" class="text-xs text-almanac-accent hover:underline" data-en="Full report →" data-zh="完整报告 →">Full report &rarr;</a>
-          </div>
-          <div class="p-6 sm:p-8">
-            <h3 class="text-2xl sm:text-3xl font-bold mb-4 leading-tight" data-en="The 10:1 Ratio: One Human Architect Now Manages Ten Autonomous Feature Agents" data-zh="1:10 比例：一名人类架构师现在管理十个自主功能代理">The 10:1 Ratio: One Human Architect Now Manages Ten Autonomous Feature Agents</h3>
-            <p class="text-almanac-muted leading-relaxed max-w-3xl" data-en="Enterprise teams are reporting a dramatic shift in engineering org structure. Senior architects are now orchestrating fleets of AI coding agents rather than managing junior developers. The human-to-agent ratio has crossed 1:10 at early adopters, fundamentally redefining what 'team lead' means." data-zh="企业团队正在报告工程组织结构的巨大转变。资深架构师现在协调 AI 编程代理舰队，而不是管理初级开发者。早期采用者的人机比已突破 1:10，从根本上重新定义了「技术负责人」的含义。">
-              Enterprise teams are reporting a dramatic shift in engineering org structure. Senior architects are now orchestrating fleets of AI coding agents rather than managing junior developers. The human-to-agent ratio has crossed 1:10 at early adopters, fundamentally redefining what 'team lead' means.
-            </p>
-            <p class="mt-3 text-sm text-almanac-accent/80 italic" data-en="What this means for your career: architecture and orchestration skills become the premium, not coding speed. Senior roles grow; the path up matters more than ever." data-zh="这对你的职业意味着：架构和协调能力成为核心竞争力，而非编码速度。高级岗位增长，向上发展的路径比以往更重要。">
-              What this means for your career: architecture and orchestration skills become the premium, not coding speed. Senior roles grow; the path up matters more than ever.
-            </p>
-            <div class="mt-6 flex flex-wrap items-center gap-4 text-xs text-almanac-muted">
-              <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-almanac-red"></span><span data-en="Impact: Critical" data-zh="影响：关键">Impact: Critical</span></span>
-              <span data-en="Sources: aggregated from arXiv preprints + HN discussion threads" data-zh="来源：汇总自 arXiv 预印本 + HN 讨论帖">Sources: aggregated from arXiv preprints + HN discussion threads</span>
-              <span data-en="Horizon: 2-7 years" data-zh="时间线：2-7年">Horizon: 2-7 years</span>
-              <span class="font-mono text-almanac-green" data-en="5 predictions affected" data-zh="影响5项预测">5 predictions affected</span>
+            <div class="p-6 sm:p-8">
+              <div class="flex items-center gap-3 mb-3">
+                <span class={`text-3xl font-bold font-mono ${topMoved.confidence >= 60 ? 'text-almanac-green' : topMoved.confidence >= 40 ? 'text-almanac-amber' : 'text-almanac-red'}`}>{topMoved.confidence}%</span>
+                <span class={`text-lg font-mono font-bold ${topMovedDelta > 0 ? 'text-almanac-green' : 'text-almanac-red'}`}>{topMovedDeltaStr}</span>
+              </div>
+              <h3 class="text-xl sm:text-2xl font-bold mb-3 leading-tight" data-en={topMoved.claim} data-zh={topMoved.claim_zh || topMoved.claim}>{topMoved.claim}</h3>
+              {topMoved.last_evidence && topMoved.last_evidence !== 'No relevant signal today' && (
+                <p class="text-almanac-muted leading-relaxed text-sm mb-3">{topMoved.last_evidence}</p>
+              )}
+              <div class="flex flex-wrap items-center gap-4 text-xs text-almanac-muted">
+                <span class="px-1.5 py-0.5 rounded bg-almanac-border uppercase tracking-wider" data-en={topMoved.category} data-zh={topMoved.category_zh || topMoved.category}>{topMoved.category}</span>
+                {topMoved.last_lr && <span class="font-mono">LR: {topMoved.last_lr.toFixed(2)}</span>}
+                {topMoved.horizon && <span data-en={`Horizon: ${topMoved.horizon}`} data-zh={`时间线：${topMoved.horizon}`}>Horizon: {topMoved.horizon}</span>}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </FadeIn>
+      </section>
+    </FadeIn>
+  )}
 
   <!-- Prediction cards -->
   <section class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
@@ -321,6 +329,7 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
         const confColor = p.confidence >= 60 ? 'text-almanac-green' : p.confidence >= 40 ? 'text-almanac-amber' : 'text-almanac-red';
         const barColor = p.confidence >= 60 ? 'bg-almanac-green' : p.confidence >= 40 ? 'bg-almanac-amber' : 'bg-almanac-red';
         const typeLabel = p.type === 'contrarian' ? 'CONTRARIAN' : p.type === 'near_term' ? 'NEAR-TERM' : '';
+        const typeLabelZh = p.type === 'contrarian' ? '逆向预测' : p.type === 'near_term' ? '近期预测' : '';
         const typeColor = p.type === 'contrarian' ? 'text-almanac-amber border-almanac-amber/20 bg-almanac-amber/10' : 'text-blue-400 border-blue-400/20 bg-blue-400/10';
         return (
           <FadeIn delay={i * 60}>
@@ -338,7 +347,7 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
                     )}
                     <span class="text-[10px] text-almanac-muted px-1.5 py-0.5 rounded bg-almanac-border uppercase tracking-wider" data-en={p.category} data-zh={p.category_zh}>{p.category}</span>
                     {typeLabel && (
-                      <span class={`text-[10px] px-1.5 py-0.5 rounded border ${typeColor}`}>{typeLabel}</span>
+                      <span class={`text-[10px] px-1.5 py-0.5 rounded border ${typeColor}`} data-en={typeLabel} data-zh={typeLabelZh}>{typeLabel}</span>
                     )}
                   </div>
                   <p class="text-sm leading-snug" data-en={p.claim} data-zh={p.claim_zh}>{p.claim}</p>
@@ -434,17 +443,24 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
           <h2 class="text-3xl font-bold mb-3" data-en="The future updates daily." data-zh="未来，每天更新。">The future updates daily.</h2>
           <p class="text-almanac-muted mb-2 text-lg" data-en="Get tomorrow's forecast in your inbox." data-zh="在你的收件箱获取明天的预测。">Get tomorrow's forecast in your inbox.</p>
           <p class="text-almanac-muted mb-4 text-sm" data-en="One email per day. Confidence-scored predictions. Source-linked signals." data-zh="每天一封邮件，带置信度评分和来源链接。">One email per day. Confidence-scored predictions. Source-linked signals.</p>
-          <!-- Email preview mockup -->
+          <!-- Email preview mockup — uses real pipeline data -->
           <div class="mb-6 max-w-md mx-auto text-left rounded-lg border border-almanac-border bg-almanac-bg/50 overflow-hidden">
             <div class="px-3 py-2 border-b border-almanac-border bg-almanac-surface/50 flex items-center gap-2">
               <div class="w-2 h-2 rounded-full bg-almanac-accent"></div>
               <span class="text-[10px] text-almanac-muted font-mono" data-en="Preview: tomorrow's email" data-zh="预览：明天的邮件">Preview: tomorrow's email</span>
             </div>
             <div class="px-3 py-2 text-[11px] text-almanac-muted space-y-1">
-              <div><span class="text-almanac-muted/60">From:</span> Almanac &lt;forecast@almanac&gt;</div>
-              <div><span class="text-almanac-muted/60">Subject:</span> <span class="text-almanac-text">Almanac Forecast — {latestDate || '2026-03-23'}</span></div>
-              <div class="pt-1 border-t border-almanac-border/50 text-almanac-muted/80 leading-relaxed">
-                {movedToday > 0 ? `${movedToday} predictions moved today.` : '20 predictions moved today.'} Top signal: AI architect-to-agent ratio crosses 1:10. P4 drops to 34% (-6), P8 rises to 45% (+5)...
+              <div><span class="text-almanac-muted/60" data-en="From:" data-zh="发件人：">From:</span> Almanac &lt;forecast@almanac&gt;</div>
+              <div><span class="text-almanac-muted/60" data-en="Subject:" data-zh="主题：">Subject:</span> <span class="text-almanac-text">Almanac Forecast — {latestDate || 'tomorrow'}</span></div>
+              <div class="pt-1 border-t border-almanac-border/50 text-almanac-muted/80 leading-relaxed" data-en={movedToday > 0
+                ? `${movedToday} predictions moved. Biggest: "${movedPreds[0]?.claim?.slice(0, 50)}..." now at ${movedPreds[0]?.confidence}% (${topMovedDeltaStr}).`
+                : `Daily forecast with source-linked prediction updates across ${totalPreds} tracked claims.`}
+                data-zh={movedToday > 0
+                ? `${movedToday}项预测变动。最大变动："${movedPreds[0]?.claim_zh?.slice(0, 30) || movedPreds[0]?.claim?.slice(0, 50)}..." 现为${movedPreds[0]?.confidence}%（${topMovedDeltaStr}）。`
+                : `每日预测报告，涵盖${totalPreds}项追踪预测的来源链接更新。`}>
+                {movedToday > 0
+                  ? `${movedToday} predictions moved. Biggest: "${movedPreds[0]?.claim?.slice(0, 50)}..." now at ${movedPreds[0]?.confidence}% (${topMovedDeltaStr}).`
+                  : `Daily forecast with source-linked prediction updates across ${totalPreds} tracked claims.`}
               </div>
             </div>
           </div>
