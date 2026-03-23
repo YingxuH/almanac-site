@@ -118,6 +118,12 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
 
+    <!-- Language notice for zh users -->
+    <div class="mb-6 p-3 rounded-lg border border-almanac-amber/20 bg-almanac-amber/5 text-sm text-almanac-muted zh-only-notice" style="display:none">
+      <span class="text-almanac-amber font-medium">&#9888;</span>
+      每日报告目前仅提供英文版本。中文翻译即将推出。以下报告内容为英文原文。
+    </div>
+
     <!-- What Moved Today -->
     {movedPredictions.length > 0 && (
       <FadeIn>
@@ -287,5 +293,21 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
       </a>
     </div>
   </div>
+
+  <script is:inline>
+    (function() {
+      function toggleZhNotice() {
+        var lang = document.documentElement.getAttribute('data-lang') || 'en';
+        var notice = document.querySelector('.zh-only-notice');
+        if (notice) notice.style.display = lang === 'zh' ? '' : 'none';
+      }
+      toggleZhNotice();
+      document.addEventListener('DOMContentLoaded', toggleZhNotice);
+      document.addEventListener('astro:page-load', toggleZhNotice);
+      // Listen for lang changes
+      var observer = new MutationObserver(toggleZhNotice);
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-lang'] });
+    })();
+  </script>
 
 </Base>
