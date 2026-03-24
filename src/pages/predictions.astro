@@ -199,7 +199,7 @@ const typeCount = {
                 })()}
                 {p.last_evidence && p.last_evidence !== 'No relevant signal today' && (
                   <div>
-                    <p class="text-xs font-semibold text-almanac-green mb-0.5" data-en={`Latest evidence (LR: ${p.last_lr?.toFixed(2) ?? '—'})`} data-zh={`最新证据 (LR: ${p.last_lr?.toFixed(2) ?? '—'})`}>Latest evidence (LR: {p.last_lr?.toFixed(2) ?? '—'})</p>
+                    <p class="text-xs font-semibold text-almanac-green mb-0.5" data-en={`Latest evidence (LR: ${p.last_lr?.toFixed(2) ?? '—'})`} data-zh={`最新证据 (LR: ${p.last_lr?.toFixed(2) ?? '—'})`}>Latest evidence (<span title="Likelihood Ratio: >1 = evidence supports claim, <1 = evidence contradicts claim" class="cursor-help underline decoration-dotted">LR: {p.last_lr?.toFixed(2) ?? '—'}</span>)</p>
                     <p class="text-almanac-muted">{p.last_evidence}</p>
                   </div>
                 )}
