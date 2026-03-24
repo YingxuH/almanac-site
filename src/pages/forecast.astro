@@ -64,6 +64,10 @@ const predictions = sections.find(s => s.title.includes('Predictions'));
 const futuresDiff = sections.find(s => s.title.includes('Futures Diff'));
 const watching = sections.find(s => s.title.includes('Watching'));
 
+// Parse Chinese report if available
+const zhSections = hasZhReport ? parseReport(zhReportContent) : [];
+const zhExecSummary = zhSections.find(s => s.title.length > 0) || null; // First section with a title
+
 // Parse individual signals from the "Top Signals" section
 function parseSignals(content: string) {
   const signals: { title: string; body: string }[] = [];
@@ -134,28 +138,37 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
 
   <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8">
 
-    <!-- Chinese summary for zh users -->
+    <!-- Chinese content for zh users -->
     <div class="mb-6 zh-only-notice" style="display:none">
-      <div class="p-4 rounded-xl border border-almanac-accent/20 bg-almanac-accent/5">
-        <h3 class="text-sm font-bold text-almanac-accent mb-2">今日要点（中文摘要）</h3>
-        <ul class="text-sm text-almanac-muted space-y-1.5 list-none">
-          {sortedMoves.slice(0, 5).map((p: any) => {
-            const delta = p.confidence - p.previous;
-            const arrow = delta > 0 ? '↑' : '↓';
-            const color = delta > 0 ? 'text-almanac-green' : 'text-almanac-red';
-            return (
-              <li class="flex items-center gap-2">
-                <span class={`font-mono text-xs ${color}`}>{arrow}{Math.abs(delta)}pp</span>
-                <span class="font-mono text-xs text-almanac-muted">{p.confidence}%</span>
-                <span>{p.claim_zh || p.claim}</span>
-              </li>
-            );
-          })}
-        </ul>
-        <p class="text-xs text-almanac-muted/70 mt-3 border-t border-almanac-border/30 pt-2">
-          完整报告目前仅提供英文版本。以下为英文原文。
-        </p>
-      </div>
+      {hasZhReport ? (
+        <div class="p-5 rounded-xl border border-almanac-accent/20 bg-almanac-accent/5">
+          <h3 class="text-sm font-bold text-almanac-accent mb-3">今日报告（中文版）</h3>
+          <div class="text-sm text-almanac-muted leading-relaxed prose-sm">
+            <Fragment set:html={inlineMd(zhReportContent.replace(/^#[^#].*$/gm, '').trim())} />
+          </div>
+        </div>
+      ) : (
+        <div class="p-4 rounded-xl border border-almanac-accent/20 bg-almanac-accent/5">
+          <h3 class="text-sm font-bold text-almanac-accent mb-2">今日要点（中文摘要）</h3>
+          <ul class="text-sm text-almanac-muted space-y-1.5 list-none">
+            {sortedMoves.slice(0, 5).map((p: any) => {
+              const delta = p.confidence - p.previous;
+              const arrow = delta > 0 ? '↑' : '↓';
+              const color = delta > 0 ? 'text-almanac-green' : 'text-almanac-red';
+              return (
+                <li class="flex items-center gap-2">
+                  <span class={`font-mono text-xs ${color}`}>{arrow}{Math.abs(delta)}pp</span>
+                  <span class="font-mono text-xs text-almanac-muted">{p.confidence}%</span>
+                  <span>{p.claim_zh || p.claim}</span>
+                </li>
+              );
+            })}
+          </ul>
+          <p class="text-xs text-almanac-muted/70 mt-3 border-t border-almanac-border/30 pt-2">
+            完整中文报告即将推出。以下为英文原文。
+          </p>
+        </div>
+      )}
     </div>
 
     <!-- What Moved Today -->
