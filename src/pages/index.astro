@@ -131,8 +131,10 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
             <span class="w-4 h-px bg-almanac-accent/50"></span>
             <Typewriter texts={["an uncertain future", "the next decade", "what comes next", "career decisions"]} textsZh={["不确定的未来", "下一个十年", "即将到来的变化", "职业抉择"]} speed={70} />
           </p>
-          <p class="mt-4 sm:mt-6 text-base sm:text-lg text-almanac-muted max-w-xl leading-relaxed" data-en="Will AI replace your job or make it more valuable? Will Rust salaries rise? Will junior hiring recover? We track 50 specific predictions with daily probability updates from 17+ sources — so you can make career decisions based on evidence, not anxiety." data-zh="AI会取代你的工作还是让它更有价值？Rust薪资会上涨吗？初级岗位招聘会恢复吗？我们追踪50项具体预测，每天从17+个数据源更新概率——让你的职业决策基于证据，而非焦虑。">
-            Will AI replace your job or make it more valuable? Will Rust salaries rise? Will junior hiring recover? We track 50 specific predictions with daily probability updates from 17+ sources — so you can make career decisions based on evidence, not anxiety.
+          <p class="mt-4 sm:mt-6 text-base sm:text-lg text-almanac-muted max-w-xl leading-relaxed">
+            <span data-en="Will AI replace your job or make it more valuable?" data-zh="AI会取代你的工作还是让它更有价值？">Will AI replace your job or make it more valuable?</span>
+            <span class="hidden sm:inline" data-en=" Will Rust salaries rise? Will junior hiring recover?" data-zh=" Rust薪资会上涨吗？初级岗位招聘会恢复吗？"> Will Rust salaries rise? Will junior hiring recover?</span>
+            <span data-en=" 50 predictions, updated daily from 17+ sources — career decisions based on evidence, not anxiety." data-zh=" 50项预测，每天从17+个数据源更新——让职业决策基于证据，而非焦虑。"> 50 predictions, updated daily from 17+ sources — career decisions based on evidence, not anxiety.</span>
           </p>
 
           <p class="mt-3 text-xs text-almanac-muted/70 hidden sm:block" data-en="Unlike prediction markets, we track software-engineering-specific forecasts no one else covers — from AI debugging job emergence to Rust salary premiums — with daily updates tied to specific news events." data-zh="与预测市场不同，我们追踪无人覆盖的软件工程专属预测——从AI调试岗位出现到Rust薪资溢价——每日更新均关联具体新闻事件。">
