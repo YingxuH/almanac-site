@@ -253,6 +253,23 @@ const avgConf = totalPreds > 0 ? Math.round(allPreds.reduce((a: number, p: any) 
     </section>
   </FadeIn>
 
+  <!-- Mid-page CTA — interest peaks after career cards -->
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 py-6 text-center">
+    <form class="inline-flex flex-col sm:flex-row gap-2 items-center" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="56e74bc1-d00f-4ff8-ad35-a00eb74f716d" />
+      <input type="hidden" name="subject" value="New Almanac subscriber (mid-page)" />
+      <input type="hidden" name="from_name" value="Almanac Signup" />
+      <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+      <input type="email" name="email" required placeholder="you@company.com"
+        class="px-4 py-2.5 rounded-lg bg-almanac-surface border border-almanac-border text-almanac-text placeholder:text-almanac-muted/50 focus:outline-none focus:border-almanac-accent text-sm w-64" />
+      <button type="submit"
+        class="px-5 py-2.5 bg-almanac-accent text-almanac-bg font-semibold rounded-lg hover:shadow-lg transition-all text-sm whitespace-nowrap cursor-pointer">
+        <span data-en="Get these predictions daily" data-zh="每日获取这些预测">Get these predictions daily</span>
+      </button>
+    </form>
+    <p class="mt-2 text-[10px] text-almanac-muted" data-en="Free. No spam. Unsubscribe anytime." data-zh="免费，无垃圾邮件，随时退订。">Free. No spam. Unsubscribe anytime.</p>
+  </div>
+
   </div><!-- end career bg -->
 
   <!-- Sample forecast preview — dynamically generated from latest report + predictions -->
