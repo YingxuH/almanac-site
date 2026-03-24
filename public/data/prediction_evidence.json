@@ -64,7 +64,21 @@
   "14": [],
   "15": [],
   "16": [],
-  "17": [],
+  "17": [
+    {
+      "date": "2026-03-24",
+      "delta": -3,
+      "signals": [
+        {
+          "title": "c-CRAB and the Collapse of Human Code Review",
+          "url": null,
+          "source": null,
+          "direction": "down",
+          "reasoning": "The c-CRAB benchmark indicates that human review cannot scale to meet AI generation volumes, requiring AI-driven review sooner than anticipated."
+        }
+      ]
+    }
+  ],
   "18": [],
   "19": [],
   "20": [],
@@ -110,13 +124,61 @@
           "reasoning": "Agent-optimized tools like browser-use show direct commercial evidence of full-spectrum test automation gaining traction."
         }
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "delta": -3,
+      "signals": [
+        {
+          "title": "The Illusion of LLM Test Generation Reasoning",
+          "url": null,
+          "source": null,
+          "direction": "down",
+          "reasoning": "Large-scale evaluation showed LLM-generated tests rely on superficial patterns rather than genuine reasoning, failing to catch semantic-altering regressions."
+        }
+      ]
     }
   ],
   "30": [],
-  "31": [],
+  "31": [
+    {
+      "date": "2026-03-24",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "ConceptCoder Simulates Human Code Inspection",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "ConceptCoder significantly improves vulnerability detection accuracy by teaching models to recognize human-understandable code concepts."
+        },
+        {
+          "title": "c-CRAB and the Collapse of Human Code Review",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "The emergence of the c-CRAB evaluation framework advances the capability of AI agents to effectively review other agents' code."
+        }
+      ]
+    }
+  ],
   "32": [],
   "33": [],
-  "34": [],
+  "34": [
+    {
+      "date": "2026-03-24",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "ReqFusion Orchestrates Multi-Model Requirements Extraction",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "ReqFusion formalizes and automates requirements engineering across major LLM providers, shifting developer focus away from writing code directly."
+        }
+      ]
+    }
+  ],
   "35": [],
   "36": [],
   "37": [],

@@ -1,0 +1,761 @@
+{
+  "2026-03-24": {
+    "votes": {
+      "1": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "2": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "3": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "4": {
+        "Labor Economist": {
+          "lr": 0.7,
+          "rationale": "Signal 2's advancement of open-source model capabilities and Signal 3's focus on avoiding vendor lock-in suggest open-source models will remain highly competitive against proprietary options."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 0.8,
+          "rationale": "The explicit multi-model strategy of tools like ReqFusion using open-source alongside proprietary models reduces the likelihood of open-source losing share."
+        }
+      },
+      "5": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 0.5,
+          "rationale": "The empirical study proving LLMs fail at deep semantic reasoning and miss regressions directly contradicts the idea that AI code will have fewer vulnerabilities."
+        },
+        "Contrarian": {
+          "lr": 1.5,
+          "rationale": "ConceptCoder's significant F1 improvements in vulnerability detection suggest AI will soon self-correct code much more securely than humans do."
+        }
+      },
+      "6": {
+        "Labor Economist": {
+          "lr": 1.4,
+          "rationale": "As an economist relying on historical precedent, the emergence of massive new complexities like AI oversight and widespread developer burnout (Signals 1 and 5) guarantees overall headcount will continue to expand to manage the transition."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 0.8,
+          "rationale": "The severe developer burnout and 'Productivity Panic' signaled today could trigger an unexpected exodus from the profession, countering the growth consensus."
+        }
+      },
+      "7": {
+        "Labor Economist": {
+          "lr": 1.4,
+          "rationale": "Signal 4's revelation that LLMs fail at true semantic reasoning during code evolution significantly increases the likelihood of costly rollbacks due to undetected faults."
+        },
+        "Security Hawk": {
+          "lr": 1.5,
+          "rationale": "The psychological toll of productivity panic and the 'illusion' of AI reasoning leading to missed faults suggest premature autonomous deployments will heavily backfire and face rollbacks."
+        },
+        "Contrarian": {
+          "lr": 1.6,
+          "rationale": "The empirical proof that LLM test generation relies on superficial patterns rather than semantic reasoning perfectly sets the stage for painful enterprise rollbacks."
+        }
+      },
+      "8": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "9": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 0.8,
+          "rationale": "The explicit shift toward requirements engineering and multi-model extraction frameworks like ReqFusion suggests natural language specifications are increasingly becoming the primary medium over code."
+        },
+        "Contrarian": {
+          "lr": 0.7,
+          "rationale": "The emergence of ReqFusion turning unstructured documents into standardized PEGS requirements indicates natural language is already rapidly becoming the primary specification medium."
+        }
+      },
+      "10": {
+        "Labor Economist": {
+          "lr": 1.6,
+          "rationale": "Signal 4's finding that AI relies on superficial patterns and completely misses regressions strongly supports the likelihood that purely automated 'vibe coding' will lead to catastrophic production failures."
+        },
+        "Security Hawk": {
+          "lr": 2.0,
+          "rationale": "The revelation that AI tests rely on superficial patterns rather than semantic reasoning sets the perfect stage for catastrophic production failures when developers blindly trust AI outputs."
+        },
+        "Contrarian": {
+          "lr": 1.8,
+          "rationale": "The failure of LLMs to detect regressions during semantic changes heavily bolsters the contrarian view that vibe coding will lead to catastrophic production failures."
+        }
+      },
+      "11": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "12": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "13": {
+        "Labor Economist": {
+          "lr": 0.6,
+          "rationale": "Because Signal 4 demonstrates that AI lacks genuine semantic reasoning, senior-level human judgment will become vastly more scarce and valuable to prevent deep architectural faults."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "14": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "15": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "16": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.3,
+          "rationale": "Frameworks like ReqFusion dynamically routing across multiple providers to avoid vendor lock-in poses a direct threat to Copilot's monopoly."
+        }
+      },
+      "17": {
+        "Labor Economist": {
+          "lr": 0.4,
+          "rationale": "Signal 1 states the industry is actively being forced to transition away from human-in-the-loop review toward AI-in-the-loop review due to the unmanageable volume of generated code."
+        },
+        "Security Hawk": {
+          "lr": 0.3,
+          "rationale": "The text explicitly notes a shift away from human review toward AI-to-AI review because the sheer volume of generated code is already causing human code review bottlenecks to collapse."
+        },
+        "Contrarian": {
+          "lr": 0.4,
+          "rationale": "The release of the c-CRAB benchmark directly signals the industry is abandoning human review entirely in favor of AI-to-AI code inspection."
+        }
+      },
+      "18": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "19": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "20": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 0.5,
+          "rationale": "With requirements engineering becoming the 'new battleground,' highly specialized prompt and specification roles will thrive much longer than consensus predicts."
+        }
+      },
+      "21": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "22": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.5,
+          "rationale": "Orchestrating multi-model requirement extractors and managing agent-to-agent review loops will launch the 'AI software engineer' into a breakout role."
+        }
+      },
+      "23": {
+        "Labor Economist": {
+          "lr": 0.8,
+          "rationale": "Historical base rates of automation show that technological shifts increase overall sector wealth and employment, contradicting the claim that lower-tier software salaries will suffer absolute declines."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "24": {
+        "Labor Economist": {
+          "lr": 1.3,
+          "rationale": "The widespread cognitive overload (Signal 5) and collapse of standard human review (Signal 1) imply that highly experienced Staff+ engineers capable of overseeing multi-agent architectures will command a massive premium."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "25": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "26": {
+        "Labor Economist": {
+          "lr": 1.4,
+          "rationale": "The superficial pattern matching and undetected semantic faults highlighted in Signal 4 vastly increase the probability of a major, undetected AI-generated vulnerability making it to production."
+        },
+        "Security Hawk": {
+          "lr": 1.8,
+          "rationale": "The massive study showing AI-generated unit tests completely miss semantic faults and regressions makes a catastrophic, undetected vulnerability highly probable."
+        },
+        "Contrarian": {
+          "lr": 1.4,
+          "rationale": "The finding that AI-generated tests miss semantic regressions greatly increases the probability of a massive, undetected vulnerability reaching production."
+        }
+      },
+      "27": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.6,
+          "rationale": "The development of tools like ConceptCoder to address widespread LLM code security fears points directly to an urgent industry need for AI-specific DAST/SAST scanning rules."
+        },
+        "Contrarian": {
+          "lr": 0.5,
+          "rationale": "The success of models natively detecting their own flaws via fine-tuning methods like ConceptCoder will make bolted-on legacy SAST/DAST integrations completely redundant."
+        }
+      },
+      "28": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "29": {
+        "Labor Economist": {
+          "lr": 0.5,
+          "rationale": "Signal 4 explicitly details the dangerous illusion of LLM test generation, heavily discouraging cautious enterprises from adopting fully automated testing suites without massive human oversight."
+        },
+        "Security Hawk": {
+          "lr": 0.6,
+          "rationale": "Because the evidence proves AI test generation lacks genuine semantic reasoning and misses regressions, relying on it for high test coverage will be recognized as dangerously flawed."
+        },
+        "Contrarian": {
+          "lr": 0.4,
+          "rationale": "The study exposing the superficial reasoning and missed faults in LLM test generation will severely stall the enterprise adoption of automated test workflows."
+        }
+      },
+      "30": {
+        "Labor Economist": {
+          "lr": 0.4,
+          "rationale": "Deploying changes without human approval is directly contradicted by Signal 4's evidence that AI test generation consistently misses regressions during software evolution."
+        },
+        "Security Hawk": {
+          "lr": 0.4,
+          "rationale": "The fundamental failure of AI to reason semantically about tests and code evolution makes autonomous deployment highly reckless and unlikely to be broadly implemented by competent engineering organizations."
+        },
+        "Contrarian": {
+          "lr": 2.0,
+          "rationale": "The rapid rise of AI-to-AI code review benchmarks (c-CRAB) proves we are aggressively building the autonomous approval pipelines needed to completely bypass humans."
+        }
+      },
+      "31": {
+        "Labor Economist": {
+          "lr": 1.4,
+          "rationale": "Signal 1's c-CRAB framework and Signal 2's ConceptCoder indicate that focused progress is rapidly accelerating on models trained specifically to catch bugs and review code autonomously."
+        },
+        "Security Hawk": {
+          "lr": 1.4,
+          "rationale": "The release of the c-CRAB benchmark and the ConceptCoder vulnerability detection improvements indicate rapid, necessary investment in AI models designed specifically to catch bugs as human oversight fails."
+        },
+        "Contrarian": {
+          "lr": 1.5,
+          "rationale": "ConceptCoder's significant F1 score improvements combined with the c-CRAB benchmark indicate AI code review is scaling far faster than human capabilities."
+        }
+      },
+      "32": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "33": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "34": {
+        "Labor Economist": {
+          "lr": 1.7,
+          "rationale": "Signal 3 explicitly confirms the developer workflow is actively shifting away from writing code directly toward standardizing and orchestrating requirements."
+        },
+        "Security Hawk": {
+          "lr": 1.7,
+          "rationale": "The pivot toward the ReqFusion framework strongly supports the thesis that developers will transition away from writing code to focus entirely on orchestrating requirements and reviewing outputs."
+        },
+        "Contrarian": {
+          "lr": 0.6,
+          "rationale": "While developers will focus on requirements, the explicit 'collapse of human code review' means they will definitively not be spending their time reviewing outputs."
+        }
+      },
+      "35": {
+        "Labor Economist": {
+          "lr": 0.7,
+          "rationale": "As an economist, the emergence of AI-to-AI oversight and burnout indicates software engineering is growing more complex, meaning deep computer science fundamentals will remain highly demanded rather than obsolete."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "36": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 0.5,
+          "rationale": "Consensus falsely assumes systems programming is an AI-proof fortress, but structured multi-agent extractors will map complex kernel states just as effectively as web dev."
+        }
+      },
+      "37": {
+        "Labor Economist": {
+          "lr": 0.6,
+          "rationale": "Signal 4 shows AI fails at deep semantic reasoning, implying developers will still need the robust computer science fundamentals typically lacking in bootcamps to catch fundamental architectural logic flaws."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "38": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "39": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 0.6,
+          "rationale": "Multi-provider orchestrators like ReqFusion threaten vendor lock-in, meaning Microsoft might heavily guard its premium tiers rather than cannibalize them for free."
+        }
+      },
+      "40": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.4,
+          "rationale": "Non-tech enterprises facing the severe developer burnout detailed today will be highly motivated to build and open-source custom domain tools."
+        }
+      },
+      "41": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "42": {
+        "Labor Economist": {
+          "lr": 0.4,
+          "rationale": "Signal 4 explicitly states that AI models miss regressions and undetected faults when codebases undergo semantic-altering changes over time, rendering autonomous maintenance highly unlikely."
+        },
+        "Security Hawk": {
+          "lr": 0.5,
+          "rationale": "The study proving AI test generation fails to reason about software behavior during evolution specifically dooms its ability to autonomously maintain complex codebases over time."
+        },
+        "Contrarian": {
+          "lr": 1.5,
+          "rationale": "The emergence of specialized AI-to-AI code review workflows dramatically accelerates the timeline for truly autonomous, zero-human repository maintenance."
+        }
+      },
+      "43": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "44": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 0.5,
+          "rationale": "The shift toward computationally expensive multi-agent review loops and deep 'concept reasoning' will artificially inflate inference costs, preventing a 90% cost collapse."
+        }
+      },
+      "45": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.5,
+          "rationale": "The glaring security flaws and lack of semantic reasoning in AI code outputs provide the exact ammunition regulators will use to mandate strict disclosure in safety-critical systems."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "46": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.5,
+          "rationale": "As autonomous AI-to-AI pipelines replace human review, restrictive EU regulations will trigger an inevitable mass exodus to jurisdictions where full automation is legal."
+        }
+      },
+      "47": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "48": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "49": {
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Security Hawk": {
+          "lr": 1.3,
+          "rationale": "The flood of pull requests generated by autonomous workflows makes it increasingly plausible that early-stage startups will launch with almost entirely AI-generated code, regardless of the underlying risks."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals."
+        }
+      },
+      "50": {
+        "Labor Economist": {
+          "lr": 1.8,
+          "rationale": "The intense psychological toll of managing AI (Signal 5) and the required pivot to AI-to-AI oversight (Signal 1) strongly suggest that debugging complex AI messes will formalize into its own recognized, high-stress specialty."
+        },
+        "Security Hawk": {
+          "lr": 1.8,
+          "rationale": "The human cognitive overload caused by an influx of superficially-reasoned, flawed AI code makes specialized 'AI debugging' roles a grim necessity to untangle the resulting mess."
+        },
+        "Contrarian": {
+          "lr": 3.0,
+          "rationale": "The empirical failure of LLM test generation reasoning guarantees a tidal wave of subtle semantic faults that will mandate an entirely new class of dedicated AI-debugging specialists."
+        }
+      }
+    },
+    "median_lrs": {
+      "1": 1.0,
+      "2": 1.0,
+      "3": 1.0,
+      "4": 0.8,
+      "5": 1.0,
+      "6": 1.0,
+      "7": 1.5,
+      "8": 1.0,
+      "9": 0.8,
+      "10": 1.8,
+      "11": 1.0,
+      "12": 1.0,
+      "13": 1.0,
+      "14": 1.0,
+      "15": 1.0,
+      "16": 1.0,
+      "17": 0.4,
+      "18": 1.0,
+      "19": 1.0,
+      "20": 1.0,
+      "21": 1.0,
+      "22": 1.0,
+      "23": 1.0,
+      "24": 1.0,
+      "25": 1.0,
+      "26": 1.4,
+      "27": 1.0,
+      "28": 1.0,
+      "29": 0.5,
+      "30": 0.4,
+      "31": 1.4,
+      "32": 1.0,
+      "33": 1.0,
+      "34": 1.7,
+      "35": 1.0,
+      "36": 1.0,
+      "37": 1.0,
+      "38": 1.0,
+      "39": 1.0,
+      "40": 1.0,
+      "41": 1.0,
+      "42": 0.5,
+      "43": 1.0,
+      "44": 1.0,
+      "45": 1.0,
+      "46": 1.0,
+      "47": 1.0,
+      "48": 1.0,
+      "49": 1.0,
+      "50": 1.8
+    },
+    "contested": [
+      "30"
+    ]
+  }
+}
