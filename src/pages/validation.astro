@@ -37,9 +37,9 @@ const wrong = predictions.length - correct;
     <!-- Header -->
     <FadeIn>
       <div class="mb-6">
-        <span class="text-xs font-mono text-almanac-amber uppercase tracking-widest" data-en="Backtest — Not a real-time track record" data-zh="回测验证 — 非实时预测记录">Backtest — Not a real-time track record</span>
-        <h1 class="text-3xl font-bold mt-2 mb-3" data-en="Hindcast Validation" data-zh="事后预测验证">Hindcast Validation</h1>
-        <p class="text-almanac-muted leading-relaxed" data-en="We tested our methodology against 20 specific, falsifiable questions about events from October 2025 to February 2026 — events whose outcomes are now known. The model used (Gemini 2.5 Pro) has a training cutoff before the hindcast period, reducing data contamination." data-zh="我们用20个具体的、可证伪的问题测试了我们的方法论，这些问题涉及2025年10月至2026年2月的事件——结果现已知晓。使用的模型（Gemini 2.5 Pro）的训练截止日期在回测期之前，降低了数据污染风险。">
+        <span class="text-xs font-mono text-almanac-amber uppercase tracking-widest" data-en="Backtest — Not a real-time track record" data-zh="回测验证 — 不是实时预测记录">Backtest — Not a real-time track record</span>
+        <h1 class="text-3xl font-bold mt-2 mb-3" data-en="Hindcast Validation" data-zh="回测验证">Hindcast Validation</h1>
+        <p class="text-almanac-muted leading-relaxed" data-en="We tested our methodology against 20 specific, falsifiable questions about events from October 2025 to February 2026 — events whose outcomes are now known. The model used (Gemini 2.5 Pro) has a training cutoff before the hindcast period, reducing data contamination." data-zh="我们拿 20 个具体、可证伪的问题测了一遍方法论，这些问题涉及 2025 年 10 月至 2026 年 2 月的事件——结果现已揭晓。用的模型（Gemini 2.5 Pro）训练截止日期早于回测区间，最大程度降低了数据污染风险。">
           We tested our methodology against 20 specific, falsifiable questions about events from October 2025 to February 2026 — events whose outcomes are now known. The model used (Gemini 2.5 Pro) has a training cutoff before the hindcast period, reducing data contamination.
         </p>
       </div>
@@ -50,19 +50,19 @@ const wrong = predictions.length - correct;
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-10">
         <div class="p-4 rounded-xl border border-almanac-border bg-almanac-surface text-center">
           <div class="text-3xl font-bold font-mono text-almanac-accent">{avgBrier}</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Brier Score (lower = better)" data-zh="布里尔分数（越低越好）">Brier Score (lower = better)</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Brier Score (lower = better)" data-zh="Brier 分数（越低越好）">Brier Score (lower = better)</div>
         </div>
         <div class="p-4 rounded-xl border border-almanac-border bg-almanac-surface text-center">
           <div class="text-3xl font-bold font-mono text-almanac-green">{correct}/{predictions.length}</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Direction Correct" data-zh="方向正确">Direction Correct</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Direction Correct" data-zh="方向猜对">Direction Correct</div>
         </div>
         <div class="p-4 rounded-xl border border-almanac-border bg-almanac-surface text-center">
           <div class="text-3xl font-bold font-mono text-almanac-red">{wrong}</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Misses (published)" data-zh="失误（已公开）">Misses (published)</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Misses (published)" data-zh="预测失误（公开）">Misses (published)</div>
         </div>
         <div class="p-4 rounded-xl border border-almanac-border bg-almanac-surface text-center">
           <div class="text-3xl font-bold font-mono">20</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Resolved Questions" data-zh="已解决问题">Resolved Questions</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Resolved Questions" data-zh="已验证问题">Resolved Questions</div>
         </div>
       </div>
     </FadeIn>
@@ -70,8 +70,8 @@ const wrong = predictions.length - correct;
     <!-- Brier explainer -->
     <FadeIn delay={150}>
       <div class="mb-10 p-4 rounded-xl border border-almanac-border bg-almanac-surface/50 text-sm text-almanac-muted">
-        <strong class="text-almanac-text" data-en="What is a Brier Score?" data-zh="什么是布里尔分数？">What is a Brier Score?</strong>
-        <span data-en=" It measures prediction accuracy: 0.0 = perfect foresight, 0.25 = coin flip (guessing 50% every time), 0.50 = always wrong. Think of it like a golf score — lower is better. Our 0.155 beats random guessing by 38%. For context, top Metaculus forecasters score ~0.10-0.15, and weather forecasts typically score around 0.2." data-zh=" 它衡量预测准确性：0.0 = 完美预见，0.25 = 抛硬币（每次猜50%），0.50 = 总是错误。可以把它想象成高尔夫球分数——越低越好。我们的0.155比随机猜测好38%。作为参考，Metaculus顶级预测者得分约0.10-0.15，天气预报通常得分约0.2。"> It measures prediction accuracy: 0.0 = perfect foresight, 0.25 = coin flip (guessing 50% every time), 0.50 = always wrong. Think of it like a golf score — lower is better. Our 0.155 beats random guessing by 38%. For context, top Metaculus forecasters score ~0.10-0.15, and weather forecasts typically score around 0.2.</span>
+        <strong class="text-almanac-text" data-en="What is a Brier Score?" data-zh="Brier 分数是什么？">What is a Brier Score?</strong>
+        <span data-en=" It measures prediction accuracy: 0.0 = perfect foresight, 0.25 = coin flip (guessing 50% every time), 0.50 = always wrong. Think of it like a golf score — lower is better. Our 0.155 beats random guessing by 38%. For context, top Metaculus forecasters score ~0.10-0.15, and weather forecasts typically score around 0.2." data-zh=" 衡量预测准确度的指标：0.0 = 预测全对，0.25 = 全程瞎猜（每次给 50%），0.50 = 全程预测反了。想象成高尔夫分数——越低越好。我们的 0.155 比随机猜测强 38%。对比参考：Metaculus 顶级预测者通常在 0.10—0.15，天气预报大约 0.2。"> It measures prediction accuracy: 0.0 = perfect foresight, 0.25 = coin flip (guessing 50% every time), 0.50 = always wrong. Think of it like a golf score — lower is better. Our 0.155 beats random guessing by 38%. For context, top Metaculus forecasters score ~0.10-0.15, and weather forecasts typically score around 0.2.</span>
       </div>
     </FadeIn>
 
@@ -80,14 +80,14 @@ const wrong = predictions.length - correct;
       <div class="mb-10">
         <div class="mb-4">
           <h2 class="text-xl font-bold" data-en="Calibration Analysis" data-zh="校准分析">Calibration Analysis</h2>
-          <p class="text-sm text-almanac-muted mt-1" data-en="A well-calibrated forecaster who says 70% should be right 70% of the time. Each circle represents one probability bucket; size reflects sample count." data-zh="一个良好校准的预测者说70%时应该有70%的概率是正确的。每个圆圈代表一个概率区间；大小反映样本量。">
+          <p class="text-sm text-almanac-muted mt-1" data-en="A well-calibrated forecaster who says 70% should be right 70% of the time. Each circle represents one probability bucket; size reflects sample count." data-zh="校准良好的预测者说 70% 就应该有 70% 的时候是对的。每个圆圈代表一个概率区间，大小反映该区间的样本量。">
             A well-calibrated forecaster who says 70% should be right 70% of the time. Each circle represents one probability bucket; size reflects sample count.
           </p>
         </div>
         <CalibrationPlot predictions={predictions.map(p => ({ pred: p.pred, outcome: p.outcome }))} />
         <div class="mt-4 p-4 rounded-xl border border-almanac-amber/20 bg-almanac-amber/5 text-sm text-almanac-muted">
-          <strong class="text-almanac-amber" data-en="Reading this chart:" data-zh="如何读图：">Reading this chart:</strong>
-          <span data-en=" Circles on the dashed diagonal = perfect calibration. Red circles below the line = overconfident (we predicted higher than reality delivered). Green circles above the line = underconfident. The low-confidence bucket (0-25%) shows significant overconfidence — we assigned low odds to events that often happened." data-zh=" 虚线上的圆圈 = 完美校准。线以下的红色圆圈 = 过度自信（我们预测的比实际发生的要高）。线以上的绿色圆圈 = 信心不足。低置信区间（0-25%）显示明显的过度自信——我们对经常发生的事件给予了较低概率。">
+          <strong class="text-almanac-amber" data-en="Reading this chart:" data-zh="怎么看这张图：">Reading this chart:</strong>
+          <span data-en=" Circles on the dashed diagonal = perfect calibration. Red circles below the line = overconfident (we predicted higher than reality delivered). Green circles above the line = underconfident. The low-confidence bucket (0-25%) shows significant overconfidence — we assigned low odds to events that often happened." data-zh=" 圆圈落在虚线对角线上 = 完美校准。线以下的红圆圈 = 过度自信（我们给的概率高于实际发生率）。线以上的绿圆圈 = 信心不足。低置信区间（0—25%）明显过度自信——很多我们认为不太可能的事，最后都发生了。">
             Circles on the dashed diagonal = perfect calibration. Red circles below the line = overconfident (we predicted higher than reality delivered). Green circles above the line = underconfident. The low-confidence bucket (0-25%) shows significant overconfidence — we assigned low odds to events that often happened.
           </span>
         </div>
@@ -96,7 +96,7 @@ const wrong = predictions.length - correct;
 
     <!-- All 20 predictions -->
     <FadeIn delay={200}>
-      <h2 class="text-xl font-bold mb-4" data-en="All 20 Predictions (including misses)" data-zh="全部20项预测（包括失误）">All 20 Predictions (including misses)</h2>
+      <h2 class="text-xl font-bold mb-4" data-en="All 20 Predictions (including misses)" data-zh="全部 20 条预测（含失误）">All 20 Predictions (including misses)</h2>
     </FadeIn>
 
     <div class="space-y-3">
@@ -111,7 +111,7 @@ const wrong = predictions.length - correct;
                   <div class={`text-xl font-bold font-mono ${p.pred >= 70 ? 'text-almanac-green' : p.pred >= 40 ? 'text-almanac-amber' : 'text-almanac-red'}`}>
                     {p.pred}%
                   </div>
-                  <div class="text-[10px] text-almanac-muted mt-0.5" data-en="predicted" data-zh="已预测">predicted</div>
+                  <div class="text-[10px] text-almanac-muted mt-0.5" data-en="predicted" data-zh="给出概率">predicted</div>
                 </div>
                 <div class="flex-1 min-w-0">
                   <div class="flex items-center gap-2 mb-1">
@@ -137,12 +137,12 @@ const wrong = predictions.length - correct;
     <!-- Caveats -->
     <FadeIn delay={300}>
       <div class="mt-12 p-6 rounded-xl border border-almanac-amber/20 bg-almanac-amber/5">
-        <h3 class="font-semibold mb-3 text-almanac-amber" data-en="Honest Caveats" data-zh="诚实声明">Honest Caveats</h3>
+        <h3 class="font-semibold mb-3 text-almanac-amber" data-en="Honest Caveats" data-zh="要说清楚的坑">Honest Caveats</h3>
         <ul class="text-sm text-almanac-muted space-y-2 list-disc list-inside">
-          <li data-en="This is a BACKTEST, not a real-time track record. Questions were defined with hindsight knowledge of outcomes." data-zh="这是回测验证，非实时预测记录。问题是在已知结果的情况下定义的。">This is a BACKTEST, not a real-time track record. Questions were defined with hindsight knowledge of outcomes.</li>
-          <li data-en="Model: Gemini 2.5 Pro — training cutoff predates the Oct 2025 hindcast period, reducing but not eliminating data contamination risk." data-zh="模型：Gemini 2.5 Pro — 训练截止日期在2025年10月回测期之前，降低但不能完全消除数据污染风险。">Model: Gemini 2.5 Pro — training cutoff predates the Oct 2025 hindcast period, reducing but not eliminating data contamination risk.</li>
-          <li data-en="Question set skews toward YES outcomes (16/20). A system that always predicts 70% YES would score well. Future validations will include more balanced outcomes." data-zh="问题集偏向YES结果（16/20）。始终预测70% YES的系统也会得分不错。未来验证将包含更平衡的结果。">Question set skews toward YES outcomes (16/20). A system that always predicts 70% YES would score well. Future validations will include more balanced outcomes.</li>
-          <li data-en="Low-confidence bucket (0-30%) was poorly calibrated: predicted unlikely events that happened (Cursor growth, Claude Code adoption, Meta layoffs)." data-zh="低置信度区间（0-30%）校准不佳：预测为不太可能发生的事件实际发生了（Cursor增长、Claude Code普及、Meta裁员）。">Low-confidence bucket (0-30%) was poorly calibrated: predicted unlikely events that happened (Cursor growth, Claude Code adoption, Meta layoffs).</li>
+          <li data-en="This is a BACKTEST, not a real-time track record. Questions were defined with hindsight knowledge of outcomes." data-zh="这是回测，不是实时记录。题目是在已知结果的情况下定的——这是方法论上的根本局限。">This is a BACKTEST, not a real-time track record. Questions were defined with hindsight knowledge of outcomes.</li>
+          <li data-en="Model: Gemini 2.5 Pro — training cutoff predates the Oct 2025 hindcast period, reducing but not eliminating data contamination risk." data-zh="用的是 Gemini 2.5 Pro，训练截止日期早于 2025 年 10 月回测期，能降低但无法完全消除数据污染风险。">Model: Gemini 2.5 Pro — training cutoff predates the Oct 2025 hindcast period, reducing but not eliminating data contamination risk.</li>
+          <li data-en="Question set skews toward YES outcomes (16/20). A system that always predicts 70% YES would score well. Future validations will include more balanced outcomes." data-zh="题目偏 YES（16/20 最终为真）。一个无脑给 70% YES 的系统也能跑出不错的分数。后续验证会更注重结果平衡。">Question set skews toward YES outcomes (16/20). A system that always predicts 70% YES would score well. Future validations will include more balanced outcomes.</li>
+          <li data-en="Low-confidence bucket (0-30%) was poorly calibrated: predicted unlikely events that happened (Cursor growth, Claude Code adoption, Meta layoffs)." data-zh="低置信区间（0—30%）校准很差：我们认为不太可能的事反而都发生了（Cursor 爆增、Claude Code 普及、Meta 裁员）。">Low-confidence bucket (0-30%) was poorly calibrated: predicted unlikely events that happened (Cursor growth, Claude Code adoption, Meta layoffs).</li>
         </ul>
       </div>
     </FadeIn>
@@ -150,8 +150,8 @@ const wrong = predictions.length - correct;
     <!-- Methodology -->
     <FadeIn delay={400}>
       <div class="mt-8 p-6 rounded-xl border border-almanac-border bg-almanac-surface/50">
-        <h3 class="font-semibold mb-3" data-en="Methodology" data-zh="方法论">Methodology</h3>
-        <p class="text-sm text-almanac-muted leading-relaxed" data-en="20 questions were defined about specific, falsifiable events from October 2025 to February 2026. Gemini 2.5 Pro was prompted with the question, a base rate hint, and instructed to predict as if the current date were the ask date. Predictions were batched in groups of 5. All results are published, including all 4 misses. The Brier score is computed as the mean squared error between predicted probability and binary outcome across all 20 questions." data-zh="定义了20个关于2025年10月至2026年2月间具体可证伪事件的问题。Gemini 2.5 Pro接收到问题、基准率提示，并被指示像当前日期为提问日期一样进行预测。预测以5个为一组批量处理。所有结果均已公布，包括全部4次失误。布里尔分数计算为所有20个问题的预测概率与二元结果之间的均方误差。">
+        <h3 class="font-semibold mb-3" data-en="Methodology" data-zh="具体怎么做的">Methodology</h3>
+        <p class="text-sm text-almanac-muted leading-relaxed" data-en="20 questions were defined about specific, falsifiable events from October 2025 to February 2026. Gemini 2.5 Pro was prompted with the question, a base rate hint, and instructed to predict as if the current date were the ask date. Predictions were batched in groups of 5. All results are published, including all 4 misses. The Brier score is computed as the mean squared error between predicted probability and binary outcome across all 20 questions." data-zh="针对 2025 年 10 月至 2026 年 2 月的具体可证伪事件定了 20 道题。给 Gemini 2.5 Pro 的 prompt 包含问题本身、基准率提示，并要求它假装当前日期就是提问日期来作答。每批 5 条。所有结果全部公开，包括 4 次失误。Brier 分数 = 全部 20 道题预测概率与实际结果（0/1）之间的均方误差。">
           20 questions were defined about specific, falsifiable events from October 2025 to February 2026. Gemini 2.5 Pro was prompted with the question, a base rate hint, and instructed to predict as if the current date were the ask date. Predictions were batched in groups of 5. All results are published, including all 4 misses. The Brier score is computed as the mean squared error between predicted probability and binary outcome across all 20 questions.
         </p>
       </div>

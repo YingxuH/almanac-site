@@ -9,7 +9,7 @@ import BayesCalculator from '../components/BayesCalculator.astro';
 
     <FadeIn>
       <h1 class="text-4xl font-bold mb-4" data-en="About Almanac" data-zh="关于 Almanac">About Almanac</h1>
-      <p class="text-xl text-almanac-muted leading-relaxed max-w-2xl" data-en="We're cartographers, not prophets. We map the territory of possible futures with no stake in which one arrives." data-zh="我们是制图者，不是预言家。我们绘制可能的未来版图，对哪个会到来不持立场。">
+      <p class="text-xl text-almanac-muted leading-relaxed max-w-2xl" data-en="We're cartographers, not prophets. We map the territory of possible futures with no stake in which one arrives." data-zh="我们画地图，不算命。把可能的未来版图摊开来看，至于哪条路真的走通，我们不押注。">
         We're cartographers, not prophets. We map the territory of possible futures with no stake in which one arrives.
       </p>
     </FadeIn>
@@ -20,9 +20,9 @@ import BayesCalculator from '../components/BayesCalculator.astro';
         <div class="p-6 rounded-xl border border-almanac-border bg-almanac-surface">
           <h2 class="text-xl font-bold mb-3 flex items-center gap-2">
             <span class="w-1.5 h-6 rounded-full bg-almanac-accent"></span>
-            <span data-en="What This Is" data-zh="这是什么">What This Is</span>
+            <span data-en="What This Is" data-zh="这东西是干嘛的">What This Is</span>
           </h2>
-          <p class="text-almanac-muted leading-relaxed" data-en="Almanac is an AI-powered forecasting system that tracks how software engineering is changing over the next 3-30 years. Every day, our pipeline scrapes 17+ data sources, filters hundreds of signals through tiered AI models, and produces a confidence-scored forecast. We track 50 specific, falsifiable predictions and update them daily using Bayesian likelihood ratio analysis with a 5-persona forecaster panel." data-zh="Almanac 是一个 AI 驱动的预测系统，追踪软件工程在未来 3-30 年内的变化。每天，我们的流水线从 17+ 个数据源抓取数据，通过分层 AI 模型筛选数百个信号，并生成置信度评分预测。我们追踪 50 个具体的、可证伪的预测，并使用贝叶斯似然比分析和 5 人预测员面板每日更新。">
+          <p class="text-almanac-muted leading-relaxed" data-en="Almanac is an AI-powered forecasting system that tracks how software engineering is changing over the next 3-30 years. Every day, our pipeline scrapes 17+ data sources, filters hundreds of signals through tiered AI models, and produces a confidence-scored forecast. We track 50 specific, falsifiable predictions and update them daily using Bayesian likelihood ratio analysis with a 5-persona forecaster panel." data-zh="Almanac 是一套大模型驱动的预测系统，专门追踪软件工程在未来 3—30 年的走向。每天流水线自动爬取 17+ 个数据源，用分层大模型从数百条信号里筛出有价值的东西，输出带置信度的预测。我们维护 50 条具体、可证伪的预测，每天用 Bayesian 似然比分析 + 5 人角色面板同步更新。">
             Almanac is an AI-powered forecasting system that tracks how software engineering is changing over the next 3-30 years.
             Every day, our pipeline scrapes 17+ data sources, filters hundreds of signals through tiered AI models, and produces
             a confidence-scored forecast. We track 50 specific, falsifiable predictions and update them daily using Bayesian likelihood ratio analysis with a 5-persona forecaster panel.
@@ -34,7 +34,7 @@ import BayesCalculator from '../components/BayesCalculator.astro';
             <span class="w-1.5 h-6 rounded-full bg-almanac-amber"></span>
             <span data-en="What This Is Not" data-zh="这不是什么">What This Is Not</span>
           </h2>
-          <p class="text-almanac-muted leading-relaxed" data-en="We are not an oracle. We are not financial advisors. Our predictions are probabilistic estimates based on available evidence, and they are frequently wrong. The value isn't in any single prediction being correct — it's in the discipline of tracking, updating, and honestly reporting our accuracy over time." data-zh="我们不是神谕，也不是财务顾问。我们的预测是基于现有证据的概率估计，且经常出错。价值不在于某个预测是否正确，而在于追踪、更新并诚实报告我们准确性的这种纪律。">
+          <p class="text-almanac-muted leading-relaxed" data-en="We are not an oracle. We are not financial advisors. Our predictions are probabilistic estimates based on available evidence, and they are frequently wrong. The value isn't in any single prediction being correct — it's in the discipline of tracking, updating, and honestly reporting our accuracy over time." data-zh="我们不是神算子，也不提供投资建议。预测本质上是基于现有证据的概率估计，会经常出错。这东西的价值不在于某条预测灵不灵，而在于持续追踪、持续更新、把失误也公开摆出来——这套纪律本身才是核心。">
             We are not an oracle. We are not financial advisors. Our predictions are probabilistic estimates based on available
             evidence, and they are frequently wrong. The value isn't in any single prediction being correct — it's in the
             discipline of tracking, updating, and honestly reporting our accuracy over time.
@@ -45,34 +45,34 @@ import BayesCalculator from '../components/BayesCalculator.astro';
         <div class="p-6 rounded-xl border border-almanac-accent/20 bg-almanac-accent/5">
           <h2 class="text-xl font-bold mb-3 flex items-center gap-2">
             <span class="w-1.5 h-6 rounded-full bg-almanac-accent"></span>
-            <span data-en="How We're Different" data-zh="我们的不同之处">How We're Different</span>
+            <span data-en="How We're Different" data-zh="跟其他产品有什么区别">How We're Different</span>
           </h2>
           <div class="grid sm:grid-cols-3 gap-3 text-xs">
             <div class="p-3 rounded-lg bg-almanac-bg/50">
               <div class="font-semibold text-sm mb-1">Almanac</div>
               <ul class="text-almanac-muted space-y-1">
-                <li data-en="50 SWE-specific predictions" data-zh="50项软件工程专属预测">50 SWE-specific predictions</li>
-                <li data-en="Daily automated Bayesian updates" data-zh="每日自动贝叶斯更新">Daily automated Bayesian updates</li>
-                <li data-en="5-persona panel with evidence trails" data-zh="5人角色面板+证据链">5-persona panel with evidence trails</li>
-                <li data-en="Free, open methodology" data-zh="免费，开放方法论">Free, open methodology</li>
+                <li data-en="50 SWE-specific predictions" data-zh="50条软件工程专属预测">50 SWE-specific predictions</li>
+                <li data-en="Daily automated Bayesian updates" data-zh="每日自动 Bayesian 更新">Daily automated Bayesian updates</li>
+                <li data-en="5-persona panel with evidence trails" data-zh="5角色面板 + 完整证据链">5-persona panel with evidence trails</li>
+                <li data-en="Free, open methodology" data-zh="免费，方法论完全公开">Free, open methodology</li>
               </ul>
             </div>
             <div class="p-3 rounded-lg bg-almanac-bg/50">
               <div class="font-semibold text-sm mb-1 text-almanac-muted">Metaculus</div>
               <ul class="text-almanac-muted space-y-1">
-                <li data-en="Broad topics (not SWE-focused)" data-zh="广泛话题（非软件工程专属）">Broad topics (not SWE-focused)</li>
-                <li data-en="Crowd-sourced human forecasters" data-zh="众包人类预测者">Crowd-sourced human forecasters</li>
-                <li data-en="Large resolved question library" data-zh="大量已验证问题库">Large resolved question library</li>
+                <li data-en="Broad topics (not SWE-focused)" data-zh="话题广泛，不专注软件工程">Broad topics (not SWE-focused)</li>
+                <li data-en="Crowd-sourced human forecasters" data-zh="真人众包预测">Crowd-sourced human forecasters</li>
+                <li data-en="Large resolved question library" data-zh="已有大量已验证历史题库">Large resolved question library</li>
                 <li data-en="Free, community-driven" data-zh="免费，社区驱动">Free, community-driven</li>
               </ul>
             </div>
             <div class="p-3 rounded-lg bg-almanac-bg/50">
               <div class="font-semibold text-sm mb-1 text-almanac-muted">Polymarket</div>
               <ul class="text-almanac-muted space-y-1">
-                <li data-en="Financial prediction markets" data-zh="金融预测市场">Financial prediction markets</li>
-                <li data-en="Real money at stake" data-zh="真金白银">Real money at stake</li>
-                <li data-en="Mostly politics/crypto/events" data-zh="以政治/加密/事件为主">Mostly politics/crypto/events</li>
-                <li data-en="Not SWE career-focused" data-zh="非软件工程职业导向">Not SWE career-focused</li>
+                <li data-en="Financial prediction markets" data-zh="真钱下注的预测市场">Financial prediction markets</li>
+                <li data-en="Real money at stake" data-zh="输赢见真章">Real money at stake</li>
+                <li data-en="Mostly politics/crypto/events" data-zh="以政治/加密/突发事件为主">Mostly politics/crypto/events</li>
+                <li data-en="Not SWE career-focused" data-zh="不关注软件工程职业">Not SWE career-focused</li>
               </ul>
             </div>
           </div>
@@ -83,7 +83,7 @@ import BayesCalculator from '../components/BayesCalculator.astro';
     <!-- Methodology -->
     <FadeIn delay={200}>
       <div class="mt-16">
-        <h2 class="text-2xl font-bold mb-8" data-en="Methodology" data-zh="方法论">Methodology</h2>
+        <h2 class="text-2xl font-bold mb-8" data-en="Methodology" data-zh="怎么跑的">Methodology</h2>
 
         <div class="relative">
           {/* Vertical connector */}
@@ -96,7 +96,7 @@ import BayesCalculator from '../components/BayesCalculator.astro';
                 title: "Data Collection",
                 titleZh: "数据采集",
                 desc: "Every day at 06:00 UTC, automated scrapers collect data from 17+ sources: Hacker News, arXiv, 5 RSS feeds (TechCrunch, Ars Technica, MIT Tech Review, The Verge, Wired), GitHub Trending, Stack Overflow, Semantic Scholar, FRED economic data, SEC EDGAR filings, Reddit, Lobsters, investor relations feeds, and X/Twitter. This yields 500+ raw items per day.",
-                descZh: "每天 06:00 UTC，自动爬虫从 17+ 个数据源收集数据：Hacker News、arXiv、5 个 RSS 源（TechCrunch、Ars Technica、MIT Tech Review、The Verge、Wired）、GitHub Trending、Stack Overflow、Semantic Scholar、FRED 经济数据、SEC EDGAR 公司文件、Reddit、Lobsters、投资者关系动态及 X/Twitter。每天产生 500+ 个原始条目。",
+                descZh: "每天 06:00 UTC，爬虫自动跑完 17+ 个数据源：Hacker News、arXiv、5 个 RSS（TechCrunch、Ars Technica、MIT Tech Review、The Verge、Wired）、GitHub Trending、Stack Overflow、Semantic Scholar、FRED 经济数据、SEC EDGAR 披露文件、Reddit、Lobsters、投资者关系动态和 X/Twitter。每天原始条目 500+。",
                 color: "accent"
               },
               {
@@ -104,7 +104,7 @@ import BayesCalculator from '../components/BayesCalculator.astro';
                 title: "Signal Filtering",
                 titleZh: "信号筛选",
                 desc: "The AI model evaluates each item for relevance to the future of software engineering (3-30 year horizon). Items scoring below 0.5 recency-adjusted relevance are discarded. Typically 20-30 signals survive filtering. Each signal is classified by type: AI coding, job market, skills, regulation, tooling, or paradigm.",
-                descZh: "AI 模型评估每个条目与软件工程未来（3-30 年时间范围）的相关性。经时效性调整后相关性评分低于 0.5 的条目被丢弃。通常有 20-30 个信号通过筛选。每个信号按类型分类：AI 编码、就业市场、技能、法规、工具或范式。",
+                descZh: "大模型逐条评估与软件工程未来走向（3—30 年视野）的相关性。时效性加权后低于 0.5 的直接丢掉。最终通常有 20—30 条信号留下来，按类型打标：AI 编程、就业市场、技能、监管、工具链或范式转变。",
                 color: "amber"
               },
               {
@@ -112,7 +112,7 @@ import BayesCalculator from '../components/BayesCalculator.astro';
                 title: "Narrative Synthesis",
                 titleZh: "叙事综合",
                 desc: "The top signals are synthesized into a coherent daily narrative. The AI is provided with yesterday's executive summary for continuity. It identifies the day's most significant developments and explains their 3-30 year implications.",
-                descZh: "将顶级信号综合成连贯的每日叙事。AI 被提供昨天的执行摘要以保持连贯性。它识别当天最重要的进展并解释其 3-30 年的影响。",
+                descZh: "把筛选出的信号整合成连贯的每日报告。大模型拿到昨天的摘要作为上下文，找出当天最值得关注的进展，并分析其 3—30 年的长期含义。",
                 color: "green"
               },
               {
@@ -120,7 +120,7 @@ import BayesCalculator from '../components/BayesCalculator.astro';
                 title: "Prediction Update",
                 titleZh: "预测更新",
                 desc: "Each of our 50 standing predictions is evaluated against the day's evidence via Bayesian likelihood ratio analysis. A 5-persona forecaster panel votes independently. Confidence can move up to +/-5 percentage points per day. All movements are logged with evidence trails.",
-                descZh: "我们的 50 个持续预测中的每一个都会通过贝叶斯似然比分析根据当天的证据进行评估。5 人预测面板独立投票。置信度每天最多可变动 +/-5 个百分点。所有变动都记录了证据链。",
+                descZh: "50 条在跑预测逐一用 Bayesian 似然比分析对照当天证据。5 个角色独立投票，互不干扰。置信度单日最多动 +/-5 个百分点，每次变动都有证据链存档。",
                 color: "accent"
               },
               {
@@ -128,7 +128,7 @@ import BayesCalculator from '../components/BayesCalculator.astro';
                 title: "Publication",
                 titleZh: "发布",
                 desc: "The report is committed to our private repository (with prediction deltas in the commit message), then pushed to the public site. The entire pipeline runs in under 10 minutes. Every report is timestamped and immutable.",
-                descZh: "报告提交到我们的私有仓库（提交信息中包含预测变化），然后推送到公开网站。整个流水线在 10 分钟内运行完成。每份报告都有时间戳且不可篡改。",
+                descZh: "报告 commit 到私有仓库（commit message 里带预测变动幅度），然后推送到公开网站。整条流水线 10 分钟内跑完。每份报告带时间戳，上链后不可改动。",
                 color: "green"
               },
             ].map((step) => {
@@ -156,17 +156,17 @@ import BayesCalculator from '../components/BayesCalculator.astro';
     <!-- The 5 Forecaster Personas -->
     <FadeIn delay={250}>
       <div class="mt-16">
-        <h2 class="text-2xl font-bold mb-3" data-en="The 5 Forecaster Personas" data-zh="5位预测角色">The 5 Forecaster Personas</h2>
-        <p class="text-sm text-almanac-muted mb-6" data-en="Each prediction is independently evaluated by 5 AI personas with different worldviews. The median likelihood ratio is used — no single perspective dominates." data-zh="每项预测由5个不同世界观的AI角色独立评估。使用中位似然比——没有单一视角主导。">
+        <h2 class="text-2xl font-bold mb-3" data-en="The 5 Forecaster Personas" data-zh="5 个预测角色">The 5 Forecaster Personas</h2>
+        <p class="text-sm text-almanac-muted mb-6" data-en="Each prediction is independently evaluated by 5 AI personas with different worldviews. The median likelihood ratio is used — no single perspective dominates." data-zh="每条预测由 5 个世界观各异的大模型角色独立评估，取中位似然比——任何单一视角都不能一手遮天。">
           Each prediction is independently evaluated by 5 AI personas with different worldviews. The median likelihood ratio is used — no single perspective dominates.
         </p>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {[
-            { name: "Techno-Optimist", nameZh: "技术乐观派", icon: "🚀", desc: "Believes AI will accelerate everything. Weights positive adoption signals heavily.", descZh: "相信AI将加速一切。高度重视积极的采用信号。", color: "green" },
-            { name: "Labor Economist", nameZh: "劳动经济学家", icon: "📊", desc: "Focuses on employment data, wage trends, historical automation parallels.", descZh: "关注就业数据、薪资趋势和历史自动化类比。", color: "amber" },
-            { name: "Security Hawk", nameZh: "安全鹰派", icon: "🛡", desc: "Highlights risks, vulnerabilities, and regulatory responses to AI-generated code.", descZh: "强调AI生成代码的风险、漏洞和监管应对。", color: "red" },
-            { name: "Contrarian", nameZh: "逆向思考者", icon: "⚡", desc: "Systematically challenges consensus. Asks 'what if the opposite happens?'", descZh: "系统性地挑战共识。追问'如果相反的情况发生呢？'", color: "accent" },
-            { name: "Base Rate Empiricist", nameZh: "基准率经验主义者", icon: "📈", desc: "Anchors on historical base rates. Skeptical of 'this time is different' narratives.", descZh: "以历史基准率为锚点。对'这次不同'的叙事持怀疑态度。", color: "muted" },
+            { name: "Techno-Optimist", nameZh: "技术乐观派", icon: "🚀", desc: "Believes AI will accelerate everything. Weights positive adoption signals heavily.", descZh: "坚信 AI 会加速一切。对积极的采用信号给高权重。", color: "green" },
+            { name: "Labor Economist", nameZh: "劳动经济学家", icon: "📊", desc: "Focuses on employment data, wage trends, historical automation parallels.", descZh: "盯着就业数据、薪资走势和历史上自动化浪潮的先例。", color: "amber" },
+            { name: "Security Hawk", nameZh: "安全鹰派", icon: "🛡", desc: "Highlights risks, vulnerabilities, and regulatory responses to AI-generated code.", descZh: "专门挑 AI 生成代码的毛病：漏洞、风险、监管反弹。", color: "red" },
+            { name: "Contrarian", nameZh: "杠精", icon: "⚡", desc: "Systematically challenges consensus. Asks 'what if the opposite happens?'", descZh: "系统性地跟共识对着干，专问「要是反过来呢？」", color: "accent" },
+            { name: "Base Rate Empiricist", nameZh: "基率经验派", icon: "📈", desc: "Anchors on historical base rates. Skeptical of 'this time is different' narratives.", descZh: "死扣历史基准率，对「这次不一样」的说法一律保持怀疑。", color: "muted" },
           ].map((p) => {
             const cm = { green: "border-almanac-green/30 bg-almanac-green/5", amber: "border-almanac-amber/30 bg-almanac-amber/5", red: "border-almanac-red/30 bg-almanac-red/5", accent: "border-almanac-accent/30 bg-almanac-accent/5", muted: "border-almanac-border bg-almanac-surface" } as any;
             return (
@@ -186,16 +186,16 @@ import BayesCalculator from '../components/BayesCalculator.astro';
     <!-- Why These Parameters -->
     <FadeIn delay={300}>
       <div class="mt-16">
-        <h2 class="text-2xl font-bold mb-3" data-en="Design Decisions" data-zh="设计决策">Design Decisions</h2>
-        <p class="text-sm text-almanac-muted mb-6" data-en="The numbers behind our methodology aren't arbitrary — here's why we chose them." data-zh="方法论背后的数字不是随意选择的——以下是我们选择它们的原因。">
+        <h2 class="text-2xl font-bold mb-3" data-en="Design Decisions" data-zh="参数是怎么定的">Design Decisions</h2>
+        <p class="text-sm text-almanac-muted mb-6" data-en="The numbers behind our methodology aren't arbitrary — here's why we chose them." data-zh="方法论里的数字不是拍脑袋定的——这里解释每个参数背后的逻辑。">
           The numbers behind our methodology aren't arbitrary — here's why we chose them.
         </p>
         <div class="space-y-4">
           {[
-            { param: "0.3 dampening", paramZh: "0.3 阻尼系数", why: "At 1.0, a single day's evidence from a noisy source causes multi-percentage-point swings that reverse the next day. At 0.3, it takes consistent evidence across several days to meaningfully shift a prediction — which matches how real-world trends work.", whyZh: "阻尼系数为1.0时，来自噪声源的单日证据会导致多个百分点的波动，第二天又反转。0.3时，需要连续多天的一致证据才能显著移动预测——这与现实世界趋势的运作方式一致。" },
-            { param: "5pp max daily move", paramZh: "每日最大5pp变动", why: "Prevents overreaction to single events. Even genuinely significant developments (a major acquisition, a breakthrough paper) need time for second-order effects to become clear. Big shifts should accumulate over weeks, not happen overnight.", whyZh: "防止对单一事件的过度反应。即使是真正重大的发展（大型收购、突破性论文），也需要时间让二阶效应变得清晰。重大变化应该在数周内累积，而不是一夜之间发生。" },
-            { param: "5 personas, median LR", paramZh: "5个角色，中位LR", why: "Using the median (not mean) of 5 likelihood ratios is robust to outlier personas. If the Techno-Optimist gives LR=5.0 and everyone else gives ~1.0, the median ignores the outlier. This prevents any single worldview from dominating.", whyZh: "使用5个似然比的中位数（而非均值）可以抵抗异常角色。如果技术乐观派给出LR=5.0而其他人给~1.0，中位数会忽略异常值。这防止任何单一世界观主导结果。" },
-            { param: "[3%, 97%] bounds", paramZh: "[3%, 97%] 边界", why: "Nothing is ever truly 0% or 100% — there's always a chance we're wrong about the question itself, or the world changes in ways nobody predicted. Hard bounds acknowledge irreducible uncertainty.", whyZh: "没有什么是真正的0%或100%——总是有可能我们对问题本身的理解有误，或者世界以无人预测的方式变化。硬边界承认了不可消除的不确定性。" },
+            { param: "0.3 dampening", paramZh: "0.3 阻尼系数", why: "At 1.0, a single day's evidence from a noisy source causes multi-percentage-point swings that reverse the next day. At 0.3, it takes consistent evidence across several days to meaningfully shift a prediction — which matches how real-world trends work.", whyZh: "阻尼设成 1.0 的话，一个噪音来源的单日证据就能引发好几个百分点的震荡，第二天又打回来。0.3 的情况下，需要连续多天一致的证据才能让预测真正移动——这才符合真实趋势的运作规律。" },
+            { param: "5pp max daily move", paramZh: "单日最大变动 5pp", why: "Prevents overreaction to single events. Even genuinely significant developments (a major acquisition, a breakthrough paper) need time for second-order effects to become clear. Big shifts should accumulate over weeks, not happen overnight.", whyZh: "防止对单一事件过激反应。就算是真正重大的消息（大并购、突破性论文），二阶效应也需要时间才能显现。大幅变化应该在数周内慢慢累积，而不是一夜剧变。" },
+            { param: "5 personas, median LR", paramZh: "5 角色，取中位 LR", why: "Using the median (not mean) of 5 likelihood ratios is robust to outlier personas. If the Techno-Optimist gives LR=5.0 and everyone else gives ~1.0, the median ignores the outlier. This prevents any single worldview from dominating.", whyZh: "取 5 个 LR 的中位数（不是均值），天然抗极端值。技术乐观派给 LR=5.0，其他人都给 ~1.0，中位数直接把那个异常值无视掉——任何单一世界观都别想一手遮天。" },
+            { param: "[3%, 97%] bounds", paramZh: "概率边界 [3%, 97%]", why: "Nothing is ever truly 0% or 100% — there's always a chance we're wrong about the question itself, or the world changes in ways nobody predicted. Hard bounds acknowledge irreducible uncertainty.", whyZh: "没有什么事是真正的 0% 或 100%——我们可能对问题本身的理解就有偏差，也可能世界会以所有人都没预料到的方式变化。硬边界是对不可消除的不确定性诚实地认账。" },
           ].map((d) => (
             <div class="p-4 rounded-xl border border-almanac-border bg-almanac-surface/50">
               <div class="text-sm font-bold font-mono text-almanac-accent mb-1" data-en={d.param} data-zh={d.paramZh}>{d.param}</div>
@@ -209,8 +209,8 @@ import BayesCalculator from '../components/BayesCalculator.astro';
     <!-- Bayesian Calculator -->
     <FadeIn delay={325}>
       <div class="mt-16">
-        <h2 class="text-2xl font-bold mb-3" data-en="Try the Formula Yourself" data-zh="亲自尝试公式">Try the Formula Yourself</h2>
-        <p class="text-sm text-almanac-muted mb-6" data-en="This calculator runs the exact same Bayesian update formula our pipeline uses every day. Use the presets to see how source credibility and evidence strength interact." data-zh="此计算器使用我们流水线每天运行的完全相同的贝叶斯更新公式。使用预设按钮查看来源可信度和证据强度如何相互作用。">
+        <h2 class="text-2xl font-bold mb-3" data-en="Try the Formula Yourself" data-zh="自己算算看">Try the Formula Yourself</h2>
+        <p class="text-sm text-almanac-muted mb-6" data-en="This calculator runs the exact same Bayesian update formula our pipeline uses every day. Use the presets to see how source credibility and evidence strength interact." data-zh="这个计算器用的是流水线每天跑的同一套 Bayesian 更新公式。点预设按钮，感受一下来源可信度和证据强度怎么互相影响。">
           This calculator runs the exact same Bayesian update formula our pipeline uses every day. Use the presets to see how source credibility and evidence strength interact.
         </p>
         <BayesCalculator />
@@ -220,27 +220,27 @@ import BayesCalculator from '../components/BayesCalculator.astro';
     <!-- Confidence scores explained -->
     <FadeIn delay={350}>
       <div class="mt-16">
-        <h2 class="text-2xl font-bold mb-6" data-en="Reading Confidence Scores" data-zh="解读置信度评分">Reading Confidence Scores</h2>
+        <h2 class="text-2xl font-bold mb-6" data-en="Reading Confidence Scores" data-zh="置信度怎么看">Reading Confidence Scores</h2>
         <div class="grid sm:grid-cols-2 gap-4">
           <div class="p-4 rounded-lg border border-almanac-green/20 bg-almanac-green/5">
             <div class="text-2xl font-bold font-mono text-almanac-green mb-1">75-100%</div>
             <div class="text-sm font-medium mb-1" data-en="High Confidence" data-zh="高置信度">High Confidence</div>
-            <p class="text-xs text-almanac-muted" data-en="Strong evidence base, clear trend direction. We'd be surprised if this doesn't happen." data-zh="强有力的证据基础，明确的趋势方向。如果这不发生，我们会感到惊讶。">Strong evidence base, clear trend direction. We'd be surprised if this doesn't happen.</p>
+            <p class="text-xs text-almanac-muted" data-en="Strong evidence base, clear trend direction. We'd be surprised if this doesn't happen." data-zh="证据扎实，趋势方向清晰。要是没发生，我们会很意外。">Strong evidence base, clear trend direction. We'd be surprised if this doesn't happen.</p>
           </div>
           <div class="p-4 rounded-lg border border-almanac-amber/20 bg-almanac-amber/5">
             <div class="text-2xl font-bold font-mono text-almanac-amber mb-1">60-74%</div>
             <div class="text-sm font-medium mb-1" data-en="Moderate Confidence" data-zh="中等置信度">Moderate Confidence</div>
-            <p class="text-xs text-almanac-muted" data-en="Good evidence but significant uncertainty remains. Could go either way with new developments." data-zh="有较好的证据，但仍存在显著的不确定性。随着新进展，可能朝任何方向发展。">Good evidence but significant uncertainty remains. Could go either way with new developments.</p>
+            <p class="text-xs text-almanac-muted" data-en="Good evidence but significant uncertainty remains. Could go either way with new developments." data-zh="有一定证据支撑，但不确定性依然很大。新进展一出来随时可能反转。">Good evidence but significant uncertainty remains. Could go either way with new developments.</p>
           </div>
           <div class="p-4 rounded-lg border border-almanac-red/20 bg-almanac-red/5">
             <div class="text-2xl font-bold font-mono text-almanac-red mb-1">40-59%</div>
             <div class="text-sm font-medium mb-1" data-en="Low Confidence" data-zh="低置信度">Low Confidence</div>
-            <p class="text-xs text-almanac-muted" data-en="Genuinely uncertain. Included because the question matters, not because we're confident." data-zh="真正不确定。纳入是因为问题重要，而不是因为我们有把握。">Genuinely uncertain. Included because the question matters, not because we're confident.</p>
+            <p class="text-xs text-almanac-muted" data-en="Genuinely uncertain. Included because the question matters, not because we're confident." data-zh="真的不确定。放进来是因为这个问题很重要，不是因为我们有把握。">Genuinely uncertain. Included because the question matters, not because we're confident.</p>
           </div>
           <div class="p-4 rounded-lg border border-almanac-border">
             <div class="text-2xl font-bold font-mono text-almanac-muted mb-1">+/-5/day</div>
-            <div class="text-sm font-medium mb-1" data-en="Max Daily Movement" data-zh="每日最大变动">Max Daily Movement</div>
-            <p class="text-xs text-almanac-muted" data-en="Confidence scores are clamped to prevent overreaction to single-day signals. Big shifts accumulate over weeks." data-zh="置信度评分被限制，以防止对单日信号的过度反应。重大变化在数周内累积。">Confidence scores are clamped to prevent overreaction to single-day signals. Big shifts accumulate over weeks.</p>
+            <div class="text-sm font-medium mb-1" data-en="Max Daily Movement" data-zh="单日最大变动">Max Daily Movement</div>
+            <p class="text-xs text-almanac-muted" data-en="Confidence scores are clamped to prevent overreaction to single-day signals. Big shifts accumulate over weeks." data-zh="置信度有上限，防止对单日信号过激反应。大幅变化是在几周内慢慢积累出来的。">Confidence scores are clamped to prevent overreaction to single-day signals. Big shifts accumulate over weeks.</p>
           </div>
         </div>
       </div>
@@ -249,16 +249,16 @@ import BayesCalculator from '../components/BayesCalculator.astro';
     <!-- Tech stack -->
     <FadeIn delay={400}>
       <div class="mt-16">
-        <h2 class="text-2xl font-bold mb-6" data-en="Tech Stack" data-zh="技术栈">Tech Stack</h2>
+        <h2 class="text-2xl font-bold mb-6" data-en="Tech Stack" data-zh="用了什么技术">Tech Stack</h2>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {[
             { name: "Python 3.12", role: "Pipeline", roleZh: "流水线" },
-            { name: "Gemini 3.1 Pro", role: "Primary LLM", roleZh: "主要 LLM" },
-            { name: "Gemini 2.5 Flash", role: "Fallback LLM", roleZh: "备用 LLM" },
-            { name: "litellm", role: "LLM Routing", roleZh: "LLM 路由" },
-            { name: "Astro 6", role: "Website", roleZh: "网站" },
+            { name: "Gemini 3.1 Pro", role: "Primary LLM", roleZh: "主力大模型" },
+            { name: "Gemini 2.5 Flash", role: "Fallback LLM", roleZh: "备用大模型" },
+            { name: "litellm", role: "LLM Routing", roleZh: "大模型路由" },
+            { name: "Astro 6", role: "Website", roleZh: "网站框架" },
             { name: "Tailwind 4", role: "Styling", roleZh: "样式" },
-            { name: "GitHub Actions", role: "Daily Cron", roleZh: "每日定时" },
+            { name: "GitHub Actions", role: "Daily Cron", roleZh: "每日定时任务" },
             { name: "GitHub Pages", role: "Hosting", roleZh: "托管" },
           ].map(t => (
             <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center hover:border-almanac-accent/30 transition-colors">
@@ -274,15 +274,15 @@ import BayesCalculator from '../components/BayesCalculator.astro';
     <FadeIn delay={500}>
       <div class="mt-16 p-8 rounded-xl border border-almanac-accent/20 bg-almanac-accent/5 text-center">
         <h2 class="text-2xl font-bold mb-3" data-en="Open Source" data-zh="开源">Open Source</h2>
-        <p class="text-almanac-muted mb-6 max-w-lg mx-auto" data-en="The website frontend is open source. The forecasting pipeline methodology, predictions, and accuracy record are all published publicly so you can evaluate our work without needing the code." data-zh="网站前端是开源的。预测流水线的方法论、预测和准确性记录都公开发布，让您无需查看代码即可评估我们的工作。">
+        <p class="text-almanac-muted mb-6 max-w-lg mx-auto" data-en="The website frontend is open source. The forecasting pipeline methodology, predictions, and accuracy record are all published publicly so you can evaluate our work without needing the code." data-zh="网站前端完全开源。预测流水线的方法论、所有预测条目和准确率记录全部公开——不需要看代码，你也能判断我们做得怎么样。">
           The website frontend is open source. The forecasting pipeline methodology,
           predictions, and accuracy record are all published publicly so you can evaluate our work without needing the code.
         </p>
         <div class="flex flex-wrap gap-3 justify-center">
-          <a href="https://github.com/YingxuH/almanac-site" class="inline-flex px-5 py-2.5 border border-almanac-accent/30 rounded-lg text-almanac-accent hover:bg-almanac-accent/10 transition-colors font-medium text-sm" data-en="View Site Source →" data-zh="查看网站源码 →">
+          <a href="https://github.com/YingxuH/almanac-site" class="inline-flex px-5 py-2.5 border border-almanac-accent/30 rounded-lg text-almanac-accent hover:bg-almanac-accent/10 transition-colors font-medium text-sm" data-en="View Site Source →" data-zh="看网站源码 →">
             View Site Source &rarr;
           </a>
-          <a href="https://github.com/YingxuH/almanac" class="inline-flex px-5 py-2.5 border border-almanac-border rounded-lg text-almanac-muted hover:text-almanac-text hover:border-almanac-muted transition-colors font-medium text-sm" data-en="View Pipeline →" data-zh="查看流水线 →">
+          <a href="https://github.com/YingxuH/almanac" class="inline-flex px-5 py-2.5 border border-almanac-border rounded-lg text-almanac-muted hover:text-almanac-text hover:border-almanac-muted transition-colors font-medium text-sm" data-en="View Pipeline →" data-zh="看流水线代码 →">
             View Pipeline &rarr;
           </a>
         </div>

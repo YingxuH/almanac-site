@@ -39,12 +39,12 @@ const { title, description = "The modern almanac for an uncertain future. AI-pow
 
       <!-- Desktop nav -->
       <div class="hidden sm:flex items-center gap-5 text-sm text-almanac-muted">
-        <a href="/almanac-site/forecast" class="hover:text-almanac-text transition" data-en="Forecast" data-zh="每日预测">Forecast</a>
+        <a href="/almanac-site/forecast" class="hover:text-almanac-text transition" data-en="Forecast" data-zh="今日预测">Forecast</a>
         <a href="/almanac-site/predictions" class="hover:text-almanac-text transition" data-en="Predictions" data-zh="预测追踪">Predictions</a>
-        <a href="/almanac-site/dashboard" class="hover:text-almanac-text transition" data-en="Dashboard" data-zh="数据面板">Dashboard</a>
-        <a href="/almanac-site/archive" class="hover:text-almanac-text transition" data-en="Archive" data-zh="历史归档">Archive</a>
+        <a href="/almanac-site/dashboard" class="hover:text-almanac-text transition" data-en="Dashboard" data-zh="数据看板">Dashboard</a>
+        <a href="/almanac-site/archive" class="hover:text-almanac-text transition" data-en="Archive" data-zh="历史">Archive</a>
         <a href="/almanac-site/about" class="hover:text-almanac-text transition" data-en="About" data-zh="关于">About</a>
-        <a href="/almanac-site/validation" class="hover:text-almanac-text transition" data-en="Validation" data-zh="验证">Validation</a>
+        <a href="/almanac-site/validation" class="hover:text-almanac-text transition" data-en="Validation" data-zh="准确率">Validation</a>
         <button id="lang-toggle" aria-label="Toggle language"
           class="w-9 h-9 flex items-center justify-center rounded-lg border border-almanac-border hover:border-almanac-muted bg-almanac-surface transition-all cursor-pointer text-[10px] font-bold tracking-wider">
           <span id="lang-label" class="text-almanac-accent">EN</span>
@@ -72,15 +72,15 @@ const { title, description = "The modern almanac for an uncertain future. AI-pow
     <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden sm:hidden border-t border-almanac-border bg-almanac-bg/95 backdrop-blur-xl">
       <div class="px-4 py-4 space-y-3">
-        <a href="/almanac-site/forecast" class="block text-sm text-almanac-muted hover:text-almanac-text transition py-1" data-en="Forecast" data-zh="每日预测">Forecast</a>
+        <a href="/almanac-site/forecast" class="block text-sm text-almanac-muted hover:text-almanac-text transition py-1" data-en="Forecast" data-zh="今日预测">Forecast</a>
         <a href="/almanac-site/predictions" class="block text-sm text-almanac-muted hover:text-almanac-text transition py-1" data-en="Predictions" data-zh="预测追踪">Predictions</a>
-        <a href="/almanac-site/dashboard" class="block text-sm text-almanac-muted hover:text-almanac-text transition py-1" data-en="Dashboard" data-zh="数据面板">Dashboard</a>
-        <a href="/almanac-site/archive" class="block text-sm text-almanac-muted hover:text-almanac-text transition py-1" data-en="Archive" data-zh="历史归档">Archive</a>
+        <a href="/almanac-site/dashboard" class="block text-sm text-almanac-muted hover:text-almanac-text transition py-1" data-en="Dashboard" data-zh="数据看板">Dashboard</a>
+        <a href="/almanac-site/archive" class="block text-sm text-almanac-muted hover:text-almanac-text transition py-1" data-en="Archive" data-zh="历史">Archive</a>
         <a href="/almanac-site/about" class="block text-sm text-almanac-muted hover:text-almanac-text transition py-1" data-en="About" data-zh="关于">About</a>
-        <a href="/almanac-site/validation" class="block text-sm text-almanac-muted hover:text-almanac-text transition py-1" data-en="Validation" data-zh="验证">Validation</a>
+        <a href="/almanac-site/validation" class="block text-sm text-almanac-muted hover:text-almanac-text transition py-1" data-en="Validation" data-zh="准确率">Validation</a>
         <a href="https://github.com/YingxuH/almanac" class="block text-sm text-almanac-muted hover:text-almanac-text transition py-1">GitHub</a>
         <div class="pt-2 border-t border-almanac-border flex items-center gap-2">
-          <span class="text-xs text-almanac-muted" data-en="Theme" data-zh="主题">Theme</span>
+          <span class="text-xs text-almanac-muted" data-en="Theme" data-zh="外观">Theme</span>
           <button id="theme-toggle-mobile" class="w-8 h-8 flex items-center justify-center rounded-lg border border-almanac-border bg-almanac-surface">
             <svg class="w-4 h-4 text-almanac-amber theme-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
@@ -100,8 +100,8 @@ const { title, description = "The modern almanac for an uncertain future. AI-pow
 
   <footer class="border-t border-almanac-border mt-20 py-12">
     <div class="max-w-6xl mx-auto px-6 text-center text-sm text-almanac-muted space-y-3">
-      <p data-en="Almanac — The modern almanac for an uncertain future." data-zh="Almanac — 面向不确定未来的现代年鉴。">Almanac — The modern almanac for an uncertain future.</p>
-      <p class="text-xs max-w-lg mx-auto" data-en="I built this because I kept reading 'AI will replace all developers' hot takes and wanted actual probabilities, not anxiety. So I built a pipeline that reads 17+ sources every morning and updates 55 predictions using Bayesian math. One person, one pipeline, $2.45/day. If I stop running it, the code and data are open source." data-zh="我做这个项目是因为我不断看到'AI会取代所有开发者'的热门观点，我想要的是真实概率，而不是焦虑。所以我建了一条流水线，每天早上读取17+个数据源，用贝叶斯数学更新55项预测。一个人，一条流水线，每天$2.45。如果我停止运行，代码和数据都是开源的。">I built this because I kept reading "AI will replace all developers" hot takes and wanted actual probabilities, not anxiety. So I built a pipeline that reads 17+ sources every morning and updates 55 predictions using Bayesian math. One person, one pipeline, $2.45/day. If I stop running it, the code and data are open source.</p>
+      <p data-en="Almanac — The modern almanac for an uncertain future." data-zh="Almanac — 软件工程的现代年鉴。">Almanac — The modern almanac for an uncertain future.</p>
+      <p class="text-xs max-w-lg mx-auto" data-en="I built this because I kept reading 'AI will replace all developers' hot takes and wanted actual probabilities, not anxiety. So I built a pipeline that reads 17+ sources every morning and updates 55 predictions using Bayesian math. One person, one pipeline, $2.45/day. If I stop running it, the code and data are open source." data-zh="受够了「AI要干掉程序员」的贩卖焦虑，想用概率说话。一个人、一条 pipeline、每天 $2.45。如果哪天我不做了，代码和数据全部开源。">I built this because I kept reading "AI will replace all developers" hot takes and wanted actual probabilities, not anxiety. So I built a pipeline that reads 17+ sources every morning and updates 55 predictions using Bayesian math. One person, one pipeline, $2.45/day. If I stop running it, the code and data are open source.</p>
       <p class="text-xs" data-en="&quot;We're cartographers, not prophets.&quot;" data-zh="「我们是制图者，不是预言家。」">"We're cartographers, not prophets."</p>
     </div>
   </footer>

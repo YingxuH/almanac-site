@@ -136,24 +136,24 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
               <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-almanac-green opacity-75"></span>
               <span class="relative inline-flex rounded-full h-2 w-2 bg-almanac-green"></span>
             </span>
-            <span data-en={`Live — Day ${daysLive} of daily tracking`} data-zh={`实时运行 — 第${daysLive}天持续追踪`}>Live — Day {daysLive} of daily tracking</span>
+            <span data-en={`Live — Day ${daysLive} of daily tracking`} data-zh={`已连续运行 ${daysLive} 天`}>Live — Day {daysLive} of daily tracking</span>
           </div>
           <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]">
-            <span data-en="The modern" data-zh="面向未来的">The modern</span><br/>
-            <span data-en="almanac for" data-zh="现代年鉴：">almanac for</span><br/>
-            <span class="text-almanac-accent" data-en="software engineering" data-zh="软件工程">software engineering</span>
+            <span data-en="The modern" data-zh="给程序员的">The modern</span><br/>
+            <span data-en="almanac for" data-zh="现代年鉴">almanac for</span><br/>
+            <span class="text-almanac-accent" data-en="software engineering" data-zh="Almanac">software engineering</span>
           </h1>
           <p class="mt-3 text-base text-almanac-muted/60 flex items-center gap-2">
             <span class="w-4 h-px bg-almanac-accent/50"></span>
-            <Typewriter texts={["an uncertain future", "the next decade", "what comes next", "career decisions"]} textsZh={["不确定的未来", "下一个十年", "即将到来的变化", "职业抉择"]} speed={70} />
+            <Typewriter texts={["an uncertain future", "the next decade", "what comes next", "career decisions"]} textsZh={["不确定的未来", "下一个十年", "接下来会发生什么", "你的职业选择"]} speed={70} />
           </p>
           <p class="mt-4 sm:mt-6 text-base sm:text-lg text-almanac-muted max-w-xl leading-relaxed">
             <span data-en="Will AI replace your job or make it more valuable?" data-zh="AI会取代你的工作还是让它更有价值？">Will AI replace your job or make it more valuable?</span>
-            <span class="hidden sm:inline" data-en=" Will Rust salaries rise? Will junior hiring recover?" data-zh=" Rust薪资会上涨吗？初级岗位招聘会恢复吗？"> Will Rust salaries rise? Will junior hiring recover?</span>
-            <span data-en=" 50 predictions, updated daily from 17+ sources — career decisions based on evidence, not anxiety." data-zh=" 50项预测，每天从17+个数据源更新——让职业决策基于证据，而非焦虑。"> 50 predictions, updated daily from 17+ sources — career decisions based on evidence, not anxiety.</span>
+            <span class="hidden sm:inline" data-en=" Will Rust salaries rise? Will junior hiring recover?" data-zh=" Rust薪资还涨不涨？初级岗还招不招？"> Will Rust salaries rise? Will junior hiring recover?</span>
+            <span data-en=" 50 predictions, updated daily from 17+ sources — career decisions based on evidence, not anxiety." data-zh=" 50项预测，17+数据源每日更新。用数据做职业决策，不靠焦虑。"> 50 predictions, updated daily from 17+ sources — career decisions based on evidence, not anxiety.</span>
           </p>
 
-          <p class="mt-3 text-xs text-almanac-muted/70 hidden sm:block" data-en="Unlike prediction markets, we track software-engineering-specific forecasts no one else covers — from AI debugging job emergence to Rust salary premiums — with daily updates tied to specific news events." data-zh="与预测市场不同，我们追踪无人覆盖的软件工程专属预测——从AI调试岗位出现到Rust薪资溢价——每日更新均关联具体新闻事件。">
+          <p class="mt-3 text-xs text-almanac-muted/70 hidden sm:block" data-en="Unlike prediction markets, we track software-engineering-specific forecasts no one else covers — from AI debugging job emergence to Rust salary premiums — with daily updates tied to specific news events." data-zh="别人预测大盘，我们只盯软件工程——从AI会不会干掉初级岗，到Rust薪资溢价有多高——每次更新都有新闻源链接。">
             Unlike prediction markets, we track software-engineering-specific forecasts no one else covers — from AI debugging job emergence to Rust salary premiums — with daily updates tied to specific news events.
           </p>
 
@@ -168,14 +168,14 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
               class="flex-1 px-4 py-3 rounded-lg bg-almanac-surface border border-almanac-border text-almanac-text placeholder:text-almanac-muted/50 focus:outline-none focus:border-almanac-accent focus:ring-1 focus:ring-almanac-accent/30 transition-all text-sm" />
             <button type="submit"
               class="px-6 py-3 bg-almanac-accent text-almanac-bg font-semibold rounded-lg hover:shadow-[0_0_30px_rgba(34,211,238,0.3)] transition-all duration-300 text-sm whitespace-nowrap cursor-pointer flex items-center gap-2">
-              <span class="btn-text" data-en="Get Tomorrow's Forecast" data-zh="获取明天的预测">Get Tomorrow's Forecast</span>
+              <span class="btn-text" data-en="Get Tomorrow's Forecast" data-zh="免费订阅">Get Tomorrow's Forecast</span>
               <svg class="btn-spinner hidden w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"/></svg>
             </button>
           </form>
-          <p class="mt-2 text-[11px] text-almanac-muted" data-en="Free daily email. No spam. Unsubscribe anytime." data-zh="免费每日邮件，无垃圾信息，随时退订。">Free daily email. No spam. Unsubscribe anytime.</p>
+          <p class="mt-2 text-[11px] text-almanac-muted" data-en="Free daily email. No spam. Unsubscribe anytime." data-zh="每天一封，不收费，不骚扰，一键退订。">Free daily email. No spam. Unsubscribe anytime.</p>
 
           <div class="mt-6 flex flex-wrap gap-3">
-            <a href="/almanac-site/forecast" class="group text-sm text-almanac-accent hover:underline flex items-center gap-1" data-en="Read today's forecast" data-zh="阅读今日预测">
+            <a href="/almanac-site/forecast" class="group text-sm text-almanac-accent hover:underline flex items-center gap-1" data-en="Read today's forecast" data-zh="看今天的预测">
               Read today's forecast <span class="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
             </a>
             <span class="text-almanac-border">|</span>
@@ -192,13 +192,13 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
         <!-- Right: Gauge + context + mini stats -->
         <div class="lg:col-span-2 flex flex-col items-center gap-4">
           <ConfidenceGauge value={avgConf} size={240} />
-          <p class="text-xs text-almanac-muted text-center max-w-[240px] leading-relaxed" data-en={`${avgConf}% means roughly ${avgConf}-in-100 chance. Near 50% = genuine uncertainty — we quantify what we don't know, not just what we do.`} data-zh={`${avgConf}%意味着约${avgConf}/100的概率。接近50% = 真正的不确定性——我们不仅量化已知，也量化未知。`}>
+          <p class="text-xs text-almanac-muted text-center max-w-[240px] leading-relaxed" data-en={`${avgConf}% means roughly ${avgConf}-in-100 chance. Near 50% = genuine uncertainty — we quantify what we don't know, not just what we do.`} data-zh={`${avgConf}% 就是大约 ${avgConf}/100 的概率。越接近50%，说明越不确定——不确定性本身也是信息。`}>
             {avgConf}% means roughly {avgConf}-in-100 chance. Near 50% = genuine uncertainty — we quantify what we don't know, not just what we do.
           </p>
           <div class="grid grid-cols-3 gap-4 w-full max-w-xs">
             <div class="text-center">
               <div class="text-xl font-bold font-mono text-almanac-accent">{totalPreds}</div>
-              <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Predictions" data-zh="预测数">Predictions</div>
+              <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Predictions" data-zh="预测项">Predictions</div>
             </div>
             <a href="/almanac-site/forecast" class="text-center group">
               <div class="text-xl font-bold font-mono text-almanac-green group-hover:text-almanac-accent transition-colors">{movedToday || '—'}</div>
@@ -206,7 +206,7 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
             </a>
             <div class="text-center">
               <div class="text-xl font-bold font-mono">17+</div>
-              <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Daily Sources" data-zh="每日数据源">Daily Sources</div>
+              <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Daily Sources" data-zh="数据源">Daily Sources</div>
             </div>
           </div>
           {/* Micro-prediction teaser (resolves soon) — falls back to contrarian */}
@@ -215,7 +215,7 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
               <div class="flex items-center gap-2 mb-1 flex-wrap">
                 <span class="text-[10px] font-bold text-almanac-accent uppercase tracking-wider px-1.5 py-0.5 rounded bg-almanac-accent/10 border border-almanac-accent/20"
                   data-en={`RESOLVES IN ${nearestMicroWithin60.daysUntil} DAY${nearestMicroWithin60.daysUntil === 1 ? '' : 'S'}`}
-                  data-zh={`${nearestMicroWithin60.daysUntil}天后验证`}>
+                  data-zh={`${nearestMicroWithin60.daysUntil}天后揭晓`}>
                   RESOLVES IN {nearestMicroWithin60.daysUntil} DAY{nearestMicroWithin60.daysUntil === 1 ? '' : 'S'}
                 </span>
                 <span class="text-sm font-bold font-mono text-almanac-accent">{nearestMicroWithin60.confidence}%</span>
@@ -244,15 +244,15 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
     <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-almanac-muted">
       <a href="/almanac-site/validation" class="flex items-center gap-1.5 hover:text-almanac-accent transition-colors">
         <svg class="w-3.5 h-3.5 text-almanac-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        <span data-en="Tested against 20 past events: 16/20 directionally correct, Brier 0.155 (pre-launch backtest, not live)" data-zh="对20个历史事件测试：16/20方向正确，布里尔分数0.155（上线前回测，非实时数据）">Tested against 20 past events: 16/20 directionally correct, Brier 0.155 (pre-launch backtest, not live)</span>
+        <span data-en="Tested against 20 past events: 16/20 directionally correct, Brier 0.155 (pre-launch backtest, not live)" data-zh="回测20个事件：16个判断正确，Brier 0.155（上线前测试，非实时）">Tested against 20 past events: 16/20 directionally correct, Brier 0.155 (pre-launch backtest, not live)</span>
       </a>
       <span class="flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5 text-almanac-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        <span data-en="5 AI personas (not humans) with different worldviews challenge each prediction" data-zh="5个AI角色（非真人），以不同世界观挑战每项预测">5 AI personas (not humans) with different worldviews challenge each prediction</span>
+        <span data-en="5 AI personas (not humans) with different worldviews challenge each prediction" data-zh="5个AI角色独立评估，不是一个模型一言堂">5 AI personas (not humans) with different worldviews challenge each prediction</span>
       </span>
       <span class="flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5 text-almanac-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-        <span data-en="We publish our misses — see all 4 we got wrong" data-zh="我们公开失误——查看我们的4次错误">We publish our misses — see all 4 we got wrong</span>
+        <span data-en="We publish our misses — see all 4 we got wrong" data-zh="我们晒失败——4次判断错误，全部公开">We publish our misses — see all 4 we got wrong</span>
       </span>
     </div>
   </div>
@@ -264,7 +264,7 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
         <div class="flex items-center justify-center gap-3 flex-wrap">
           <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-600 text-xs font-bold">
             <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            <span data-en={`First prediction resolves in ${nearestMicro.daysUntil} days`} data-zh={`首个预测将在${nearestMicro.daysUntil}天后验证`}>First prediction resolves in {nearestMicro.daysUntil} days</span>
+            <span data-en={`First prediction resolves in ${nearestMicro.daysUntil} days`} data-zh={`首个预测 ${nearestMicro.daysUntil} 天后揭晓`}>First prediction resolves in {nearestMicro.daysUntil} days</span>
           </span>
           <span class="text-xs text-almanac-muted truncate max-w-md" data-en={nearestMicro.claim.slice(0, 80) + '...'} data-zh={(nearestMicro.claim_zh || nearestMicro.claim).slice(0, 80) + '...'}>{nearestMicro.claim.slice(0, 80)}...</span>
           <span class="text-xs font-mono text-purple-500">{nearestMicro.confidence}%</span>
@@ -277,23 +277,23 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
   <div class="bg-almanac-surface/50 border-y border-almanac-border">
   <FadeIn>
     <section class="max-w-5xl mx-auto px-4 sm:px-6 py-10">
-      <h2 class="text-2xl font-bold mb-2 text-center" data-en="What the data says about your career" data-zh="数据对你的职业意味着什么">What the data says about your career</h2>
-      <p class="text-sm text-almanac-muted text-center mb-6" data-en="The three questions every software engineer is asking right now — with probabilities, not opinions." data-zh="每位软件工程师现在都在问的三个问题——用概率而非观点来回答。">The three questions every software engineer is asking right now — with probabilities, not opinions.</p>
+      <h2 class="text-2xl font-bold mb-2 text-center" data-en="What the data says about your career" data-zh="关于你的职业，数据怎么说">What the data says about your career</h2>
+      <p class="text-sm text-almanac-muted text-center mb-6" data-en="The three questions every software engineer is asking right now — with probabilities, not opinions." data-zh="程序员最焦虑的三个问题——这次用概率说话，不靠直觉。">The three questions every software engineer is asking right now — with probabilities, not opinions.</p>
       <div class="grid sm:grid-cols-3 gap-4">
         <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface">
           <div class="text-2xl font-bold font-mono text-almanac-green mb-2">{devGrowth}%</div>
-          <p class="text-sm font-medium mb-1" data-en="More developers, not fewer" data-zh="更多开发者，而不是更少">More developers, not fewer</p>
-          <p class="text-xs text-almanac-muted" data-en="Our models suggest total developer headcount will likely GROW by 2030. Every previous automation wave expanded employment in the affected sector." data-zh="我们的模型表明，到2030年开发者总数可能会增长。每一次自动化浪潮都扩大了相关行业的就业。">Our models suggest total developer headcount will likely GROW by 2030. Every previous automation wave expanded employment in the affected sector.</p>
+          <p class="text-sm font-medium mb-1" data-en="More developers, not fewer" data-zh="开发者会更多，不是更少">More developers, not fewer</p>
+          <p class="text-xs text-almanac-muted" data-en="Our models suggest total developer headcount will likely GROW by 2030. Every previous automation wave expanded employment in the affected sector." data-zh="到2030年，开发者总数大概率增长。历史上每轮自动化都扩大了就业，这次也不例外。">Our models suggest total developer headcount will likely GROW by 2030. Every previous automation wave expanded employment in the affected sector.</p>
         </div>
         <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface">
           <div class="text-2xl font-bold font-mono text-almanac-amber mb-2">{systemsSkills}%</div>
-          <p class="text-sm font-medium mb-1" data-en="Systems skills pay more" data-zh="系统技能更值钱">Systems skills pay more</p>
-          <p class="text-xs text-almanac-muted" data-en="Rust, C++, and kernel development will command higher premiums as AI handles high-level code generation. Deep technical skills become more valuable, not less." data-zh="随着AI处理高级代码生成，Rust、C++和内核开发将获得更高溢价。深度技术技能变得更有价值。">Rust, C++, and kernel development will command higher premiums as AI handles high-level code generation. Deep technical skills become more valuable, not less.</p>
+          <p class="text-sm font-medium mb-1" data-en="Systems skills pay more" data-zh="底层技能更吃香">Systems skills pay more</p>
+          <p class="text-xs text-almanac-muted" data-en="Rust, C++, and kernel development will command higher premiums as AI handles high-level code generation. Deep technical skills become more valuable, not less." data-zh="AI越擅长写业务代码，Rust/C++/内核开发的溢价越高。深度技术 > 泛技术，这个趋势在加速。">Rust, C++, and kernel development will command higher premiums as AI handles high-level code generation. Deep technical skills become more valuable, not less.</p>
         </div>
         <div class="p-5 rounded-xl border border-almanac-border bg-almanac-surface">
           <div class="text-2xl font-bold font-mono text-almanac-red mb-2">{bottomQuartile}%</div>
-          <p class="text-sm font-medium mb-1" data-en="The floor drops, the ceiling rises" data-zh="底部下降，顶部上升">The floor drops, the ceiling rises</p>
-          <p class="text-xs text-almanac-muted" data-en="Bottom-quartile developer salaries likely decline as AI commoditizes routine work — but Staff+ engineer pay is expected to rise 20%+. The gap widens. Upskilling matters more than ever." data-zh="AI使常规工作商品化，底部薪资可能下降——但Staff+工程师薪酬预计上涨20%以上。差距在扩大。提升技能比以往更重要。">Bottom-quartile developer salaries likely decline as AI commoditizes routine work — but Staff+ engineer pay is expected to rise 20%+. The gap widens. Upskilling matters more than ever.</p>
+          <p class="text-sm font-medium mb-1" data-en="The floor drops, the ceiling rises" data-zh="下限降低，上限拉高">The floor drops, the ceiling rises</p>
+          <p class="text-xs text-almanac-muted" data-en="Bottom-quartile developer salaries likely decline as AI commoditizes routine work — but Staff+ engineer pay is expected to rise 20%+. The gap widens. Upskilling matters more than ever." data-zh="AI让常规开发变便宜，底薪可能降。但Staff+薪酬预计涨20%以上。差距在拉大，提升技能是唯一出路。">Bottom-quartile developer salaries likely decline as AI commoditizes routine work — but Staff+ engineer pay is expected to rise 20%+. The gap widens. Upskilling matters more than ever.</p>
         </div>
       </div>
     </section>
@@ -311,10 +311,10 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
         class="px-4 py-2.5 rounded-lg bg-almanac-surface border border-almanac-border text-almanac-text placeholder:text-almanac-muted/50 focus:outline-none focus:border-almanac-accent text-sm w-64" />
       <button type="submit"
         class="px-5 py-2.5 bg-almanac-accent text-almanac-bg font-semibold rounded-lg hover:shadow-lg transition-all text-sm whitespace-nowrap cursor-pointer">
-        <span data-en="Get these predictions daily" data-zh="每日获取这些预测">Get these predictions daily</span>
+        <span data-en="Get these predictions daily" data-zh="每天收一封">Get these predictions daily</span>
       </button>
     </form>
-    <p class="mt-2 text-[10px] text-almanac-muted" data-en="Free. No spam. Unsubscribe anytime." data-zh="免费，无垃圾邮件，随时退订。">Free. No spam. Unsubscribe anytime.</p>
+    <p class="mt-2 text-[10px] text-almanac-muted" data-en="Free. No spam. Unsubscribe anytime." data-zh="不收费，不骚扰，一键退订。">Free. No spam. Unsubscribe anytime.</p>
   </div>
 
   </div><!-- end career bg -->
@@ -324,21 +324,21 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
     <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       <div class="rounded-xl border border-almanac-border bg-almanac-surface overflow-hidden">
         <div class="px-6 py-3 border-b border-almanac-border flex items-center justify-between">
-          <span class="text-xs text-almanac-muted uppercase tracking-widest" data-en="Sample: What you get daily" data-zh="示例：每日推送内容">Sample: What you get daily</span>
-          <a href="/almanac-site/forecast" class="text-xs text-almanac-accent hover:underline" data-en="Read full report" data-zh="阅读完整报告">Read full report &rarr;</a>
+          <span class="text-xs text-almanac-muted uppercase tracking-widest" data-en="Sample: What you get daily" data-zh="示例：你每天会收到这些">Sample: What you get daily</span>
+          <a href="/almanac-site/forecast" class="text-xs text-almanac-accent hover:underline" data-en="Read full report" data-zh="看完整报告">Read full report &rarr;</a>
         </div>
         <div class="p-5 sm:p-6">
           <div class="flex items-center gap-3 mb-3">
             {latestDate && <span class="text-xs font-mono text-almanac-muted bg-almanac-border px-2 py-0.5 rounded">{latestDate}</span>}
             <span class="text-xs text-almanac-green font-mono"
               data-en={movedPreds.length > 0 ? `${allPreds.filter((p: any) => p.confidence !== (p.previous ?? p.confidence)).length} predictions moved` : 'Daily forecast'}
-              data-zh={movedPreds.length > 0 ? `${allPreds.filter((p: any) => p.confidence !== (p.previous ?? p.confidence)).length}项预测变动` : '每日预测'}
+              data-zh={movedPreds.length > 0 ? `${allPreds.filter((p: any) => p.confidence !== (p.previous ?? p.confidence)).length} 项有变动` : '每日预测'}
             >{movedPreds.length > 0 ? `${allPreds.filter((p: any) => p.confidence !== (p.previous ?? p.confidence)).length} predictions moved` : 'Daily forecast'}</span>
           </div>
           {latestExcerpt ? (
             <p class="text-sm text-almanac-muted leading-relaxed mb-4">{latestExcerpt}...</p>
           ) : (
-            <p class="text-sm text-almanac-muted leading-relaxed mb-4" data-en="Each morning, Almanac synthesizes signals from 17+ sources into a concise forecast with specific, source-linked prediction updates." data-zh="每天早上，Almanac从17+个数据源综合信号，生成附有来源链接的精简预测更新。">Each morning, Almanac synthesizes signals from 17+ sources into a concise forecast with specific, source-linked prediction updates.</p>
+            <p class="text-sm text-almanac-muted leading-relaxed mb-4" data-en="Each morning, Almanac synthesizes signals from 17+ sources into a concise forecast with specific, source-linked prediction updates." data-zh="每天早上，Almanac 从 17+ 数据源提取信号，生成带来源链接的预测更新。">Each morning, Almanac synthesizes signals from 17+ sources into a concise forecast with specific, source-linked prediction updates.</p>
           )}
           <div class="flex flex-wrap gap-2">
             {movedPreds.length > 0 ? movedPreds.map((p: any) => {
@@ -352,7 +352,7 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
                 </span>
               );
             }) : (
-              <span class="text-[10px] px-2 py-1 rounded bg-almanac-border text-almanac-muted" data-en="Subscribe to see daily prediction movements" data-zh="订阅查看每日预测变动">Subscribe to see daily prediction movements</span>
+              <span class="text-[10px] px-2 py-1 rounded bg-almanac-border text-almanac-muted" data-en="Subscribe to see daily prediction movements" data-zh="订阅后每天推送变动">Subscribe to see daily prediction movements</span>
             )}
           </div>
         </div>
@@ -375,9 +375,9 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-almanac-green opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-2 w-2 bg-almanac-green"></span>
                 </span>
-                <span class="text-xs font-mono text-almanac-accent uppercase tracking-widest" data-en="Today's Biggest Move" data-zh="今日最大变动">Today's Biggest Move</span>
+                <span class="text-xs font-mono text-almanac-accent uppercase tracking-widest" data-en="Today's Biggest Move" data-zh="今天动得最大的一条">Today's Biggest Move</span>
               </div>
-              <a href="/almanac-site/forecast" class="text-xs text-almanac-accent hover:underline" data-en="Full report →" data-zh="完整报告 →">Full report &rarr;</a>
+              <a href="/almanac-site/forecast" class="text-xs text-almanac-accent hover:underline" data-en="Full report →" data-zh="看完整报告 →">Full report &rarr;</a>
             </div>
             <div class="p-6 sm:p-8">
               <div class="flex items-center gap-3 mb-3">
@@ -391,7 +391,7 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
               <div class="flex flex-wrap items-center gap-4 text-xs text-almanac-muted">
                 <span class="px-1.5 py-0.5 rounded bg-almanac-border uppercase tracking-wider" data-en={topMoved.category} data-zh={topMoved.category_zh || topMoved.category}>{topMoved.category}</span>
                 {topMoved.last_lr && <span class="font-mono">LR: {topMoved.last_lr.toFixed(2)}</span>}
-                {topMoved.horizon && <span data-en={`Horizon: ${topMoved.horizon}`} data-zh={`时间线：${topMoved.horizon}`}>Horizon: {topMoved.horizon}</span>}
+                {topMoved.horizon && <span data-en={`Horizon: ${topMoved.horizon}`} data-zh={`周期：${topMoved.horizon}`}>Horizon: {topMoved.horizon}</span>}
               </div>
             </div>
           </div>
@@ -406,10 +406,10 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
     <FadeIn>
       <div class="flex items-end justify-between mb-8">
         <div>
-          <h2 class="text-3xl font-bold" data-en="Active Predictions" data-zh="活跃预测">Active Predictions</h2>
-          <p class="text-almanac-muted mt-1" data-en={`${totalPreds} falsifiable forecasts with daily Bayesian updates`} data-zh={`${totalPreds}项可证伪的预测，每日贝叶斯更新`}>{totalPreds} falsifiable forecasts with daily Bayesian updates</p>
+          <h2 class="text-3xl font-bold" data-en="Active Predictions" data-zh="正在追踪的预测">Active Predictions</h2>
+          <p class="text-almanac-muted mt-1" data-en={`${totalPreds} falsifiable forecasts with daily Bayesian updates`} data-zh={`${totalPreds} 项可证伪预测，Bayesian 每日更新`}>{totalPreds} falsifiable forecasts with daily Bayesian updates</p>
         </div>
-        <a href="/almanac-site/predictions" class="text-sm text-almanac-accent hover:underline hidden sm:block" data-en="View details →" data-zh="查看详情 →">View details &rarr;</a>
+        <a href="/almanac-site/predictions" class="text-sm text-almanac-accent hover:underline hidden sm:block" data-en="View details →" data-zh="看全部 →">View details &rarr;</a>
       </div>
     </FadeIn>
 
@@ -454,7 +454,7 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
       })}
     </div>
     <div class="mt-4 sm:hidden">
-      <a href="/almanac-site/predictions" class="text-sm text-almanac-accent hover:underline" data-en="View all predictions →" data-zh="查看所有预测 →">View all predictions &rarr;</a>
+      <a href="/almanac-site/predictions" class="text-sm text-almanac-accent hover:underline" data-en="View all predictions →" data-zh="看全部预测 →">View all predictions &rarr;</a>
     </div>
   </section>
 
@@ -464,14 +464,14 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
   <div class="bg-almanac-surface/50 border-y border-almanac-border">
   <FadeIn>
     <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
-      <h2 class="text-3xl font-bold mb-10 text-center" data-en="How it works" data-zh="工作原理"><span class="text-almanac-accent">How</span> it works</h2>
+      <h2 class="text-3xl font-bold mb-10 text-center" data-en="How it works" data-zh="怎么运作的"><span class="text-almanac-accent">How</span> it works</h2>
       <div class="grid sm:grid-cols-3 gap-0 relative">
         {/* Connector lines */}
         <div class="hidden sm:block absolute top-10 left-[33%] w-[34%] h-px bg-gradient-to-r from-almanac-accent/50 to-almanac-accent/50 z-0"></div>
         {[
-          { num: "01", title: "Ingest", titleZh: "数据采集", desc: "AI agents scrape 17+ sources — arXiv, Hacker News, job boards, GitHub, RSS feeds, Reddit, prediction markets.", descZh: "AI智能体每日抓取17+个数据源——arXiv、Hacker News、招聘板、GitHub、RSS订阅、Reddit、预测市场。" },
-          { num: "02", title: "Analyze", titleZh: "信号分析", desc: "Signals filtered and synthesized. Every claim source-linked. Every prediction gets a confidence score with likelihood ratios.", descZh: "信号过滤与综合。每个观点都有来源链接。每项预测都获得带似然比的置信度评分。" },
-          { num: "03", title: "Forecast", titleZh: "预测更新", desc: "Bayesian updates with 0.3 dampening. 5 AI personas with different worldviews vote independently. Max 5pp daily move.", descZh: "0.3阻尼因子的贝叶斯更新。5个不同世界观的AI角色独立投票。每日最大变动5个百分点。" },
+          { num: "01", title: "Ingest", titleZh: "抓数据", desc: "AI agents scrape 17+ sources — arXiv, Hacker News, job boards, GitHub, RSS feeds, Reddit, prediction markets.", descZh: "每天自动抓取 17+ 数据源——arXiv、HN、招聘网站、GitHub、RSS、Reddit、预测市场，一个不漏。" },
+          { num: "02", title: "Analyze", titleZh: "提信号", desc: "Signals filtered and synthesized. Every claim source-linked. Every prediction gets a confidence score with likelihood ratios.", descZh: "过滤噪音、提取信号。每个结论都带来源链接，每项预测附 likelihood ratio。" },
+          { num: "03", title: "Forecast", titleZh: "出预测", desc: "Bayesian updates with 0.3 dampening. 5 AI personas with different worldviews vote independently. Max 5pp daily move.", descZh: "Bayesian 更新，0.3 dampening。5个AI角色独立投票，每天最多动5个百分点。" },
         ].map((step, i) => (
           <div class="relative z-10 text-center px-6 py-4">
             <div class="w-20 h-20 mx-auto mb-4 rounded-2xl border border-almanac-border bg-almanac-surface flex items-center justify-center group-hover:border-almanac-accent transition-colors">
@@ -490,19 +490,19 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
   <!-- Transparency — building a track record in public -->
   <FadeIn>
     <section class="max-w-5xl mx-auto px-4 sm:px-6 py-8">
-      <h2 class="text-2xl font-bold mb-6 text-center" data-en="Building a Track Record in Public" data-zh="公开构建预测记录">Building a Track Record in Public</h2>
+      <h2 class="text-2xl font-bold mb-6 text-center" data-en="Building a Track Record in Public" data-zh="公开建立战绩">Building a Track Record in Public</h2>
       <div class="grid grid-cols-3 gap-4 mb-6">
         <div class="text-center p-4 rounded-xl border border-almanac-border bg-almanac-surface">
           <div class="text-2xl font-bold font-mono text-almanac-accent">{daysLive}</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Days of daily tracking" data-zh="每日追踪天数">Days of daily tracking</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Days of daily tracking" data-zh="连续运行天数">Days of daily tracking</div>
         </div>
         <div class="text-center p-4 rounded-xl border border-almanac-border bg-almanac-surface">
           <div class="text-2xl font-bold font-mono text-almanac-green">{totalPreds}</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Pre-registered predictions" data-zh="预注册预测">Pre-registered predictions</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Pre-registered predictions" data-zh="预注册的预测">Pre-registered predictions</div>
         </div>
         <div class="text-center p-4 rounded-xl border border-almanac-border bg-almanac-surface">
           <div class="text-2xl font-bold font-mono text-almanac-muted">0</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Resolved (so far)" data-zh="已验证（目前）">Resolved (so far)</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Resolved (so far)" data-zh="已揭晓">Resolved (so far)</div>
         </div>
       </div>
       <div class="text-center mt-3">
@@ -510,7 +510,7 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
           <a href="/almanac-site/predictions" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-almanac-accent/20 bg-almanac-accent/5 text-xs text-almanac-accent hover:border-almanac-accent/50 transition-colors">
             <svg class="w-3 h-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             <span data-en={`Next resolution in ${nearestMicro.daysUntil} day${nearestMicro.daysUntil === 1 ? '' : 's'}: ${nearestMicro.claim.slice(0, 60)}… (${nearestMicro.confidence}%)`}
-                  data-zh={`${nearestMicro.daysUntil}天后验证: ${(nearestMicro.claim_zh || nearestMicro.claim).slice(0, 60)}… (${nearestMicro.confidence}%)`}>
+                  data-zh={`${nearestMicro.daysUntil} 天后揭晓：${(nearestMicro.claim_zh || nearestMicro.claim).slice(0, 60)}…（${nearestMicro.confidence}%）`}>
               Next resolution in <strong>{nearestMicro.daysUntil} day{nearestMicro.daysUntil === 1 ? '' : 's'}</strong>:
               {' '}<span class="italic line-clamp-1">{nearestMicro.claim.length > 60 ? nearestMicro.claim.slice(0, 60) + '…' : nearestMicro.claim}</span>
               {' '}({nearestMicro.confidence}%)
@@ -519,20 +519,20 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
         ) : (
           <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-almanac-accent/20 bg-almanac-accent/5 text-xs text-almanac-accent">
             <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            <span data-en="Next prediction resolves: end of 2026 (P18: SWE-bench 90%)" data-zh="下一项预测验证时间：2026年底（P18: SWE-bench 90%）">Next prediction resolves: end of 2026 (P18: SWE-bench 90%)</span>
+            <span data-en="Next prediction resolves: end of 2026 (P18: SWE-bench 90%)" data-zh="下一条揭晓：2026年底（P18: SWE-bench 90%）">Next prediction resolves: end of 2026 (P18: SWE-bench 90%)</span>
           </span>
         )}
       </div>
       <div class="text-sm text-almanac-muted leading-relaxed space-y-2 max-w-3xl mx-auto">
-        <p data-en="Every prediction was committed to git before the pipeline started running — timestamps are public and verifiable. Every daily update is a git commit you can audit." data-zh="每项预测在流水线运行前已提交至git——时间戳公开可验证。每次每日更新都是可审计的git提交。">
+        <p data-en="Every prediction was committed to git before the pipeline started running — timestamps are public and verifiable. Every daily update is a git commit you can audit." data-zh="所有预测在 pipeline 跑起来之前就 commit 到了 git——时间戳公开可查。每天的更新也是一个 git commit，随时可审计。">
           Every prediction was committed to git before the pipeline started running — timestamps are public and verifiable. Every daily update is a git commit you can audit.
         </p>
-        <p data-en="We have a hindcast (backtest) of 20 historical events scoring Brier 0.155 — but we're honest that backtest is not a track record. We'll publish our first live calibration curve when 50+ predictions resolve." data-zh="我们有20个历史事件的回溯测试，Brier评分0.155——但我们坦诚地说，回测不等于实际记录。当50+项预测验证后，我们将发布首份实时校准曲线。">
+        <p data-en="We have a hindcast (backtest) of 20 historical events scoring Brier 0.155 — but we're honest that backtest is not a track record. We'll publish our first live calibration curve when 50+ predictions resolve." data-zh="回测了20个历史事件，Brier 0.155——但说实话，回测不等于实战。等 50+ 项预测揭晓后，我们会发第一份 calibration curve。">
           We have a hindcast (backtest) of 20 historical events scoring Brier 0.155 — but we're honest that backtest is not a track record. We'll publish our first live calibration curve when 50+ predictions resolve.
         </p>
       </div>
       <div class="mt-4 text-center">
-        <a href="/almanac-site/validation" class="text-sm text-almanac-accent hover:underline" data-en="See our honest validation page →" data-zh="查看我们的诚实验证页面 →">See our honest validation page &rarr;</a>
+        <a href="/almanac-site/validation" class="text-sm text-almanac-accent hover:underline" data-en="See our honest validation page →" data-zh="看验证详情（附失败案例） →">See our honest validation page &rarr;</a>
       </div>
     </section>
   </FadeIn>
@@ -541,8 +541,8 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
   <div class="bg-almanac-surface/50 border-y border-almanac-border">
   <FadeIn>
     <section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 text-center">
-      <h2 class="text-2xl font-bold mb-2" data-en="Data Sources" data-zh="数据来源">Data Sources</h2>
-      <p class="text-almanac-muted text-sm mb-8" data-en="17+ feeds monitored daily" data-zh="每日监控 17+ 个数据源">17+ feeds monitored daily</p>
+      <h2 class="text-2xl font-bold mb-2" data-en="Data Sources" data-zh="数据源">Data Sources</h2>
+      <p class="text-almanac-muted text-sm mb-8" data-en="17+ feeds monitored daily" data-zh="17+ 个源，每天抓取">17+ feeds monitored daily</p>
       <SourceOrbit />
     </section>
   </FadeIn>
@@ -555,24 +555,24 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
       <div class="relative">
         <div class="absolute -inset-6 bg-almanac-accent/5 rounded-3xl blur-2xl"></div>
         <div class="relative p-10 rounded-xl border border-almanac-border bg-almanac-surface">
-          <h2 class="text-3xl font-bold mb-3" data-en="The future updates daily." data-zh="未来，每天更新。">The future updates daily.</h2>
-          <p class="text-almanac-muted mb-2 text-lg" data-en="Get tomorrow's forecast in your inbox." data-zh="在你的收件箱获取明天的预测。">Get tomorrow's forecast in your inbox.</p>
-          <p class="text-almanac-muted mb-4 text-sm" data-en="One email per day. Confidence-scored predictions. Source-linked signals." data-zh="每天一封邮件，带置信度评分和来源链接。">One email per day. Confidence-scored predictions. Source-linked signals.</p>
+          <h2 class="text-3xl font-bold mb-3" data-en="The future updates daily." data-zh="未来每天都在变。">The future updates daily.</h2>
+          <p class="text-almanac-muted mb-2 text-lg" data-en="Get tomorrow's forecast in your inbox." data-zh="明天的预测，直接送进你的邮箱。">Get tomorrow's forecast in your inbox.</p>
+          <p class="text-almanac-muted mb-4 text-sm" data-en="One email per day. Confidence-scored predictions. Source-linked signals." data-zh="每天一封，置信度评分 + 来源链接，一目了然。">One email per day. Confidence-scored predictions. Source-linked signals.</p>
           <!-- Email preview mockup — uses real pipeline data -->
           <div class="mb-6 max-w-md mx-auto text-left rounded-lg border border-almanac-border bg-almanac-bg/50 overflow-hidden">
             <div class="px-3 py-2 border-b border-almanac-border bg-almanac-surface/50 flex items-center gap-2">
               <div class="w-2 h-2 rounded-full bg-almanac-accent"></div>
-              <span class="text-[10px] text-almanac-muted font-mono" data-en="Preview: tomorrow's email" data-zh="预览：明天的邮件">Preview: tomorrow's email</span>
+              <span class="text-[10px] text-almanac-muted font-mono" data-en="Preview: tomorrow's email" data-zh="预览：你会收到的邮件">Preview: tomorrow's email</span>
             </div>
             <div class="px-3 py-2 text-[11px] text-almanac-muted space-y-1">
-              <div><span class="text-almanac-muted/60" data-en="From:" data-zh="发件人：">From:</span> Almanac &lt;forecast@almanac&gt;</div>
-              <div><span class="text-almanac-muted/60" data-en="Subject:" data-zh="主题：">Subject:</span> <span class="text-almanac-text" data-en={`Almanac Forecast — ${latestDate || 'tomorrow'}`} data-zh={`Almanac 每日预测 — ${latestDate || '明天'}`}>Almanac Forecast — {latestDate || 'tomorrow'}</span></div>
+              <div><span class="text-almanac-muted/60" data-en="From:" data-zh="来自：">From:</span> Almanac &lt;forecast@almanac&gt;</div>
+              <div><span class="text-almanac-muted/60" data-en="Subject:" data-zh="标题：">Subject:</span> <span class="text-almanac-text" data-en={`Almanac Forecast — ${latestDate || 'tomorrow'}`} data-zh={`Almanac 每日预测 — ${latestDate || '明日'}`}>Almanac Forecast — {latestDate || 'tomorrow'}</span></div>
               <div class="pt-1 border-t border-almanac-border/50 text-almanac-muted/80 leading-relaxed" data-en={movedToday > 0
                 ? `${movedToday} predictions moved. Biggest: "${movedPreds[0]?.claim?.slice(0, 50)}..." now at ${movedPreds[0]?.confidence}% (${topMovedDeltaStr}).`
                 : `Daily forecast with source-linked prediction updates across ${totalPreds} tracked claims.`}
                 data-zh={movedToday > 0
-                ? `${movedToday}项预测变动。最大变动："${movedPreds[0]?.claim_zh?.slice(0, 30) || movedPreds[0]?.claim?.slice(0, 50)}..." 现为${movedPreds[0]?.confidence}%（${topMovedDeltaStr}）。`
-                : `每日预测报告，涵盖${totalPreds}项追踪预测的来源链接更新。`}>
+                ? `${movedToday} 项有变动。最大的："${movedPreds[0]?.claim_zh?.slice(0, 30) || movedPreds[0]?.claim?.slice(0, 50)}…" → ${movedPreds[0]?.confidence}%（${topMovedDeltaStr}）`
+                : `每日预测更新，${totalPreds} 项预测均附来源链接。`}>
                 {movedToday > 0
                   ? `${movedToday} predictions moved. Biggest: "${movedPreds[0]?.claim?.slice(0, 50)}..." now at ${movedPreds[0]?.confidence}% (${topMovedDeltaStr}).`
                   : `Daily forecast with source-linked prediction updates across ${totalPreds} tracked claims.`}
@@ -580,7 +580,7 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
             </div>
           </div>
 
-          <p class="text-almanac-accent text-xs font-medium mb-6" data-en="Be one of our first readers — we're building this track record with you." data-zh="成为我们的首批读者——我们与你一起建立这份记录。">Be one of our first readers — we're building this track record with you.</p>
+          <p class="text-almanac-accent text-xs font-medium mb-6" data-en="Be one of our first readers — we're building this track record with you." data-zh="做最早的读者——战绩是跟你一起攒出来的。">Be one of our first readers — we're building this track record with you.</p>
 
           <form id="cta-form" class="flex flex-col sm:flex-row gap-2.5 max-w-lg mx-auto" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="56e74bc1-d00f-4ff8-ad35-a00eb74f716d" />
@@ -597,20 +597,20 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
             </button>
           </form>
 
-          <p class="mt-3 text-[11px] text-almanac-muted" data-en={`Free daily email. ${daysLive} consecutive pipeline runs. First micro-prediction resolves in ${nearestMicro?.daysUntil ?? '~30'} days.`} data-zh={`免费每日邮件。${daysLive}次连续流水线运行。首个微预测将在${nearestMicro?.daysUntil ?? '~30'}天后验证。`}>Free daily email. {daysLive} consecutive pipeline runs. First micro-prediction resolves in {nearestMicro?.daysUntil ?? '~30'} days.</p>
+          <p class="mt-3 text-[11px] text-almanac-muted" data-en={`Free daily email. ${daysLive} consecutive pipeline runs. First micro-prediction resolves in ${nearestMicro?.daysUntil ?? '~30'} days.`} data-zh={`免费。已连续跑了 ${daysLive} 天。首个预测 ${nearestMicro?.daysUntil ?? '~30'} 天后揭晓。`}>Free daily email. {daysLive} consecutive pipeline runs. First micro-prediction resolves in {nearestMicro?.daysUntil ?? '~30'} days.</p>
 
           <div class="mt-8 flex items-center justify-center gap-6 text-xs text-almanac-muted">
             <div class="flex items-center gap-1.5">
               <svg class="w-3.5 h-3.5 text-almanac-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
-              <span data-en="Free forever" data-zh="永久免费">Free forever</span>
+              <span data-en="Free forever" data-zh="永远免费">Free forever</span>
             </div>
             <div class="flex items-center gap-1.5">
               <svg class="w-3.5 h-3.5 text-almanac-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
-              <span data-en="Daily at 6 AM UTC (2 PM SGT)" data-zh="每日 UTC 6:00 (新加坡下午2点)">Daily at 6 AM UTC (2 PM SGT)</span>
+              <span data-en="Daily at 6 AM UTC (2 PM SGT)" data-zh="每天下午2点（新加坡时间）">Daily at 6 AM UTC (2 PM SGT)</span>
             </div>
             <div class="flex items-center gap-1.5">
               <svg class="w-3.5 h-3.5 text-almanac-green" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
-              <span data-en="Open source" data-zh="开源">Open source</span>
+              <span data-en="Open source" data-zh="完全开源">Open source</span>
             </div>
           </div>
         </div>
@@ -774,7 +774,7 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
         var lang = document.documentElement.getAttribute('data-lang') || 'en';
 
         // Loading state
-        var subscribingText = lang === 'zh' ? '订阅中...' : 'Subscribing...';
+        var subscribingText = lang === 'zh' ? '提交中...' : 'Subscribing...';
         if (btnText) btnText.textContent = subscribingText;
         else btn.textContent = subscribingText;
         if (spinner) spinner.classList.remove('hidden');
@@ -786,7 +786,7 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
         localStorage.setItem('almanac-subs', JSON.stringify(subs));
 
         var successMsg = lang === 'zh'
-          ? '订阅成功！首份预测明天 UTC 6:00 送达。'
+          ? '搞定！明天下午2点（SGT）你会收到第一封。'
           : "You're in! First forecast arrives tomorrow at 6 AM UTC.";
         var successHTML = '<div class="flex items-center gap-2 py-3 text-almanac-green"><svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span class="font-medium text-sm">' + successMsg + '</span></div>';
 

@@ -127,12 +127,12 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
           </span>
           <span class="text-sm font-mono text-almanac-muted" data-en={latestDate || 'Latest report'} data-zh={latestDate || '最新报告'}>{latestDate || 'Latest report'}</span>
         </div>
-        <span class="text-xs text-almanac-muted bg-almanac-surface px-3 py-1 rounded-full border border-almanac-border" data-en="17+ sources daily" data-zh="每日17+个数据源">
+        <span class="text-xs text-almanac-muted bg-almanac-surface px-3 py-1 rounded-full border border-almanac-border" data-en="17+ sources daily" data-zh="每天盯着 17+ 个数据源">
           17+ sources daily
         </span>
       </div>
       <h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2" data-en="Almanac Daily Forecast" data-zh="Almanac 每日预测">Almanac Daily Forecast</h1>
-      <p class="text-almanac-accent text-lg font-medium" data-en="The Future of Software Engineering" data-zh="软件工程的未来">The Future of Software Engineering</p>
+      <p class="text-almanac-accent text-lg font-medium" data-en="The Future of Software Engineering" data-zh="软件工程将往哪走">The Future of Software Engineering</p>
     </div>
   </section>
 
@@ -177,7 +177,7 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
         <div class="mb-8 p-4 rounded-xl border border-almanac-green/20 bg-almanac-green/5">
           <h3 class="text-xs font-semibold text-almanac-green mb-3 uppercase tracking-widest flex items-center gap-2">
             <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
-            <span data-en={`Predictions Moved Today (${movedPredictions.length})`} data-zh={`今日变动预测 (${movedPredictions.length})`}>Predictions Moved Today ({movedPredictions.length})</span>
+            <span data-en={`Predictions Moved Today (${movedPredictions.length})`} data-zh={`今日更新了 ${movedPredictions.length} 条预测`}>Predictions Moved Today ({movedPredictions.length})</span>
           </h3>
           <div class="space-y-2">
             {movedPredictions.map((p: any) => {
@@ -208,7 +208,7 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
         <section class="mb-12">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-1 h-6 rounded-full bg-almanac-accent"></div>
-            <h2 class="text-xl font-bold" data-en="Executive Summary" data-zh="执行摘要">{execSummary.title}</h2>
+            <h2 class="text-xl font-bold" data-en="Executive Summary" data-zh="今日摘要">{execSummary.title}</h2>
           </div>
           <div class="text-almanac-muted leading-relaxed text-[15px] pl-4 border-l-2 border-almanac-border">
             <Fragment set:html={inlineMd(execSummary.content)} />
@@ -223,13 +223,13 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
         <section class="mb-12">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-1 h-6 rounded-full bg-almanac-amber"></div>
-            <h2 class="text-xl font-bold" data-en="What Surprised Us Today" data-zh="今日出乎意料">What Surprised Us Today</h2>
+            <h2 class="text-xl font-bold" data-en="What Surprised Us Today" data-zh="今天出了什么意外">What Surprised Us Today</h2>
           </div>
           <div class="space-y-3">
             {biggestUp && (
               <div class="p-4 rounded-xl border border-almanac-green/20 bg-almanac-green/5">
                 <div class="flex items-center gap-2 mb-1">
-                  <span class="text-xs font-bold text-almanac-green uppercase tracking-wider" data-en="Biggest Rise" data-zh="最大上涨">Biggest Rise</span>
+                  <span class="text-xs font-bold text-almanac-green uppercase tracking-wider" data-en="Biggest Rise" data-zh="涨幅最大">Biggest Rise</span>
                   <span class="font-mono text-sm text-almanac-green">+{biggestUp.delta}pp → {biggestUp.confidence}%</span>
                 </div>
                 <p class="text-sm text-almanac-text leading-relaxed">{biggestUp.claim}</p>
@@ -241,7 +241,7 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
             {biggestDown && (
               <div class="p-4 rounded-xl border border-almanac-red/20 bg-almanac-red/5">
                 <div class="flex items-center gap-2 mb-1">
-                  <span class="text-xs font-bold text-almanac-red uppercase tracking-wider" data-en="Biggest Drop" data-zh="最大下降">Biggest Drop</span>
+                  <span class="text-xs font-bold text-almanac-red uppercase tracking-wider" data-en="Biggest Drop" data-zh="跌幅最大">Biggest Drop</span>
                   <span class="font-mono text-sm text-almanac-red">{biggestDown.delta}pp → {biggestDown.confidence}%</span>
                 </div>
                 <p class="text-sm text-almanac-text leading-relaxed">{biggestDown.claim}</p>
@@ -253,9 +253,9 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
             {contested.length > 0 && (
               <div class="p-4 rounded-xl border border-almanac-amber/20 bg-almanac-amber/5">
                 <div class="flex items-center gap-2 mb-2">
-                  <span class="text-xs font-bold text-almanac-amber uppercase tracking-wider" data-en="Personas Disagree" data-zh="角色分歧">Personas Disagree</span>
+                  <span class="text-xs font-bold text-almanac-amber uppercase tracking-wider" data-en="Personas Disagree" data-zh="角色们吵起来了">Personas Disagree</span>
                 </div>
-                <p class="text-xs text-almanac-muted mb-2" data-en="These predictions had >3x divergence between our forecaster personas — the Techno-Optimist and Security Hawk see very different worlds." data-zh="这些预测在预测角色间存在>3倍的分歧——技术乐观派和安全鹰派看到了截然不同的世界。">
+                <p class="text-xs text-almanac-muted mb-2" data-en="These predictions had >3x divergence between our forecaster personas — the Techno-Optimist and Security Hawk see very different worlds." data-zh="这些预测在各角色之间分歧超过 3 倍——技术乐观派和安全鹰派看到的根本不是同一个世界。">
                   These predictions had &gt;3x divergence between our forecaster personas — the Techno-Optimist and Security Hawk see very different worlds.
                 </p>
                 {contested.slice(0, 3).map((p: any) => (
@@ -277,7 +277,7 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
         <FadeIn>
           <div class="flex items-center gap-3 mb-6">
             <div class="w-1 h-6 rounded-full bg-almanac-amber"></div>
-            <h2 class="text-xl font-bold" data-en="Today's Top Signals" data-zh="今日热门信号">Today's Top Signals</h2>
+            <h2 class="text-xl font-bold" data-en="Today's Top Signals" data-zh="今日关键信号">Today's Top Signals</h2>
             <span class="text-xs text-almanac-muted bg-almanac-surface px-2 py-0.5 rounded-full border border-almanac-border">{signalItems.length}</span>
           </div>
         </FadeIn>
@@ -305,7 +305,7 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
         <FadeIn>
           <div class="flex items-center gap-3 mb-6">
             <div class="w-1 h-6 rounded-full bg-almanac-green"></div>
-            <h2 class="text-xl font-bold" data-en="Predictions Update" data-zh="预测更新">Predictions Update</h2>
+            <h2 class="text-xl font-bold" data-en="Predictions Update" data-zh="预测变动">Predictions Update</h2>
           </div>
         </FadeIn>
         <div class="space-y-3">
@@ -334,7 +334,7 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
         <section class="mb-12">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-1 h-6 rounded-full bg-almanac-muted"></div>
-            <h2 class="text-xl font-bold" data-en="The Futures Diff" data-zh="未来差异">{futuresDiff.title}</h2>
+            <h2 class="text-xl font-bold" data-en="The Futures Diff" data-zh="今日 diff">{futuresDiff.title}</h2>
           </div>
           <div class="text-sm text-almanac-muted leading-relaxed bg-almanac-surface rounded-xl p-5 border border-almanac-border">
             <Fragment set:html={inlineMd(futuresDiff.content)} />
@@ -349,7 +349,7 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
         <section class="mb-12">
           <div class="flex items-center gap-3 mb-4">
             <div class="w-1 h-6 rounded-full bg-almanac-accent"></div>
-            <h2 class="text-xl font-bold" data-en="What We're Watching" data-zh="我们在关注什么">{watching.title}</h2>
+            <h2 class="text-xl font-bold" data-en="What We're Watching" data-zh="接下来盯什么">{watching.title}</h2>
           </div>
           <div class="text-sm text-almanac-muted leading-relaxed">
             <Fragment set:html={inlineMd(watching.content)} />
@@ -360,9 +360,9 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
 
     <!-- Bottom nav -->
     <div class="pt-8 border-t border-almanac-border flex items-center justify-between">
-      <span class="text-sm text-almanac-muted font-mono" data-en={`Report: ${latestDate}`} data-zh={`报告：${latestDate}`}>Report: {latestDate}</span>
+      <span class="text-sm text-almanac-muted font-mono" data-en={`Report: ${latestDate}`} data-zh={`本期：${latestDate}`}>Report: {latestDate}</span>
       <a href="/almanac-site/predictions" class="text-sm text-almanac-accent hover:underline flex items-center gap-1">
-        <span data-en="View all predictions" data-zh="查看所有预测">View all predictions</span> <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
+        <span data-en="View all predictions" data-zh="看全部预测">View all predictions</span> <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5l7 7-7 7"/></svg>
       </a>
     </div>
   </div>

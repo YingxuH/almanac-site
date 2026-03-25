@@ -26,8 +26,8 @@ const typeCount = {
 
     <FadeIn>
       <div class="mb-6">
-        <h1 class="text-3xl font-bold mb-2" data-en="Prediction Tracker" data-zh="预测追踪器">Prediction Tracker</h1>
-        <p class="text-almanac-muted" data-en={`${total} predictions across ${categories.length} categories. Updated daily via Bayesian likelihood ratio analysis with a 5-persona forecaster panel.`} data-zh={`${total}项预测，涵盖${categories.length}个类别。每日通过贝叶斯似然比分析和5人预测员面板更新。`}>
+        <h1 class="text-3xl font-bold mb-2" data-en="Prediction Tracker" data-zh="预测追踪">Prediction Tracker</h1>
+        <p class="text-almanac-muted" data-en={`${total} predictions across ${categories.length} categories. Updated daily via Bayesian likelihood ratio analysis with a 5-persona forecaster panel.`} data-zh={`${total} 条预测，覆盖 ${categories.length} 个类别。每天用 Bayesian 似然比 + 5 角色面板更新。`}>
           {total} predictions across {categories.length} categories. Updated daily via Bayesian likelihood ratio analysis with a 5-persona forecaster panel.
         </p>
       </div>
@@ -37,7 +37,7 @@ const typeCount = {
     {movedToday > 0 && (
       <FadeIn delay={15}>
         <div class="mb-6 p-3 rounded-xl border border-almanac-green/20 bg-almanac-green/5">
-          <h3 class="text-xs font-semibold text-almanac-green mb-2 uppercase tracking-wider" data-en={`Top movers today (${movedToday})`} data-zh={`今日热门变动 (${movedToday})`}>Top movers today ({movedToday})</h3>
+          <h3 class="text-xs font-semibold text-almanac-green mb-2 uppercase tracking-wider" data-en={`Top movers today (${movedToday})`} data-zh={`今日最大变动 (${movedToday})`}>Top movers today ({movedToday})</h3>
           <div class="flex flex-wrap gap-2">
             {predictions
               .filter((p: any) => p.confidence !== (p.previous ?? p.confidence))
@@ -61,23 +61,23 @@ const typeCount = {
     <!-- How to read this — translation layer for non-experts -->
     <FadeIn delay={25}>
       <div class="mb-8 p-4 rounded-xl border border-almanac-border bg-almanac-surface/50">
-        <h3 class="text-sm font-semibold mb-2" data-en="How to read predictions" data-zh="如何解读预测">How to read predictions</h3>
+        <h3 class="text-sm font-semibold mb-2" data-en="How to read predictions" data-zh="怎么看这些预测">How to read predictions</h3>
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs text-almanac-muted">
           <div>
             <span class="inline-block px-1.5 py-0.5 rounded border text-purple-500 border-purple-500/20 bg-purple-500/10 mb-1" data-en="MICRO" data-zh="微预测">MICRO</span>
-            <p data-en="Resolves within weeks. Specific, verifiable claims with countdown timers. These prove our system works — fast." data-zh="数周内可验证。具体的、可验证的预测，带倒计时。这些快速证明我们的系统有效。">Resolves within weeks. Specific, verifiable claims with countdown timers. These prove our system works — fast.</p>
+            <p data-en="Resolves within weeks. Specific, verifiable claims with countdown timers. These prove our system works — fast." data-zh="数周内见分晓。具体可查，有倒计时。这类预测最快验证我们的系统靠不靠谱。">Resolves within weeks. Specific, verifiable claims with countdown timers. These prove our system works — fast.</p>
           </div>
           <div>
             <span class="inline-block px-1.5 py-0.5 rounded border text-almanac-amber border-almanac-amber/20 bg-almanac-amber/10 mb-1" data-en="CONTRARIAN" data-zh="逆向预测">CONTRARIAN</span>
-            <p data-en="Bets AGAINST the consensus view. A 30% contrarian prediction means we think there's a 30% chance the crowd is wrong." data-zh="与共识相反的预测。30%的逆向预测意味着我们认为大众有30%的概率判断错误。">Bets AGAINST the consensus view. A 30% contrarian prediction means we think there's a 30% chance the crowd is wrong.</p>
+            <p data-en="Bets AGAINST the consensus view. A 30% contrarian prediction means we think there's a 30% chance the crowd is wrong." data-zh="跟大多数人对着干的预测。逆向预测 30% 意思是：我们觉得大众有 30% 的概率判断错了。">Bets AGAINST the consensus view. A 30% contrarian prediction means we think there's a 30% chance the crowd is wrong.</p>
           </div>
           <div>
             <span class="inline-block px-1.5 py-0.5 rounded border text-almanac-green border-almanac-green/20 bg-almanac-green/10 mb-1" data-en="CONSENSUS" data-zh="共识预测">CONSENSUS</span>
-            <p data-en="Aligns with the mainstream view. Higher confidence = stronger agreement with conventional wisdom." data-zh="与主流观点一致。更高的置信度 = 与传统观点更强的一致性。">Aligns with the mainstream view. Higher confidence = stronger agreement with conventional wisdom.</p>
+            <p data-en="Aligns with the mainstream view. Higher confidence = stronger agreement with conventional wisdom." data-zh="跟主流观点一致。置信度越高，跟大多数人站的越近。">Aligns with the mainstream view. Higher confidence = stronger agreement with conventional wisdom.</p>
           </div>
           <div>
             <span class="inline-block px-1.5 py-0.5 rounded border text-blue-400 border-blue-400/20 bg-blue-400/10 mb-1" data-en="NEAR-TERM" data-zh="近期预测">NEAR-TERM</span>
-            <p data-en="Resolves within 1-2 years. These build our track record — you'll know soon if we were right or wrong." data-zh="1-2年内可验证。这些建立我们的记录——你很快就会知道我们对不对。">Resolves within 1-2 years. These build our track record — you'll know soon if we were right or wrong.</p>
+            <p data-en="Resolves within 1-2 years. These build our track record — you'll know soon if we were right or wrong." data-zh="1—2 年内见分晓。靠这些积累真实战绩——很快你就能看出我们说对了没有。">Resolves within 1-2 years. These build our track record — you'll know soon if we were right or wrong.</p>
           </div>
         </div>
       </div>
@@ -88,7 +88,7 @@ const typeCount = {
       <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8">
         <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center">
           <div class="text-2xl font-bold font-mono text-almanac-accent">{total}</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Predictions" data-zh="预测数">Predictions</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Predictions" data-zh="预测条数">Predictions</div>
         </div>
         <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center">
           <div class="text-2xl font-bold font-mono text-almanac-amber">{avgConfidence}%</div>
@@ -96,20 +96,20 @@ const typeCount = {
         </div>
         <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center">
           <div class="text-2xl font-bold font-mono text-almanac-green">{movedToday}</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Moved Today" data-zh="今日变动">Moved Today</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Moved Today" data-zh="今日有变动">Moved Today</div>
         </div>
         <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center">
           <div class="text-2xl font-bold font-mono">{typeCount.contrarian}</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Contrarian" data-zh="逆向预测">Contrarian</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Contrarian" data-zh="逆向">Contrarian</div>
         </div>
         <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center">
           <div class="text-2xl font-bold font-mono">{typeCount.near_term}</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Near-Term" data-zh="近期预测">Near-Term</div>
+          <div class="text-xs text-almanac-muted mt-1" data-en="Near-Term" data-zh="近期">Near-Term</div>
         </div>
         {typeCount.micro > 0 && (
           <div class="p-3 rounded-lg border border-purple-500/20 bg-purple-500/5 text-center">
             <div class="text-2xl font-bold font-mono text-purple-500">{typeCount.micro}</div>
-            <div class="text-xs text-purple-500/70 mt-1" data-en="Micro (resolving soon)" data-zh="微预测（即将验证）">Micro (resolving soon)</div>
+            <div class="text-xs text-purple-500/70 mt-1" data-en="Micro (resolving soon)" data-zh="微预测（快见分晓）">Micro (resolving soon)</div>
           </div>
         )}
       </div>
@@ -128,11 +128,11 @@ const typeCount = {
         />
         <select id="pred-sort" class="px-3 py-2 rounded-lg border border-almanac-border bg-almanac-surface text-sm">
           <option value="id" data-en="Sort: ID" data-zh="排序：编号">Sort: ID</option>
-          <option value="confidence-desc" data-en="Confidence (high first)" data-zh="置信度（由高到低）">Confidence (high first)</option>
-          <option value="confidence-asc" data-en="Confidence (low first)" data-zh="置信度（由低到高）">Confidence (low first)</option>
-          <option value="moved" data-en="Moved today first" data-zh="今日变动优先">Moved today first</option>
-          <option value="horizon" data-en="Horizon (nearest first)" data-zh="时间线（最近优先）">Horizon (nearest first)</option>
-          <option value="resolving" data-en="Resolving soon first" data-zh="即将验证优先">Resolving soon first</option>
+          <option value="confidence-desc" data-en="Confidence (high first)" data-zh="置信度从高到低">Confidence (high first)</option>
+          <option value="confidence-asc" data-en="Confidence (low first)" data-zh="置信度从低到高">Confidence (low first)</option>
+          <option value="moved" data-en="Moved today first" data-zh="今日有变动的优先">Moved today first</option>
+          <option value="horizon" data-en="Horizon (nearest first)" data-zh="最近到期优先">Horizon (nearest first)</option>
+          <option value="resolving" data-en="Resolving soon first" data-zh="快见分晓的优先">Resolving soon first</option>
         </select>
       </div>
     </FadeIn>
@@ -220,7 +220,7 @@ const typeCount = {
               <div class="space-y-3 text-sm">
                 {p.reasoning && (
                   <div>
-                    <p class="text-xs font-semibold text-almanac-accent mb-0.5" data-en="Reasoning" data-zh="推理依据">Reasoning</p>
+                    <p class="text-xs font-semibold text-almanac-accent mb-0.5" data-en="Reasoning" data-zh="推导依据">Reasoning</p>
                     <p class="text-almanac-muted" data-en={p.reasoning} data-zh={p.reasoning_zh || p.reasoning}>{p.reasoning}</p>
                   </div>
                 )}
@@ -253,7 +253,7 @@ const typeCount = {
                   if (recentSignals.length === 0) return null;
                   return (
                     <div>
-                      <p class="text-xs font-semibold text-almanac-amber mb-1" data-en="Evidence trail" data-zh="证据链">Evidence trail</p>
+                      <p class="text-xs font-semibold text-almanac-amber mb-1" data-en="Evidence trail" data-zh="证据追踪">Evidence trail</p>
                       <div class="space-y-1">
                         {recentSignals.slice(0, 3).map((s: any) => (
                           <div class="flex items-start gap-2 text-xs">
@@ -273,7 +273,7 @@ const typeCount = {
                 })()}
                 {p.resolution && (
                   <div>
-                    <p class="text-xs font-semibold text-almanac-muted mb-0.5" data-en="Resolution criteria" data-zh="验证标准">Resolution criteria</p>
+                    <p class="text-xs font-semibold text-almanac-muted mb-0.5" data-en="Resolution criteria" data-zh="怎么算验证">Resolution criteria</p>
                     <p class="text-almanac-muted text-xs" data-en={p.resolution} data-zh={p.resolution_zh || p.resolution}>{p.resolution}</p>
                   </div>
                 )}
