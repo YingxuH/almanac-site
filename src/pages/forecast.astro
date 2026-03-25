@@ -125,7 +125,7 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-almanac-green opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-almanac-green"></span>
           </span>
-          <span class="text-sm font-mono text-almanac-muted">{latestDate || 'Latest report'}</span>
+          <span class="text-sm font-mono text-almanac-muted" data-en={latestDate || 'Latest report'} data-zh={latestDate || '最新报告'}>{latestDate || 'Latest report'}</span>
         </div>
         <span class="text-xs text-almanac-muted bg-almanac-surface px-3 py-1 rounded-full border border-almanac-border" data-en="17+ sources daily" data-zh="每日17+个数据源">
           17+ sources daily

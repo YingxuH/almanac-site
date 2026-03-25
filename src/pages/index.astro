@@ -305,6 +305,7 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
       <input type="hidden" name="from_name" value="Almanac Signup" />
       <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
       <input type="email" name="email" required placeholder="you@company.com"
+        data-en-placeholder="you@company.com" data-zh-placeholder="你的邮箱地址"
         class="px-4 py-2.5 rounded-lg bg-almanac-surface border border-almanac-border text-almanac-text placeholder:text-almanac-muted/50 focus:outline-none focus:border-almanac-accent text-sm w-64" />
       <button type="submit"
         class="px-5 py-2.5 bg-almanac-accent text-almanac-bg font-semibold rounded-lg hover:shadow-lg transition-all text-sm whitespace-nowrap cursor-pointer">
@@ -762,9 +763,12 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
         var email = input.value.trim();
         if (!email) return;
 
+        var lang = document.documentElement.getAttribute('data-lang') || 'en';
+
         // Loading state
-        if (btnText) btnText.textContent = 'Subscribing...';
-        else btn.textContent = 'Subscribing...';
+        var subscribingText = lang === 'zh' ? '订阅中...' : 'Subscribing...';
+        if (btnText) btnText.textContent = subscribingText;
+        else btn.textContent = subscribingText;
         if (spinner) spinner.classList.remove('hidden');
         btn.disabled = true;
 
@@ -773,6 +777,11 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
         if (subs.indexOf(email) === -1) subs.push(email);
         localStorage.setItem('almanac-subs', JSON.stringify(subs));
 
+        var successMsg = lang === 'zh'
+          ? '订阅成功！首份预测明天 UTC 6:00 送达。'
+          : "You're in! First forecast arrives tomorrow at 6 AM UTC.";
+        var successHTML = '<div class="flex items-center gap-2 py-3 text-almanac-green"><svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span class="font-medium text-sm">' + successMsg + '</span></div>';
+
         // Submit to Formspree
         fetch(form.action, {
           method: 'POST',
@@ -780,11 +789,10 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
           body: JSON.stringify({ email: email, _subject: 'New Almanac subscriber' })
         }).then(function(r) {
           // Show success regardless (localStorage has the backup)
-          var container = form.parentElement;
-          form.outerHTML = '<div class="flex items-center gap-2 py-3 text-almanac-green"><svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span class="font-medium text-sm">You\'re in! First forecast arrives tomorrow at 6 AM UTC.</span></div>';
+          form.outerHTML = successHTML;
         }).catch(function() {
           // Still show success — localStorage has the email
-          form.outerHTML = '<div class="flex items-center gap-2 py-3 text-almanac-green"><svg class="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span class="font-medium text-sm">You\'re in! First forecast arrives tomorrow at 6 AM UTC.</span></div>';
+          form.outerHTML = successHTML;
         });
       });
     });

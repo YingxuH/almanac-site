@@ -29,7 +29,7 @@ const color = value >= 75 ? 'var(--color-almanac-green)' : value >= 60 ? 'var(--
   </svg>
   <div class="absolute inset-0 flex flex-col items-center justify-center">
     <span class="text-4xl font-bold font-mono gauge-number" data-value={value}>{value}%</span>
-    <span class="text-[10px] text-almanac-muted uppercase tracking-widest mt-1">{label}</span>
+    <span class="text-[10px] text-almanac-muted uppercase tracking-widest mt-1" data-en={label} data-zh={label === "Avg Confidence" ? "平均置信度" : label}>{label}</span>
   </div>
 </div>
 

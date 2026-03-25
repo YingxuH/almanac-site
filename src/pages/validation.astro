@@ -111,7 +111,7 @@ const wrong = predictions.length - correct;
                   <div class={`text-xl font-bold font-mono ${p.pred >= 70 ? 'text-almanac-green' : p.pred >= 40 ? 'text-almanac-amber' : 'text-almanac-red'}`}>
                     {p.pred}%
                   </div>
-                  <div class="text-[10px] text-almanac-muted mt-0.5">predicted</div>
+                  <div class="text-[10px] text-almanac-muted mt-0.5" data-en="predicted" data-zh="已预测">predicted</div>
                 </div>
                 <div class="flex-1 min-w-0">
                   <div class="flex items-center gap-2 mb-1">

@@ -1,14 +1,14 @@
 ---
 // Scrolling marquee of live signals — creates urgency and life
 const signals = [
-  { icon: "&#9650;", text: "AI code generation: 68% → 74%", color: "green" },
-  { icon: "&#9679;", text: "arXiv: 90 new papers analyzed", color: "accent" },
-  { icon: "&#9650;", text: "Senior shortage crisis: 77% → 80%", color: "green" },
-  { icon: "&#9679;", text: "HN: 116 threads monitored", color: "accent" },
-  { icon: "&#9650;", text: "Computer Programmer role: 74% → 77%", color: "green" },
-  { icon: "&#9679;", text: "GitHub Trending: 9 repos tracked", color: "accent" },
-  { icon: "&#8212;", text: "AI fluency premium: unchanged at 71%", color: "muted" },
-  { icon: "&#9679;", text: "RSS: 50 articles ingested", color: "accent" },
+  { icon: "&#9650;", text: "AI code generation: 68% → 74%", zh: "AI代码生成率：68% → 74%", color: "green" },
+  { icon: "&#9679;", text: "arXiv: 90 new papers analyzed", zh: "arXiv：分析90篇新论文", color: "accent" },
+  { icon: "&#9650;", text: "Senior shortage crisis: 77% → 80%", zh: "高级工程师短缺危机：77% → 80%", color: "green" },
+  { icon: "&#9679;", text: "HN: 116 threads monitored", zh: "HN：监控116条讨论", color: "accent" },
+  { icon: "&#9650;", text: "Computer Programmer role: 74% → 77%", zh: "程序员岗位信号：74% → 77%", color: "green" },
+  { icon: "&#9679;", text: "GitHub Trending: 9 repos tracked", zh: "GitHub热榜：追踪9个仓库", color: "accent" },
+  { icon: "&#8212;", text: "AI fluency premium: unchanged at 71%", zh: "AI流利度溢价：维持71%不变", color: "muted" },
+  { icon: "&#9679;", text: "RSS: 50 articles ingested", zh: "RSS：采集50篇文章", color: "accent" },
 ];
 
 const colorMap: Record<string, string> = {
@@ -22,7 +22,7 @@ const colorMap: Record<string, string> = {
     {[...signals, ...signals].map(s => (
       <span class="inline-flex items-center gap-2 text-xs">
         <span class={colorMap[s.color]} set:html={s.icon} />
-        <span class="text-almanac-muted">{s.text}</span>
+        <span class="text-almanac-muted" data-en={s.text} data-zh={s.zh}>{s.text}</span>
       </span>
     ))}
   </div>
