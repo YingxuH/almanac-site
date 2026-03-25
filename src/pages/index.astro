@@ -10,11 +10,13 @@ import GlowCard from '../components/GlowCard.astro';
 import FadeIn from '../components/FadeIn.astro';
 import ConfidenceGauge from '../components/ConfidenceGauge.astro';
 import LivePulse from '../components/LivePulse.astro';
-import { loadPredictions } from '../lib/data';
+import { loadPredictions, loadPredictionTrajectories } from '../lib/data';
+import TrajectoryChart from '../components/TrajectoryChart.astro';
 import fs from 'node:fs';
 import path from 'node:path';
 
 const allPreds = loadPredictions();
+const trajectories = loadPredictionTrajectories();
 
 // Dynamic career stats from predictions.json
 const findPred = (id: number) => allPreds.find((p: any) => p.id === id);
@@ -31,7 +33,7 @@ let latestExcerpt = '';
 let latestDate = '';
 try {
   const reportsDir = path.resolve(process.cwd(), 'src', 'content', 'reports');
-  const reports = fs.readdirSync(reportsDir).filter((f: string) => f.endsWith('.md')).sort().reverse();
+  const reports = fs.readdirSync(reportsDir).filter((f: string) => f.endsWith('.md') && !f.endsWith('.zh.md')).sort().reverse();
   if (reports.length > 0) {
     latestDate = reports[0].replace('.md', '');
     const content = fs.readFileSync(path.join(reportsDir, reports[0]), 'utf-8');
@@ -95,6 +97,7 @@ for (let i = midStart; i < sorted.length && predictions.length < 8; i++) {
 }
 
 const movedToday = moved.length;
+const totalMovedPp = moved.reduce((sum: number, p: any) => sum + Math.abs(p.confidence - (p.previous ?? p.confidence)), 0);
 
 // Top moved prediction for dynamic "Biggest Move" section
 const topMoved = movedPreds.length > 0 ? movedPreds[0] : null;
@@ -150,7 +153,7 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
           <p class="mt-4 sm:mt-6 text-base sm:text-lg text-almanac-muted max-w-xl leading-relaxed">
             <span data-en="Will AI replace your job or make it more valuable?" data-zh="AI会取代你的工作还是让它更有价值？">Will AI replace your job or make it more valuable?</span>
             <span class="hidden sm:inline" data-en=" Will Rust salaries rise? Will junior hiring recover?" data-zh=" Rust薪资还涨不涨？初级岗还招不招？"> Will Rust salaries rise? Will junior hiring recover?</span>
-            <span data-en=" 50 predictions, updated daily from 17+ sources — career decisions based on evidence, not anxiety." data-zh=" 50项预测，17+数据源每日更新。用数据做职业决策，不靠焦虑。"> 50 predictions, updated daily from 17+ sources — career decisions based on evidence, not anxiety.</span>
+            <span data-en={` ${totalPreds} predictions, updated daily from 17+ sources — career decisions based on evidence, not anxiety.`} data-zh={` ${totalPreds}项预测，17+数据源每日更新。用数据做职业决策，不靠焦虑。`}> {totalPreds} predictions, updated daily from 17+ sources — career decisions based on evidence, not anxiety.</span>
           </p>
 
           <p class="mt-3 text-xs text-almanac-muted/70 hidden sm:block" data-en="Unlike prediction markets, we track software-engineering-specific forecasts no one else covers — from AI debugging job emergence to Rust salary premiums — with daily updates tied to specific news events." data-zh="别人预测大盘，我们只盯软件工程——从AI会不会干掉初级岗，到Rust薪资溢价有多高——每次更新都有新闻源链接。">
@@ -174,15 +177,15 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
           </form>
           <p class="mt-2 text-[11px] text-almanac-muted" data-en="Free daily email. No spam. Unsubscribe anytime." data-zh="每天一封，不收费，不骚扰，一键退订。">Free daily email. No spam. Unsubscribe anytime.</p>
 
-          <div class="mt-6 flex flex-wrap gap-3">
+          <div class="mt-6 flex flex-wrap gap-x-5 gap-y-2">
             <a href="/almanac-site/forecast" class="group text-sm text-almanac-accent hover:underline flex items-center gap-1" data-en="Read today's forecast" data-zh="看今天的预测">
               Read today's forecast <span class="inline-block transition-transform group-hover:translate-x-1">&rarr;</span>
             </a>
-            <span class="text-almanac-border">|</span>
+            <span class="hidden sm:inline text-almanac-border">|</span>
             <a href="/almanac-site/dashboard" class="text-sm text-almanac-muted hover:text-almanac-text transition" data-en="Dashboard" data-zh="数据面板">
               Dashboard
             </a>
-            <span class="text-almanac-border">|</span>
+            <span class="hidden sm:inline text-almanac-border">|</span>
             <a href="https://github.com/YingxuH/almanac" class="text-sm text-almanac-muted hover:text-almanac-text transition">
               GitHub
             </a>
@@ -201,8 +204,8 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
               <div class="text-[10px] text-almanac-muted uppercase tracking-wider" data-en="Predictions" data-zh="预测项">Predictions</div>
             </div>
             <a href="/almanac-site/forecast" class="text-center group">
-              <div class="text-xl font-bold font-mono text-almanac-green group-hover:text-almanac-accent transition-colors">{movedToday || '—'}</div>
-              <div class="text-[10px] text-almanac-muted uppercase tracking-wider group-hover:text-almanac-text transition-colors" data-en="Moved Today" data-zh="今日变动">Moved Today</div>
+              <div class="text-xl font-bold font-mono text-almanac-green group-hover:text-almanac-accent transition-colors">{totalMovedPp > 0 ? `${totalMovedPp}pp` : '—'}</div>
+              <div class="text-[10px] text-almanac-muted uppercase tracking-wider group-hover:text-almanac-text transition-colors" data-en="Total Movement" data-zh="总变动幅度">Total Movement</div>
             </a>
             <div class="text-center">
               <div class="text-xl font-bold font-mono">17+</div>
@@ -393,6 +396,17 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
                 {topMoved.last_lr && <span class="font-mono">LR: {topMoved.last_lr.toFixed(2)}</span>}
                 {topMoved.horizon && <span data-en={`Horizon: ${topMoved.horizon}`} data-zh={`周期：${topMoved.horizon}`}>Horizon: {topMoved.horizon}</span>}
               </div>
+              {/* Trajectory chart for biggest mover */}
+              {(() => {
+                const traj = trajectories[topMoved.id];
+                if (!traj || traj.points.length < 2) return null;
+                return (
+                  <div class="mt-4 pt-4 border-t border-almanac-border/30">
+                    <p class="text-[10px] text-almanac-muted mb-1 uppercase tracking-wider" data-en="Confidence trajectory" data-zh="置信度走势">Confidence trajectory</p>
+                    <TrajectoryChart points={traj.points} events={traj.events} width={500} height={70} />
+                  </div>
+                );
+              })()}
             </div>
           </div>
         </div>

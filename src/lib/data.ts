@@ -35,6 +35,10 @@ export function loadPredictionHistory(): any[] {
   return loadJSON('prediction_history.json', []);
 }
 
+export function loadPersonaVotes(): Record<string, any> {
+  return loadJSON('persona_votes.json', {});
+}
+
 export function loadPredictionTrajectories(): Record<number, { points: { date: string; confidence: number }[]; events: any[] }> {
   try {
     const history = loadJSON('prediction_history.json', []);

@@ -2,11 +2,15 @@
 import Base from '../layouts/Base.astro';
 import FadeIn from '../components/FadeIn.astro';
 import TrajectoryChart from '../components/TrajectoryChart.astro';
-import { loadPredictions, loadJSON, loadPredictionTrajectories } from '../lib/data';
+import PersonaVotes from '../components/PersonaVotes.astro';
+import { loadPredictions, loadJSON, loadPredictionTrajectories, loadPersonaVotes } from '../lib/data';
 
 const predictions = loadPredictions();
 const evidenceData = loadJSON('prediction_evidence.json', {} as Record<string, any[]>);
 const trajectories = loadPredictionTrajectories();
+const personaVotes = loadPersonaVotes();
+const latestVoteDate = Object.keys(personaVotes).sort().pop() || '';
+const latestVotes = (latestVoteDate && personaVotes[latestVoteDate]) ? personaVotes[latestVoteDate] : {};
 
 // Compute stats
 const total = predictions.length;
@@ -271,6 +275,22 @@ const typeCount = {
                     </div>
                   );
                 })()}
+                {/* Persona votes panel */}
+                {(() => {
+                  const predVotes = latestVotes?.votes?.[String(p.id)];
+                  if (!predVotes || Object.keys(predVotes).length === 0) return null;
+                  const medianLr = latestVotes?.median_lrs?.[String(p.id)];
+                  const isContested = Array.isArray(latestVotes?.contested) && latestVotes.contested.includes(String(p.id));
+                  return (
+                    <div>
+                      <PersonaVotes
+                        votes={predVotes}
+                        medianLr={medianLr}
+                        isContested={isContested}
+                      />
+                    </div>
+                  );
+                })()}
                 {p.resolution && (
                   <div>
                     <p class="text-xs font-semibold text-almanac-muted mb-0.5" data-en="Resolution criteria" data-zh="怎么算验证">Resolution criteria</p>
@@ -287,18 +307,18 @@ const typeCount = {
     <!-- Methodology -->
     <FadeIn delay={200}>
       <div class="mt-10 p-5 rounded-xl border border-almanac-border bg-almanac-surface/50">
-        <h3 class="font-semibold mb-2" data-en="How prediction scoring works" data-zh="预测评分机制">How prediction scoring works</h3>
+        <h3 class="font-semibold mb-2" data-en="How prediction scoring works" data-zh="评分怎么算的">How prediction scoring works</h3>
         <div class="text-sm text-almanac-muted leading-relaxed space-y-2">
-          <p data-en="Each prediction carries a probability estimate updated daily through a structured process:" data-zh="每项预测的概率估计通过结构化流程每日更新：">
+          <p data-en="Each prediction carries a probability estimate updated daily through a structured process:" data-zh="每条预测都带一个概率值，每天通过以下流程更新：">
             Each prediction carries a probability estimate updated daily through a structured process:
           </p>
           <ol class="list-decimal list-inside space-y-1 text-xs">
-            <li data-en="Signals are scraped from 17+ sources and filtered by an LLM for relevance" data-zh="从17+来源抓取信号，由LLM过滤相关性">Signals are scraped from 17+ sources and filtered by an LLM for relevance</li>
-            <li data-en="Targeted search queries (via Tavily) find prediction-specific evidence" data-zh="定向搜索查询（通过Tavily）查找预测特定证据">Targeted search queries (via Tavily) find prediction-specific evidence</li>
-            <li data-en="An LLM estimates likelihood ratios: P(evidence | claim true) / P(evidence | claim false)" data-zh="LLM估算似然比：P(证据|声明为真) / P(证据|声明为假)">An LLM estimates likelihood ratios: P(evidence | claim true) / P(evidence | claim false)</li>
-            <li data-en="Bayesian log-odds update with 0.3 dampening factor (prevents wild swings)" data-zh="贝叶斯对数赔率更新，0.3阻尼因子（防止剧烈波动）">Bayesian log-odds update with 0.3 dampening factor (prevents wild swings)</li>
-            <li data-en="5 forecaster personas vote independently; median likelihood ratio applied as secondary adjustment" data-zh="5个预测员角色独立投票；中位似然比作为二次调整">5 forecaster personas vote independently; median likelihood ratio applied as secondary adjustment</li>
-            <li data-en="Maximum daily movement: 5 percentage points. Bounds: 3% to 97%." data-zh="每日最大变动：5个百分点。范围：3%至97%。">Maximum daily movement: 5 percentage points. Bounds: 3% to 97%.</li>
+            <li data-en="Signals are scraped from 17+ sources and filtered by an LLM for relevance" data-zh="从 17+ 个数据源抓取信号，大模型过滤掉不相关的">Signals are scraped from 17+ sources and filtered by an LLM for relevance</li>
+            <li data-en="Targeted search queries (via Tavily) find prediction-specific evidence" data-zh="用定向搜索（Tavily）找跟具体预测相关的证据">Targeted search queries (via Tavily) find prediction-specific evidence</li>
+            <li data-en="An LLM estimates likelihood ratios: P(evidence | claim true) / P(evidence | claim false)" data-zh="大模型估算似然比 LR：P(证据|预测为真) / P(证据|预测为假)">An LLM estimates likelihood ratios: P(evidence | claim true) / P(evidence | claim false)</li>
+            <li data-en="Bayesian log-odds update with 0.3 dampening factor (prevents wild swings)" data-zh="Bayesian 对数赔率更新，阻尼系数 0.3，防止剧烈震荡">Bayesian log-odds update with 0.3 dampening factor (prevents wild swings)</li>
+            <li data-en="5 forecaster personas vote independently; median likelihood ratio applied as secondary adjustment" data-zh="5 个角色独立投票，取中位 LR 作为二次修正">5 forecaster personas vote independently; median likelihood ratio applied as secondary adjustment</li>
+            <li data-en="Maximum daily movement: 5 percentage points. Bounds: 3% to 97%." data-zh="单日最大变动 5 个百分点，区间锁死在 3%—97%。">Maximum daily movement: 5 percentage points. Bounds: 3% to 97%.</li>
           </ol>
         </div>
       </div>

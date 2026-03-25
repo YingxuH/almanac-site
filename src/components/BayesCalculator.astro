@@ -244,7 +244,7 @@
       // === Pipeline formula ===
       const priorFrac   = prior / 100;
       const logOddsPrior = Math.log(priorFrac / (1 - priorFrac));
-      const effectiveLR  = Math.pow(lr, cred);
+      const effectiveLR  = Math.max(0.2, Math.min(5.0, Math.pow(lr, cred)));
       const logEffLR     = Math.log(effectiveLR);
       const dampAdj      = damp * logEffLR;
       const logOddsNew   = logOddsPrior + dampAdj;

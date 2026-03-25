@@ -2,6 +2,8 @@
 import Base from '../layouts/Base.astro';
 import FadeIn from '../components/FadeIn.astro';
 import BayesCalculator from '../components/BayesCalculator.astro';
+import { loadPredictions } from '../lib/data';
+const totalPreds = loadPredictions().length;
 ---
 <Base title="About — Almanac">
 
@@ -22,10 +24,10 @@ import BayesCalculator from '../components/BayesCalculator.astro';
             <span class="w-1.5 h-6 rounded-full bg-almanac-accent"></span>
             <span data-en="What This Is" data-zh="这东西是干嘛的">What This Is</span>
           </h2>
-          <p class="text-almanac-muted leading-relaxed" data-en="Almanac is an AI-powered forecasting system that tracks how software engineering is changing over the next 3-30 years. Every day, our pipeline scrapes 17+ data sources, filters hundreds of signals through tiered AI models, and produces a confidence-scored forecast. We track 50 specific, falsifiable predictions and update them daily using Bayesian likelihood ratio analysis with a 5-persona forecaster panel." data-zh="Almanac 是一套大模型驱动的预测系统，专门追踪软件工程在未来 3—30 年的走向。每天流水线自动爬取 17+ 个数据源，用分层大模型从数百条信号里筛出有价值的东西，输出带置信度的预测。我们维护 50 条具体、可证伪的预测，每天用 Bayesian 似然比分析 + 5 人角色面板同步更新。">
+          <p class="text-almanac-muted leading-relaxed" data-en={`Almanac is an AI-powered forecasting system that tracks how software engineering is changing over the next 3-30 years. Every day, our pipeline scrapes 17+ data sources, filters hundreds of signals through tiered AI models, and produces a confidence-scored forecast. We track ${totalPreds} specific, falsifiable predictions and update them daily using Bayesian likelihood ratio analysis with a 5-persona forecaster panel.`} data-zh={`Almanac 是一套大模型驱动的预测系统，专门追踪软件工程在未来 3—30 年的走向。每天流水线自动爬取 17+ 个数据源，用分层大模型从数百条信号里筛出有价值的东西，输出带置信度的预测。我们维护 ${totalPreds} 条具体、可证伪的预测，每天用 Bayesian 似然比分析 + 5 人角色面板同步更新。`}>
             Almanac is an AI-powered forecasting system that tracks how software engineering is changing over the next 3-30 years.
             Every day, our pipeline scrapes 17+ data sources, filters hundreds of signals through tiered AI models, and produces
-            a confidence-scored forecast. We track 50 specific, falsifiable predictions and update them daily using Bayesian likelihood ratio analysis with a 5-persona forecaster panel.
+            a confidence-scored forecast. We track {totalPreds} specific, falsifiable predictions and update them daily using Bayesian likelihood ratio analysis with a 5-persona forecaster panel.
           </p>
         </div>
 
@@ -51,7 +53,7 @@ import BayesCalculator from '../components/BayesCalculator.astro';
             <div class="p-3 rounded-lg bg-almanac-bg/50">
               <div class="font-semibold text-sm mb-1">Almanac</div>
               <ul class="text-almanac-muted space-y-1">
-                <li data-en="50 SWE-specific predictions" data-zh="50条软件工程专属预测">50 SWE-specific predictions</li>
+                <li data-en={`${totalPreds} SWE-specific predictions`} data-zh={`${totalPreds}条软件工程专属预测`}>{totalPreds} SWE-specific predictions</li>
                 <li data-en="Daily automated Bayesian updates" data-zh="每日自动 Bayesian 更新">Daily automated Bayesian updates</li>
                 <li data-en="5-persona panel with evidence trails" data-zh="5角色面板 + 完整证据链">5-persona panel with evidence trails</li>
                 <li data-en="Free, open methodology" data-zh="免费，方法论完全公开">Free, open methodology</li>
@@ -119,8 +121,8 @@ import BayesCalculator from '../components/BayesCalculator.astro';
                 num: "04",
                 title: "Prediction Update",
                 titleZh: "预测更新",
-                desc: "Each of our 50 standing predictions is evaluated against the day's evidence via Bayesian likelihood ratio analysis. A 5-persona forecaster panel votes independently. Confidence can move up to +/-5 percentage points per day. All movements are logged with evidence trails.",
-                descZh: "50 条在跑预测逐一用 Bayesian 似然比分析对照当天证据。5 个角色独立投票，互不干扰。置信度单日最多动 +/-5 个百分点，每次变动都有证据链存档。",
+                desc: `Each of our ${totalPreds} standing predictions is evaluated against the day's evidence via Bayesian likelihood ratio analysis. A 5-persona forecaster panel votes independently. Confidence can move up to +/-5 percentage points per day. All movements are logged with evidence trails.`,
+                descZh: `${totalPreds} 条在跑预测逐一用 Bayesian 似然比分析对照当天证据。5 个角色独立投票，互不干扰。置信度单日最多动 +/-5 个百分点，每次变动都有证据链存档。`,
                 color: "accent"
               },
               {

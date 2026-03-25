@@ -1,0 +1,278 @@
+---
+/**
+ * PersonaVotes — horizontal bar chart showing each persona's LR vote.
+ *
+ * Props:
+ *   votes       — per-persona map: { [personaName]: { lr: number; rationale: string } }
+ *   medianLr    — overall median LR for this prediction (optional)
+ *   isContested — true when any persona's LR is >3x from the median
+ */
+interface PersonaVote {
+  lr: number;
+  rationale: string;
+}
+
+interface Props {
+  votes: Record<string, PersonaVote>;
+  medianLr?: number;
+  isContested?: boolean;
+}
+
+const { votes = {}, medianLr, isContested = false } = Astro.props;
+
+// Persona display config
+const PERSONA_META: Record<string, { icon: string; color: string; colorClass: string; labelZh: string }> = {
+  'Techno-Optimist':       { icon: '🚀', color: 'var(--color-almanac-green)',  colorClass: 'bg-almanac-green',  labelZh: '技术乐观派' },
+  'Labor Economist':       { icon: '📊', color: 'var(--color-almanac-amber)',  colorClass: 'bg-almanac-amber',  labelZh: '劳动经济学家' },
+  'Security Hawk':         { icon: '🛡', color: '#f87171',                     colorClass: 'bg-red-400',        labelZh: '安全鹰派' },
+  'Contrarian':            { icon: '⚡', color: 'var(--color-almanac-accent)', colorClass: 'bg-almanac-accent', labelZh: '逆向思维者' },
+  'Base Rate Empiricist':  { icon: '📈', color: 'var(--color-almanac-muted)',  colorClass: 'bg-almanac-muted',  labelZh: '基率实证派' },
+};
+
+// Compute bar widths. Center (LR=1.0) = 50% of the track.
+// Max displayable LR deviation: ±2 (i.e. LR=3.0 fills the full half).
+const MAX_LR_DEV = 2.0;  // LR=3.0 fills the bar completely
+
+function barProps(lr: number): { width: number; side: 'right' | 'left' | 'none'; pct: number } {
+  if (lr === 1.0) return { width: 0, side: 'none', pct: 0 };
+  const dev = Math.abs(lr - 1.0);
+  const pct = Math.min(dev / MAX_LR_DEV, 1) * 50; // max 50% of container width
+  return { width: pct, side: lr > 1.0 ? 'right' : 'left', pct };
+}
+
+// Median marker position (percentage from left edge of track)
+// Track goes 0%=LR_min to 100%=LR_max, center=50% is LR=1.0
+function medianPct(lr: number): number {
+  const dev = lr - 1.0;
+  const raw = 50 + (dev / MAX_LR_DEV) * 50;
+  return Math.max(2, Math.min(98, raw));
+}
+
+const personaEntries = Object.entries(votes);
+---
+
+{personaEntries.length > 0 && (
+  <div class="persona-votes">
+    <!-- Header row -->
+    <div class="flex items-center justify-between mb-2">
+      <p class="text-xs font-semibold text-almanac-accent" data-en="Forecaster Panel" data-zh="预测面板">Forecaster Panel</p>
+      <div class="flex items-center gap-2">
+        {medianLr !== undefined && (
+          <span class="text-[10px] font-mono text-almanac-muted">
+            <span data-en="Median LR:" data-zh="中位 LR:">Median LR:</span>
+            <span class={`ml-1 font-semibold ${medianLr > 1 ? 'text-almanac-green' : medianLr < 1 ? 'text-almanac-red' : 'text-almanac-muted'}`}>
+              {medianLr.toFixed(2)}
+            </span>
+          </span>
+        )}
+        {isContested && (
+          <span class="px-1.5 py-0.5 rounded border border-red-400/40 bg-red-400/10 text-red-400 text-[10px] font-semibold" data-en="CONTESTED" data-zh="有争议">CONTESTED</span>
+        )}
+      </div>
+    </div>
+
+    <!-- Persona rows -->
+    <div class="space-y-2">
+      {personaEntries.map(([name, vote]) => {
+        const meta = PERSONA_META[name] ?? { icon: '●', color: 'var(--color-almanac-muted)', colorClass: 'bg-almanac-muted', labelZh: name };
+        const { width, side, pct } = barProps(vote.lr);
+        const lrLabel = vote.lr.toFixed(2);
+        const lrColor = vote.lr > 1 ? 'text-almanac-green' : vote.lr < 1 ? 'text-almanac-red' : 'text-almanac-muted';
+
+        return (
+          <div class="persona-row">
+            <!-- Name + icon -->
+            <div class="persona-label">
+              <span class="persona-icon" aria-hidden="true">{meta.icon}</span>
+              <div class="persona-name-block">
+                <span class="text-[11px] font-medium text-almanac-text" data-en={name} data-zh={meta.labelZh}>{name}</span>
+                {vote.rationale && vote.rationale !== '' && (
+                  <p class="text-[10px] text-almanac-muted leading-snug mt-0.5">{vote.rationale}</p>
+                )}
+              </div>
+            </div>
+
+            <!-- Bar track -->
+            <div class="bar-track-wrapper">
+              <!-- LR label (left of track) -->
+              <span class={`lr-label-left text-[10px] font-mono ${lrColor}`}>
+                {side === 'left' ? lrLabel : ''}
+              </span>
+
+              <!-- The actual track -->
+              <div class="bar-track">
+                <!-- Left half (LR < 1 = contradicts) -->
+                <div class="bar-half bar-half-left">
+                  {side === 'left' && (
+                    <div
+                      class="bar-fill bar-fill-left bg-almanac-red"
+                      style={`width: ${width * 2}%`}
+                    />
+                  )}
+                </div>
+                <!-- Center divider at LR=1.0 -->
+                <div class="bar-center-line" />
+                <!-- Right half (LR > 1 = supports) -->
+                <div class="bar-half bar-half-right">
+                  {side === 'right' && (
+                    <div
+                      class="bar-fill bar-fill-right bg-almanac-green"
+                      style={`width: ${width * 2}%`}
+                    />
+                  )}
+                </div>
+
+                <!-- Median marker -->
+                {medianLr !== undefined && medianLr !== 1.0 && (
+                  <div
+                    class="median-marker"
+                    style={`left: ${medianPct(medianLr)}%`}
+                    title={`Median LR: ${medianLr.toFixed(2)}`}
+                  />
+                )}
+              </div>
+
+              <!-- LR label (right of track) -->
+              <span class={`lr-label-right text-[10px] font-mono ${lrColor}`}>
+                {side === 'right' ? lrLabel : side === 'none' ? '1.00' : ''}
+              </span>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Legend -->
+    <div class="flex items-center gap-4 mt-2 pt-2 border-t border-almanac-border/40">
+      <div class="flex items-center gap-1">
+        <div class="w-6 h-1.5 rounded bg-almanac-red opacity-70" />
+        <span class="text-[9px] text-almanac-muted" data-en="Contradicts (LR&lt;1)" data-zh="反驳 (LR&lt;1)">Contradicts (LR&lt;1)</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <div class="w-6 h-1.5 rounded bg-almanac-green opacity-70" />
+        <span class="text-[9px] text-almanac-muted" data-en="Supports (LR&gt;1)" data-zh="支持 (LR&gt;1)">Supports (LR&gt;1)</span>
+      </div>
+      {medianLr !== undefined && medianLr !== 1.0 && (
+        <div class="flex items-center gap-1">
+          <div class="w-0 h-3 border-l border-dashed border-almanac-accent opacity-70" />
+          <span class="text-[9px] text-almanac-muted" data-en="Panel median" data-zh="面板中位">Panel median</span>
+        </div>
+      )}
+    </div>
+  </div>
+)}
+
+<style>
+  .persona-votes {
+    padding: 0.625rem 0;
+  }
+
+  .persona-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    align-items: start;
+  }
+
+  @media (max-width: 480px) {
+    .persona-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .persona-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.375rem;
+    min-width: 0;
+  }
+
+  .persona-icon {
+    flex-shrink: 0;
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .persona-name-block {
+    min-width: 0;
+  }
+
+  /* Bar track wrapper: [lr-left] [track] [lr-right] */
+  .bar-track-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .lr-label-left,
+  .lr-label-right {
+    flex-shrink: 0;
+    width: 2.5rem;
+    text-align: right;
+  }
+
+  .lr-label-right {
+    text-align: left;
+  }
+
+  /* The full bar track */
+  .bar-track {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 0.5rem;
+    background: var(--color-almanac-border, #2a2a3a);
+    border-radius: 9999px;
+    overflow: hidden;
+  }
+
+  .bar-half {
+    flex: 1;
+    height: 100%;
+    position: relative;
+  }
+
+  .bar-half-left {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .bar-half-right {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 9999px;
+    opacity: 0.75;
+    transition: width 0.3s ease;
+  }
+
+  /* Center line at LR=1.0 */
+  .bar-center-line {
+    flex-shrink: 0;
+    width: 1.5px;
+    height: 100%;
+    background: var(--color-almanac-muted, #666);
+    opacity: 0.5;
+  }
+
+  /* Median marker — vertical dashed line overlaid on the track */
+  .median-marker {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 1.5px;
+    background: repeating-linear-gradient(
+      to bottom,
+      var(--color-almanac-accent, #7c6af7) 0px,
+      var(--color-almanac-accent, #7c6af7) 3px,
+      transparent 3px,
+      transparent 5px
+    );
+    opacity: 0.8;
+    pointer-events: none;
+  }
+</style>
