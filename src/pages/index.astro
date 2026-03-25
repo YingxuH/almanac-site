@@ -213,7 +213,9 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
           {nearestMicroWithin60 ? (
             <a href="/almanac-site/predictions" class="mt-3 block w-full max-w-xs p-2.5 rounded-lg border border-almanac-accent/20 bg-almanac-accent/5 hover:border-almanac-accent/40 transition-colors text-left">
               <div class="flex items-center gap-2 mb-1 flex-wrap">
-                <span class="text-[10px] font-bold text-almanac-accent uppercase tracking-wider px-1.5 py-0.5 rounded bg-almanac-accent/10 border border-almanac-accent/20">
+                <span class="text-[10px] font-bold text-almanac-accent uppercase tracking-wider px-1.5 py-0.5 rounded bg-almanac-accent/10 border border-almanac-accent/20"
+                  data-en={`RESOLVES IN ${nearestMicroWithin60.daysUntil} DAY${nearestMicroWithin60.daysUntil === 1 ? '' : 'S'}`}
+                  data-zh={`${nearestMicroWithin60.daysUntil}天后验证`}>
                   RESOLVES IN {nearestMicroWithin60.daysUntil} DAY{nearestMicroWithin60.daysUntil === 1 ? '' : 'S'}
                 </span>
                 <span class="text-sm font-bold font-mono text-almanac-accent">{nearestMicroWithin60.confidence}%</span>
@@ -264,7 +266,7 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
             <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             <span data-en={`First prediction resolves in ${nearestMicro.daysUntil} days`} data-zh={`首个预测将在${nearestMicro.daysUntil}天后验证`}>First prediction resolves in {nearestMicro.daysUntil} days</span>
           </span>
-          <span class="text-xs text-almanac-muted truncate max-w-md">{nearestMicro.claim.slice(0, 80)}...</span>
+          <span class="text-xs text-almanac-muted truncate max-w-md" data-en={nearestMicro.claim.slice(0, 80) + '...'} data-zh={(nearestMicro.claim_zh || nearestMicro.claim).slice(0, 80) + '...'}>{nearestMicro.claim.slice(0, 80)}...</span>
           <span class="text-xs font-mono text-purple-500">{nearestMicro.confidence}%</span>
         </div>
       </a>
@@ -328,7 +330,10 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
         <div class="p-5 sm:p-6">
           <div class="flex items-center gap-3 mb-3">
             {latestDate && <span class="text-xs font-mono text-almanac-muted bg-almanac-border px-2 py-0.5 rounded">{latestDate}</span>}
-            <span class="text-xs text-almanac-green font-mono">{movedPreds.length > 0 ? `${allPreds.filter((p: any) => p.confidence !== (p.previous ?? p.confidence)).length} predictions moved` : 'Daily forecast'}</span>
+            <span class="text-xs text-almanac-green font-mono"
+              data-en={movedPreds.length > 0 ? `${allPreds.filter((p: any) => p.confidence !== (p.previous ?? p.confidence)).length} predictions moved` : 'Daily forecast'}
+              data-zh={movedPreds.length > 0 ? `${allPreds.filter((p: any) => p.confidence !== (p.previous ?? p.confidence)).length}项预测变动` : '每日预测'}
+            >{movedPreds.length > 0 ? `${allPreds.filter((p: any) => p.confidence !== (p.previous ?? p.confidence)).length} predictions moved` : 'Daily forecast'}</span>
           </div>
           {latestExcerpt ? (
             <p class="text-sm text-almanac-muted leading-relaxed mb-4">{latestExcerpt}...</p>
@@ -340,7 +345,9 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
               const delta = p.confidence - (p.previous ?? p.confidence);
               const color = delta > 0 ? 'bg-almanac-green/10 text-almanac-green border-almanac-green/20' : 'bg-almanac-red/10 text-almanac-red border-almanac-red/20';
               return (
-                <span class={`text-[10px] px-2 py-1 rounded border ${color}`}>
+                <span class={`text-[10px] px-2 py-1 rounded border ${color}`}
+                  data-en={`P${p.id}: ${p.claim.slice(0, 40)}... ${p.confidence}% (${delta > 0 ? '+' : ''}${delta})`}
+                  data-zh={`P${p.id}: ${(p.claim_zh || p.claim).slice(0, 40)}... ${p.confidence}% (${delta > 0 ? '+' : ''}${delta})`}>
                   P{p.id}: {p.claim.slice(0, 40)}... {p.confidence}% ({delta > 0 ? '+' : ''}{delta})
                 </span>
               );
@@ -502,7 +509,8 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
         {nearestMicro ? (
           <a href="/almanac-site/predictions" class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-almanac-accent/20 bg-almanac-accent/5 text-xs text-almanac-accent hover:border-almanac-accent/50 transition-colors">
             <svg class="w-3 h-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            <span>
+            <span data-en={`Next resolution in ${nearestMicro.daysUntil} day${nearestMicro.daysUntil === 1 ? '' : 's'}: ${nearestMicro.claim.slice(0, 60)}… (${nearestMicro.confidence}%)`}
+                  data-zh={`${nearestMicro.daysUntil}天后验证: ${(nearestMicro.claim_zh || nearestMicro.claim).slice(0, 60)}… (${nearestMicro.confidence}%)`}>
               Next resolution in <strong>{nearestMicro.daysUntil} day{nearestMicro.daysUntil === 1 ? '' : 's'}</strong>:
               {' '}<span class="italic line-clamp-1">{nearestMicro.claim.length > 60 ? nearestMicro.claim.slice(0, 60) + '…' : nearestMicro.claim}</span>
               {' '}({nearestMicro.confidence}%)
@@ -558,7 +566,7 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
             </div>
             <div class="px-3 py-2 text-[11px] text-almanac-muted space-y-1">
               <div><span class="text-almanac-muted/60" data-en="From:" data-zh="发件人：">From:</span> Almanac &lt;forecast@almanac&gt;</div>
-              <div><span class="text-almanac-muted/60" data-en="Subject:" data-zh="主题：">Subject:</span> <span class="text-almanac-text">Almanac Forecast — {latestDate || 'tomorrow'}</span></div>
+              <div><span class="text-almanac-muted/60" data-en="Subject:" data-zh="主题：">Subject:</span> <span class="text-almanac-text" data-en={`Almanac Forecast — ${latestDate || 'tomorrow'}`} data-zh={`Almanac 每日预测 — ${latestDate || '明天'}`}>Almanac Forecast — {latestDate || 'tomorrow'}</span></div>
               <div class="pt-1 border-t border-almanac-border/50 text-almanac-muted/80 leading-relaxed" data-en={movedToday > 0
                 ? `${movedToday} predictions moved. Biggest: "${movedPreds[0]?.claim?.slice(0, 50)}..." now at ${movedPreds[0]?.confidence}% (${topMovedDeltaStr}).`
                 : `Daily forecast with source-linked prediction updates across ${totalPreds} tracked claims.`}
