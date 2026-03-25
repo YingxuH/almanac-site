@@ -33,6 +33,31 @@ const typeCount = {
       </div>
     </FadeIn>
 
+    <!-- Top movers today — quick view for mobile/commuters -->
+    {movedToday > 0 && (
+      <FadeIn delay={15}>
+        <div class="mb-6 p-3 rounded-xl border border-almanac-green/20 bg-almanac-green/5">
+          <h3 class="text-xs font-semibold text-almanac-green mb-2 uppercase tracking-wider" data-en={`Top movers today (${movedToday})`} data-zh={`今日热门变动 (${movedToday})`}>Top movers today ({movedToday})</h3>
+          <div class="flex flex-wrap gap-2">
+            {predictions
+              .filter((p: any) => p.confidence !== (p.previous ?? p.confidence))
+              .sort((a: any, b: any) => Math.abs((b.confidence - (b.previous ?? b.confidence))) - Math.abs((a.confidence - (a.previous ?? a.confidence))))
+              .slice(0, 5)
+              .map((p: any) => {
+                const delta = p.confidence - (p.previous ?? p.confidence);
+                const color = delta > 0 ? 'text-almanac-green bg-almanac-green/10 border-almanac-green/20' : 'text-almanac-red bg-almanac-red/10 border-almanac-red/20';
+                return (
+                  <span class={`text-[10px] px-2 py-1 rounded border ${color} font-mono`}>
+                    {delta > 0 ? '+' : ''}{delta} → {p.confidence}% <span class="text-almanac-muted font-sans">{(p.claim_zh || p.claim).slice(0, 30)}...</span>
+                  </span>
+                );
+              })
+            }
+          </div>
+        </div>
+      </FadeIn>
+    )}
+
     <!-- How to read this — translation layer for non-experts -->
     <FadeIn delay={25}>
       <div class="mb-8 p-4 rounded-xl border border-almanac-border bg-almanac-surface/50">

@@ -333,7 +333,7 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
           {latestExcerpt ? (
             <p class="text-sm text-almanac-muted leading-relaxed mb-4">{latestExcerpt}...</p>
           ) : (
-            <p class="text-sm text-almanac-muted leading-relaxed mb-4">Each morning, Almanac synthesizes signals from 17+ sources into a concise forecast with specific, source-linked prediction updates.</p>
+            <p class="text-sm text-almanac-muted leading-relaxed mb-4" data-en="Each morning, Almanac synthesizes signals from 17+ sources into a concise forecast with specific, source-linked prediction updates." data-zh="每天早上，Almanac从17+个数据源综合信号，生成附有来源链接的精简预测更新。">Each morning, Almanac synthesizes signals from 17+ sources into a concise forecast with specific, source-linked prediction updates.</p>
           )}
           <div class="flex flex-wrap gap-2">
             {movedPreds.length > 0 ? movedPreds.map((p: any) => {
