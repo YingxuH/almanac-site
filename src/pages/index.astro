@@ -255,6 +255,22 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
     </div>
   </div>
 
+  <!-- Micro-prediction countdown banner — prominent, above career section -->
+  {nearestMicro && (
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-3">
+      <a href="/almanac-site/predictions" class="block p-3 rounded-xl border border-purple-500/20 bg-purple-500/5 hover:border-purple-500/40 transition-colors text-center">
+        <div class="flex items-center justify-center gap-3 flex-wrap">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-600 text-xs font-bold">
+            <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <span data-en={`First prediction resolves in ${nearestMicro.daysUntil} days`} data-zh={`首个预测将在${nearestMicro.daysUntil}天后验证`}>First prediction resolves in {nearestMicro.daysUntil} days</span>
+          </span>
+          <span class="text-xs text-almanac-muted truncate max-w-md">{nearestMicro.claim.slice(0, 80)}...</span>
+          <span class="text-xs font-mono text-purple-500">{nearestMicro.confidence}%</span>
+        </div>
+      </a>
+    </div>
+  )}
+
   <!-- What it means for your career — moved up as the emotional hook right after trust -->
   <div class="bg-almanac-surface/50 border-y border-almanac-border">
   <FadeIn>
