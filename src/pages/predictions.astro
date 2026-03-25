@@ -17,6 +17,7 @@ const typeCount = {
   contrarian: predictions.filter((p: any) => p.type === 'contrarian').length,
   consensus: predictions.filter((p: any) => p.type === 'consensus').length,
   near_term: predictions.filter((p: any) => p.type === 'near_term').length,
+  micro: predictions.filter((p: any) => p.type === 'micro').length,
 };
 ---
 <Base title="Predictions -- Almanac">
@@ -36,7 +37,11 @@ const typeCount = {
     <FadeIn delay={25}>
       <div class="mb-8 p-4 rounded-xl border border-almanac-border bg-almanac-surface/50">
         <h3 class="text-sm font-semibold mb-2" data-en="How to read predictions" data-zh="如何解读预测">How to read predictions</h3>
-        <div class="grid sm:grid-cols-3 gap-3 text-xs text-almanac-muted">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs text-almanac-muted">
+          <div>
+            <span class="inline-block px-1.5 py-0.5 rounded border text-purple-500 border-purple-500/20 bg-purple-500/10 mb-1" data-en="MICRO" data-zh="微预测">MICRO</span>
+            <p data-en="Resolves within weeks. Specific, verifiable claims with countdown timers. These prove our system works — fast." data-zh="数周内可验证。具体的、可验证的预测，带倒计时。这些快速证明我们的系统有效。">Resolves within weeks. Specific, verifiable claims with countdown timers. These prove our system works — fast.</p>
+          </div>
           <div>
             <span class="inline-block px-1.5 py-0.5 rounded border text-almanac-amber border-almanac-amber/20 bg-almanac-amber/10 mb-1" data-en="CONTRARIAN" data-zh="逆向预测">CONTRARIAN</span>
             <p data-en="Bets AGAINST the consensus view. A 30% contrarian prediction means we think there's a 30% chance the crowd is wrong." data-zh="与共识相反的预测。30%的逆向预测意味着我们认为大众有30%的概率判断错误。">Bets AGAINST the consensus view. A 30% contrarian prediction means we think there's a 30% chance the crowd is wrong.</p>
@@ -76,6 +81,12 @@ const typeCount = {
           <div class="text-2xl font-bold font-mono">{typeCount.near_term}</div>
           <div class="text-xs text-almanac-muted mt-1" data-en="Near-Term" data-zh="近期预测">Near-Term</div>
         </div>
+        {typeCount.micro > 0 && (
+          <div class="p-3 rounded-lg border border-purple-500/20 bg-purple-500/5 text-center">
+            <div class="text-2xl font-bold font-mono text-purple-500">{typeCount.micro}</div>
+            <div class="text-xs text-purple-500/70 mt-1" data-en="Micro (resolving soon)" data-zh="微预测（即将验证）">Micro (resolving soon)</div>
+          </div>
+        )}
       </div>
     </FadeIn>
 
@@ -96,6 +107,7 @@ const typeCount = {
           <option value="confidence-asc" data-en="Confidence (low first)" data-zh="置信度（由低到高）">Confidence (low first)</option>
           <option value="moved" data-en="Moved today first" data-zh="今日变动优先">Moved today first</option>
           <option value="horizon" data-en="Horizon (nearest first)" data-zh="时间线（最近优先）">Horizon (nearest first)</option>
+          <option value="resolving" data-en="Resolving soon first" data-zh="即将验证优先">Resolving soon first</option>
         </select>
       </div>
     </FadeIn>
@@ -140,6 +152,7 @@ const typeCount = {
             data-moved={delta !== 0 ? '1' : '0'}
             data-id={p.id}
             data-claim={p.claim.toLowerCase()}
+            data-resolution-date={p.resolution_date || '9999-12-31'}
           >
             <summary class="p-3 cursor-pointer flex items-center gap-3 list-none [&::-webkit-details-marker]:hidden">
               <!-- Confidence -->
@@ -310,6 +323,8 @@ const typeCount = {
               return parseInt(b.dataset.moved || '0') - parseInt(a.dataset.moved || '0');
             case 'horizon':
               return (a.dataset.horizon || '9999').localeCompare(b.dataset.horizon || '9999');
+            case 'resolving':
+              return (a.dataset.resolutionDate || '9999-12-31').localeCompare(b.dataset.resolutionDate || '9999-12-31');
             default:
               return parseInt(a.dataset.id || '0') - parseInt(b.dataset.id || '0');
           }
