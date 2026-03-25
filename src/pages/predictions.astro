@@ -1,16 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
 import FadeIn from '../components/FadeIn.astro';
-import TrajectoryChart from '../components/TrajectoryChart.astro';
-import PersonaVotes from '../components/PersonaVotes.astro';
-import { loadPredictions, loadJSON, loadPredictionTrajectories, loadPersonaVotes } from '../lib/data';
+import { loadPredictions } from '../lib/data';
 
 const predictions = loadPredictions();
-const evidenceData = loadJSON('prediction_evidence.json', {} as Record<string, any[]>);
-const trajectories = loadPredictionTrajectories();
-const personaVotes = loadPersonaVotes();
-const latestVoteDate = Object.keys(personaVotes).sort().pop() || '';
-const latestVotes = (latestVoteDate && personaVotes[latestVoteDate]) ? personaVotes[latestVoteDate] : {};
 
 // Compute stats
 const total = predictions.length;
@@ -21,7 +14,6 @@ const typeCount = {
   contrarian: predictions.filter((p: any) => p.type === 'contrarian').length,
   consensus: predictions.filter((p: any) => p.type === 'consensus').length,
   near_term: predictions.filter((p: any) => p.type === 'near_term').length,
-  micro: predictions.filter((p: any) => p.type === 'micro').length,
 };
 ---
 <Base title="Predictions -- Almanac">
@@ -30,58 +22,29 @@ const typeCount = {
 
     <FadeIn>
       <div class="mb-6">
-        <h1 class="text-3xl font-bold mb-2" data-en="Prediction Tracker" data-zh="预测追踪">Prediction Tracker</h1>
-        <p class="text-almanac-muted" data-en={`${total} predictions across ${categories.length} categories. Updated daily via Bayesian likelihood ratio analysis with a 5-persona forecaster panel.`} data-zh={`${total} 条预测，覆盖 ${categories.length} 个类别。每天用 Bayesian 似然比 + 5 角色面板更新。`}>
+        <h1 class="text-3xl font-bold mb-2" data-en="Prediction Tracker" data-zh="预测追踪器">Prediction Tracker</h1>
+        <p class="text-almanac-muted" data-en={`${total} predictions across ${categories.length} categories. Updated daily via Bayesian likelihood ratio analysis with a 5-persona forecaster panel.`} data-zh={`${total}项预测，涵盖${categories.length}个类别。每日通过贝叶斯似然比分析和5人预测员面板更新。`}>
           {total} predictions across {categories.length} categories. Updated daily via Bayesian likelihood ratio analysis with a 5-persona forecaster panel.
         </p>
       </div>
     </FadeIn>
 
-    <!-- Top movers today — quick view for mobile/commuters -->
-    {movedToday > 0 && (
-      <FadeIn delay={15}>
-        <div class="mb-6 p-3 rounded-xl border border-almanac-green/20 bg-almanac-green/5">
-          <h3 class="text-xs font-semibold text-almanac-green mb-2 uppercase tracking-wider" data-en={`Top movers today (${movedToday})`} data-zh={`今日最大变动 (${movedToday})`}>Top movers today ({movedToday})</h3>
-          <div class="flex flex-wrap gap-2">
-            {predictions
-              .filter((p: any) => p.confidence !== (p.previous ?? p.confidence))
-              .sort((a: any, b: any) => Math.abs((b.confidence - (b.previous ?? b.confidence))) - Math.abs((a.confidence - (a.previous ?? a.confidence))))
-              .slice(0, 5)
-              .map((p: any) => {
-                const delta = p.confidence - (p.previous ?? p.confidence);
-                const color = delta > 0 ? 'text-almanac-green bg-almanac-green/10 border-almanac-green/20' : 'text-almanac-red bg-almanac-red/10 border-almanac-red/20';
-                return (
-                  <span class={`text-[10px] px-2 py-1 rounded border ${color} font-mono`}>
-                    {delta > 0 ? '+' : ''}{delta} → {p.confidence}% <span class="text-almanac-muted font-sans">{(p.claim_zh || p.claim).slice(0, 30)}...</span>
-                  </span>
-                );
-              })
-            }
-          </div>
-        </div>
-      </FadeIn>
-    )}
-
     <!-- How to read this — translation layer for non-experts -->
     <FadeIn delay={25}>
       <div class="mb-8 p-4 rounded-xl border border-almanac-border bg-almanac-surface/50">
-        <h3 class="text-sm font-semibold mb-2" data-en="How to read predictions" data-zh="怎么看这些预测">How to read predictions</h3>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs text-almanac-muted">
+        <h3 class="text-sm font-semibold mb-2" data-en="How to read predictions" data-zh="如何解读预测">How to read predictions</h3>
+        <div class="grid sm:grid-cols-3 gap-3 text-xs text-almanac-muted">
           <div>
-            <span class="inline-block px-1.5 py-0.5 rounded border text-purple-500 border-purple-500/20 bg-purple-500/10 mb-1" data-en="MICRO" data-zh="微预测">MICRO</span>
-            <p data-en="Resolves within weeks. Specific, verifiable claims with countdown timers. These prove our system works — fast." data-zh="数周内见分晓。具体可查，有倒计时。这类预测最快验证我们的系统靠不靠谱。">Resolves within weeks. Specific, verifiable claims with countdown timers. These prove our system works — fast.</p>
+            <span class="inline-block px-1.5 py-0.5 rounded border text-almanac-amber border-almanac-amber/20 bg-almanac-amber/10 mb-1">CONTRARIAN</span>
+            <p data-en="Bets AGAINST the consensus view. A 30% contrarian prediction means we think there's a 30% chance the crowd is wrong." data-zh="与共识相反的预测。30%的逆向预测意味着我们认为大众有30%的概率判断错误。">Bets AGAINST the consensus view. A 30% contrarian prediction means we think there's a 30% chance the crowd is wrong.</p>
           </div>
           <div>
-            <span class="inline-block px-1.5 py-0.5 rounded border text-almanac-amber border-almanac-amber/20 bg-almanac-amber/10 mb-1" data-en="CONTRARIAN" data-zh="逆向预测">CONTRARIAN</span>
-            <p data-en="Bets AGAINST the consensus view. A 30% contrarian prediction means we think there's a 30% chance the crowd is wrong." data-zh="跟大多数人对着干的预测。逆向预测 30% 意思是：我们觉得大众有 30% 的概率判断错了。">Bets AGAINST the consensus view. A 30% contrarian prediction means we think there's a 30% chance the crowd is wrong.</p>
+            <span class="inline-block px-1.5 py-0.5 rounded border text-almanac-green border-almanac-green/20 bg-almanac-green/10 mb-1">CONSENSUS</span>
+            <p data-en="Aligns with the mainstream view. Higher confidence = stronger agreement with conventional wisdom." data-zh="与主流观点一致。更高的置信度 = 与传统观点更强的一致性。">Aligns with the mainstream view. Higher confidence = stronger agreement with conventional wisdom.</p>
           </div>
           <div>
-            <span class="inline-block px-1.5 py-0.5 rounded border text-almanac-green border-almanac-green/20 bg-almanac-green/10 mb-1" data-en="CONSENSUS" data-zh="共识预测">CONSENSUS</span>
-            <p data-en="Aligns with the mainstream view. Higher confidence = stronger agreement with conventional wisdom." data-zh="跟主流观点一致。置信度越高，跟大多数人站的越近。">Aligns with the mainstream view. Higher confidence = stronger agreement with conventional wisdom.</p>
-          </div>
-          <div>
-            <span class="inline-block px-1.5 py-0.5 rounded border text-blue-400 border-blue-400/20 bg-blue-400/10 mb-1" data-en="NEAR-TERM" data-zh="近期预测">NEAR-TERM</span>
-            <p data-en="Resolves within 1-2 years. These build our track record — you'll know soon if we were right or wrong." data-zh="1—2 年内见分晓。靠这些积累真实战绩——很快你就能看出我们说对了没有。">Resolves within 1-2 years. These build our track record — you'll know soon if we were right or wrong.</p>
+            <span class="inline-block px-1.5 py-0.5 rounded border text-blue-400 border-blue-400/20 bg-blue-400/10 mb-1">NEAR-TERM</span>
+            <p data-en="Resolves within 1-2 years. These build our track record — you'll know soon if we were right or wrong." data-zh="1-2年内可验证。这些建立我们的记录——你很快就会知道我们对不对。">Resolves within 1-2 years. These build our track record — you'll know soon if we were right or wrong.</p>
           </div>
         </div>
       </div>
@@ -92,30 +55,24 @@ const typeCount = {
       <div class="grid grid-cols-2 md:grid-cols-5 gap-3 mb-8">
         <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center">
           <div class="text-2xl font-bold font-mono text-almanac-accent">{total}</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Predictions" data-zh="预测条数">Predictions</div>
+          <div class="text-xs text-almanac-muted mt-1">Predictions</div>
         </div>
         <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center">
           <div class="text-2xl font-bold font-mono text-almanac-amber">{avgConfidence}%</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Avg Confidence" data-zh="平均置信度">Avg Confidence</div>
+          <div class="text-xs text-almanac-muted mt-1">Avg Confidence</div>
         </div>
         <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center">
           <div class="text-2xl font-bold font-mono text-almanac-green">{movedToday}</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Moved Today" data-zh="今日有变动">Moved Today</div>
+          <div class="text-xs text-almanac-muted mt-1">Moved Today</div>
         </div>
         <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center">
           <div class="text-2xl font-bold font-mono">{typeCount.contrarian}</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Contrarian" data-zh="逆向">Contrarian</div>
+          <div class="text-xs text-almanac-muted mt-1">Contrarian</div>
         </div>
         <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center">
           <div class="text-2xl font-bold font-mono">{typeCount.near_term}</div>
-          <div class="text-xs text-almanac-muted mt-1" data-en="Near-Term" data-zh="近期">Near-Term</div>
+          <div class="text-xs text-almanac-muted mt-1">Near-Term</div>
         </div>
-        {typeCount.micro > 0 && (
-          <div class="p-3 rounded-lg border border-purple-500/20 bg-purple-500/5 text-center">
-            <div class="text-2xl font-bold font-mono text-purple-500">{typeCount.micro}</div>
-            <div class="text-xs text-purple-500/70 mt-1" data-en="Micro (resolving soon)" data-zh="微预测（快见分晓）">Micro (resolving soon)</div>
-          </div>
-        )}
       </div>
     </FadeIn>
 
@@ -126,32 +83,28 @@ const typeCount = {
           type="text"
           id="pred-search"
           placeholder="Search predictions..."
-          data-en-placeholder="Search predictions..."
-          data-zh-placeholder="搜索预测..."
           class="flex-1 px-3 py-2 rounded-lg border border-almanac-border bg-almanac-surface text-sm focus:outline-none focus:border-almanac-accent"
         />
         <select id="pred-sort" class="px-3 py-2 rounded-lg border border-almanac-border bg-almanac-surface text-sm">
-          <option value="id" data-en="Sort: ID" data-zh="排序：编号">Sort: ID</option>
-          <option value="confidence-desc" data-en="Confidence (high first)" data-zh="置信度从高到低">Confidence (high first)</option>
-          <option value="confidence-asc" data-en="Confidence (low first)" data-zh="置信度从低到高">Confidence (low first)</option>
-          <option value="moved" data-en="Moved today first" data-zh="今日有变动的优先">Moved today first</option>
-          <option value="horizon" data-en="Horizon (nearest first)" data-zh="最近到期优先">Horizon (nearest first)</option>
-          <option value="resolving" data-en="Resolving soon first" data-zh="快见分晓的优先">Resolving soon first</option>
+          <option value="id">Sort: ID</option>
+          <option value="confidence-desc">Confidence (high first)</option>
+          <option value="confidence-asc">Confidence (low first)</option>
+          <option value="moved">Moved today first</option>
+          <option value="horizon">Horizon (nearest first)</option>
         </select>
       </div>
     </FadeIn>
 
     <!-- Category filter tabs -->
     <FadeIn delay={100}>
-      <div class="flex flex-wrap gap-1.5 sm:gap-2 mb-6 overflow-x-auto" id="category-tabs">
-        <button data-category="all" class="cat-tab px-3 py-2 sm:py-1.5 rounded-full text-xs font-medium border border-almanac-accent bg-almanac-accent/10 text-almanac-accent whitespace-nowrap" data-en={`All (${total})`} data-zh={`全部 (${total})`}>
+      <div class="flex flex-wrap gap-2 mb-6" id="category-tabs">
+        <button data-category="all" class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium border border-almanac-accent bg-almanac-accent/10 text-almanac-accent">
           All ({total})
         </button>
         {categories.map((cat: string) => {
           const count = predictions.filter((p: any) => p.category === cat).length;
-          const catZh = predictions.find((p: any) => p.category === cat)?.category_zh || cat;
           return (
-            <button data-category={cat} class="cat-tab px-3 py-2 sm:py-1.5 rounded-full text-xs font-medium border border-almanac-border text-almanac-muted hover:border-almanac-accent hover:text-almanac-accent transition-colors whitespace-nowrap" data-en={`${cat} (${count})`} data-zh={`${catZh} (${count})`}>
+            <button data-category={cat} class="cat-tab px-3 py-1.5 rounded-full text-xs font-medium border border-almanac-border text-almanac-muted hover:border-almanac-accent hover:text-almanac-accent transition-colors">
               {cat} ({count})
             </button>
           );
@@ -163,11 +116,8 @@ const typeCount = {
     <div class="space-y-2" id="predictions-list">
       {predictions.map((p: any, i: number) => {
         const delta = p.confidence - (p.previous ?? p.confidence);
-        const typeLabel = p.type === 'micro' ? 'MICRO' : p.type === 'contrarian' ? 'CONTRARIAN' : p.type === 'near_term' ? 'NEAR-TERM' : 'CONSENSUS';
-        const typeLabelZh = p.type === 'micro' ? '微预测' : p.type === 'contrarian' ? '逆向预测' : p.type === 'near_term' ? '近期预测' : '共识预测';
-        const microDaysLeft = p.resolution_date ? Math.max(0, Math.ceil((new Date(p.resolution_date).getTime() - Date.now()) / 86400000)) : null;
-        const typeColor = p.type === 'micro' ? 'text-purple-500 border-purple-500/20 bg-purple-500/10' :
-                          p.type === 'contrarian' ? 'text-almanac-amber border-almanac-amber/20 bg-almanac-amber/10' :
+        const typeLabel = p.type === 'contrarian' ? 'CONTRARIAN' : p.type === 'near_term' ? 'NEAR-TERM' : 'CONSENSUS';
+        const typeColor = p.type === 'contrarian' ? 'text-almanac-amber border-almanac-amber/20 bg-almanac-amber/10' :
                           p.type === 'near_term' ? 'text-blue-400 border-blue-400/20 bg-blue-400/10' :
                           'text-almanac-green border-almanac-green/20 bg-almanac-green/10';
         const confColor = p.confidence >= 60 ? 'text-almanac-green' : p.confidence >= 40 ? 'text-almanac-amber' : 'text-almanac-red';
@@ -181,7 +131,6 @@ const typeCount = {
             data-moved={delta !== 0 ? '1' : '0'}
             data-id={p.id}
             data-claim={p.claim.toLowerCase()}
-            data-resolution-date={p.resolution_date || '9999-12-31'}
           >
             <summary class="p-3 cursor-pointer flex items-center gap-3 list-none [&::-webkit-details-marker]:hidden">
               <!-- Confidence -->
@@ -200,13 +149,10 @@ const typeCount = {
               <div class="flex-1 min-w-0">
                 <p class="text-sm font-medium leading-snug truncate sm:whitespace-normal" data-en={p.claim} data-zh={p.claim_zh || p.claim}>{p.claim}</p>
                 <div class="flex flex-wrap items-center gap-1.5 mt-1 text-[10px]">
-                  <span class={`px-1.5 py-0.5 rounded border ${typeColor}`} data-en={typeLabel} data-zh={typeLabelZh}>{typeLabel}</span>
-                  {microDaysLeft !== null && microDaysLeft > 0 && (
-                    <span class="px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-500 border border-purple-500/20 font-mono" data-en={`${microDaysLeft}d left`} data-zh={`还剩${microDaysLeft}天`}>{microDaysLeft}d left</span>
-                  )}
+                  <span class={`px-1.5 py-0.5 rounded border ${typeColor}`}>{typeLabel}</span>
                   <span class="px-1.5 py-0.5 rounded bg-almanac-border text-almanac-muted" data-en={p.category} data-zh={p.category_zh || p.category}>{p.category}</span>
                   <span class="text-almanac-muted">{p.horizon}</span>
-                  {contested && <span class="px-1.5 py-0.5 rounded bg-red-500/10 text-red-400 border border-red-400/20" data-en="CONTESTED" data-zh="有争议">CONTESTED</span>}
+                  {contested && <span class="px-1.5 py-0.5 rounded bg-red-500/10 text-red-400 border border-red-400/20">CONTESTED</span>}
                 </div>
               </div>
 
@@ -217,83 +163,26 @@ const typeCount = {
                 </div>
               </div>
 
-              <svg class="w-5 h-5 sm:w-4 sm:h-4 text-almanac-muted flex-shrink-0 transition-transform group-open:rotate-180 p-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+              <svg class="w-4 h-4 text-almanac-muted flex-shrink-0 transition-transform group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
             </summary>
 
             <div class="px-3 pb-3 border-t border-almanac-border/50 pt-3 ml-[60px]">
-              <div class="space-y-3 text-sm">
+              <div class="space-y-2 text-sm">
                 {p.reasoning && (
                   <div>
-                    <p class="text-xs font-semibold text-almanac-accent mb-0.5" data-en="Reasoning" data-zh="推导依据">Reasoning</p>
+                    <p class="text-xs font-semibold text-almanac-accent mb-0.5" data-en="Reasoning" data-zh="推理依据">Reasoning</p>
                     <p class="text-almanac-muted" data-en={p.reasoning} data-zh={p.reasoning_zh || p.reasoning}>{p.reasoning}</p>
                   </div>
                 )}
-                {/* Confidence trajectory chart */}
-                {(() => {
-                  const traj = trajectories[p.id];
-                  if (!traj || traj.points.length < 2) return null;
-                  return (
-                    <div>
-                      <p class="text-xs font-semibold text-almanac-muted mb-1.5" data-en="Confidence trajectory" data-zh="置信度走势">Confidence trajectory</p>
-                      <TrajectoryChart
-                        points={traj.points}
-                        events={traj.events}
-                        width={280}
-                        height={60}
-                      />
-                    </div>
-                  );
-                })()}
                 {p.last_evidence && p.last_evidence !== 'No relevant signal today' && (
                   <div>
-                    <p class="text-xs font-semibold text-almanac-green mb-0.5" data-en={`Latest evidence (LR: ${p.last_lr?.toFixed(2) ?? '—'})`} data-zh={`最新证据 (LR: ${p.last_lr?.toFixed(2) ?? '—'})`}>Latest evidence (<abbr title="Likelihood Ratio: >1 = supports claim, <1 = contradicts" class="cursor-help no-underline border-b border-dotted border-almanac-muted">LR: {p.last_lr?.toFixed(2) ?? '—'}</abbr> <span class="sm:hidden text-[9px] text-almanac-muted/60">({(p.last_lr ?? 1) > 1 ? 'supports' : (p.last_lr ?? 1) < 1 ? 'contradicts' : 'neutral'})</span>)</p>
+                    <p class="text-xs font-semibold text-almanac-green mb-0.5" data-en={`Latest evidence (LR: ${p.last_lr?.toFixed(2) ?? '—'})`} data-zh={`最新证据 (LR: ${p.last_lr?.toFixed(2) ?? '—'})`}>Latest evidence (LR: {p.last_lr?.toFixed(2) ?? '—'})</p>
                     <p class="text-almanac-muted">{p.last_evidence}</p>
                   </div>
                 )}
-                {/* Evidence trail from prediction_evidence.json */}
-                {(() => {
-                  const entries = evidenceData[String(p.id)] || [];
-                  const recentSignals = entries.flatMap((e: any) => (e.signals || []).map((s: any) => ({ ...s, date: e.date, delta: e.delta })));
-                  if (recentSignals.length === 0) return null;
-                  return (
-                    <div>
-                      <p class="text-xs font-semibold text-almanac-amber mb-1" data-en="Evidence trail" data-zh="证据追踪">Evidence trail</p>
-                      <div class="space-y-1">
-                        {recentSignals.slice(0, 3).map((s: any) => (
-                          <div class="flex items-start gap-2 text-xs">
-                            <span class={`flex-shrink-0 mt-0.5 ${s.direction === 'up' ? 'text-almanac-green' : 'text-almanac-red'}`}>
-                              {s.direction === 'up' ? '↑' : '↓'}
-                            </span>
-                            <div>
-                              <span class="text-almanac-text font-medium">{s.title}</span>
-                              {s.source && <span class="text-almanac-muted"> · {s.source}</span>}
-                              {s.reasoning && <p class="text-almanac-muted mt-0.5">{s.reasoning}</p>}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  );
-                })()}
-                {/* Persona votes panel */}
-                {(() => {
-                  const predVotes = latestVotes?.votes?.[String(p.id)];
-                  if (!predVotes || Object.keys(predVotes).length === 0) return null;
-                  const medianLr = latestVotes?.median_lrs?.[String(p.id)];
-                  const isContested = Array.isArray(latestVotes?.contested) && latestVotes.contested.includes(String(p.id));
-                  return (
-                    <div>
-                      <PersonaVotes
-                        votes={predVotes}
-                        medianLr={medianLr}
-                        isContested={isContested}
-                      />
-                    </div>
-                  );
-                })()}
                 {p.resolution && (
                   <div>
-                    <p class="text-xs font-semibold text-almanac-muted mb-0.5" data-en="Resolution criteria" data-zh="怎么算验证">Resolution criteria</p>
+                    <p class="text-xs font-semibold text-almanac-muted mb-0.5" data-en="Resolution criteria" data-zh="验证标准">Resolution criteria</p>
                     <p class="text-almanac-muted text-xs" data-en={p.resolution} data-zh={p.resolution_zh || p.resolution}>{p.resolution}</p>
                   </div>
                 )}
@@ -307,18 +196,18 @@ const typeCount = {
     <!-- Methodology -->
     <FadeIn delay={200}>
       <div class="mt-10 p-5 rounded-xl border border-almanac-border bg-almanac-surface/50">
-        <h3 class="font-semibold mb-2" data-en="How prediction scoring works" data-zh="评分怎么算的">How prediction scoring works</h3>
+        <h3 class="font-semibold mb-2" data-en="How prediction scoring works" data-zh="预测评分机制">How prediction scoring works</h3>
         <div class="text-sm text-almanac-muted leading-relaxed space-y-2">
-          <p data-en="Each prediction carries a probability estimate updated daily through a structured process:" data-zh="每条预测都带一个概率值，每天通过以下流程更新：">
+          <p data-en="Each prediction carries a probability estimate updated daily through a structured process:" data-zh="每项预测的概率估计通过结构化流程每日更新：">
             Each prediction carries a probability estimate updated daily through a structured process:
           </p>
           <ol class="list-decimal list-inside space-y-1 text-xs">
-            <li data-en="Signals are scraped from 17+ sources and filtered by an LLM for relevance" data-zh="从 17+ 个数据源抓取信号，大模型过滤掉不相关的">Signals are scraped from 17+ sources and filtered by an LLM for relevance</li>
-            <li data-en="Targeted search queries (via Tavily) find prediction-specific evidence" data-zh="用定向搜索（Tavily）找跟具体预测相关的证据">Targeted search queries (via Tavily) find prediction-specific evidence</li>
-            <li data-en="An LLM estimates likelihood ratios: P(evidence | claim true) / P(evidence | claim false)" data-zh="大模型估算似然比 LR：P(证据|预测为真) / P(证据|预测为假)">An LLM estimates likelihood ratios: P(evidence | claim true) / P(evidence | claim false)</li>
-            <li data-en="Bayesian log-odds update with 0.3 dampening factor (prevents wild swings)" data-zh="Bayesian 对数赔率更新，阻尼系数 0.3，防止剧烈震荡">Bayesian log-odds update with 0.3 dampening factor (prevents wild swings)</li>
-            <li data-en="5 forecaster personas vote independently; median likelihood ratio applied as secondary adjustment" data-zh="5 个角色独立投票，取中位 LR 作为二次修正">5 forecaster personas vote independently; median likelihood ratio applied as secondary adjustment</li>
-            <li data-en="Maximum daily movement: 5 percentage points. Bounds: 3% to 97%." data-zh="单日最大变动 5 个百分点，区间锁死在 3%—97%。">Maximum daily movement: 5 percentage points. Bounds: 3% to 97%.</li>
+            <li data-en="Signals are scraped from 15+ sources and filtered by an LLM for relevance" data-zh="从15+来源抓取信号，由LLM过滤相关性">Signals are scraped from 15+ sources and filtered by an LLM for relevance</li>
+            <li data-en="Targeted search queries (via Tavily) find prediction-specific evidence" data-zh="定向搜索查询（通过Tavily）查找预测特定证据">Targeted search queries (via Tavily) find prediction-specific evidence</li>
+            <li data-en="An LLM estimates likelihood ratios: P(evidence | claim true) / P(evidence | claim false)" data-zh="LLM估算似然比：P(证据|声明为真) / P(证据|声明为假)">An LLM estimates likelihood ratios: P(evidence | claim true) / P(evidence | claim false)</li>
+            <li data-en="Bayesian log-odds update with 0.3 dampening factor (prevents wild swings)" data-zh="贝叶斯对数赔率更新，0.3阻尼因子（防止剧烈波动）">Bayesian log-odds update with 0.3 dampening factor (prevents wild swings)</li>
+            <li data-en="5 forecaster personas vote independently; median likelihood ratio applied as secondary adjustment" data-zh="5个预测员角色独立投票；中位似然比作为二次调整">5 forecaster personas vote independently; median likelihood ratio applied as secondary adjustment</li>
+            <li data-en="Maximum daily movement: 5 percentage points. Bounds: 3% to 97%." data-zh="每日最大变动：5个百分点。范围：3%至97%。">Maximum daily movement: 5 percentage points. Bounds: 3% to 97%.</li>
           </ol>
         </div>
       </div>
@@ -368,8 +257,6 @@ const typeCount = {
               return parseInt(b.dataset.moved || '0') - parseInt(a.dataset.moved || '0');
             case 'horizon':
               return (a.dataset.horizon || '9999').localeCompare(b.dataset.horizon || '9999');
-            case 'resolving':
-              return (a.dataset.resolutionDate || '9999-12-31').localeCompare(b.dataset.resolutionDate || '9999-12-31');
             default:
               return parseInt(a.dataset.id || '0') - parseInt(b.dataset.id || '0');
           }
