@@ -1,5 +1,19 @@
 {
-  "1": [],
+  "1": [
+    {
+      "date": "2026-03-25",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "Developer \"AI Fatigue\" Hits the Mainstream",
+          "url": null,
+          "source": "Blog",
+          "direction": "up",
+          "reasoning": "The viral traction of developers expressing fatigue supports the thesis that AI coding tools are entering a normalization plateau."
+        }
+      ]
+    }
+  ],
   "2": [],
   "3": [],
   "4": [
@@ -59,7 +73,21 @@
       ]
     }
   ],
-  "12": [],
+  "12": [
+    {
+      "date": "2026-03-25",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Multi-Model Debate Orchestration (AI Roundtable)",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "The launch of AI Roundtable accelerates model commoditization, making it trivial for developers to swap to non-US models for better performance or lower costs."
+        }
+      ]
+    }
+  ],
   "13": [],
   "14": [],
   "15": [],
@@ -177,10 +205,37 @@
           "reasoning": "ReqFusion formalizes and automates requirements engineering across major LLM providers, shifting developer focus away from writing code directly."
         }
       ]
+    },
+    {
+      "date": "2026-03-25",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "The Flight to Fundamentals and Domain Logic",
+          "url": null,
+          "source": "Social/Viral Narrative",
+          "direction": "up",
+          "reasoning": "A developer taking a physical technician job illustrates how high-fidelity requirement gathering is becoming the ultimate premium skill over raw code syntax generation."
+        }
+      ]
     }
   ],
   "35": [],
-  "36": [],
+  "36": [
+    {
+      "date": "2026-03-25",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "The Flight to Fundamentals and Domain Logic",
+          "url": null,
+          "source": "Developer Resources",
+          "direction": "up",
+          "reasoning": "The intense focus on compiler writing and using Lean's type system validates the growing chasm between low-level systems expertise and automated web development."
+        }
+      ]
+    }
+  ],
   "37": [],
   "38": [],
   "39": [],
@@ -188,7 +243,21 @@
   "41": [],
   "42": [],
   "43": [],
-  "44": [],
+  "44": [
+    {
+      "date": "2026-03-25",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "TurboQuant and the AI Compression Era",
+          "url": null,
+          "source": "Google Research",
+          "direction": "up",
+          "reasoning": "Google's TurboQuant research on extreme AI compression directly contributes to the technological breakthroughs required to crater inference and token costs."
+        }
+      ]
+    }
+  ],
   "45": [],
   "46": [],
   "47": [],
