@@ -24,10 +24,10 @@ const totalPreds = loadPredictions().length;
             <span class="w-1.5 h-6 rounded-full bg-almanac-accent"></span>
             <span data-en="What This Is" data-zh="这东西是干嘛的">What This Is</span>
           </h2>
-          <p class="text-almanac-muted leading-relaxed" data-en={`Almanac is an AI-powered forecasting system that tracks how software engineering is changing over the next 3-30 years. Every day, our pipeline scrapes 17+ data sources, filters hundreds of signals through tiered AI models, and produces a confidence-scored forecast. We track ${totalPreds} specific, falsifiable predictions and update them daily using Bayesian likelihood ratio analysis with a 5-persona forecaster panel.`} data-zh={`Almanac 是一套大模型驱动的预测系统，专门追踪软件工程在未来 3—30 年的走向。每天流水线自动爬取 17+ 个数据源，用分层大模型从数百条信号里筛出有价值的东西，输出带置信度的预测。我们维护 ${totalPreds} 条具体、可证伪的预测，每天用 Bayesian 似然比分析 + 5 人角色面板同步更新。`}>
+          <p class="text-almanac-muted leading-relaxed" data-en={`Almanac is an AI-powered forecasting system that tracks how software engineering is changing over the next 3-30 years. Every day, our pipeline scrapes 17+ data sources, filters hundreds of signals through tiered AI models, and produces a confidence-scored forecast. We track ${totalPreds} specific, falsifiable predictions and update them daily using Bayesian likelihood ratio analysis with a 10-persona forecaster panel.`} data-zh={`Almanac 是一套大模型驱动的预测系统，专门追踪软件工程在未来 3—30 年的走向。每天流水线自动爬取 17+ 个数据源，用分层大模型从数百条信号里筛出有价值的东西，输出带置信度的预测。我们维护 ${totalPreds} 条具体、可证伪的预测，每天用 Bayesian 似然比分析 + 5 人角色面板同步更新。`}>
             Almanac is an AI-powered forecasting system that tracks how software engineering is changing over the next 3-30 years.
             Every day, our pipeline scrapes 17+ data sources, filters hundreds of signals through tiered AI models, and produces
-            a confidence-scored forecast. We track {totalPreds} specific, falsifiable predictions and update them daily using Bayesian likelihood ratio analysis with a 5-persona forecaster panel.
+            a confidence-scored forecast. We track {totalPreds} specific, falsifiable predictions and update them daily using Bayesian likelihood ratio analysis with a 10-persona forecaster panel.
           </p>
         </div>
 
@@ -55,7 +55,7 @@ const totalPreds = loadPredictions().length;
               <ul class="text-almanac-muted space-y-1">
                 <li data-en={`${totalPreds} SWE-specific predictions`} data-zh={`${totalPreds}条软件工程专属预测`}>{totalPreds} SWE-specific predictions</li>
                 <li data-en="Daily automated Bayesian updates" data-zh="每日自动 Bayesian 更新">Daily automated Bayesian updates</li>
-                <li data-en="5-persona panel with evidence trails" data-zh="5角色面板 + 完整证据链">5-persona panel with evidence trails</li>
+                <li data-en="10-persona panel with evidence trails" data-zh="10角色面板 + 完整证据链">10-persona panel with evidence trails</li>
                 <li data-en="Free, open methodology" data-zh="免费，方法论完全公开">Free, open methodology</li>
               </ul>
             </div>
@@ -121,7 +121,7 @@ const totalPreds = loadPredictions().length;
                 num: "04",
                 title: "Prediction Update",
                 titleZh: "预测更新",
-                desc: `Each of our ${totalPreds} standing predictions is evaluated against the day's evidence via Bayesian likelihood ratio analysis. A 5-persona forecaster panel votes independently. Confidence can move up to +/-5 percentage points per day. All movements are logged with evidence trails.`,
+                desc: `Each of our ${totalPreds} standing predictions is evaluated against the day's evidence via Bayesian likelihood ratio analysis. A 10-persona forecaster panel votes independently. Confidence can move up to +/-5 percentage points per day. All movements are logged with evidence trails.`,
                 descZh: `${totalPreds} 条在跑预测逐一用 Bayesian 似然比分析对照当天证据。5 个角色独立投票，互不干扰。置信度单日最多动 +/-5 个百分点，每次变动都有证据链存档。`,
                 color: "accent"
               },
@@ -155,12 +155,12 @@ const totalPreds = loadPredictions().length;
       </div>
     </FadeIn>
 
-    <!-- The 5 Forecaster Personas -->
+    <!-- The 10 Forecaster Personas -->
     <FadeIn delay={250}>
       <div class="mt-16">
-        <h2 class="text-2xl font-bold mb-3" data-en="The 5 Forecaster Personas" data-zh="5 个预测角色">The 5 Forecaster Personas</h2>
-        <p class="text-sm text-almanac-muted mb-6" data-en="Each prediction is independently evaluated by 5 AI personas with different worldviews. The median likelihood ratio is used — no single perspective dominates." data-zh="每条预测由 5 个世界观各异的大模型角色独立评估，取中位似然比——任何单一视角都不能一手遮天。">
-          Each prediction is independently evaluated by 5 AI personas with different worldviews. The median likelihood ratio is used — no single perspective dominates.
+        <h2 class="text-2xl font-bold mb-3" data-en="The 10 Forecaster Personas" data-zh="10 个预测角色">The 10 Forecaster Personas</h2>
+        <p class="text-sm text-almanac-muted mb-6" data-en="Each prediction is independently evaluated by 10 AI personas with different worldviews. The median likelihood ratio is used — no single perspective dominates." data-zh="每条预测由 10 个世界观各异的大模型角色独立评估，取中位似然比——任何单一视角都不能一手遮天。">
+          Each prediction is independently evaluated by 10 AI personas with different worldviews. The median likelihood ratio is used — no single perspective dominates.
         </p>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {[
@@ -169,6 +169,11 @@ const totalPreds = loadPredictions().length;
             { name: "Security Hawk", nameZh: "安全鹰派", icon: "🛡", desc: "Highlights risks, vulnerabilities, and regulatory responses to AI-generated code.", descZh: "专门挑 AI 生成代码的毛病：漏洞、风险、监管反弹。", color: "red" },
             { name: "Contrarian", nameZh: "杠精", icon: "⚡", desc: "Systematically challenges consensus. Asks 'what if the opposite happens?'", descZh: "系统性地跟共识对着干，专问「要是反过来呢？」", color: "accent" },
             { name: "Base Rate Empiricist", nameZh: "基率经验派", icon: "📈", desc: "Anchors on historical base rates. Skeptical of 'this time is different' narratives.", descZh: "死扣历史基准率，对「这次不一样」的说法一律保持怀疑。", color: "muted" },
+            { name: "Startup Founder", nameZh: "创业者视角", icon: "💡", desc: "Bullish on disruption speed. Weights funding/valuation signals. Believes incumbents are slow.", descZh: "看好颠覆速度，重视融资/估值信号，觉得大公司总是慢半拍。", color: "green" },
+            { name: "Enterprise Architect", nameZh: "企业架构师", icon: "🏢", desc: "Conservative on adoption timelines. Knows procurement cycles take 18-24 months. Demo ≠ deployed.", descZh: "对企业采用时间线保守。采购周期18-24个月，Demo ≠ 落地。", color: "amber" },
+            { name: "Open Source Advocate", nameZh: "开源倡导者", icon: "🌐", desc: "Bullish on community-driven development. Believes open-source always wins long-term.", descZh: "看好社区驱动开发。长期来看开源总是赢家——生态效应和开发者偏好决定一切。", color: "accent" },
+            { name: "Regulatory Watcher", nameZh: "监管观察者", icon: "⚖️", desc: "Believes regulation is coming faster than industry expects. EU AI Act, liability trends.", descZh: "认为监管来得比行业预期更快。重点关注 EU AI Act、责任归属趋势。", color: "red" },
+            { name: "Developer Educator", nameZh: "开发者教育者", icon: "🎓", desc: "Focused on skills, bootcamps, CS enrollment. Believes talent pipeline adapts faster than pessimists predict.", descZh: "关注技能培养、训练营、CS招生。相信人才管道的适应速度比悲观者预期的更快。", color: "muted" },
           ].map((p) => {
             const cm = { green: "border-almanac-green/30 bg-almanac-green/5", amber: "border-almanac-amber/30 bg-almanac-amber/5", red: "border-almanac-red/30 bg-almanac-red/5", accent: "border-almanac-accent/30 bg-almanac-accent/5", muted: "border-almanac-border bg-almanac-surface" } as any;
             return (

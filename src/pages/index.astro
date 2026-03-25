@@ -251,7 +251,7 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
       </a>
       <span class="flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5 text-almanac-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-        <span data-en="5 AI personas (not humans) with different worldviews challenge each prediction" data-zh="5个AI角色独立评估，不是一个模型一言堂">5 AI personas (not humans) with different worldviews challenge each prediction</span>
+        <span data-en="10 AI personas (not humans) with different worldviews assess each prediction" data-zh="10个AI角色独立评估，不是一个模型一言堂">10 AI personas (not humans) with different worldviews assess each prediction</span>
       </span>
       <span class="flex items-center gap-1.5">
         <svg class="w-3.5 h-3.5 text-almanac-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
@@ -485,7 +485,7 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
         {[
           { num: "01", title: "Ingest", titleZh: "抓数据", desc: "AI agents scrape 17+ sources — arXiv, Hacker News, job boards, GitHub, RSS feeds, Reddit, prediction markets.", descZh: "每天自动抓取 17+ 数据源——arXiv、HN、招聘网站、GitHub、RSS、Reddit、预测市场，一个不漏。" },
           { num: "02", title: "Analyze", titleZh: "提信号", desc: "Signals filtered and synthesized. Every claim source-linked. Every prediction gets a confidence score with likelihood ratios.", descZh: "过滤噪音、提取信号。每个结论都带来源链接，每项预测附 likelihood ratio。" },
-          { num: "03", title: "Forecast", titleZh: "出预测", desc: "Bayesian updates with 0.3 dampening. 5 AI personas with different worldviews vote independently. Max 5pp daily move.", descZh: "Bayesian 更新，0.3 dampening。5个AI角色独立投票，每天最多动5个百分点。" },
+          { num: "03", title: "Forecast", titleZh: "出预测", desc: "Bayesian updates with 0.3 dampening. 10 AI personas with different worldviews vote independently. Max 5pp daily move.", descZh: "Bayesian 更新，0.3 dampening。10个AI角色独立投票，每天最多动5个百分点。" },
         ].map((step, i) => (
           <div class="relative z-10 text-center px-6 py-4">
             <div class="w-20 h-20 mx-auto mb-4 rounded-2xl border border-almanac-border bg-almanac-surface flex items-center justify-center group-hover:border-almanac-accent transition-colors">
