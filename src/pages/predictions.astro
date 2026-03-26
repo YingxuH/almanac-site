@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import FadeIn from '../components/FadeIn.astro';
+import DisagreeButton from '../components/DisagreeButton.astro';
 import { loadPredictions } from '../lib/data';
 
 const predictions = loadPredictions();
@@ -180,6 +181,7 @@ const typeCount = {
                     <p class="text-almanac-muted">{p.last_evidence}</p>
                   </div>
                 )}
+                <DisagreeButton predictionId={p.id} almanacConfidence={p.confidence} claim={p.claim} />
                 {p.resolution && (
                   <div>
                     <p class="text-xs font-semibold text-almanac-muted mb-0.5" data-en="Resolution criteria" data-zh="验证标准">Resolution criteria</p>

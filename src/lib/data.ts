@@ -39,6 +39,10 @@ export function loadPersonaVotes(): Record<string, any> {
   return loadJSON('persona_votes.json', {});
 }
 
+export function loadSiteMeta(): any {
+  return loadJSON('site_meta.json', { days_live: 7, total_pipeline_runs: 7, predictions_count: 55, total_signals_processed: 1400 });
+}
+
 export function loadPredictionTrajectories(): Record<number, { points: { date: string; confidence: number }[]; events: any[] }> {
   try {
     const history = loadJSON('prediction_history.json', []);

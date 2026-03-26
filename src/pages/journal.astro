@@ -1,0 +1,231 @@
+---
+import Base from '../layouts/Base.astro';
+import FadeIn from '../components/FadeIn.astro';
+---
+<Base title="Your Prediction Journal — Almanac">
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+
+    <FadeIn>
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-2" data-en="Your Prediction Journal" data-zh="你的预测日记">Your Prediction Journal</h1>
+        <p class="text-almanac-muted" data-en="Every time you agree or disagree with a prediction, your estimate is saved here. Track how your views compare to the Almanac over time." data-zh="每次你对预测表示同意或不同意时，你的估计会保存在这里。追踪你的观点与 Almanac 的差距。">
+          Every time you agree or disagree with a prediction, your estimate is saved here. Track how your views compare to the Almanac over time.
+        </p>
+      </div>
+    </FadeIn>
+
+    <!-- Empty state -->
+    <div id="journal-empty" class="hidden">
+      <FadeIn delay={50}>
+        <div class="text-center py-20 rounded-xl border border-dashed border-almanac-border">
+          <div class="text-4xl mb-4">&#128221;</div>
+          <h2 class="text-lg font-semibold mb-2" data-en="No entries yet" data-zh="还没有记录">No entries yet</h2>
+          <p class="text-almanac-muted text-sm max-w-sm mx-auto mb-6"
+            data-en="Head over to the Predictions page and hit Agree or Disagree on any prediction to start building your journal."
+            data-zh="前往预测页面，对任意预测点击「同意」或「不同意」，开始记录你的观点。">
+            Head over to the Predictions page and hit Agree or Disagree on any prediction to start building your journal.
+          </p>
+          <a href="/almanac-site/predictions"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-almanac-accent text-white text-sm font-medium hover:opacity-90 transition-opacity">
+            <span data-en="Go to Predictions" data-zh="前往预测">Go to Predictions</span>
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          </a>
+        </div>
+      </FadeIn>
+    </div>
+
+    <!-- Journal content (shown when there are entries) -->
+    <div id="journal-content" class="hidden">
+
+      <!-- Summary stats -->
+      <FadeIn delay={25}>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8" id="journal-stats">
+          <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center">
+            <div class="text-2xl font-bold font-mono text-almanac-accent" id="stat-count">0</div>
+            <div class="text-xs text-almanac-muted mt-1" data-en="Predictions voted" data-zh="已投票预测">Predictions voted</div>
+          </div>
+          <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center">
+            <div class="text-2xl font-bold font-mono text-almanac-green" id="stat-aligned">0</div>
+            <div class="text-xs text-almanac-muted mt-1" data-en="Within 10pp" data-zh="误差在10pp内">Within 10pp</div>
+          </div>
+          <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center">
+            <div class="text-2xl font-bold font-mono text-almanac-amber" id="stat-avg-delta">—</div>
+            <div class="text-xs text-almanac-muted mt-1" data-en="Avg delta" data-zh="平均偏差">Avg delta</div>
+          </div>
+          <div class="p-3 rounded-lg border border-almanac-border bg-almanac-surface text-center">
+            <div class="text-2xl font-bold font-mono" id="stat-alignment-score">—</div>
+            <div class="text-xs text-almanac-muted mt-1" data-en="Alignment score" data-zh="一致性得分">Alignment score</div>
+          </div>
+        </div>
+      </FadeIn>
+
+      <!-- Alignment score explainer -->
+      <FadeIn delay={50}>
+        <div class="mb-6 p-3 rounded-lg border border-almanac-border bg-almanac-surface/50 text-xs text-almanac-muted" id="alignment-explainer">
+          <span class="font-semibold text-almanac-text" data-en="Alignment score: " data-zh="一致性得分：">Alignment score: </span>
+          <span data-en="100 minus your average absolute delta vs Almanac. 100 = perfect match. 80+ = close thinker. Below 60 = you're a contrarian (not a bad thing!)."
+                data-zh="100 减去你与 Almanac 的平均绝对偏差。100 = 完全一致。80+ = 接近。低于 60 = 你是个逆向思考者（这不是坏事！）。">
+            100 minus your average absolute delta vs Almanac. 100 = perfect match. 80+ = close thinker. Below 60 = you're a contrarian (not a bad thing!).
+          </span>
+        </div>
+      </FadeIn>
+
+      <!-- Table -->
+      <FadeIn delay={75}>
+        <div class="rounded-xl border border-almanac-border overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="border-b border-almanac-border bg-almanac-surface">
+                  <th class="px-4 py-3 text-left text-xs font-semibold text-almanac-muted" data-en="Prediction" data-zh="预测">Prediction</th>
+                  <th class="px-3 py-3 text-right text-xs font-semibold text-almanac-muted whitespace-nowrap" data-en="Your %" data-zh="你的%">Your %</th>
+                  <th class="px-3 py-3 text-right text-xs font-semibold text-almanac-muted whitespace-nowrap" data-en="Almanac %" data-zh="Almanac%">Almanac %</th>
+                  <th class="px-3 py-3 text-right text-xs font-semibold text-almanac-muted whitespace-nowrap" data-en="Delta" data-zh="差值">Delta</th>
+                  <th class="px-3 py-3 text-right text-xs font-semibold text-almanac-muted whitespace-nowrap" data-en="Date" data-zh="日期">Date</th>
+                  <th class="px-3 py-3 text-center text-xs font-semibold text-almanac-muted"></th>
+                </tr>
+              </thead>
+              <tbody id="journal-tbody">
+                <!-- Filled by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </FadeIn>
+
+      <!-- Clear all -->
+      <FadeIn delay={100}>
+        <div class="mt-6 text-right">
+          <button id="clear-journal-btn"
+            class="text-xs text-almanac-muted hover:text-almanac-red transition-colors underline cursor-pointer"
+            data-en="Clear all journal entries" data-zh="清除所有记录">
+            Clear all journal entries
+          </button>
+        </div>
+      </FadeIn>
+    </div>
+
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'almanac-journal';
+
+    function getJournal(): any[] {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+      catch { return []; }
+    }
+
+    function formatDate(iso: string): string {
+      try {
+        const d = new Date(iso);
+        return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+      } catch { return '—'; }
+    }
+
+    function deltaClass(delta: number): string {
+      const abs = Math.abs(delta);
+      if (abs <= 5)  return 'text-almanac-green';
+      if (abs <= 20) return 'text-almanac-amber';
+      return 'text-almanac-red';
+    }
+
+    function renderJournal() {
+      const journal = getJournal();
+      const empty   = document.getElementById('journal-empty')!;
+      const content = document.getElementById('journal-content')!;
+
+      if (journal.length === 0) {
+        empty.classList.remove('hidden');
+        content.classList.add('hidden');
+        return;
+      }
+
+      empty.classList.add('hidden');
+      content.classList.remove('hidden');
+
+      // Stats
+      const count = journal.length;
+      const deltas = journal.map((e: any) => e.userConf - e.almanacConf);
+      const absDeltas = deltas.map((d: number) => Math.abs(d));
+      const avgAbsDelta = absDeltas.reduce((a: number, b: number) => a + b, 0) / count;
+      const alignmentScore = Math.round(100 - avgAbsDelta);
+      const withinTen = absDeltas.filter((d: number) => d <= 10).length;
+
+      const scoreColor = alignmentScore >= 80 ? 'text-almanac-green' :
+                         alignmentScore >= 60 ? 'text-almanac-amber' : 'text-almanac-red';
+
+      document.getElementById('stat-count')!.textContent = String(count);
+      document.getElementById('stat-aligned')!.textContent = String(withinTen);
+      document.getElementById('stat-avg-delta')!.textContent = avgAbsDelta.toFixed(1) + 'pp';
+
+      const scoreEl = document.getElementById('stat-alignment-score')!;
+      scoreEl.textContent = String(alignmentScore);
+      scoreEl.className = `text-2xl font-bold font-mono ${scoreColor}`;
+
+      // Table
+      const tbody = document.getElementById('journal-tbody')!;
+      tbody.innerHTML = '';
+
+      // Sort newest first
+      const sorted = [...journal].sort((a: any, b: any) =>
+        new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+      );
+
+      sorted.forEach((entry: any) => {
+        const delta = entry.userConf - entry.almanacConf;
+        const sign  = delta >= 0 ? '+' : '';
+        const dc    = deltaClass(delta);
+        const tr = document.createElement('tr');
+        tr.className = 'border-b border-almanac-border/50 hover:bg-almanac-surface/50 transition-colors';
+        tr.innerHTML = `
+          <td class="px-4 py-3 text-xs text-almanac-text leading-snug max-w-xs">
+            <span class="line-clamp-2">${escHtml(entry.claim)}</span>
+            <span class="text-[10px] text-almanac-muted font-mono">#${entry.id}</span>
+          </td>
+          <td class="px-3 py-3 text-right font-mono font-bold text-almanac-accent text-sm">${entry.userConf}%</td>
+          <td class="px-3 py-3 text-right font-mono text-almanac-muted text-sm">${entry.almanacConf}%</td>
+          <td class="px-3 py-3 text-right font-mono text-sm ${dc}">${sign}${delta}pp</td>
+          <td class="px-3 py-3 text-right text-xs text-almanac-muted whitespace-nowrap">${formatDate(entry.timestamp)}</td>
+          <td class="px-3 py-3 text-center">
+            <button class="delete-entry-btn text-[10px] text-almanac-muted hover:text-almanac-red transition-colors cursor-pointer" data-id="${entry.id}">&#10005;</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      // Delete individual row
+      tbody.querySelectorAll<HTMLElement>('.delete-entry-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = parseInt(btn.dataset.id || '0');
+          const updated = getJournal().filter((e: any) => e.id !== id);
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+          renderJournal();
+        });
+      });
+    }
+
+    function escHtml(str: string): string {
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    function init() {
+      renderJournal();
+      const clearBtn = document.getElementById('clear-journal-btn');
+      if (clearBtn) {
+        clearBtn.addEventListener('click', () => {
+          const lang = document.documentElement.getAttribute('data-lang') || 'en';
+          const msg = lang === 'zh' ? '确认清除所有预测日记记录？' : 'Clear all journal entries? This cannot be undone.';
+          if (confirm(msg)) {
+            localStorage.removeItem(STORAGE_KEY);
+            renderJournal();
+          }
+        });
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('astro:page-load', init);
+  </script>
+
+</Base>

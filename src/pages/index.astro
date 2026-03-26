@@ -10,13 +10,15 @@ import GlowCard from '../components/GlowCard.astro';
 import FadeIn from '../components/FadeIn.astro';
 import ConfidenceGauge from '../components/ConfidenceGauge.astro';
 import LivePulse from '../components/LivePulse.astro';
-import { loadPredictions, loadPredictionTrajectories } from '../lib/data';
+import { loadPredictions, loadPredictionTrajectories, loadSiteMeta } from '../lib/data';
+import SocialProof from '../components/SocialProof.astro';
 import TrajectoryChart from '../components/TrajectoryChart.astro';
 import fs from 'node:fs';
 import path from 'node:path';
 
 const allPreds = loadPredictions();
 const trajectories = loadPredictionTrajectories();
+const siteMeta = loadSiteMeta();
 
 // Dynamic career stats from predictions.json
 const findPred = (id: number) => allPreds.find((p: any) => p.id === id);
@@ -259,6 +261,12 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
       </span>
     </div>
   </div>
+
+  <!-- Social proof — operational credibility metrics, below trust bar -->
+  <SocialProof
+    pipelineRuns={siteMeta.total_pipeline_runs}
+    signalsProcessed={siteMeta.total_signals_processed}
+  />
 
   <!-- Micro-prediction countdown banner — prominent, above career section -->
   {nearestMicro && (

@@ -1,0 +1,193 @@
+---
+interface Props {
+  predictionId: number;
+  almanacConfidence: number;
+  claim: string;
+}
+const { predictionId, almanacConfidence, claim } = Astro.props;
+---
+
+<div
+  class="disagree-widget mt-3 pt-3 border-t border-almanac-border/50"
+  data-pid={predictionId}
+  data-almanac-conf={almanacConfidence}
+  data-claim={claim}
+>
+  <!-- Initial vote buttons -->
+  <div class="vote-buttons flex items-center gap-2 flex-wrap">
+    <span class="text-xs text-almanac-muted" data-en="Your take:" data-zh="你的判断：">Your take:</span>
+    <button
+      class="vote-btn agree-btn inline-flex items-center gap-1 px-2.5 py-1 rounded-md border border-almanac-border bg-almanac-surface hover:border-almanac-green hover:text-almanac-green text-xs text-almanac-muted transition-colors cursor-pointer"
+      data-vote="agree"
+    >
+      <span>&#128077;</span>
+      <span data-en="Agree" data-zh="同意">Agree</span>
+    </button>
+    <button
+      class="vote-btn disagree-btn inline-flex items-center gap-1 px-2.5 py-1 rounded-md border border-almanac-border bg-almanac-surface hover:border-almanac-red hover:text-almanac-red text-xs text-almanac-muted transition-colors cursor-pointer"
+      data-vote="disagree"
+    >
+      <span>&#128078;</span>
+      <span data-en="Disagree" data-zh="不同意">Disagree</span>
+    </button>
+  </div>
+
+  <!-- Slider panel (hidden until a vote button is clicked) -->
+  <div class="slider-panel hidden mt-2">
+    <div class="flex items-center gap-2 flex-wrap">
+      <span class="text-xs text-almanac-muted" data-en="Your confidence:" data-zh="你的置信度：">Your confidence:</span>
+      <span class="conf-preview text-xs font-mono font-bold text-almanac-accent">50%</span>
+    </div>
+    <div class="flex items-center gap-2 mt-1.5">
+      <span class="text-[10px] text-almanac-muted">3%</span>
+      <input
+        type="range"
+        min="3"
+        max="97"
+        value="50"
+        class="conf-slider flex-1 h-1.5 appearance-none rounded-full bg-almanac-border cursor-pointer accent-[var(--color-almanac-accent)]"
+      />
+      <span class="text-[10px] text-almanac-muted">97%</span>
+      <button
+        class="save-btn ml-1 px-2.5 py-1 rounded-md bg-almanac-accent text-white text-xs font-medium hover:opacity-90 transition-opacity cursor-pointer"
+        data-en="Save" data-zh="保存"
+      >Save</button>
+    </div>
+  </div>
+
+  <!-- Result display (shown after saving or when already voted) -->
+  <div class="result-display hidden items-center gap-2 flex-wrap text-xs">
+    <span class="result-text text-almanac-muted"></span>
+    <button
+      class="revote-btn text-[10px] text-almanac-muted underline hover:text-almanac-text transition-colors cursor-pointer"
+      data-en="Change" data-zh="修改"
+    >Change</button>
+  </div>
+</div>
+
+<script>
+  // Re-run on every navigation since Astro may reuse DOM
+  function initDisagreeWidgets() {
+    document.querySelectorAll<HTMLElement>('.disagree-widget').forEach(widget => {
+      // Guard: only init once per widget instance
+      if (widget.dataset.initialized === '1') return;
+      widget.dataset.initialized = '1';
+
+      const pid = parseInt(widget.dataset.pid || '0');
+      const almanacConf = parseInt(widget.dataset.almanacConf || '50');
+      const claim = widget.dataset.claim || '';
+
+      const voteButtons = widget.querySelector<HTMLElement>('.vote-buttons')!;
+      const sliderPanel = widget.querySelector<HTMLElement>('.slider-panel')!;
+      const resultDisplay = widget.querySelector<HTMLElement>('.result-display')!;
+      const resultText = widget.querySelector<HTMLElement>('.result-text')!;
+      const slider = widget.querySelector<HTMLInputElement>('.conf-slider')!;
+      const confPreview = widget.querySelector<HTMLElement>('.conf-preview')!;
+      const saveBtn = widget.querySelector<HTMLElement>('.save-btn')!;
+      const revoteBtn = widget.querySelector<HTMLElement>('.revote-btn')!;
+      const agreeBtns = widget.querySelectorAll<HTMLElement>('.vote-btn');
+
+      const STORAGE_KEY = 'almanac-journal';
+
+      function getJournal(): any[] {
+        try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+        catch { return []; }
+      }
+
+      function saveJournal(journal: any[]) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(journal));
+      }
+
+      function getEntry() {
+        return getJournal().find((e: any) => e.id === pid) || null;
+      }
+
+      function renderResult(userConf: number) {
+        const delta = userConf - almanacConf;
+        const sign = delta > 0 ? '+' : '';
+        const deltaColor = Math.abs(delta) <= 5 ? 'text-almanac-green' :
+                           Math.abs(delta) <= 20 ? 'text-almanac-amber' : 'text-almanac-red';
+
+        // Build result string respecting current lang
+        const lang = document.documentElement.getAttribute('data-lang') || 'en';
+        if (lang === 'zh') {
+          resultText.innerHTML =
+            `你的估计：<span class="font-mono font-bold text-almanac-accent">${userConf}%</span>` +
+            ` 对比 Almanac：<span class="font-mono font-bold">${almanacConf}%</span>` +
+            ` <span class="font-mono ${deltaColor}">(${sign}${delta}pp)</span>`;
+        } else {
+          resultText.innerHTML =
+            `Your estimate: <span class="font-mono font-bold text-almanac-accent">${userConf}%</span>` +
+            ` vs Almanac: <span class="font-mono font-bold">${almanacConf}%</span>` +
+            ` <span class="font-mono ${deltaColor}">(${sign}${delta}pp)</span>`;
+        }
+
+        voteButtons.classList.add('hidden');
+        sliderPanel.classList.add('hidden');
+        resultDisplay.classList.remove('hidden');
+        resultDisplay.classList.add('flex');
+      }
+
+      function showSlider(suggestedConf: number) {
+        slider.value = String(suggestedConf);
+        confPreview.textContent = suggestedConf + '%';
+        voteButtons.classList.add('hidden');
+        sliderPanel.classList.remove('hidden');
+      }
+
+      // Check for existing entry on mount
+      const existing = getEntry();
+      if (existing) {
+        renderResult(existing.userConf);
+      }
+
+      // Vote button clicks
+      agreeBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const vote = btn.dataset.vote;
+          // Suggest a default slider value based on agree/disagree
+          const suggested = vote === 'agree'
+            ? Math.min(97, Math.max(3, almanacConf))
+            : Math.min(97, Math.max(3, 100 - almanacConf));
+          showSlider(suggested);
+        });
+      });
+
+      // Live slider preview
+      slider.addEventListener('input', () => {
+        confPreview.textContent = slider.value + '%';
+      });
+
+      // Save
+      saveBtn.addEventListener('click', () => {
+        const userConf = parseInt(slider.value);
+        const journal = getJournal();
+        const idx = journal.findIndex((e: any) => e.id === pid);
+        const entry = {
+          id: pid,
+          userConf,
+          almanacConf,
+          claim,
+          timestamp: new Date().toISOString(),
+        };
+        if (idx >= 0) journal[idx] = entry;
+        else journal.push(entry);
+        saveJournal(journal);
+        renderResult(userConf);
+      });
+
+      // Revote — go back to vote buttons
+      revoteBtn.addEventListener('click', () => {
+        resultDisplay.classList.add('hidden');
+        resultDisplay.classList.remove('flex');
+        voteButtons.classList.remove('hidden');
+        widget.dataset.initialized = '0'; // allow re-init if needed
+        widget.dataset.initialized = '1';
+      });
+    });
+  }
+
+  // Fire on load and on Astro client-side navigation
+  document.addEventListener('DOMContentLoaded', initDisagreeWidgets);
+  document.addEventListener('astro:page-load', initDisagreeWidgets);
+</script>
