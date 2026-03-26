@@ -44,15 +44,20 @@ const { title, description = "The modern almanac for an uncertain future. AI-pow
         <span class="text-almanac-accent">A</span>lmanac
       </a>
 
-      <!-- Desktop nav -->
+      <!-- Desktop nav — 5 primary items + More dropdown -->
       <div class="hidden sm:flex items-center gap-5 text-sm text-almanac-muted">
         <a href="/almanac-site/forecast" class="hover:text-almanac-text transition" data-en="Forecast" data-zh="今日预测">Forecast</a>
         <a href="/almanac-site/predictions" class="hover:text-almanac-text transition" data-en="Predictions" data-zh="预测追踪">Predictions</a>
-        <a href="/almanac-site/dashboard" class="hover:text-almanac-text transition" data-en="Dashboard" data-zh="数据看板">Dashboard</a>
-        <a href="/almanac-site/archive" class="hover:text-almanac-text transition" data-en="Archive" data-zh="历史">Archive</a>
-        <a href="/almanac-site/about" class="hover:text-almanac-text transition" data-en="About" data-zh="关于">About</a>
-        <a href="/almanac-site/validation" class="hover:text-almanac-text transition" data-en="Validation" data-zh="准确率">Validation</a>
         <a href="/almanac-site/journal" class="hover:text-almanac-text transition" data-en="Journal" data-zh="预测日记">Journal</a>
+        <a href="/almanac-site/about" class="hover:text-almanac-text transition" data-en="About" data-zh="关于">About</a>
+        <div class="relative group">
+          <button class="hover:text-almanac-text transition" data-en="More" data-zh="更多">More</button>
+          <div class="absolute top-full right-0 mt-1 py-2 bg-almanac-surface border border-almanac-border rounded-lg shadow-lg hidden group-hover:block min-w-[140px] z-50">
+            <a href="/almanac-site/validation" class="block px-4 py-1.5 text-sm hover:text-almanac-text hover:bg-almanac-bg transition" data-en="Validation" data-zh="准确率">Validation</a>
+            <a href="/almanac-site/dashboard" class="block px-4 py-1.5 text-sm hover:text-almanac-text hover:bg-almanac-bg transition" data-en="Dashboard" data-zh="数据看板">Dashboard</a>
+            <a href="/almanac-site/archive" class="block px-4 py-1.5 text-sm hover:text-almanac-text hover:bg-almanac-bg transition" data-en="Archive" data-zh="历史">Archive</a>
+          </div>
+        </div>
         <button id="lang-toggle" aria-label="Toggle language"
           class="w-9 h-9 flex items-center justify-center rounded-lg border border-almanac-border hover:border-almanac-muted bg-almanac-surface transition-all cursor-pointer text-[10px] font-bold tracking-wider">
           <span id="lang-label" class="text-almanac-accent">EN</span>

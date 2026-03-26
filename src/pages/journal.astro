@@ -94,9 +94,14 @@ import FadeIn from '../components/FadeIn.astro';
         </div>
       </FadeIn>
 
-      <!-- Clear all -->
+      <!-- Export + Clear -->
       <FadeIn delay={100}>
-        <div class="mt-6 text-right">
+        <div class="mt-6 flex items-center justify-between">
+          <button id="export-journal-btn"
+            class="text-xs text-almanac-accent hover:text-almanac-text transition-colors underline cursor-pointer"
+            data-en="Export journal (JSON)" data-zh="导出日记 (JSON)">
+            Export journal (JSON)
+          </button>
           <button id="clear-journal-btn"
             class="text-xs text-almanac-muted hover:text-almanac-red transition-colors underline cursor-pointer"
             data-en="Clear all journal entries" data-zh="清除所有记录">
@@ -220,6 +225,19 @@ import FadeIn from '../components/FadeIn.astro';
             localStorage.removeItem(STORAGE_KEY);
             renderJournal();
           }
+        });
+      }
+      const exportBtn = document.getElementById('export-journal-btn');
+      if (exportBtn) {
+        exportBtn.addEventListener('click', () => {
+          const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+          const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `almanac-journal-${new Date().toISOString().slice(0, 10)}.json`;
+          a.click();
+          URL.revokeObjectURL(url);
         });
       }
     }
