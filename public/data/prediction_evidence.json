@@ -15,7 +15,21 @@
     }
   ],
   "2": [],
-  "3": [],
+  "3": [
+    {
+      "date": "2026-03-26",
+      "delta": 6,
+      "signals": [
+        {
+          "title": "Pgsemantic Instant Vector Search Commoditizes AI Engineering",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "The instant availability of vector search via tools like Pgsemantic accelerates the commoditization of AI engineering, supporting the imminent collapse of the AI salary premium."
+        }
+      ]
+    }
+  ],
   "4": [
     {
       "date": "2026-03-22",
@@ -56,7 +70,21 @@
       ]
     }
   ],
-  "9": [],
+  "9": [
+    {
+      "date": "2026-03-26",
+      "delta": -7,
+      "signals": [
+        {
+          "title": "A Lawyer Wins Anthropic's Hackathon",
+          "url": null,
+          "source": null,
+          "direction": "down",
+          "reasoning": "The lawyer winning Anthropic's hackathon strongly challenges this prediction, as natural language orchestration proved superior to traditional coding in a competitive, high-stakes setting."
+        }
+      ]
+    }
+  ],
   "10": [],
   "11": [
     {
@@ -90,7 +118,21 @@
   ],
   "13": [],
   "14": [],
-  "15": [],
+  "15": [
+    {
+      "date": "2026-03-26",
+      "delta": 6,
+      "signals": [
+        {
+          "title": "A Lawyer Wins Anthropic's Hackathon",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "Non-technical domain experts succeeding in elite tech environments directly supports this outcome, showing that vertical industry knowledge is becoming the true moat."
+        }
+      ]
+    }
+  ],
   "16": [],
   "17": [
     {
@@ -131,7 +173,21 @@
       ]
     }
   ],
-  "28": [],
+  "28": [
+    {
+      "date": "2026-03-26",
+      "delta": 7,
+      "signals": [
+        {
+          "title": "\"Disregard That\" Prompt Injections and Copilot Policy Updates",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "The public proliferation of \"Disregard That\" attacks demonstrates exactly the kind of widespread, exploitable vulnerability needed to force an OWASP taxonomy update."
+        }
+      ]
+    }
+  ],
   "29": [
     {
       "date": "2026-03-22",
@@ -284,5 +340,10 @@
     }
   ],
   "49": [],
-  "50": []
+  "50": [],
+  "51": [],
+  "52": [],
+  "53": [],
+  "54": [],
+  "55": []
 }
