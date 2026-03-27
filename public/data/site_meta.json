@@ -1,9 +1,9 @@
 {
   "subscribers": 0,
   "github_stars": 0,
-  "days_live": 6,
-  "total_pipeline_runs": 6,
+  "days_live": 7,
+  "total_pipeline_runs": 7,
   "predictions_count": 55,
-  "total_signals_processed": 1200,
-  "last_data_update": "2026-03-24"
+  "total_signals_processed": 1575,
+  "last_data_update": "2026-03-27"
 }

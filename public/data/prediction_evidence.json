@@ -1,237 +1,35 @@
 {
-  "1": [
+  "1": [],
+  "2": [],
+  "3": [],
+  "4": [],
+  "5": [],
+  "6": [],
+  "7": [],
+  "8": [],
+  "9": [
     {
-      "date": "2026-03-25",
-      "delta": 1,
-      "signals": [
-        {
-          "title": "Developer \"AI Fatigue\" Hits the Mainstream",
-          "url": null,
-          "source": "Blog",
-          "direction": "up",
-          "reasoning": "The viral traction of developers expressing fatigue supports the thesis that AI coding tools are entering a normalization plateau."
-        }
-      ]
-    },
-    {
-      "date": "2026-03-25",
+      "date": "2026-03-27",
       "delta": -5,
       "signals": [
         {
-          "title": "OpenAI Kills Sora to Focus on Enterprise Coding Tools",
+          "title": "Natural-Language Agent Harnesses (NLAHs)",
           "url": null,
-          "source": null,
+          "source": "Intelligent Harness Runtime (IHR) Release",
           "direction": "down",
-          "reasoning": "OpenAI explicitly shutting down its consumer-facing Sora product to focus heavily on enterprise coding tools signals massive, sustained revenue expectations for the developer market."
-        }
-      ]
-    }
-  ],
-  "2": [],
-  "3": [
-    {
-      "date": "2026-03-26",
-      "delta": 6,
-      "signals": [
-        {
-          "title": "Pgsemantic Instant Vector Search Commoditizes AI Engineering",
-          "url": null,
-          "source": null,
-          "direction": "up",
-          "reasoning": "The instant availability of vector search via tools like Pgsemantic accelerates the commoditization of AI engineering, supporting the imminent collapse of the AI salary premium."
-        }
-      ]
-    }
-  ],
-  "4": [
-    {
-      "date": "2026-03-22",
-      "delta": -6,
-      "signals": [
-        {
-          "title": "The Rise of Agent Middleware and SuperAgents",
-          "url": null,
-          "source": "ByteDance",
-          "direction": "down",
-          "reasoning": "ByteDance's open-source deer-flow SuperAgent harness provides a strong counterbalance to proprietary models, reducing the likelihood of open-source losing market share."
-        }
-      ]
-    },
-    {
-      "date": "2026-03-25",
-      "delta": -3,
-      "signals": [
-        {
-          "title": "Universal API Gateways and the Multi-Model Reality",
-          "url": null,
-          "source": null,
-          "direction": "down",
-          "reasoning": "The explosive popularity of universal API gateways like LiteLLM suggests the market is moving toward multi-model abstraction rather than proprietary lock-in."
-        }
-      ]
-    }
-  ],
-  "5": [
-    {
-      "date": "2026-03-25",
-      "delta": 3,
-      "signals": [
-        {
-          "title": "Autonomous AI Vulnerability Patching Reaches Open Source",
-          "url": null,
-          "source": null,
-          "direction": "up",
-          "reasoning": "The release of Strix, an open-source AI agent dedicated to autonomously finding and fixing app vulnerabilities, provides the operational tooling necessary for AI to proactively secure codebases."
-        }
-      ]
-    }
-  ],
-  "6": [],
-  "7": [
-    {
-      "date": "2026-03-26",
-      "delta": 7,
-      "signals": [
-        {
-          "title": "The \"Specification Gap\" Exposes Multi-Agent Coordination Failures",
-          "url": null,
-          "source": null,
-          "direction": "up",
-          "reasoning": "The catastrophic drop to 25% integration accuracy among multi-agent systems facing the 'Specification Gap' strongly reinforces the likelihood of high-profile rollbacks."
-        }
-      ]
-    }
-  ],
-  "8": [
-    {
-      "date": "2026-03-22",
-      "delta": 5,
-      "signals": [
-        {
-          "title": "Geopolitically Fragmented Financial Agents",
-          "url": null,
-          "source": "Open Source",
-          "direction": "up",
-          "reasoning": "The trending of Chinese-localized multi-agent frameworks signals aggressive, globally competitive open-source development originating from Chinese tech ecosystems."
-        },
-        {
-          "title": "The Rise of Agent Middleware and SuperAgents",
-          "url": null,
-          "source": "ByteDance",
-          "direction": "up",
-          "reasoning": "The trending of ByteDance's Deer-flow framework highlights globally competitive open-source development originating from China."
-        }
-      ]
-    }
-  ],
-  "9": [
-    {
-      "date": "2026-03-26",
-<<<<<<< Updated upstream
-      "delta": -7,
-      "signals": [
-        {
-          "title": "A Lawyer Wins Anthropic's Hackathon",
-          "url": null,
-          "source": null,
-          "direction": "down",
-          "reasoning": "The lawyer winning Anthropic's hackathon strongly challenges this prediction, as natural language orchestration proved superior to traditional coding in a competitive, high-stakes setting."
-=======
-      "delta": 6,
-      "signals": [
-        {
-          "title": "The \"Specification Gap\" Exposes Multi-Agent Coordination Failures",
-          "url": null,
-          "source": null,
-          "direction": "up",
-          "reasoning": "The multi-agent coordination failures stemming from implicit natural language specifications directly support the thesis that precise, deterministic code will remain necessary."
->>>>>>> Stashed changes
+          "reasoning": "The introduction of Natural-Language Agent Harnesses successfully transitions complex agent control logic from code into editable natural language."
         }
       ]
     }
   ],
   "10": [],
-  "11": [
-    {
-      "date": "2026-03-22",
-      "delta": 2,
-      "signals": [
-        {
-          "title": "The Rise of Agent Middleware and SuperAgents",
-          "url": null,
-          "source": "Press / Open Source",
-          "direction": "up",
-          "reasoning": "Cursor's massive valuation and its targeting by new open-source performance harnesses makes it a prime target for a mega-acquisition."
-        }
-      ]
-    }
-  ],
-  "12": [
-    {
-      "date": "2026-03-25",
-      "delta": 2,
-      "signals": [
-        {
-          "title": "Multi-Model Debate Orchestration (AI Roundtable)",
-          "url": null,
-          "source": null,
-          "direction": "up",
-          "reasoning": "The launch of AI Roundtable accelerates model commoditization, making it trivial for developers to swap to non-US models for better performance or lower costs."
-        }
-      ]
-    }
-  ],
+  "11": [],
+  "12": [],
   "13": [],
   "14": [],
-<<<<<<< Updated upstream
-  "15": [
-    {
-      "date": "2026-03-26",
-      "delta": 6,
-      "signals": [
-        {
-          "title": "A Lawyer Wins Anthropic's Hackathon",
-          "url": null,
-          "source": null,
-          "direction": "up",
-          "reasoning": "Non-technical domain experts succeeding in elite tech environments directly supports this outcome, showing that vertical industry knowledge is becoming the true moat."
-=======
   "15": [],
-  "16": [
-    {
-      "date": "2026-03-25",
-      "delta": 4,
-      "signals": [
-        {
-          "title": "OpenAI Kills Sora to Focus on Enterprise Coding Tools",
-          "url": null,
-          "source": null,
-          "direction": "up",
-          "reasoning": "OpenAI's formal pivot to unified enterprise coding tools positions the AI lab to directly compete with its primary partner, Microsoft, introducing severe market pressure on GitHub Copilot."
->>>>>>> Stashed changes
-        }
-      ]
-    }
-  ],
-<<<<<<< Updated upstream
   "16": [],
-=======
->>>>>>> Stashed changes
-  "17": [
-    {
-      "date": "2026-03-24",
-      "delta": -3,
-      "signals": [
-        {
-          "title": "c-CRAB and the Collapse of Human Code Review",
-          "url": null,
-          "source": null,
-          "direction": "down",
-          "reasoning": "The c-CRAB benchmark indicates that human review cannot scale to meet AI generation volumes, requiring AI-driven review sooner than anticipated."
-        }
-      ]
-    }
-  ],
+  "17": [],
   "18": [],
   "19": [],
   "20": [],
@@ -241,225 +39,30 @@
   "24": [],
   "25": [],
   "26": [],
-  "27": [
-    {
-      "date": "2026-03-22",
-      "delta": 3,
-      "signals": [
-        {
-          "title": "Fully Autonomous Cybersecurity Testing",
-          "url": null,
-          "source": "Open Source",
-          "direction": "up",
-          "reasoning": "The emergence of open-source autonomous penetration testing agents like pentagi will force enterprise vendors to integrate AI-native countermeasures."
-        }
-      ]
-    }
-  ],
-  "28": [
-    {
-      "date": "2026-03-26",
-      "delta": 7,
-      "signals": [
-        {
-          "title": "\"Disregard That\" Prompt Injections and Copilot Policy Updates",
-          "url": null,
-          "source": null,
-          "direction": "up",
-          "reasoning": "The public proliferation of \"Disregard That\" attacks demonstrates exactly the kind of widespread, exploitable vulnerability needed to force an OWASP taxonomy update."
-        }
-      ]
-    }
-  ],
+  "27": [],
+  "28": [],
   "29": [
     {
-      "date": "2026-03-22",
+      "date": "2026-03-27",
       "delta": 5,
       "signals": [
         {
-          "title": "AI Saturation in Game Development Workflows",
+          "title": "The Kitchen Loop and the Commoditization of Code Production",
           "url": null,
-          "source": "GDC Festival of Gaming",
+          "source": "Researchers",
           "direction": "up",
-          "reasoning": "The pervasive use of AI for automated QA at the GDC gaming conference provides commercial evidence that full-spectrum test automation is becoming standard."
-        },
-        {
-          "title": "The \"Agent-First\" Web Transition",
-          "url": null,
-          "source": "Open Source",
-          "direction": "up",
-          "reasoning": "Agent-optimized tools like browser-use show direct commercial evidence of full-spectrum test automation gaining traction."
-        }
-      ]
-    },
-    {
-      "date": "2026-03-24",
-      "delta": -3,
-      "signals": [
-        {
-          "title": "The Illusion of LLM Test Generation Reasoning",
-          "url": null,
-          "source": null,
-          "direction": "down",
-          "reasoning": "Large-scale evaluation showed LLM-generated tests rely on superficial patterns rather than genuine reasoning, failing to catch semantic-altering regressions."
-        }
-      ]
-    },
-    {
-      "date": "2026-03-26",
-      "delta": 7,
-      "signals": [
-        {
-          "title": "Personified LLMs and SMART Frameworks Overhaul Automated QA",
-          "url": null,
-          "source": null,
-          "direction": "up",
-          "reasoning": "The dual breakthroughs in SMART mutation testing and Personified-LLMs for behavioral GUI testing significantly accelerate the timeline for achieving autonomous, end-to-end test coverage."
+          "reasoning": "The Kitchen Loop framework operationalizes 'Unbeatable Tests' and synthetic power users operating at 1,000x human speeds to achieve zero-regression development."
         }
       ]
     }
   ],
   "30": [],
-  "31": [
-    {
-      "date": "2026-03-24",
-      "delta": 1,
-      "signals": [
-        {
-          "title": "ConceptCoder Simulates Human Code Inspection",
-          "url": null,
-          "source": null,
-          "direction": "up",
-          "reasoning": "ConceptCoder significantly improves vulnerability detection accuracy by teaching models to recognize human-understandable code concepts."
-        },
-        {
-          "title": "c-CRAB and the Collapse of Human Code Review",
-          "url": null,
-          "source": null,
-          "direction": "up",
-          "reasoning": "The emergence of the c-CRAB evaluation framework advances the capability of AI agents to effectively review other agents' code."
-        }
-      ]
-    },
-    {
-      "date": "2026-03-25",
-      "delta": 3,
-      "signals": [
-        {
-          "title": "Autonomous AI Vulnerability Patching Reaches Open Source",
-          "url": null,
-          "source": null,
-          "direction": "up",
-          "reasoning": "Open-source agents like Strix transitioning from passive analysis to active, autonomous vulnerability resolution accelerates the capabilities of AI-driven code review pipelines."
-        }
-      ]
-    },
-    {
-      "date": "2026-03-26",
-      "delta": -7,
-      "signals": [
-        {
-          "title": "TRACE Framework Reveals Deep Flaws in LLMs as Code Judges",
-          "url": null,
-          "source": null,
-          "direction": "down",
-          "reasoning": "The TRACE framework's finding that LLM code judges underperform human evaluators by up to 23% and suffer from 35 distinct misalignment biases exerts downward pressure."
-        }
-      ]
-    }
-  ],
+  "31": [],
   "32": [],
   "33": [],
-  "34": [
-    {
-      "date": "2026-03-24",
-      "delta": 2,
-      "signals": [
-        {
-          "title": "ReqFusion Orchestrates Multi-Model Requirements Extraction",
-          "url": null,
-          "source": null,
-          "direction": "up",
-          "reasoning": "ReqFusion formalizes and automates requirements engineering across major LLM providers, shifting developer focus away from writing code directly."
-        }
-      ]
-    },
-    {
-      "date": "2026-03-25",
-      "delta": 5,
-      "signals": [
-        {
-          "title": "The Flight to Fundamentals and Domain Logic",
-          "url": null,
-          "source": "Social/Viral Narrative",
-          "direction": "up",
-          "reasoning": "A developer taking a physical technician job illustrates how high-fidelity requirement gathering is becoming the ultimate premium skill over raw code syntax generation."
-        }
-      ]
-    },
-    {
-      "date": "2026-03-25",
-      "delta": 3,
-      "signals": [
-        {
-          "title": "Agentic workflows evolving to direct execution",
-          "url": null,
-          "source": null,
-          "direction": "up",
-          "reasoning": "As agentic workflows evolve from conversational assistance to direct execution, developers are increasingly forced into oversight and specification roles."
-        }
-      ]
-    },
-    {
-      "date": "2026-03-26",
-      "delta": 6,
-      "signals": [
-        {
-          "title": "Composer 2 Pushes the Boundaries of Agentic Planning",
-          "url": null,
-          "source": null,
-          "direction": "up",
-          "reasoning": "The introduction of Composer 2's advanced generation capabilities accelerates the transition toward developers spending more time specifying requirements and reviewing outputs."
-        },
-        {
-          "title": "The \"Specification Gap\" Exposes Multi-Agent Coordination Failures",
-          "url": null,
-          "source": null,
-          "direction": "up",
-          "reasoning": "The critical need to resolve multi-agent specification gaps accelerates the timeline for developers to spend more time specifying requirements rather than writing code directly."
-        }
-      ]
-    }
-  ],
+  "34": [],
   "35": [],
-  "36": [
-    {
-      "date": "2026-03-25",
-      "delta": 2,
-      "signals": [
-        {
-          "title": "The Flight to Fundamentals and Domain Logic",
-          "url": null,
-          "source": "Developer Resources",
-          "direction": "up",
-          "reasoning": "The intense focus on compiler writing and using Lean's type system validates the growing chasm between low-level systems expertise and automated web development."
-        }
-      ]
-    },
-    {
-      "date": "2026-03-25",
-      "delta": 1,
-      "signals": [
-        {
-          "title": "Systems Hardening and the Post-Quantum Migration",
-          "url": null,
-          "source": null,
-          "direction": "up",
-          "reasoning": "The urgent need for post-quantum cryptography migrations and securing legacy OS systems highlights a critical dependency on foundational systems programming skills."
-        }
-      ]
-    }
-  ],
+  "36": [],
   "37": [],
   "38": [],
   "39": [],
@@ -467,46 +70,11 @@
   "41": [],
   "42": [],
   "43": [],
-  "44": [
-    {
-      "date": "2026-03-25",
-      "delta": 2,
-      "signals": [
-        {
-          "title": "TurboQuant and the AI Compression Era",
-          "url": null,
-          "source": "Google Research",
-          "direction": "up",
-          "reasoning": "Google's TurboQuant research on extreme AI compression directly contributes to the technological breakthroughs required to crater inference and token costs."
-        }
-      ]
-    }
-  ],
+  "44": [],
   "45": [],
   "46": [],
   "47": [],
-  "48": [
-    {
-      "date": "2026-03-22",
-      "delta": 2,
-      "signals": [
-        {
-          "title": "Geopolitically Fragmented Financial Agents",
-          "url": null,
-          "source": "Open Source",
-          "direction": "up",
-          "reasoning": "The regional forking of agentic frameworks points to an accelerating separation of AI tooling along geopolitical fault lines."
-        },
-        {
-          "title": "The Rise of Agent Middleware and SuperAgents",
-          "url": null,
-          "source": "ByteDance",
-          "direction": "up",
-          "reasoning": "ByteDance's standalone SuperAgent ecosystem indicates an accelerating separation of ecosystems between the US and China."
-        }
-      ]
-    }
-  ],
+  "48": [],
   "49": [],
   "50": [],
   "51": [],
