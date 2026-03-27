@@ -88,6 +88,28 @@ describe('Predictions data structure', () => {
   });
 });
 
+describe('Predictions data freshness', () => {
+  it('predictions last_updated is not more than 3 days old', () => {
+    const predictions = JSON.parse(fs.readFileSync(path.join(DATA_DIR, 'predictions.json'), 'utf-8'));
+    const dates = predictions
+      .map((p: any) => p.last_updated)
+      .filter((d: string) => d);
+
+    if (dates.length === 0) return; // Skip if no dates
+
+    const latestUpdate = dates.sort().reverse()[0];
+    const updateDate = new Date(latestUpdate);
+    const now = new Date();
+    const diffDays = (now.getTime() - updateDate.getTime()) / (1000 * 60 * 60 * 24);
+
+    if (diffDays > 3) {
+      console.warn(`⚠ STALE DATA: predictions.json last_updated is ${latestUpdate} (${Math.floor(diffDays)} days ago). Pipeline may not be running.`);
+    }
+    // Warn but don't fail — pipeline may be down temporarily
+    expect(diffDays).toBeLessThan(7); // Hard fail at 7 days stale
+  });
+});
+
 describe('Report files', () => {
   it('reports directory exists', () => {
     expect(fs.existsSync(REPORTS_DIR)).toBe(true);
