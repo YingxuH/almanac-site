@@ -1368,6 +1368,628 @@
       "54": 0.9,
       "55": 1.05
     },
+<<<<<<< Updated upstream
+    "contested": [
+      "5",
+      "10",
+      "18",
+      "26",
+      "42",
+      "50"
+    ]
+  },
+  "2026-03-26": {
+    "votes": {
+      "1": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today regarding the broader revenue growth trajectory of AI coding tools."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "Today's signals provide no specific financial or revenue data to alter the base rate trajectory of AI coding tool market growth."
+        }
+      },
+      "2": {
+        "Security Hawk": {
+          "lr": 0.5,
+          "rationale": "The barrier to entry collapsing allows non-engineers to bypass the technical stack entirely, decimating the demand for junior developers."
+        },
+        "Base Rate Empiricist": {
+          "lr": 0.7,
+          "rationale": "The demonstration of a non-technical domain expert winning a tier-one coding hackathon suggests traditional junior engineering roles face heavy substitution pressure, challenging the projection of higher future hiring."
+        }
+      },
+      "3": {
+        "Security Hawk": {
+          "lr": 1.5,
+          "rationale": "A lawyer winning a coding hackathon proves that AI fluency is rapidly becoming an accessible baseline skill rather than a highly paid engineering specialty."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.2,
+          "rationale": "The observation that future value will stem from vertical domain knowledge rather than syntax memorization supports the thesis that baseline AI coding fluency will lose its specialized salary premium."
+        }
+      },
+      "4": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding the market share battle between open-source and proprietary models."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "There is no new evidence regarding the market share dynamics between open-source and proprietary AI models."
+        }
+      },
+      "5": {
+        "Security Hawk": {
+          "lr": 0.3,
+          "rationale": "The severe spike in 'Disregard That' prompt injection vulnerabilities demonstrates that AI-generated code introduces complex, novel attack vectors rather than reducing CVEs."
+        },
+        "Base Rate Empiricist": {
+          "lr": 0.6,
+          "rationale": "The reported spike in prompt injection vulnerabilities and cognitive exploits directly contradicts the optimistic expectation that AI-generated code will exhibit a lower CVE density."
+        }
+      },
+      "6": {
+        "Security Hawk": {
+          "lr": 0.6,
+          "rationale": "With non-engineers successfully orchestrating AI to build software, the total headcount of traditional software developers is primed to shrink, not grow."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "While the barrier to entry is collapsing, it remains historically ambiguous whether this will expand the total definition of 'developer' or shrink traditional headcount."
+        }
+      },
+      "7": {
+        "Security Hawk": {
+          "lr": 2.0,
+          "rationale": "Rising security exploits and enterprise bans strongly foreshadow major corporate rollbacks of brittle autonomous agents."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.3,
+          "rationale": "Reports of widespread enterprise friction, data bans, and compliance bottlenecks significantly increase the likelihood that companies will roll back premature autonomous agent deployments."
+        }
+      },
+      "8": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant signals regarding the geographic origin of leading AI coding tools."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "No geopolitical or regional market share data was present in today's signals."
+        }
+      },
+      "9": {
+        "Security Hawk": {
+          "lr": 0.4,
+          "rationale": "A lawyer using AI orchestration to win a coding hackathon is glaring proof that natural language is successfully replacing code as the primary specification medium."
+        },
+        "Base Rate Empiricist": {
+          "lr": 0.6,
+          "rationale": "Evidence that non-engineers can use natural language to successfully bypass the technical stack materially reduces my confidence that code will strictly remain the primary specification medium."
+        }
+      },
+      "10": {
+        "Security Hawk": {
+          "lr": 2.5,
+          "rationale": "New cognitive exploits and enterprise bans strongly validate my expectation that 'vibe coding' will inevitably trigger catastrophic failures and regulatory crackdowns."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.3,
+          "rationale": "The combination of developers replacing deterministic code with probabilistic LLMs and rising security exploits increases the probability of catastrophic, difficult-to-debug production failures."
+        }
+      },
+      "11": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding Cursor's future existence as an independent entity."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "No specific market consolidation or M&A signals regarding Cursor were observed."
+        }
+      },
+      "12": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No specific evidence today regarding the adoption of non-US AI tools by professional developers."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "There is no new evidence pertaining to the adoption rates of non-US AI tools."
+        }
+      },
+      "13": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "While AI helps domain experts, today's signals do not specifically address the scarcity or accessibility of senior-level software engineering judgment."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.3,
+          "rationale": "The hackathon victory by a lawyer utilizing AI orchestration validates the premise that AI will democratize and amplify high-level judgment and domain expertise over pure technical execution."
+        }
+      },
+      "14": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No direct evidence of an impending performance plateau at major AI labs."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "No benchmark performance data or model plateau indicators were present in today's signals."
+        }
+      },
+      "15": {
+        "Security Hawk": {
+          "lr": 1.5,
+          "rationale": "A non-technical domain expert winning a hackathon clearly signals that traditional non-tech industries will reap massive, immediate gains from AI."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.2,
+          "rationale": "The success of legal professionals outcompeting traditional coders suggests that non-tech sectors rich in domain expertise stand to capture disproportionate value from these tools."
+        }
+      },
+      "16": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "GitHub Copilot policy updates are noted, but there is no direct evidence that it will lose its market leader position."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "While GitHub updated its usage policy, this does not provide actionable evidence regarding its overall market share dominance."
+        }
+      },
+      "17": {
+        "Security Hawk": {
+          "lr": 0.6,
+          "rationale": "Surging prompt injection vulnerabilities and enterprise data bans will heavily throttle Fortune 500 adoption of AI-generated production code."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "Enterprise data bans and compliance bottlenecks offset the increased use of LLM extractors, leaving the base rate for widespread Fortune 500 adoption largely unchanged."
+        }
+      },
+      "18": {
+        "Security Hawk": {
+          "lr": 0.6,
+          "rationale": "My skepticism of AI quality improvements remains high as models clearly continue to struggle with schema hallucinations and cognitive security exploits."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "No SWE-bench specific data or frontier model capabilities were tested in today's report."
+        }
+      },
+      "19": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding startup consolidation or shutdown rates."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "There is no direct evidence of startup funding environments or consolidation waves in the current signals."
+        }
+      },
+      "20": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "The signals don't clearly indicate whether prompt engineering will disappear or simply evolve."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.2,
+          "rationale": "The normalization of natural language bypassing the technical stack supports the eventual absorption of 'prompt engineering' into standard domain or engineering roles."
+        }
+      },
+      "21": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No evidence today regarding international developer demographics."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "No regional demographic data for developer tool usage was provided."
+        }
+      },
+      "22": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No clear signal on whether 'AI software engineer' will specifically become a fastest-growing job title."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "The collapsing definition of a software engineer provides mixed signals; the role may evolve, but not necessarily under the explicit title 'AI software engineer'."
+        }
+      },
+      "23": {
+        "Security Hawk": {
+          "lr": 1.5,
+          "rationale": "The collapse of the barrier to entry means routine, bottom-quartile coding work will be severely devalued and outsourced to AI."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.3,
+          "rationale": "The aggressive automation of basic, deterministic 'glue code' and CSS scraping routines increases the downward pressure on lower-tier developer wages."
+        }
+      },
+      "24": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today regarding staff-level compensation changes."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "While foundational systems engineering is gaining attention, there is insufficient empirical data to update specific compensation targets for Staff+ engineers."
+        }
+      },
+      "25": {
+        "Security Hawk": {
+          "lr": 1.5,
+          "rationale": "Non-technical domain experts bypassing the technical stack will obliterate the market for routine, low-level freelance web development."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.2,
+          "rationale": "The successful deployment of LLMs to handle previously brittle web scraping and parsing tasks accelerates the commoditization of routine web development labor."
+        }
+      },
+      "26": {
+        "Security Hawk": {
+          "lr": 2.5,
+          "rationale": "The emergence of 'Disregard That' prompt injections expanding the attack surface makes a massive AI-driven security breach practically inevitable."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.3,
+          "rationale": "The emergence of 'Disregard That' prompt injection attacks in the wild materially increases the probability of a high-impact vulnerability breach caused by AI agents."
+        }
+      },
+      "27": {
+        "Security Hawk": {
+          "lr": 2.5,
+          "rationale": "The shift toward cognitive exploits guarantees a desperate enterprise need for AI-specific SAST/DAST rules to mitigate new vulnerabilities."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.4,
+          "rationale": "The stated requirement for an 'entirely new paradigm of enterprise code privacy and AI-native security tooling' strongly supports the integration of AI-specific rules in standard SAST/DAST platforms."
+        }
+      },
+      "28": {
+        "Security Hawk": {
+          "lr": 2.5,
+          "rationale": "The wild success and proliferation of prompt injection attacks essentially guarantees this new vulnerability class will dominate the OWASP Top 10."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.4,
+          "rationale": "The concrete reporting of prompt injection exploits as a primary cognitive attack surface strongly indicates this will become a formalized security category."
+        }
+      },
+      "29": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding automated AI test generation coverage."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "Today's signals do not discuss test generation or QA automation coverage."
+        }
+      },
+      "30": {
+        "Security Hawk": {
+          "lr": 0.4,
+          "rationale": "Severe security bottlenecks and prompt injection vulnerabilities make fully autonomous, human-free deployment pipelines a highly dangerous pipe dream."
+        },
+        "Base Rate Empiricist": {
+          "lr": 0.6,
+          "rationale": "Reports that security, compliance, and prompt injection vulnerabilities remain massive bottlenecks to fully autonomous development significantly dampen the probability of widespread autonomous continuous deployment."
+        }
+      },
+      "31": {
+        "Security Hawk": {
+          "lr": 0.6,
+          "rationale": "AI tools are currently introducing basic cognitive exploits, making it highly unlikely they will dramatically outperform humans in catching nuanced bugs."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "No new empirical data regarding AI code review efficacy was presented."
+        }
+      },
+      "32": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No direct signals regarding the decline of traditional human pair programming."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "The dynamics of human-to-human pair programming were not addressed in the provided evidence."
+        }
+      },
+      "33": {
+        "Security Hawk": {
+          "lr": 1.5,
+          "rationale": "Replacing brittle deterministic glue code with probabilistic models will drastically accelerate how fast solo developers can ship functional MVPs."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.2,
+          "rationale": "The replacement of high-maintenance deterministic code with probabilistic LLM workflows slightly increases the feasibility of radically compressed MVP timelines."
+        }
+      },
+      "34": {
+        "Security Hawk": {
+          "lr": 1.5,
+          "rationale": "Developers abandoning traditional parsing logic to simply pass raw HTML to LLMs perfectly illustrates the ongoing shift from writing code to specifying inputs."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.4,
+          "rationale": "The explicit shift of the engineering challenge from writing logic to 'managing token budgets and handling occasional schema hallucinations' directly supports a future dominated by specification and review."
+        }
+      },
+      "35": {
+        "Security Hawk": {
+          "lr": 1.5,
+          "rationale": "If a lawyer can win a prestigious coding hackathon, the core value proposition of a traditional computer science degree is rapidly imploding."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.2,
+          "rationale": "The collapsing barrier to entry and labor anxiety mildly support a potential decline in traditional multi-year computer science degree enrollments."
+        }
+      },
+      "36": {
+        "Security Hawk": {
+          "lr": 1.6,
+          "rationale": "The 'Productivity Panic' driving exhausted engineers back to foundational systems programming perfectly supports a rising salary premium for hardcore, low-level skills."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.4,
+          "rationale": "The explicit observation that exhausted engineers are retreating to foundational systems programming strongly validates a future salary premium for low-level computational disciplines."
+        }
+      },
+      "37": {
+        "Security Hawk": {
+          "lr": 1.5,
+          "rationale": "The collapsing barrier to entry favors scrappy AI tool users over individuals holding traditional theoretical computer science knowledge."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.2,
+          "rationale": "The success of non-degree holding domain experts (lawyers) utilizing AI orchestration supports the idea that the gap between CS degrees and alternative paths is closing."
+        }
+      },
+      "38": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant financial signals regarding pure-play AI coding tool valuations."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "No valuation or financial capitalization metrics were present in the signals."
+        }
+      },
+      "39": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding Microsoft's bundling or pricing strategies."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "There is no evidence concerning Microsoft's bundling or pricing strategies for Visual Studio."
+        }
+      },
+      "40": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding non-tech companies open-sourcing massive AI coding tools."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "While non-tech companies are benefiting, there is no signal that they will successfully build and open-source their own AI coding tools."
+        }
+      },
+      "41": {
+        "Security Hawk": {
+          "lr": 0.7,
+          "rationale": "As an AI skeptic, I expect frontier models to continue struggling with complex benchmarks as they face persistent hallucination and reasoning limits."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "No benchmark data for unreleased frontier models was provided."
+        }
+      },
+      "42": {
+        "Security Hawk": {
+          "lr": 0.4,
+          "rationale": "Prompt injections and schema hallucinations make the autonomous maintenance of complex projects incredibly risky and unlikely to succeed without heavy human intervention."
+        },
+        "Base Rate Empiricist": {
+          "lr": 0.7,
+          "rationale": "The prominent bottlenecks in compliance and the shift of bugs to 'cognitive exploits' suggest autonomous maintenance will face steeper reliability challenges than anticipated."
+        }
+      },
+      "43": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today regarding multimodal AI coding tool market share."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "There is no mention of multimodal interfaces (screenshots, diagrams, voice) in today's signals."
+        }
+      },
+      "44": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No direct signals regarding token cost reductions."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "While token budgets are a growing concern, there is no concrete data regarding token cost depreciation trajectories."
+        }
+      },
+      "45": {
+        "Security Hawk": {
+          "lr": 2.0,
+          "rationale": "The Health NZ ban on ChatGPT is a glaring leading indicator of the heavy regulatory backlash coming for AI in safety-critical and compliance-heavy environments."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "While Health NZ instituted bans, there is no specific evidence regarding binding EU regulations for safety-critical software."
+        }
+      },
+      "46": {
+        "Security Hawk": {
+          "lr": 1.4,
+          "rationale": "Growing regulatory friction in compliance-heavy environments like the EU will inevitably drive engineering startups to relocate."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "No evidence pertaining to EU startup incorporation or relocation trends was observed."
+        }
+      },
+      "47": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No signals today regarding India's domestic AI tool development."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "No data on the Indian domestic AI tool market was provided."
+        }
+      },
+      "48": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding US-China export controls affecting coding tools."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "Geopolitical export controls were not discussed in the current signals."
+        }
+      },
+      "49": {
+        "Security Hawk": {
+          "lr": 0.5,
+          "rationale": "Security bottlenecks, prompt injection vulnerabilities, and enterprise data bans will severely throttle fully autonomous AI agent builds from reliably reaching production."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.2,
+          "rationale": "The successful use of natural language to bypass the technical stack entirely lends moderate credence to the feasibility of near-zero human code product launches."
+        }
+      },
+      "50": {
+        "Security Hawk": {
+          "lr": 1.6,
+          "rationale": "As developers shift from writing logic to managing schema hallucinations, specialized 'AI debugging' will rapidly emerge as a mandatory enterprise role."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.3,
+          "rationale": "The new engineering paradigm of 'handling schema hallucinations' and 'cognitive exploits' strongly points to the emergence of specialized AI debugging and orchestration roles."
+        }
+      },
+      "51": {
+        "Security Hawk": {
+          "lr": 0.7,
+          "rationale": "Security flaws and persistent hallucination bottlenecks will keep AI models from easily mastering highly complex software engineering benchmarks."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "No SWE-bench specific data was provided to update short-term timeline probabilities."
+        }
+      },
+      "52": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "Anthropic hosted a hackathon, but there is no specific signal regarding the release date of Claude 4."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "Although Anthropic hosted a hackathon, this is insufficient evidence to update base rates on their specific foundational model release timelines."
+        }
+      },
+      "53": {
+        "Security Hawk": {
+          "lr": 1.4,
+          "rationale": "GitHub's recent updates to Copilot data usage policies directly indicate impending shifts in their product structure and potentially their pricing tiers."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.1,
+          "rationale": "Updates to GitHub's Copilot interaction data usage policy mildly signal ongoing operational adjustments that could precede broader tier or pricing changes."
+        }
+      },
+      "54": {
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant signals regarding specific venture funding events in April 2026."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "No venture capital funding data was available in today's signals."
+        }
+      },
+      "55": {
+        "Security Hawk": {
+          "lr": 0.8,
+          "rationale": "I remain highly skeptical that underlying model coding capabilities will advance on arXiv as quickly or flawlessly as the hype suggests."
+        },
+        "Base Rate Empiricist": {
+          "lr": 1.0,
+          "rationale": "No academic literature or arXiv publication trends were discussed."
+        }
+      }
+    },
+    "median_lrs": {
+      "1": 1.0,
+      "2": 0.6,
+      "3": 1.35,
+      "4": 1.0,
+      "5": 0.44999999999999996,
+      "6": 0.8,
+      "7": 1.65,
+      "8": 1.0,
+      "9": 0.5,
+      "10": 1.9,
+      "11": 1.0,
+      "12": 1.0,
+      "13": 1.15,
+      "14": 1.0,
+      "15": 1.35,
+      "16": 1.0,
+      "17": 0.8,
+      "18": 0.8,
+      "19": 1.0,
+      "20": 1.1,
+      "21": 1.0,
+      "22": 1.0,
+      "23": 1.4,
+      "24": 1.0,
+      "25": 1.35,
+      "26": 1.9,
+      "27": 1.95,
+      "28": 1.95,
+      "29": 1.0,
+      "30": 0.5,
+      "31": 0.8,
+      "32": 1.0,
+      "33": 1.35,
+      "34": 1.45,
+      "35": 1.35,
+      "36": 1.5,
+      "37": 1.35,
+      "38": 1.0,
+      "39": 1.0,
+      "40": 1.0,
+      "41": 0.85,
+      "42": 0.55,
+      "43": 1.0,
+      "44": 1.0,
+      "45": 1.5,
+      "46": 1.2,
+      "47": 1.0,
+      "48": 1.0,
+      "49": 0.85,
+      "50": 1.4500000000000002,
+      "51": 0.85,
+      "52": 1.0,
+      "53": 1.25,
+      "54": 1.0,
+      "55": 0.9
+    },
+=======
+>>>>>>> Stashed changes
     "contested": []
   }
 }
