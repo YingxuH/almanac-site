@@ -59,8 +59,36 @@
   "30": [],
   "31": [],
   "32": [],
-  "33": [],
-  "34": [],
+  "33": [
+    {
+      "date": "2026-03-28",
+      "delta": 4,
+      "signals": [
+        {
+          "title": "Apple Discontinues the Mac Pro",
+          "url": null,
+          "source": "9to5Mac",
+          "direction": "up",
+          "reasoning": "The discontinuation of the Mac Pro underscores that rapid MVP deployment relies entirely on cloud-based AI orchestration rather than local compilation speeds."
+        }
+      ]
+    }
+  ],
+  "34": [
+    {
+      "date": "2026-03-28",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Apple Discontinues the Mac Pro",
+          "url": null,
+          "source": "9to5Mac",
+          "direction": "up",
+          "reasoning": "Apple's pivot away from its premier developer workstation highlights the shift toward lightweight, cloud-tethered requirement specification over writing code locally."
+        }
+      ]
+    }
+  ],
   "35": [],
   "36": [],
   "37": [],

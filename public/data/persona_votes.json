@@ -3,5 +3,1939 @@
     "votes": {},
     "median_lrs": {},
     "contested": []
+  },
+  "2026-03-28": {
+    "votes": {
+      "1": {
+        "Techno-Optimist": {
+          "lr": 0.5,
+          "rationale": "The massive enterprise pivot toward automated AI development pipelines absolutely destroys the notion of a near-term growth plateau in the AI coding tool market."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "Today's signals regarding hardware sunsets and macro friction do not directly impact AI coding tool revenue growth projections."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding AI coding tool revenue plateaus in today's signals."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 0.5,
+          "rationale": "Enterprises replacing massive offshore labor budgets with resilient AI agents means revenue growth will explode, absolutely not plateau."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "Today's signals focus on hardware shifts and geopolitical labor impacts, providing no direct evidence on AI tool revenue plateaus."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "Today's signals regarding hardware sunsets and macro friction provide no direct evidence about AI coding tool revenue plateaus."
+        }
+      },
+      "2": {
+        "Techno-Optimist": {
+          "lr": 0.6,
+          "rationale": "The active movement away from offshore human labor hubs toward autonomous agents means junior developer hiring will collapse, not increase."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "While border friction complicates international hiring, historical base rates show automation consistently expands overall sector employment, leaving the net effect on FAANG junior hiring unchanged."
+        },
+        "Security Hawk": {
+          "lr": 0.8,
+          "rationale": "The structural enterprise pivot toward automated AI pipelines over vulnerable human labor makes increased junior hiring less likely."
+        },
+        "Contrarian": {
+          "lr": 0.5,
+          "rationale": "The shift toward automated, borderless AI coding pipelines operating at 1,000x cadence drastically reduces the need to hire junior developers to handle baseline syntax generation."
+        },
+        "Startup Founder": {
+          "lr": 0.4,
+          "rationale": "Geopolitical friction is explicitly driving enterprises to replace human junior and offshore labor hubs with automated AI pipelines."
+        },
+        "Enterprise Architect": {
+          "lr": 0.5,
+          "rationale": "The structural enterprise pivot toward borderless AI coding pipelines over human labor hubs heavily contradicts the idea of increased junior developer hiring at major tech firms."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence exists in today's signals regarding FAANG junior developer hiring volumes."
+        }
+      },
+      "3": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding the specific salary premium for AI engineering fluency."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "The shift toward cloud orchestration does not provide new evidence regarding the specific salary premiums for AI engineering skills."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding AI engineering salary premiums."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No direct signals today regarding the salary premium specifically for 'AI engineering' skills."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding the AI engineering salary premium."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "The shift to lightweight specification terminals does not directly indicate changes in AI engineering salary premiums."
+        }
+      },
+      "4": {
+        "Techno-Optimist": {
+          "lr": 1.3,
+          "rationale": "The shift toward massive cloud-hosted frontier models strongly favors proprietary giants over local open-source models, aligning with the death of heavy local compile hardware."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "Macro geopolitical friction and hardware changes do not directly inform the market share battle between open-source and proprietary models."
+        },
+        "Security Hawk": {
+          "lr": 1.3,
+          "rationale": "The shift toward 'cloud-hosted frontier models' implies a growing reliance on proprietary, centralized models rather than open-source alternatives."
+        },
+        "Contrarian": {
+          "lr": 2.0,
+          "rationale": "The definitive shift to cloud-hosted frontier models over local compute strongly suggests proprietary APIs will crush open-source models that previously relied on local hardware."
+        },
+        "Startup Founder": {
+          "lr": 1.3,
+          "rationale": "The shift away from local compute towards heavy cloud-orchestrated development inherently favors massive proprietary frontier models over local open-source."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "The signals do not address the open-source versus proprietary model market share dynamics."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals addresses the market share battle between open-source and proprietary AI models."
+        }
+      },
+      "5": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No specific evidence regarding CVE density in AI versus human code."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "Today's updates lack specific data on AI-generated code vulnerability densities."
+        },
+        "Security Hawk": {
+          "lr": 0.7,
+          "rationale": "As a skeptic of AI safety, I expect autonomous agents churning out code at 1,000x human speeds to drastically increase CVE density, not lower it."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "Today's signals focus on hardware and macro tailwinds, not the relative vulnerability density of AI versus human code."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "There is no direct evidence regarding the CVE density of AI-generated code."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "While autonomous agents are shipping PRs, there is no direct data today on the CVE density of their output."
+        }
+      },
+      "6": {
+        "Techno-Optimist": {
+          "lr": 0.7,
+          "rationale": "The structural pivot away from offshore human labor hubs toward autonomous AI pipelines suggests absolute human headcount will compress, not expand."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "Despite the shift toward AI orchestration, historical precedent suggests automation increases total employment, keeping baseline projections steady."
+        },
+        "Security Hawk": {
+          "lr": 0.8,
+          "rationale": "The pivot away from offshore human labor hubs toward fully automated pipelines suggests a long-term contraction in the global developer headcount."
+        },
+        "Contrarian": {
+          "lr": 0.5,
+          "rationale": "The structural enterprise pivot away from vulnerable offshore human labor hubs toward autonomous AI directly threatens consensus projections of global developer headcount growth."
+        },
+        "Startup Founder": {
+          "lr": 0.6,
+          "rationale": "The enterprise pivot away from vulnerable offshore human hubs toward automated pipelines suggests absolute global developer headcount will drop."
+        },
+        "Enterprise Architect": {
+          "lr": 0.7,
+          "rationale": "Replacing vulnerable offshore human labor hubs with automated AI pipelines will likely place long-term downward pressure on total global headcount."
+        },
+        "Regulatory Watcher": {
+          "lr": 0.7,
+          "rationale": "Geopolitical instability and the structural enterprise pivot toward automated AI over vulnerable offshore human labor significantly reduces the likelihood of overall global developer headcount growth."
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "Though offshore labor may be disrupted by AI, the talent pipeline typically adapts, keeping total headcount resilient."
+        }
+      },
+      "7": {
+        "Techno-Optimist": {
+          "lr": 0.6,
+          "rationale": "The rapid adoption of autonomous pull requests and testing frameworks indicates agents are achieving sufficient quality, making major rollbacks highly improbable."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "There are no signals today concerning the rollback or failure rates of autonomous AI coding agents at major companies."
+        },
+        "Security Hawk": {
+          "lr": 1.4,
+          "rationale": "Deploying autonomous agents at lightning speeds without local validation is a recipe for massive quality failures and inevitable public rollbacks."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 0.5,
+          "rationale": "Enterprises are heavily incentivized by global instability to push forward with automated coding agents to ensure resilience, not roll them back."
+        },
+        "Enterprise Architect": {
+          "lr": 1.4,
+          "rationale": "Rushing to replace offshore labor with unproven autonomous agents will inevitably clash with rigid enterprise compliance and privacy architectures, ensuring high-profile rollbacks."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "Despite macro friction, there is no direct evidence today of companies rolling back AI coding agents due to quality issues."
+        }
+      },
+      "8": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding China's specific market share in AI coding tools."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "General geopolitical instability in the Middle East does not provide specific evidence regarding China's AI coding tool market position."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No specific evidence regarding China's domestic AI tool market share."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "Geopolitical friction is mentioned broadly, but there is no specific signal indicating China's market share in AI coding tools."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding China's AI coding tool market share."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals relates to China's domestic AI coding tool market share."
+        }
+      },
+      "9": {
+        "Techno-Optimist": {
+          "lr": 0.5,
+          "rationale": "The transition to 'lightweight specification terminals' directly contradicts the idea that code will remain the primary specification medium."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "The mention of lightweight specification terminals suggests changing interfaces, but does not definitively prove natural language will fully replace code."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding the persistence of code over natural language."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today addresses whether natural language will completely replace code as the underlying specification medium."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "While developers will shift to 'lightweight specification,' this does not strictly confirm or deny natural language as the primary medium over formal specs."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "The rise of lightweight specification terminals suggests specification is key, but doesn't strictly prove natural language will or won't replace code."
+        }
+      },
+      "10": {
+        "Techno-Optimist": {
+          "lr": 0.7,
+          "rationale": "The integration of remote testing within agent loops like the 'Kitchen Loop' mitigates the risk of catastrophic failures from high-level specification coding."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "Today's signals focus on hardware and macro labor trends rather than the reliability or regulatory risks of 'vibe coding'."
+        },
+        "Security Hawk": {
+          "lr": 1.5,
+          "rationale": "The shift toward remote, high-speed syntax generation via lightweight terminals is a perfect storm for reckless 'vibe coding' and catastrophic production failures."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "While developers are moving to specification terminals, there is no evidence today suggesting this will cause catastrophic production failures."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today regarding 'vibe coding' causing mass failures."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.5,
+          "rationale": "The shift to lightweight specification terminals and cloud-orchestrated generation drastically increases the risk of deploying unverified code, accelerating the timeline for a catastrophic liability failure and severe regulatory backlash."
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today indicates that the 'vibe coding' movement is generating catastrophic production failures."
+        }
+      },
+      "11": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding Cursor's future as an independent entity."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "There is no relevant evidence regarding the corporate longevity or acquisition prospects of Cursor."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No specific evidence regarding Cursor's corporate future."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No specific evidence regarding Cursor's acquisition or independent status."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "There is no specific evidence regarding Cursor's corporate fate."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals regarding Cursor's independent corporate future."
+        }
+      },
+      "12": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding the market share of non-US AI coding tools."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "Border friction and offshore labor shifts do not explicitly indicate the geographic origins of the AI tools developers will use."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding non-US company market share in AI tools."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "Today's geopolitical signals don't strictly point to the geographic origin of the AI tools themselves winning market share."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "The signals focus on macro trends rather than the geographic origin of the AI tools themselves."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today regarding the global market share of non-US AI coding tools."
+        }
+      },
+      "13": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding the accessibility of senior-level judgment via AI."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "The decoupling of physical hardware from output capacity does not directly address the scarcity of senior-level engineering judgment."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding the senior engineer shortage narrative."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "Replacing offshore juniors with AI doesn't definitively prove or disprove the senior engineer shortage narrative."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence addresses whether AI makes senior-level judgment more accessible."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "The shift toward cloud-orchestrated development does not directly address the accessibility of senior-level engineering judgment."
+        }
+      },
+      "14": {
+        "Techno-Optimist": {
+          "lr": 0.6,
+          "rationale": "The relentless emergence of new orchestration frameworks and autonomous agents shows AI coding capabilities are accelerating rapidly, not plateauing."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "Today marks a quiet pause in AI advancements, offering no evidence of a sustained 6-month performance plateau."
+        },
+        "Security Hawk": {
+          "lr": 1.2,
+          "rationale": "My inherent skepticism of AI capabilities suggests that removing local validation will soon expose deep flaws in AI reasoning, accelerating a performance plateau."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No technical benchmark data or lab performance signals were reported today."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "Today's 'quiet reflective pause' is about sentiment, not empirical benchmarks plateauing for >6 months."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence exists today regarding a sustained coding benchmark plateau from major AI labs."
+        }
+      },
+      "15": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding whether non-tech or tech companies will be the biggest winners."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "The news regarding enterprise shifts toward AI pipelines does not differentiate between tech and non-tech companies as the primary beneficiaries."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding which sector will be the biggest winner."
+        },
+        "Contrarian": {
+          "lr": 1.5,
+          "rationale": "The macro pivot toward resilient, automated pipelines will allow non-tech enterprises to bypass traditional offshore tech talent bottlenecks entirely and reap outsized gains."
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "While enterprises are adopting AI, there is no direct evidence that non-tech companies will be the ultimate biggest winners."
+        },
+        "Enterprise Architect": {
+          "lr": 1.3,
+          "rationale": "Non-tech Fortune 500s pivoting to resilient AI development pipelines will bypass traditional offshore talent bottlenecks, heavily benefiting their IT modernization efforts."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No direct evidence from today's signals regarding which corporate sector will benefit most from AI tools."
+        }
+      },
+      "16": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding GitHub Copilot losing its number one market share position."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "No specific evidence was provided regarding GitHub Copilot's market share relative to competitors."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding GitHub Copilot's market position."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No competitive market share data between Copilot and challengers was provided."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence on GitHub Copilot's market share position."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence today concerning GitHub Copilot's specific market share position."
+        }
+      },
+      "17": {
+        "Techno-Optimist": {
+          "lr": 1.4,
+          "rationale": "The emergence of tools operating at 1,000x human cadence accelerates the transition to AI-first code generation across the enterprise."
+        },
+        "Labor Economist": {
+          "lr": 1.25,
+          "rationale": "Sustained geopolitical instability accelerating the enterprise pivot toward automated AI development pipelines supports a faster transition to AI-generated production code."
+        },
+        "Security Hawk": {
+          "lr": 1.3,
+          "rationale": "The use of lightweight specification terminals perfectly aligns with a workflow where AI generates the bulk of the code remotely for humans to review."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.5,
+          "rationale": "Replacing vulnerable offshore coding centers with AI pipelines guarantees a massive surge in the volume of AI-generated production code."
+        },
+        "Enterprise Architect": {
+          "lr": 1.5,
+          "rationale": "The enterprise pivot to AI generation combined with mandatory human review perfectly aligns with Fortune 500 risk management, compliance needs, and 18-24 month procurement cycles."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.3,
+          "rationale": "The structural enterprise pivot toward resilient, automated AI development pipelines over offshore hubs strongly supports AI taking over initial code generation duties."
+        }
+      },
+      "18": {
+        "Techno-Optimist": {
+          "lr": 1.2,
+          "rationale": "Autonomous frameworks driving 1,000x cadence and remote testing suggest benchmark saturation will happen incredibly fast."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "Today's updates lack specific AI benchmark performance breakthroughs."
+        },
+        "Security Hawk": {
+          "lr": 0.7,
+          "rationale": "I deeply discount claims that fundamentally unreliable AI models will achieve near-perfect scores on rigorous, verified engineering benchmarks."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No benchmark performance signals like SWE-bench were mentioned today."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence on SWE-bench verification timelines."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today regarding upcoming SWE-bench benchmark scores."
+        }
+      },
+      "19": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding market consolidation and startup shutdowns."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "Hardware sunsets and border friction do not inform the likelihood of AI coding startup consolidation."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding AI coding market consolidation."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.2,
+          "rationale": "The shift toward massive cloud-hosted frontier models orchestrating code will inevitably crush and consolidate smaller, thin-wrapper startups."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "The signals do not discuss startup consolidation."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals regarding the consolidation or shutdown of funded AI coding startups."
+        }
+      },
+      "20": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding the decline of the 'prompt engineer' job title."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "The transition to specification-based workflows is evident, but does not explicitly confirm the disappearance of the 'prompt engineer' job title."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding the prompt engineer job title."
+        },
+        "Contrarian": {
+          "lr": 0.5,
+          "rationale": "Consensus says prompt engineering dies, but the emergence of 'lightweight specification terminals' means specialized requirement orchestration will persist as a dedicated, high-value prompt engineering role."
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No specific labor market data on the exact title of 'prompt engineer' today."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding the 'prompt engineer' job title absorption."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "While developers are shifting to specification terminals, there is no direct evidence that 'prompt engineer' titles specifically will vanish."
+        }
+      },
+      "21": {
+        "Techno-Optimist": {
+          "lr": 0.6,
+          "rationale": "The explicit movement away from vulnerable offshore human labor hubs directly threatens the growth of human developer seats in regions like India."
+        },
+        "Labor Economist": {
+          "lr": 0.85,
+          "rationale": "The strategic enterprise shift away from vulnerable offshore human labor hubs toward borderless AI agents slightly weakens the growth projection for traditional offshore centers like India."
+        },
+        "Security Hawk": {
+          "lr": 0.6,
+          "rationale": "The explicit enterprise pivot away from vulnerable offshore human labor hubs directly threatens India's volume of active developers."
+        },
+        "Contrarian": {
+          "lr": 0.5,
+          "rationale": "Geopolitical instability and the resulting pivot away from offshore human labor hubs directly contradict the narrative of India dominating absolute developer counts."
+        },
+        "Startup Founder": {
+          "lr": 0.6,
+          "rationale": "If enterprises replace offshore hubs like India with autonomous agents, the raw headcount of Indian developers using these tools will structurally decline."
+        },
+        "Enterprise Architect": {
+          "lr": 0.6,
+          "rationale": "The structural enterprise pivot away from offshore human labor hubs directly threatens the growth of massive developer pools in India."
+        },
+        "Regulatory Watcher": {
+          "lr": 0.7,
+          "rationale": "The explicit enterprise pivot away from offshore human labor hubs due to geopolitical volatility and border friction directly contradicts the narrative of massive developer adoption growth in India."
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence today regarding India's absolute volume of developers actively using AI coding tools."
+        }
+      },
+      "22": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding the specific job title 'AI software engineer'."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "While developer roles are shifting, there is no direct evidence today about the specific growth rate of the 'AI software engineer' title."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding specific job title growth."
+        },
+        "Contrarian": {
+          "lr": 2.5,
+          "rationale": "As autonomous, borderless AI coding agents take over syntax at a 1,000x cadence, managing these agents will surge to become the most critical new engineering role, defying its low baseline probability."
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No specific labor data on the growth rate of the 'AI software engineer' title."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence on specific tech job title growth rates."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.2,
+          "rationale": "As enterprises abandon offshore human labor for autonomous AI pipelines, the domestic demand for AI software engineers to orchestrate these systems will rapidly accelerate."
+        }
+      },
+      "23": {
+        "Techno-Optimist": {
+          "lr": 1.4,
+          "rationale": "Replacing offshore labor hubs with automated AI pipelines will obliterate the pricing power of bottom-quartile, routine software developers."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "As a labor economist, I maintain that historical base rates show automation typically shifts skill requirements rather than broadly depressing structural wages in high-demand sectors."
+        },
+        "Security Hawk": {
+          "lr": 1.4,
+          "rationale": "Replacing offshore human labor with borderless AI coding agents will devastate compensation for the bottom quartile of global developers."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.4,
+          "rationale": "Routine junior and offshore tasks being eaten by automated agents operating at 1,000x human cadence will crash the salary floor for developers."
+        },
+        "Enterprise Architect": {
+          "lr": 1.4,
+          "rationale": "As enterprises replace easily outsourced, lower-tier coding tasks with automated AI pipelines, bottom-quartile developer compensation will stagnate or drop."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "While global offshore hubs face pressure, there is no direct evidence today that US-based bottom-quartile developer salaries will fall below 2025 levels."
+        }
+      },
+      "24": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding compensation changes for Staff+ engineers."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "There is no evidence today regarding compensation adjustments for Staff+ engineers."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding staff-level compensation."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.3,
+          "rationale": "Highly leveraged staff engineers acting as orchestrators for these new autonomous cloud pipelines will command massive compensation premiums."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding Staff+ engineer compensation."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence today concerning real-term compensation increases for Staff+ engineers."
+        }
+      },
+      "25": {
+        "Techno-Optimist": {
+          "lr": 1.5,
+          "rationale": "As borderless AI coding agents replace offshore labor hubs, freelance rates for routine web development will crash significantly below current levels."
+        },
+        "Labor Economist": {
+          "lr": 1.2,
+          "rationale": "The structural enterprise pivot toward automated, borderless AI coding pipelines over vulnerable offshore labor will likely exert downward pressure on global freelance rates for routine tasks."
+        },
+        "Security Hawk": {
+          "lr": 1.4,
+          "rationale": "The push toward automated AI pipelines over human labor will crush global demand for routine freelance web development."
+        },
+        "Contrarian": {
+          "lr": 1.5,
+          "rationale": "Replacing offshore human labor with automated, regionally agnostic AI pipelines will crush the global freelance market demand, inevitably dragging rates below $25/hr."
+        },
+        "Startup Founder": {
+          "lr": 1.5,
+          "rationale": "Global talent pool stress and relentless agent automation will permanently decimate the demand for and rates of low-end freelance web devs."
+        },
+        "Enterprise Architect": {
+          "lr": 1.4,
+          "rationale": "The transition to borderless AI coding agents fundamentally commoditizes routine web development, severely undercutting freelance hourly rates."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.4,
+          "rationale": "Increasing border friction and a pivot toward borderless AI agents will crater enterprise demand for offshore routine web development, accelerating the downward pressure on freelance rates globally."
+        },
+        "Developer Educator": {
+          "lr": 1.4,
+          "rationale": "Enterprise migration away from vulnerable offshore human labor toward resilient AI pipelines will catastrophically crash demand and hourly rates for routine global freelance coding."
+        }
+      },
+      "26": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding a specific major AI-generated code vulnerability breach."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "No security incidents or relevant cyber risk signals were reported today."
+        },
+        "Security Hawk": {
+          "lr": 1.5,
+          "rationale": "Moving away from heavy local compilation to entirely cloud-orchestrated agents operating at 1,000x speeds practically guarantees a massive supply chain breach."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No cybersecurity breach data or vulnerability predictions in today's signals."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "While privacy/security friction is elevated, there is no direct evidence pointing to an impending 10-million-user breach by 2027."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.3,
+          "rationale": "Decoupling software engineering from local test environments to rely wholly on automated cloud pipelines raises the systemic liability risk of shipping a massive, breach-inducing vulnerability that triggers compliance scrutiny."
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today indicates an impending major vulnerability breach caused by AI-generated code."
+        }
+      },
+      "27": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding SAST/DAST tools incorporating AI-specific scanning rules."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "Today's news does not cover enterprise SAST/DAST tool feature roadmaps."
+        },
+        "Security Hawk": {
+          "lr": 1.4,
+          "rationale": "Aggressive state-level security friction and automated pipelines will force enterprises to heavily invest in AI-specific SAST/DAST compliance tools to mitigate risk."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding SAST/DAST tool feature roadmaps."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding enterprise SAST/DAST tool feature adoption."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence today regarding the feature sets of enterprise SAST/DAST tools."
+        }
+      },
+      "28": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding prompt injection attacks entering the OWASP Top 10."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "There is no evidence today regarding prompt injection attacks or OWASP categorization."
+        },
+        "Security Hawk": {
+          "lr": 1.3,
+          "rationale": "The reliance on cloud-hosted frontier models for syntax generation massively increases the attack surface for prompt injection vulnerabilities."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No signals today relating to prompt injection attacks or OWASP categories."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence on OWASP top 10 categories."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today regarding prompt injection attacks entering the OWASP Top 10."
+        }
+      },
+      "29": {
+        "Techno-Optimist": {
+          "lr": 1.5,
+          "rationale": "The Kitchen Loop framework successfully handling syntax generation and testing remotely is a direct precursor to fully automated enterprise test coverage."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "While the 'Kitchen Loop' framework implies automation, today's signals do not explicitly detail automated test generation coverage."
+        },
+        "Security Hawk": {
+          "lr": 1.3,
+          "rationale": "The signal explicitly mentions agents handling testing remotely, supporting the rise of fully automated test generation."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.4,
+          "rationale": "The explicit mention of AI agents handling syntax and testing remotely at 1,000x cadence strongly supports fully automated test generation."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding AI test generation coverage metrics."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "While AI testing happens remotely, there is no direct metric today validating >80% automated test coverage."
+        }
+      },
+      "30": {
+        "Techno-Optimist": {
+          "lr": 1.6,
+          "rationale": "The normalization of autonomous pull requests demonstrates that autonomous AI deployment pipelines are rapidly arriving ahead of schedule."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "The shift to cloud orchestration does not directly address the autonomous shipping of production changes without human approval."
+        },
+        "Security Hawk": {
+          "lr": 1.3,
+          "rationale": "While highly risky, the push toward entirely cloud-orchestrated pipelines increases the likelihood of reckless autonomous deployments without human oversight."
+        },
+        "Contrarian": {
+          "lr": 3.0,
+          "rationale": "The demonstrated reality of the 'Kitchen Loop' framework and autonomous pull requests practically guarantees a rapid, underestimated shift toward human-free deployment pipelines."
+        },
+        "Startup Founder": {
+          "lr": 1.5,
+          "rationale": "Enterprises pivoting to automated pipelines over human hubs to avoid global friction makes autonomous continuous deployment an inevitable near-term reality."
+        },
+        "Enterprise Architect": {
+          "lr": 0.4,
+          "rationale": "Strict privacy and state-level compliance friction guarantees that Fortune 500 security architectures will not allow >40% of production changes to ship without human approval by 2029."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.3,
+          "rationale": "The emergence of frameworks like the 'Kitchen Loop' executing autonomous pull requests indicates rapid progress toward human-free automated continuous deployment."
+        }
+      },
+      "31": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding the exact percentage of bugs caught by AI code review tools."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "No new data on AI code review efficacy was presented today."
+        },
+        "Security Hawk": {
+          "lr": 0.8,
+          "rationale": "I consistently doubt the quality and reliability of AI tools evaluating other AI code, as they share the same blind spots and fail at edge cases."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No data on the bug-catch rate of AI code review tools was presented."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence on AI code review bug catch rates."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence today regarding bug catch rates for AI code review tools."
+        }
+      },
+      "32": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding the decline rate of human pair programming."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "The end of the local compile era does not directly inform the rate of decline in human-to-human pair programming."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding human pair programming."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.3,
+          "rationale": "With developers moving to lightweight specification terminals to direct agents, human-to-human pair programming becomes a legacy bottleneck."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding the decline of human pair programming."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today regarding a steep decline in human pair programming rates."
+        }
+      },
+      "33": {
+        "Techno-Optimist": {
+          "lr": 1.8,
+          "rationale": "With the elimination of local hardware bottlenecks and agents coding at 1,000x cadence, deploying an MVP in under a week becomes a trivial baseline."
+        },
+        "Labor Economist": {
+          "lr": 1.4,
+          "rationale": "The discontinuation of the Mac Pro confirms that rapid MVP deployment is no longer gated by local hardware compilation, validating the shift toward cloud-orchestrated AI coding cycles."
+        },
+        "Security Hawk": {
+          "lr": 1.5,
+          "rationale": "The discontinuation of heavy local hardware confirms that high-speed, cloud-orchestrated AI workflows will drastically reduce time-to-deployment for MVPs."
+        },
+        "Contrarian": {
+          "lr": 2.0,
+          "rationale": "The explicit decoupling of rapid MVP deployment from local hardware compilation bottlenecks directly accelerates sub-one-week delivery times for solo developers."
+        },
+        "Startup Founder": {
+          "lr": 2.5,
+          "rationale": "The death of the Mac Pro proves we are entering an era of cloud-orchestrated rapid MVP deployment by solo devs using hyper-fast AI."
+        },
+        "Enterprise Architect": {
+          "lr": 1.3,
+          "rationale": "The discontinuation of heavy local compute hardware underscores that the speed of solo MVP deployment is no longer gated by local hardware compile limitations."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.5,
+          "rationale": "As explicitly highlighted by the hardware sunsets, the death of heavy local compute validates that rapid MVP deployment is no longer gated by local bottlenecks, heavily supporting this acceleration for solo developers."
+        },
+        "Developer Educator": {
+          "lr": 1.6,
+          "rationale": "As the Mac Pro's discontinuation signals the end of local compute bottlenecks, cloud-orchestrated AI generating syntax at 1,000x human cadence will drastically compress MVP timelines."
+        }
+      },
+      "34": {
+        "Techno-Optimist": {
+          "lr": 1.6,
+          "rationale": "The transition to 'lightweight specification terminals' confirms my thesis that developers will become requirement orchestrators rather than manual syntax typists."
+        },
+        "Labor Economist": {
+          "lr": 1.35,
+          "rationale": "The transition toward 'lightweight specification terminals' strongly supports the premise that developer roles are fundamentally shifting from direct coding toward requirement specification."
+        },
+        "Security Hawk": {
+          "lr": 1.4,
+          "rationale": "The shift toward 'lightweight specification terminals' directly supports developers spending their time on requirements rather than syntax."
+        },
+        "Contrarian": {
+          "lr": 2.0,
+          "rationale": "The shift away from local IDEs to 'lightweight specification terminals' confirms the transition from manual syntax generation to pure requirement orchestration."
+        },
+        "Startup Founder": {
+          "lr": 2.0,
+          "rationale": "The text explicitly states developers now primarily need lightweight specification terminals to orchestrate agents, shifting the job to pure specification."
+        },
+        "Enterprise Architect": {
+          "lr": 1.5,
+          "rationale": "The shift toward lightweight specification terminals and cloud orchestration forces the developer's role to evolve from typing syntax to specifying requirements and reviewing outputs."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.6,
+          "rationale": "The transition of software engineering to a cloud-orchestrated discipline utilizing 'lightweight specification terminals' perfectly aligns with a future dominated by requirements specification rather than manual coding."
+        },
+        "Developer Educator": {
+          "lr": 1.5,
+          "rationale": "The hardware transition toward lightweight 'specification terminals' fundamentally confirms that the developer's primary role is shifting from manual coding to architectural specification."
+        }
+      },
+      "35": {
+        "Techno-Optimist": {
+          "lr": 1.3,
+          "rationale": "As autonomous pipelines replace routine labor and handle syntax generation effortlessly, the perceived ROI of a traditional computer science degree will plummet."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "Historical data suggests computer science degrees remain resilient during technological shifts, and today's signals offer no contrary evidence."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding computer science degree enrollment."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No university enrollment data or adjacent signals today."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding university computer science enrollment."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "Despite shifts in coding workflows, there is no evidence today that CS degree enrollments will suffer a steep decline."
+        }
+      },
+      "36": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding the salary premium for systems programming."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "The shift away from massive local compute does not directly inform relative salary premiums between systems programming and web development."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding systems programming salary premiums."
+        },
+        "Contrarian": {
+          "lr": 0.5,
+          "rationale": "Consensus heavily expects a systems programming premium, but the death of local compute and full transition to cloud-orchestrated frontier models will abstract away the need for low-level systems specialists."
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "The discontinuation of local hardware doesn't necessarily dictate the salary premium of systems programming vs web dev."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding systems programming salary premiums."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence today relates to the salary premium gap between systems programming and web development."
+        }
+      },
+      "37": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding bootcamp graduates closing the gap with CS degree holders."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "No evidence was presented today regarding the relative performance of bootcamp graduates versus CS degree holders."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding bootcamp graduate performance."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No data today comparing bootcamp graduates to CS degree holders."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence on bootcamp graduate performance relative to CS degree holders."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today regarding the performance convergence between bootcamp graduates and CS degree holders."
+        }
+      },
+      "38": {
+        "Techno-Optimist": {
+          "lr": 1.3,
+          "rationale": "The enterprise shift toward resilient, automated AI pipelines over massive human labor pools vastly expands the total addressable market for pure-play AI coding startups."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "Today's signals do not provide financial data to adjust valuations for pure-play AI coding tool companies."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding pure-play AI coding tool valuations."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.4,
+          "rationale": "If AI agents are absorbing the entire global offshore engineering budget, valuations for pure-play AI coding companies will easily skyrocket past $200B."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding AI coding tool company valuations."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence today regarding the combined market valuation of pure-play AI coding companies."
+        }
+      },
+      "39": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding Microsoft bundling AI coding features for free."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "There is no relevant news regarding Microsoft's bundling or pricing strategies for VS Code."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding Microsoft bundling features."
+        },
+        "Contrarian": {
+          "lr": 0.5,
+          "rationale": "Consensus assumes Microsoft dominates via VS Code, but the shift to lightweight orchestration interfaces threatens heavy local IDEs, making bundling strategies far less powerful."
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No pricing or bundling signals from Microsoft today."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence on Microsoft's bundling or pricing strategies."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today concerning Microsoft's future bundling or pricing strategies for Visual Studio."
+        }
+      },
+      "40": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding non-tech Fortune 100 companies open-sourcing AI coding tools."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "The pivot to resilient AI development pipelines does not confirm whether non-tech Fortune 100 companies will successfully open-source their own tools."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding non-tech Fortune 100 open-source contributions."
+        },
+        "Contrarian": {
+          "lr": 1.5,
+          "rationale": "Macro friction pushing non-tech enterprises toward autonomous pipelines will drive them to build and open-source their own orchestration layers to avoid vendor lock-in."
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No signals indicating non-tech companies will open-source their own AI tools."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence of a non-tech Fortune 100 open-sourcing a major AI tool."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence from today's signals regarding non-tech companies open-sourcing popular AI coding tools."
+        }
+      },
+      "41": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding GPT-5's specific scores on HumanEval and SWE-bench."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "Today is characterized by a flatlining of AI coding advancements, offering no new benchmark metrics for frontier models."
+        },
+        "Security Hawk": {
+          "lr": 0.7,
+          "rationale": "AI benchmarks are notoriously gameable; I deeply discount the likelihood of GPT-5 achieving such flawlessly secure and reliable performance."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No OpenAI model release or benchmark performance data in today's news."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence on GPT-5 benchmark performance."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today concerning the upcoming benchmark performance of GPT-5 or its successor."
+        }
+      },
+      "42": {
+        "Techno-Optimist": {
+          "lr": 1.5,
+          "rationale": "The push toward autonomous borderless AI coding agents perfectly aligns with agents being able to fully maintain medium-complexity repositories."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "While AI orchestration is advancing, there is no specific evidence today about AI autonomously maintaining large open-source projects."
+        },
+        "Security Hawk": {
+          "lr": 0.7,
+          "rationale": "Autonomous maintenance of complex repositories requires deep reasoning that frontier models continuously fail to demonstrate safely in production."
+        },
+        "Contrarian": {
+          "lr": 2.0,
+          "rationale": "The success of autonomous pull requests validates AI's overlooked capability to maintain complex repositories entirely independently."
+        },
+        "Startup Founder": {
+          "lr": 1.3,
+          "rationale": "Cloud-hosted agents operating at 1,000x human cadence make the autonomous maintenance of large open-source projects highly feasible."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding AI's ability to maintain open-source projects autonomously."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.3,
+          "rationale": "Frameworks featuring autonomous pull requests handling syntax and testing at superhuman speeds directly validate the technical feasibility of autonomous project maintenance."
+        }
+      },
+      "43": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding the market share of multimodal AI coding tools."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "Today's signals focus on hardware and macro labor shifts, not the adoption rates of multimodal AI interfaces."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding multimodal coding tool market share."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No signals today relating to multimodal inputs like screenshots or voice."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding multimodal AI coding tool market share."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence today regarding multimodal capabilities capturing major market share in AI coding tools."
+        }
+      },
+      "44": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding the specific cost reduction per token for frontier models."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "The shift to cloud-hosted frontier models is evident, but no specific token pricing data was provided today."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding cost per token drops."
+        },
+        "Contrarian": {
+          "lr": 0.5,
+          "rationale": "Everyone expects token costs to crash, but AI agents generating code at a '1,000x human cadence' will create an insatiable compute demand that props up frontier model pricing."
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No API pricing or token cost data was released today."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence on frontier model token cost reductions."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today regarding the specific cost-per-token drop of frontier coding models."
+        }
+      },
+      "45": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding EU regulations on AI-generated code."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "Border friction regarding bio-data collection highlights regulatory overreach, but does not directly inform EU policies on safety-critical AI software."
+        },
+        "Security Hawk": {
+          "lr": 1.4,
+          "rationale": "Increasing international border friction and state data collection point to a broader trend of aggressive, strict regulatory intervention in technology."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No European regulatory news was included in today's signals."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding EU safety-critical software regulations."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.4,
+          "rationale": "Aggressive state-level bio-data collection and tightening border controls highlight an environment of escalating sovereign compliance, strongly pointing toward strict, binding tech regulations like the EU's transparency requirements."
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence today concerning impending EU regulations on safety-critical AI-generated code."
+        }
+      },
+      "46": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding the impact of EU AI regulations on startup relocation."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "No signals today directly pertain to EU AI regulations or startup relocation trends."
+        },
+        "Security Hawk": {
+          "lr": 1.3,
+          "rationale": "Strict compliance architectures and data sovereignty concerns will absolutely drive regulatory flight among AI startups seeking less friction."
+        },
+        "Contrarian": {
+          "lr": 2.0,
+          "rationale": "Because software engineering is now heavily driven by autonomous, borderless agents, relocating outside of heavily regulated EU zones to avoid friction will be drastically easier than the 15% consensus suggests."
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No signals today regarding European startups relocating due to regulations."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence on European startups relocating due to regulations."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today regarding European startups relocating due to AI coding regulations."
+        }
+      },
+      "47": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding India developing a top 10 AI coding tool."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "The push away from offshore labor hubs does not explicitly prevent India from developing a top-tier domestic AI tool."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding India's domestic AI tool development."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No data suggesting India is developing a top 10 domestic AI coding tool."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding India's domestically-developed AI coding tools."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence today regarding India developing a globally top-ranked domestic AI coding tool."
+        }
+      },
+      "48": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding US-China AI export controls fragmenting the market."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "While geopolitical instability is elevated, specific US-China export controls fragmenting the AI tool market are not mentioned today."
+        },
+        "Security Hawk": {
+          "lr": 1.3,
+          "rationale": "Sustained macro geopolitical instability makes the fragmentation of tech ecosystems and tight export controls highly probable."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "US-China export controls specifically were not mentioned, only border privacy and Middle East instability."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence on US-China export controls fragmenting the coding market."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.3,
+          "rationale": "Sustained geopolitical volatility and rising international border friction provide strong macro evidence for the impending fragmentation of the global AI coding tool market into rigid, incompatible state ecosystems."
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today indicates that US-China export controls will fragment the AI coding tool ecosystem."
+        }
+      },
+      "49": {
+        "Techno-Optimist": {
+          "lr": 1.5,
+          "rationale": "The combination of lightweight specification terminals and autonomous agents makes human-free, AI-built MVPs highly probable in the near term."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "Despite advancements in cloud-orchestrated agents, I remain cautious about extreme claims of fully AI-built products with virtually zero human code by 2026."
+        },
+        "Security Hawk": {
+          "lr": 1.2,
+          "rationale": "The combination of lightweight orchestration and high-speed remote generation makes purely AI-built products extremely feasible for early-stage startups."
+        },
+        "Contrarian": {
+          "lr": 1.5,
+          "rationale": "With AI taking over remote syntax generation at massive speeds and developers acting merely as specification orchestrators, purely AI-built startups are highly probable."
+        },
+        "Startup Founder": {
+          "lr": 1.8,
+          "rationale": "Founders orchestrating cloud agents from lightweight terminals without heavy local compute will empower YC batches to ship complex products with virtually zero human code."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "While 'Kitchen Loop' suggests 1,000x human cadence in a demo environment, enterprise reality dictates that building products with <100 lines of human code remains unproven at scale."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.2,
+          "rationale": "The discontinuation of the Mac Pro symbolizes the death of traditional local development, validating the imminent rise of zero-hardware startups built exclusively on AI agent orchestration."
+        },
+        "Developer Educator": {
+          "lr": 1.3,
+          "rationale": "Cloud-hosted frontier models managing rapid syntax generation remotely significantly lower the barrier for startups to ship entire products using predominantly AI-generated code."
+        }
+      },
+      "50": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding 'AI debugging' specialists becoming a recognized job category."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today indicates the emergence of 'AI debugging' as a formalized job category."
+        },
+        "Security Hawk": {
+          "lr": 1.4,
+          "rationale": "The massive volume of flawed code produced by autonomous agents will necessitate an entire class of human janitors to diagnose AI-specific failures."
+        },
+        "Contrarian": {
+          "lr": 2.0,
+          "rationale": "Since agents generate syntax at a 1,000x cadence, the sheer volume of output will absolutely mandate the rise of specialized 'AI debugging' professionals, a reality currently priced at only 9%."
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No evidence today regarding the emergence of specific 'AI debugging' job titles."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence on the formal recognition of an 'AI debugging' specialist role."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence today regarding the emergence of 'AI debugging' as a specialized and recognized job category."
+        }
+      },
+      "51": {
+        "Techno-Optimist": {
+          "lr": 1.2,
+          "rationale": "The success of autonomous testing and syntax generation loops strongly supports models crushing coding benchmarks ahead of expert timelines."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "Today's neutral sentiment in AI coding advancements offers no new momentum toward near-term SWE-bench targets."
+        },
+        "Security Hawk": {
+          "lr": 0.7,
+          "rationale": "I push down all claims of AI models dominating rigorous software engineering benchmarks due to their inherent unreliability."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No SWE-bench specific timelines or lab announcements today."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding SWE-bench timelines."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today regarding any tool achieving >80% on SWE-bench by April 2026."
+        }
+      },
+      "52": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding Anthropic's release timeline for Claude 4."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "There are no signals related to Anthropic's model release timelines."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding Anthropic's release timeline."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No signals regarding Anthropic or Claude release timelines."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding Anthropic's release schedule."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence today regarding the release timeline for Claude 4."
+        }
+      },
+      "53": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding GitHub Copilot pricing changes."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "No pricing announcements from GitHub were indicated in today's signals."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding GitHub Copilot pricing."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No signals regarding GitHub Copilot pricing changes today."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding GitHub Copilot pricing changes."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today regarding an impending announcement of GitHub Copilot pricing changes."
+        }
+      },
+      "54": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding new AI coding startups announcing funding."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "Venture capital funding rounds for AI startups were not mentioned today."
+        },
+        "Security Hawk": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence regarding startup funding rounds in April 2026."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.3,
+          "rationale": "The massive enterprise pivot toward resilient AI dev pipelines will trigger explosive VC funding rounds for startups building these orchestration layers."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding AI coding startup funding rounds."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No relevant evidence today indicating specific >$10M funding rounds for new AI startups in April 2026."
+        }
+      },
+      "55": {
+        "Techno-Optimist": {
+          "lr": 1.0,
+          "rationale": "No direct evidence regarding specific arXiv paper metrics for HumanEval+."
+        },
+        "Labor Economist": {
+          "lr": 1.0,
+          "rationale": "Today's pause in AI model breakthroughs provides no new evidence regarding upcoming arXiv paper benchmarks."
+        },
+        "Security Hawk": {
+          "lr": 0.7,
+          "rationale": "Theoretical benchmark performance on arXiv rarely translates to secure, reliable capabilities, making me highly skeptical of near-term AI leaps."
+        },
+        "Contrarian": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Startup Founder": {
+          "lr": 1.0,
+          "rationale": "No signals regarding upcoming arXiv papers or HumanEval+ benchmarks."
+        },
+        "Enterprise Architect": {
+          "lr": 1.0,
+          "rationale": "No direct evidence on upcoming arXiv paper benchmark scores."
+        },
+        "Regulatory Watcher": {
+          "lr": 1.0,
+          "rationale": ""
+        },
+        "Developer Educator": {
+          "lr": 1.0,
+          "rationale": "No direct evidence today regarding upcoming arXiv papers hitting >75% on HumanEval+ before April 20, 2026."
+        }
+      }
+    },
+    "median_lrs": {
+      "1": 1.0,
+      "2": 0.7,
+      "3": 1.0,
+      "4": 1.15,
+      "5": 1.0,
+      "6": 0.7,
+      "7": 1.0,
+      "8": 1.0,
+      "9": 1.0,
+      "10": 1.0,
+      "11": 1.0,
+      "12": 1.0,
+      "13": 1.0,
+      "14": 1.0,
+      "15": 1.0,
+      "16": 1.0,
+      "17": 1.3,
+      "18": 1.0,
+      "19": 1.0,
+      "20": 1.0,
+      "21": 0.6,
+      "22": 1.0,
+      "23": 1.2,
+      "24": 1.0,
+      "25": 1.4,
+      "26": 1.0,
+      "27": 1.0,
+      "28": 1.0,
+      "29": 1.0,
+      "30": 1.3,
+      "31": 1.0,
+      "32": 1.0,
+      "33": 1.55,
+      "34": 1.55,
+      "35": 1.0,
+      "36": 1.0,
+      "37": 1.0,
+      "38": 1.0,
+      "39": 1.0,
+      "40": 1.0,
+      "41": 1.0,
+      "42": 1.15,
+      "43": 1.0,
+      "44": 1.0,
+      "45": 1.0,
+      "46": 1.0,
+      "47": 1.0,
+      "48": 1.0,
+      "49": 1.25,
+      "50": 1.0,
+      "51": 1.0,
+      "52": 1.0,
+      "53": 1.0,
+      "54": 1.0,
+      "55": 1.0
+    },
+    "contested": [
+      "30"
+    ]
   }
 }
