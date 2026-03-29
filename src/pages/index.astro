@@ -32,6 +32,7 @@ const daysLive = Math.max(1, Math.floor((Date.now() - launchDate.getTime()) / 86
 
 // Load latest report for the sample preview
 let latestExcerpt = '';
+let latestExcerptZh = '';
 let latestDate = '';
 try {
   const reportsDir = path.resolve(process.cwd(), 'src', 'content', 'reports');
@@ -39,9 +40,16 @@ try {
   if (reports.length > 0) {
     latestDate = reports[0].replace('.md', '');
     const content = fs.readFileSync(path.join(reportsDir, reports[0]), 'utf-8');
-    // Extract executive summary
     const match = content.match(/### Executive Summary\s*\n([\s\S]*?)(?=\n###|\n---|\Z)/);
     if (match) latestExcerpt = match[1].trim().slice(0, 300).replace(/\n/g, ' ');
+    // Load Chinese excerpt
+    const zhPath = path.join(reportsDir, `${latestDate}.zh.md`);
+    if (fs.existsSync(zhPath)) {
+      const zhContent = fs.readFileSync(zhPath, 'utf-8');
+      // Take first substantial paragraph (skip title lines)
+      const zhLines = zhContent.split('\n').filter((l: string) => l.trim().length > 20 && !l.startsWith('#'));
+      if (zhLines.length > 0) latestExcerptZh = zhLines[0].trim().slice(0, 300);
+    }
   }
 } catch {}
 
@@ -347,7 +355,10 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
             >{movedPreds.length > 0 ? `${allPreds.filter((p: any) => p.confidence !== (p.previous ?? p.confidence)).length} predictions moved` : 'Daily forecast'}</span>
           </div>
           {latestExcerpt ? (
-            <p class="text-sm text-almanac-muted leading-relaxed mb-4">{latestExcerpt}...</p>
+            <p class="text-sm text-almanac-muted leading-relaxed mb-4"
+              data-en={latestExcerpt + '...'}
+              data-zh={latestExcerptZh ? latestExcerptZh + '...' : latestExcerpt + '...'}
+            >{latestExcerpt}...</p>
           ) : (
             <p class="text-sm text-almanac-muted leading-relaxed mb-4" data-en="Each morning, Almanac synthesizes signals from 17+ sources into a concise forecast with specific, source-linked prediction updates." data-zh="每天早上，Almanac 从 17+ 数据源提取信号，生成带来源链接的预测更新。">Each morning, Almanac synthesizes signals from 17+ sources into a concise forecast with specific, source-linked prediction updates.</p>
           )}
