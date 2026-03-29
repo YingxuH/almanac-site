@@ -440,7 +440,7 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
       <div class="flex items-end justify-between mb-8">
         <div>
           <h2 class="text-3xl font-bold" data-en="Active Predictions" data-zh="正在追踪的预测">Active Predictions</h2>
-          <p class="text-almanac-muted mt-1" data-en={`${totalPreds} falsifiable forecasts with daily Bayesian updates`} data-zh={`${totalPreds} 项可证伪预测，Bayesian 每日更新`}>{totalPreds} falsifiable forecasts with daily Bayesian updates</p>
+          <p class="text-almanac-muted mt-1" data-en={`${totalPreds} falsifiable forecasts with daily Bayesian updates`} data-zh={`${totalPreds} 项可证伪预测，贝叶斯每日更新`}>{totalPreds} falsifiable forecasts with daily Bayesian updates</p>
         </div>
         <a href="/almanac-site/predictions" class="text-sm text-almanac-accent hover:underline hidden sm:block" data-en="View details →" data-zh="看全部 →">View details &rarr;</a>
       </div>
@@ -504,7 +504,7 @@ const nearestMicroWithin60 = nearestMicro && nearestMicro.daysUntil <= 60 ? near
         {[
           { num: "01", title: "Ingest", titleZh: "抓数据", desc: "AI agents scrape 17+ sources — arXiv, Hacker News, job boards, GitHub, RSS feeds, Reddit, prediction markets.", descZh: "每天自动抓取 17+ 数据源——arXiv、HN、招聘网站、GitHub、RSS、Reddit、预测市场，一个不漏。" },
           { num: "02", title: "Analyze", titleZh: "提信号", desc: "Signals filtered and synthesized. Every claim source-linked. Every prediction gets a confidence score with likelihood ratios.", descZh: "过滤噪音、提取信号。每个结论都带来源链接，每项预测附 likelihood ratio。" },
-          { num: "03", title: "Forecast", titleZh: "出预测", desc: "Bayesian updates with 0.3 dampening. 10 AI personas with different worldviews vote independently. Max 5pp daily move.", descZh: "Bayesian 更新，0.3 dampening。10个AI角色独立投票，每天最多动5个百分点。" },
+          { num: "03", title: "Forecast", titleZh: "出预测", desc: "Bayesian updates with 0.3 dampening. 10 AI personas with different worldviews vote independently. Max 5pp daily move.", descZh: "贝叶斯更新，0.3 dampening。10个AI角色独立投票，每天最多动5个百分点。" },
         ].map((step, i) => (
           <div class="relative z-10 text-center px-6 py-4">
             <div class="w-20 h-20 mx-auto mb-4 rounded-2xl border border-almanac-border bg-almanac-surface flex items-center justify-center group-hover:border-almanac-accent transition-colors">

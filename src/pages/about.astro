@@ -24,7 +24,7 @@ const totalPreds = loadPredictions().length;
             <span class="w-1.5 h-6 rounded-full bg-almanac-accent"></span>
             <span data-en="What This Is" data-zh="这东西是干嘛的">What This Is</span>
           </h2>
-          <p class="text-almanac-muted leading-relaxed" data-en={`Almanac is an AI-powered forecasting system that tracks how software engineering is changing over the next 3-30 years. Every day, our pipeline scrapes 17+ data sources, filters hundreds of signals through tiered AI models, and produces a confidence-scored forecast. We track ${totalPreds} specific, falsifiable predictions and update them daily using Bayesian likelihood ratio analysis with a 10-persona forecaster panel.`} data-zh={`Almanac 是一套大模型驱动的预测系统，专门追踪软件工程在未来 3—30 年的走向。每天流水线自动爬取 17+ 个数据源，用分层大模型从数百条信号里筛出有价值的东西，输出带置信度的预测。我们维护 ${totalPreds} 条具体、可证伪的预测，每天用 Bayesian 似然比分析 + 5 人角色面板同步更新。`}>
+          <p class="text-almanac-muted leading-relaxed" data-en={`Almanac is an AI-powered forecasting system that tracks how software engineering is changing over the next 3-30 years. Every day, our pipeline scrapes 17+ data sources, filters hundreds of signals through tiered AI models, and produces a confidence-scored forecast. We track ${totalPreds} specific, falsifiable predictions and update them daily using Bayesian likelihood ratio analysis with a 10-persona forecaster panel.`} data-zh={`Almanac 是一套大模型驱动的预测系统，专门追踪软件工程在未来 3—30 年的走向。每天流水线自动爬取 17+ 个数据源，用分层大模型从数百条信号里筛出有价值的东西，输出带置信度的预测。我们维护 ${totalPreds} 条具体、可证伪的预测，每天用 贝叶斯似然比分析 + 10 角色面板同步更新。`}>
             Almanac is an AI-powered forecasting system that tracks how software engineering is changing over the next 3-30 years.
             Every day, our pipeline scrapes 17+ data sources, filters hundreds of signals through tiered AI models, and produces
             a confidence-scored forecast. We track {totalPreds} specific, falsifiable predictions and update them daily using Bayesian likelihood ratio analysis with a 10-persona forecaster panel.
@@ -54,7 +54,7 @@ const totalPreds = loadPredictions().length;
               <div class="font-semibold text-sm mb-1">Almanac</div>
               <ul class="text-almanac-muted space-y-1">
                 <li data-en={`${totalPreds} SWE-specific predictions`} data-zh={`${totalPreds}条软件工程专属预测`}>{totalPreds} SWE-specific predictions</li>
-                <li data-en="Daily automated Bayesian updates" data-zh="每日自动 Bayesian 更新">Daily automated Bayesian updates</li>
+                <li data-en="Daily automated Bayesian updates" data-zh="每日自动 贝叶斯更新">Daily automated Bayesian updates</li>
                 <li data-en="10-persona panel with evidence trails" data-zh="10角色面板 + 完整证据链">10-persona panel with evidence trails</li>
                 <li data-en="Free, open methodology" data-zh="免费，方法论完全公开">Free, open methodology</li>
               </ul>
@@ -122,7 +122,7 @@ const totalPreds = loadPredictions().length;
                 title: "Prediction Update",
                 titleZh: "预测更新",
                 desc: `Each of our ${totalPreds} standing predictions is evaluated against the day's evidence via Bayesian likelihood ratio analysis. A 10-persona forecaster panel votes independently. Confidence can move up to +/-5 percentage points per day. All movements are logged with evidence trails.`,
-                descZh: `${totalPreds} 条在跑预测逐一用 Bayesian 似然比分析对照当天证据。5 个角色独立投票，互不干扰。置信度单日最多动 +/-5 个百分点，每次变动都有证据链存档。`,
+                descZh: `${totalPreds} 条在跑预测逐一用 贝叶斯似然比分析对照当天证据。10 个角色独立投票，互不干扰。置信度单日最多动 +/-5 个百分点，每次变动都有证据链存档。`,
                 color: "accent"
               },
               {
@@ -201,7 +201,7 @@ const totalPreds = loadPredictions().length;
           {[
             { param: "0.3 dampening", paramZh: "0.3 阻尼系数", why: "At 1.0, a single day's evidence from a noisy source causes multi-percentage-point swings that reverse the next day. At 0.3, it takes consistent evidence across several days to meaningfully shift a prediction — which matches how real-world trends work.", whyZh: "阻尼设成 1.0 的话，一个噪音来源的单日证据就能引发好几个百分点的震荡，第二天又打回来。0.3 的情况下，需要连续多天一致的证据才能让预测真正移动——这才符合真实趋势的运作规律。" },
             { param: "5pp max daily move", paramZh: "单日最大变动 5pp", why: "Prevents overreaction to single events. Even genuinely significant developments (a major acquisition, a breakthrough paper) need time for second-order effects to become clear. Big shifts should accumulate over weeks, not happen overnight.", whyZh: "防止对单一事件过激反应。就算是真正重大的消息（大并购、突破性论文），二阶效应也需要时间才能显现。大幅变化应该在数周内慢慢累积，而不是一夜剧变。" },
-            { param: "5 personas, median LR", paramZh: "5 角色，取中位 LR", why: "Using the median (not mean) of 5 likelihood ratios is robust to outlier personas. If the Techno-Optimist gives LR=5.0 and everyone else gives ~1.0, the median ignores the outlier. This prevents any single worldview from dominating.", whyZh: "取 5 个 LR 的中位数（不是均值），天然抗极端值。技术乐观派给 LR=5.0，其他人都给 ~1.0，中位数直接把那个异常值无视掉——任何单一世界观都别想一手遮天。" },
+            { param: "10 personas, median LR", paramZh: "10 角色，取中位 LR", why: "Using the median (not mean) of 10 likelihood ratios is robust to outlier personas. If the Techno-Optimist gives LR=5.0 and everyone else gives ~1.0, the median ignores the outlier. This prevents any single worldview from dominating.", whyZh: "取 10 个 LR 的中位数（不是均值），天然抗极端值。技术乐观派给 LR=5.0，其他人都给 ~1.0，中位数直接把那个异常值无视掉——任何单一世界观都别想一手遮天。" },
             { param: "[3%, 97%] bounds", paramZh: "概率边界 [3%, 97%]", why: "Nothing is ever truly 0% or 100% — there's always a chance we're wrong about the question itself, or the world changes in ways nobody predicted. Hard bounds acknowledge irreducible uncertainty.", whyZh: "没有什么事是真正的 0% 或 100%——我们可能对问题本身的理解就有偏差，也可能世界会以所有人都没预料到的方式变化。硬边界是对不可消除的不确定性诚实地认账。" },
           ].map((d) => (
             <div class="p-4 rounded-xl border border-almanac-border bg-almanac-surface/50">
@@ -217,7 +217,7 @@ const totalPreds = loadPredictions().length;
     <FadeIn delay={325}>
       <div class="mt-16">
         <h2 class="text-2xl font-bold mb-3" data-en="Try the Formula Yourself" data-zh="自己算算看">Try the Formula Yourself</h2>
-        <p class="text-sm text-almanac-muted mb-6" data-en="This calculator runs the exact same Bayesian update formula our pipeline uses every day. Use the presets to see how source credibility and evidence strength interact." data-zh="这个计算器用的是流水线每天跑的同一套 Bayesian 更新公式。点预设按钮，感受一下来源可信度和证据强度怎么互相影响。">
+        <p class="text-sm text-almanac-muted mb-6" data-en="This calculator runs the exact same Bayesian update formula our pipeline uses every day. Use the presets to see how source credibility and evidence strength interact." data-zh="这个计算器用的是流水线每天跑的同一套 贝叶斯更新公式。点预设按钮，感受一下来源可信度和证据强度怎么互相影响。">
           This calculator runs the exact same Bayesian update formula our pipeline uses every day. Use the presets to see how source credibility and evidence strength interact.
         </p>
         <BayesCalculator />
