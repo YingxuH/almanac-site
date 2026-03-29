@@ -1,7 +1,21 @@
 {
   "1": [],
   "2": [],
-  "3": [],
+  "3": [
+    {
+      "date": "2026-03-29",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "The Shift to Normative Specifications (Paradigm & Skills)",
+          "url": null,
+          "source": "GitHub",
+          "direction": "up",
+          "reasoning": "The explosive popularity of GitHub guides and agent harnesses proves that building autonomous workflows is rapidly becoming baseline knowledge."
+        }
+      ]
+    }
+  ],
   "4": [
     {
       "date": "2026-03-29",
@@ -117,12 +131,40 @@
   "20": [],
   "21": [],
   "22": [],
-  "23": [],
+  "23": [
+    {
+      "date": "2026-03-29",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "The \"Unbundling\" of the Software Engineer (Labor & Workflow)",
+          "url": null,
+          "source": "The Register, WSJ",
+          "direction": "up",
+          "reasoning": "Reports of AI unbundling engineering roles into lower-paid, hyper-specialized chunks directly support the thesis of a collapsing salary floor for routine coding work."
+        }
+      ]
+    }
+  ],
   "24": [],
   "25": [],
   "26": [],
   "27": [],
-  "28": [],
+  "28": [
+    {
+      "date": "2026-03-29",
+      "delta": 4,
+      "signals": [
+        {
+          "title": "Cloudflare Intercepts ChatGPT's React State (Security)",
+          "url": null,
+          "source": "Security researchers",
+          "direction": "up",
+          "reasoning": "Cloudflare's necessity to intercept ChatGPT outputs based on React state highlights an emerging vulnerability surface between LLM generation and application execution."
+        }
+      ]
+    }
+  ],
   "29": [
     {
       "date": "2026-03-27",
@@ -182,10 +224,37 @@
           "reasoning": "Wikipedia's ban establishes a critical precedent for authoritative repositories, mirroring anxiety around AI-generated code polluting open-source codebases and package registries."
         }
       ]
+    },
+    {
+      "date": "2026-03-29",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "The Shift to Normative Specifications (Paradigm & Skills)",
+          "url": null,
+          "source": "Developer discourse",
+          "direction": "up",
+          "reasoning": "The community's vocal shift toward writing normative specs to define component boundaries for agents aligns perfectly with a transition towards specifying requirements."
+        }
+      ]
     }
   ],
   "35": [],
-  "36": [],
+  "36": [
+    {
+      "date": "2026-03-29",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Deep Systems Paradigms Endure: C++26, Rust, and BEAM (Paradigm)",
+          "url": null,
+          "source": "ISO",
+          "direction": "up",
+          "reasoning": "Foundational systems programming continues to advance in complexity and remains fiercely resistant to AI commoditization."
+        }
+      ]
+    }
+  ],
   "37": [],
   "38": [],
   "39": [],
