@@ -15,6 +15,19 @@
           "reasoning": "The launch of OpenYak bypassing proprietary cloud constraints suggests open-source orchestration may retain more market share than expected."
         }
       ]
+    },
+    {
+      "date": "2026-03-29",
+      "delta": -1,
+      "signals": [
+        {
+          "title": "OpenYak Challenges Proprietary Filesystem Agents",
+          "url": null,
+          "source": "Hacker News",
+          "direction": "down",
+          "reasoning": "The release of OpenYak as a direct open-source competitor to Cowork tests the viability of local, open models maintaining market share against proprietary agents."
+        }
+      ]
     }
   ],
   "5": [],
@@ -65,6 +78,19 @@
           "source": "NY Post",
           "direction": "up",
           "reasoning": "Restricting a critical source of high-quality human data increases the likelihood that frontier models will hit capability plateaus due to training data exhaustion."
+        }
+      ]
+    },
+    {
+      "date": "2026-03-29",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "The \"Math vs. RAM\" Paradigm Shift",
+          "url": null,
+          "source": "adlrocha.substack.com",
+          "direction": "up",
+          "reasoning": "The theoretical shift from RAM scaling to mathematical optimization suggests current hardware-based scaling laws may be hitting a wall, increasing the likelihood of a performance plateau."
         }
       ]
     }
@@ -143,6 +169,19 @@
           "reasoning": "Apple's pivot away from its premier developer workstation highlights the shift toward lightweight, cloud-tethered requirement specification over writing code locally."
         }
       ]
+    },
+    {
+      "date": "2026-03-29",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "Wikipedia Officially Bans AI-Generated Content",
+          "url": null,
+          "source": "Wikipedia",
+          "direction": "up",
+          "reasoning": "Wikipedia's ban establishes a critical precedent for authoritative repositories, mirroring anxiety around AI-generated code polluting open-source codebases and package registries."
+        }
+      ]
     }
   ],
   "35": [],
@@ -167,6 +206,19 @@
           "reasoning": "Strict usage caps on Claude Opus demonstrate that underlying compute costs for frontier capabilities have not dropped sufficiently to allow unbounded premium usage."
         }
       ]
+    },
+    {
+      "date": "2026-03-29",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "The \"Math vs. RAM\" Paradigm Shift",
+          "url": null,
+          "source": "adlrocha.substack.com",
+          "direction": "up",
+          "reasoning": "If the industry successfully pivots toward mathematical and algorithmic efficiency rather than sheer RAM reliance, inference costs could plummet in line with this prediction."
+        }
+      ]
     }
   ],
   "45": [],
@@ -187,6 +239,19 @@
           "source": "Medium / AI Advances",
           "direction": "up",
           "reasoning": "The leak of internal Anthropic files is highly likely to contain concrete intelligence regarding their upcoming model release schedule."
+        }
+      ]
+    },
+    {
+      "date": "2026-03-29",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Anthropic's \"Mythos\" Leak and Opus Constraints",
+          "url": null,
+          "source": "Anthropic's Mythos leak / Hacker News",
+          "direction": "up",
+          "reasoning": "The leak of 3,000 files from Anthropic's \"Mythos\" project hints at major internal developments and upcoming architectural shifts that could precede a new model launch."
         }
       ]
     }
