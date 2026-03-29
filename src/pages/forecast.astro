@@ -171,6 +171,9 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
       )}
     </div>
 
+    <!-- English report body — hidden in ZH mode when Chinese report exists -->
+    <div class={hasZhReport ? 'en-only-content' : ''}>
+
     <!-- What Moved Today -->
     {movedPredictions.length > 0 && (
       <FadeIn>
@@ -358,6 +361,8 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
       </FadeIn>
     )}
 
+    </div><!-- end en-only-content -->
+
     <!-- Bottom nav -->
     <div class="pt-8 border-t border-almanac-border flex items-center justify-between">
       <span class="text-sm text-almanac-muted font-mono" data-en={`Report: ${latestDate}`} data-zh={`本期：${latestDate}`}>Report: {latestDate}</span>
@@ -373,6 +378,9 @@ const predItems = predictions ? parsePredictions(predictions.content) : [];
         var lang = document.documentElement.getAttribute('data-lang') || 'en';
         var notice = document.querySelector('.zh-only-notice');
         if (notice) notice.style.display = lang === 'zh' ? '' : 'none';
+        // Hide English report body when ZH report is available
+        var enOnly = document.querySelector('.en-only-content');
+        if (enOnly) enOnly.style.display = lang === 'zh' ? 'none' : '';
       }
       toggleZhNotice();
       document.addEventListener('DOMContentLoaded', toggleZhNotice);
