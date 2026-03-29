@@ -2,7 +2,21 @@
   "1": [],
   "2": [],
   "3": [],
-  "4": [],
+  "4": [
+    {
+      "date": "2026-03-29",
+      "delta": -3,
+      "signals": [
+        {
+          "title": "OpenYak Emerges to Exploit Proprietary Frustration",
+          "url": "https://github.com/openyak/desktop",
+          "source": "GitHub",
+          "direction": "down",
+          "reasoning": "The launch of OpenYak bypassing proprietary cloud constraints suggests open-source orchestration may retain more market share than expected."
+        }
+      ]
+    }
+  ],
   "5": [],
   "6": [],
   "7": [],
@@ -22,13 +36,55 @@
       ]
     }
   ],
-  "10": [],
+  "10": [
+    {
+      "date": "2026-03-29",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "SREs and Platform Engineers Rebel Against \"AI in Prod\"",
+          "url": "https://news.ycombinator.com/item?id=47560855",
+          "source": "Hacker News",
+          "direction": "up",
+          "reasoning": "Vocal pushback from infrastructure teams against running unverified AI code indicates they are actively bracing for catastrophic failures."
+        }
+      ]
+    }
+  ],
   "11": [],
   "12": [],
   "13": [],
-  "14": [],
+  "14": [
+    {
+      "date": "2026-03-29",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Wikipedia Permanently Bans AI-Generated Content",
+          "url": "https://nypost.com/2026/03/28/tech/wikipedia-officially-bans-ai-generated-encyclopedia-entries/",
+          "source": "NY Post",
+          "direction": "up",
+          "reasoning": "Restricting a critical source of high-quality human data increases the likelihood that frontier models will hit capability plateaus due to training data exhaustion."
+        }
+      ]
+    }
+  ],
   "15": [],
-  "16": [],
+  "16": [
+    {
+      "date": "2026-03-29",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "The $20/Month Subscription War and Rate Limit Crisis",
+          "url": "https://news.ycombinator.com/item?id=47559143",
+          "source": "Hacker News",
+          "direction": "up",
+          "reasoning": "Developer debate over workflow trade-offs between Claude and ChatGPT highlights deep market volatility and weak vendor lock-in."
+        }
+      ]
+    }
+  ],
   "17": [],
   "18": [],
   "19": [],
@@ -98,7 +154,21 @@
   "41": [],
   "42": [],
   "43": [],
-  "44": [],
+  "44": [
+    {
+      "date": "2026-03-29",
+      "delta": -1,
+      "signals": [
+        {
+          "title": "The $20/Month Subscription War and Rate Limit Crisis",
+          "url": "https://news.ycombinator.com/item?id=47559143",
+          "source": "Hacker News",
+          "direction": "down",
+          "reasoning": "Strict usage caps on Claude Opus demonstrate that underlying compute costs for frontier capabilities have not dropped sufficiently to allow unbounded premium usage."
+        }
+      ]
+    }
+  ],
   "45": [],
   "46": [],
   "47": [],
@@ -106,7 +176,21 @@
   "49": [],
   "50": [],
   "51": [],
-  "52": [],
+  "52": [
+    {
+      "date": "2026-03-29",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "The \"Mythos\" Leak Rocks Anthropic",
+          "url": "https://medium.com/ai-advances/anthropic-claude-mythos-leak-analysis-b77c1b304eb8",
+          "source": "Medium / AI Advances",
+          "direction": "up",
+          "reasoning": "The leak of internal Anthropic files is highly likely to contain concrete intelligence regarding their upcoming model release schedule."
+        }
+      ]
+    }
+  ],
   "53": [],
   "54": [],
   "55": []
