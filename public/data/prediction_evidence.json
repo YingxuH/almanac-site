@@ -1,6 +1,20 @@
 {
   "1": [],
-  "2": [],
+  "2": [
+    {
+      "date": "2026-03-30",
+      "delta": -4,
+      "signals": [
+        {
+          "title": "The Collapse of the Engineering Middle",
+          "url": null,
+          "source": "The ladder is missing rungs",
+          "direction": "down",
+          "reasoning": "Reports that AI is eating the middle engineering layer severely challenge the assumption that companies will aggressively hire and train traditional juniors."
+        }
+      ]
+    }
+  ],
   "3": [
     {
       "date": "2026-03-29",
@@ -80,7 +94,21 @@
   ],
   "11": [],
   "12": [],
-  "13": [],
+  "13": [
+    {
+      "date": "2026-03-30",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "The Collapse of the Engineering Middle",
+          "url": null,
+          "source": "The ladder is missing rungs",
+          "direction": "up",
+          "reasoning": "With mid-level engineering roles being automated away, remaining engineers are effectively leveraging AI to operate with the output and judgment of traditional seniors."
+        }
+      ]
+    }
+  ],
   "14": [
     {
       "date": "2026-03-29",
@@ -128,7 +156,21 @@
   "17": [],
   "18": [],
   "19": [],
-  "20": [],
+  "20": [
+    {
+      "date": "2026-03-30",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Experiential Adaptation over Formal Study",
+          "url": null,
+          "source": "Tutorials",
+          "direction": "up",
+          "reasoning": "The push to learn modern AI tooling by doing confirms that prompt engineering is becoming an integrated, daily practice rather than a standalone academic profession."
+        }
+      ]
+    }
+  ],
   "21": [],
   "22": [],
   "23": [
@@ -149,7 +191,21 @@
   "24": [],
   "25": [],
   "26": [],
-  "27": [],
+  "27": [
+    {
+      "date": "2026-03-30",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Cloud Defaults and the \"Cooked\" Security Landscape",
+          "url": null,
+          "source": "Startup founder report",
+          "direction": "up",
+          "reasoning": "The highly pessimistic realization that traditional vulnerability research is obsolete and actual losses from API key exploitation will accelerate demand for AI-aware dynamic scanning."
+        }
+      ]
+    }
+  ],
   "28": [
     {
       "date": "2026-03-29",
@@ -235,6 +291,19 @@
           "source": "Developer discourse",
           "direction": "up",
           "reasoning": "The community's vocal shift toward writing normative specs to define component boundaries for agents aligns perfectly with a transition towards specifying requirements."
+        }
+      ]
+    },
+    {
+      "date": "2026-03-30",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Agent Autonomy Reaches Localhost via \"Coasts\"",
+          "url": null,
+          "source": "Coasts release",
+          "direction": "up",
+          "reasoning": "The emergence of containerized hosts allowing AI agents to independently manage runtimes physically shifts the developer's role from writing manual logic to orchestrating autonomous systems."
         }
       ]
     }
