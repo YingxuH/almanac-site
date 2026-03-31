@@ -59,8 +59,43 @@
     }
   ],
   "5": [],
-  "6": [],
-  "7": [],
+  "6": [
+    {
+      "date": "2026-04-01",
+      "delta": -5,
+      "signals": [
+        {
+          "title": "Oracle Slashes 30,000 Jobs Amid Industry Contraction",
+          "url": null,
+          "source": "Oracle",
+          "direction": "down",
+          "reasoning": "Oracle's massive 30,000-person headcount reduction creates downward pressure on the premise that AI-driven demand will outpace the structural displacement of tech roles."
+        }
+      ]
+    }
+  ],
+  "7": [
+    {
+      "date": "2026-04-01",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "Claude Code Source Leak and Runaway Limits",
+          "url": null,
+          "source": "Anthropic",
+          "direction": "up",
+          "reasoning": "Reports of Claude Code users instantly exhausting usage limits accelerates the likelihood of imminent enterprise rollbacks."
+        },
+        {
+          "title": "Microsoft's Liability Deflection: \"Entertainment Purposes Only\"",
+          "url": null,
+          "source": "Microsoft",
+          "direction": "up",
+          "reasoning": "Microsoft legally downgrading Copilot to an entertainment tool accelerates the likelihood of imminent enterprise rollbacks."
+        }
+      ]
+    }
+  ],
   "8": [],
   "9": [
     {
@@ -155,7 +190,21 @@
   ],
   "17": [],
   "18": [],
-  "19": [],
+  "19": [
+    {
+      "date": "2026-04-01",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "OpenAI Secures $122B to Reach $852B Valuation",
+          "url": null,
+          "source": "OpenAI",
+          "direction": "up",
+          "reasoning": "OpenAI's massive capital consolidation leaves pure-play AI coding startups hopelessly outgunned, cementing the inevitability of a mass consolidation wave."
+        }
+      ]
+    }
+  ],
   "20": [
     {
       "date": "2026-03-30",
@@ -190,7 +239,21 @@
   ],
   "24": [],
   "25": [],
-  "26": [],
+  "26": [
+    {
+      "date": "2026-04-01",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "Cascading Security Failures: Cisco Breach and RubyGems Fracture",
+          "url": null,
+          "source": "Cisco / RubyGems",
+          "direction": "up",
+          "reasoning": "The theft of Cisco's source code and the RubyGems incident illustrate the brittle supply chains that AI coding agents currently rely upon."
+        }
+      ]
+    }
+  ],
   "27": [
     {
       "date": "2026-03-30",
@@ -304,6 +367,19 @@
           "source": "Coasts release",
           "direction": "up",
           "reasoning": "The emergence of containerized hosts allowing AI agents to independently manage runtimes physically shifts the developer's role from writing manual logic to orchestrating autonomous systems."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-01",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "An AI agent successfully builds a JavaScript engine (JSSE) from scratch",
+          "url": null,
+          "source": "Report",
+          "direction": "up",
+          "reasoning": "An AI agent building a complex engine proves low-level implementation is being solved, pushing human value exclusively into architectural specification and review."
         }
       ]
     }
