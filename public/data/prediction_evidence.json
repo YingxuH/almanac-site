@@ -128,7 +128,21 @@
     }
   ],
   "11": [],
-  "12": [],
+  "12": [
+    {
+      "date": "2026-04-02",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "StepFun 3.5 Flash Dominates Cost-Effectiveness",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "StepFun topping the OpenClaw cost-effectiveness leaderboard highlights the rapidly growing viability and market penetration of international models in daily engineering workflows."
+        }
+      ]
+    }
+  ],
   "13": [
     {
       "date": "2026-03-30",
@@ -188,7 +202,21 @@
       ]
     }
   ],
-  "17": [],
+  "17": [
+    {
+      "date": "2026-04-02",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "Agents Observe and the Rise of Agent Observability",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "The development of review dashboards like Agents Observe indicates engineers are shifting away from text editors toward filtering and auditing AI-generated code."
+        }
+      ]
+    }
+  ],
   "18": [],
   "19": [
     {
@@ -216,6 +244,19 @@
           "source": "Tutorials",
           "direction": "up",
           "reasoning": "The push to learn modern AI tooling by doing confirms that prompt engineering is becoming an integrated, daily practice rather than a standalone academic profession."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Agents Observe and the Rise of Agent Observability",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "Engineers actively debugging AI process lifecycles proves that interacting with AI is becoming a deeply technical systems engineering task rather than natural language prompting."
         }
       ]
     }
@@ -382,6 +423,19 @@
           "reasoning": "An AI agent building a complex engine proves low-level implementation is being solved, pushing human value exclusively into architectural specification and review."
         }
       ]
+    },
+    {
+      "date": "2026-04-02",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Agents Observe and the Rise of Agent Observability",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "The Agents Observe dashboard allows developers to watch, filter, and search what teams of agents are doing rather than writing the code themselves."
+        }
+      ]
     }
   ],
   "35": [],
@@ -396,6 +450,26 @@
           "source": "ISO",
           "direction": "up",
           "reasoning": "Foundational systems programming continues to advance in complexity and remains fiercely resistant to AI commoditization."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-02",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "Flight-Viz Highlights the Premium on Systems Engineering",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "The use of Rust and WASM to render real-time aircraft proves complex systems engineering remains a highly defensible, human-driven domain."
+        },
+        {
+          "title": "SpaceX Files for $1.75 Trillion IPO",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "Trillions of dollars shifting toward aerospace and defense will drain elite systems engineering talent, increasing its structural premium."
         }
       ]
     }
