@@ -56,6 +56,26 @@
           "reasoning": "The release of OpenYak as a direct open-source competitor to Cowork tests the viability of local, open models maintaining market share against proprietary agents."
         }
       ]
+    },
+    {
+      "date": "2026-04-03",
+      "delta": -5,
+      "signals": [
+        {
+          "title": "Cursor 3 Launches Alongside Google's Gemma 4 Open Models",
+          "url": null,
+          "source": "Google",
+          "direction": "down",
+          "reasoning": "Google's release of Gemma 4 shows robust momentum for local, open-source enterprise dev environments, providing counter-pressure to the prediction."
+        },
+        {
+          "title": "AMD's Lemonade Server and Qwen3.6-Plus Agent Models",
+          "url": null,
+          "source": "AMD",
+          "direction": "down",
+          "reasoning": "AMD's Lemonade local server facilitates local open-source enterprise environments, pushing back against the dominance of proprietary models."
+        }
+      ]
     }
   ],
   "5": [],
@@ -127,7 +147,21 @@
       ]
     }
   ],
-  "11": [],
+  "11": [
+    {
+      "date": "2026-04-03",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Unsustainable Compute Economics and AI Consolidation",
+          "url": null,
+          "source": "Leaked metrics",
+          "direction": "up",
+          "reasoning": "The revelation that AI providers lose massive amounts of money per user ($65 cost for a $20 sub) makes the independent financial viability of AI wrappers like Cursor highly uncertain."
+        }
+      ]
+    }
+  ],
   "12": [
     {
       "date": "2026-04-02",
@@ -139,6 +173,19 @@
           "source": null,
           "direction": "up",
           "reasoning": "StepFun topping the OpenClaw cost-effectiveness leaderboard highlights the rapidly growing viability and market penetration of international models in daily engineering workflows."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-03",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "AMD's Lemonade Server and Qwen3.6-Plus Agent Models",
+          "url": null,
+          "source": "Alibaba",
+          "direction": "up",
+          "reasoning": "Alibaba's release of Qwen3.6-Plus significantly boosts the probability of non-US models capturing a dominant share of the global developer market."
         }
       ]
     }
@@ -229,6 +276,19 @@
           "source": "OpenAI",
           "direction": "up",
           "reasoning": "OpenAI's massive capital consolidation leaves pure-play AI coding startups hopelessly outgunned, cementing the inevitability of a mass consolidation wave."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-03",
+      "delta": 4,
+      "signals": [
+        {
+          "title": "Unsustainable Compute Economics and AI Consolidation",
+          "url": null,
+          "source": "OpenAI / YC",
+          "direction": "up",
+          "reasoning": "OpenAI's acquisition of TBPN and ecosystem friction with YC startup Delve signal that the anticipated wave of AI tool consolidation is actively underway."
         }
       ]
     }
