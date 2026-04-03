@@ -76,6 +76,19 @@
           "reasoning": "AMD's Lemonade local server facilitates local open-source enterprise environments, pushing back against the dominance of proprietary models."
         }
       ]
+    },
+    {
+      "date": "2026-04-04",
+      "delta": -4,
+      "signals": [
+        {
+          "title": "Middle East Strikes Force Amazon AZs \"Hard Down\"",
+          "url": null,
+          "source": "AWS",
+          "direction": "down",
+          "reasoning": "The physical destruction of Amazon's Availability Zones violently underscores the fragility of cloud-dependent proprietary models, driving enterprises to localized alternatives."
+        }
+      ]
     }
   ],
   "5": [],
@@ -90,6 +103,19 @@
           "source": "Oracle",
           "direction": "down",
           "reasoning": "Oracle's massive 30,000-person headcount reduction creates downward pressure on the premise that AI-driven demand will outpace the structural displacement of tech roles."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "delta": -4,
+      "signals": [
+        {
+          "title": "Severe Labor Anxieties: Oracle's Visa Filings & TDF Governance Collapse",
+          "url": null,
+          "source": "Oracle",
+          "direction": "down",
+          "reasoning": "Oracle's strategy of pairing mass domestic layoffs with aggressive H-1B visa filings suggests headcount growth is being suppressed by AI automation and geographic wage arbitrage."
         }
       ]
     }
@@ -264,7 +290,21 @@
       ]
     }
   ],
-  "18": [],
+  "18": [
+    {
+      "date": "2026-04-04",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Facebook Open-Sources Automatic Textbook Formalization",
+          "url": null,
+          "source": "Meta",
+          "direction": "up",
+          "reasoning": "Facebook's release of the repoprover framework signals rapid advancements in the automated logical verification required to push frontier models past SWE-bench edge cases."
+        }
+      ]
+    }
+  ],
   "19": [
     {
       "date": "2026-04-01",
@@ -336,6 +376,19 @@
           "reasoning": "Reports of AI unbundling engineering roles into lower-paid, hyper-specialized chunks directly support the thesis of a collapsing salary floor for routine coding work."
         }
       ]
+    },
+    {
+      "date": "2026-04-04",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Severe Labor Anxieties: Oracle's Visa Filings & TDF Governance Collapse",
+          "url": null,
+          "source": "Oracle",
+          "direction": "up",
+          "reasoning": "Highly negative labor sentiment driven by Oracle replacing domestic workers with cheaper visa labor validates accelerating downward pressure on entry-level engineering compensation."
+        }
+      ]
     }
   ],
   "24": [],
@@ -351,6 +404,19 @@
           "source": "Cisco / RubyGems",
           "direction": "up",
           "reasoning": "The theft of Cisco's source code and the RubyGems incident illustrate the brittle supply chains that AI coding agents currently rely upon."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-04",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Devastating Exploits Deepen Security Pessimism to -0.90",
+          "url": null,
+          "source": "Axios",
+          "direction": "up",
+          "reasoning": "The highly-tailored Axios social engineering supply chain attack previews exactly how malicious actors will trick AI coding agents into importing compromised dependencies at scale."
         }
       ]
     }
