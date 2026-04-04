@@ -214,6 +214,19 @@
           "reasoning": "Alibaba's release of Qwen3.6-Plus significantly boosts the probability of non-US models capturing a dominant share of the global developer market."
         }
       ]
+    },
+    {
+      "date": "2026-04-05",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "The Rise of Fractional Node Splitting (sllm)",
+          "url": null,
+          "source": "sllm",
+          "direction": "up",
+          "reasoning": "sllm's fractional node hosting democratizes access to DeepSeek V3, removing prohibitive hardware barriers and accelerating Western adoption of Chinese frontier models."
+        }
+      ]
     }
   ],
   "13": [
@@ -562,6 +575,19 @@
           "reasoning": "The Agents Observe dashboard allows developers to watch, filter, and search what teams of agents are doing rather than writing the code themselves."
         }
       ]
+    },
+    {
+      "date": "2026-04-05",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "The Collision of AI Bloat and Hardware Scarcity",
+          "url": null,
+          "source": "GitHub",
+          "direction": "up",
+          "reasoning": "A viral GitHub commit containing 12,000 AI-generated blog posts serves as a grim preview of the massive volume of machine-generated content human engineers will be forced to review."
+        }
+      ]
     }
   ],
   "35": [],
@@ -598,6 +624,19 @@
           "reasoning": "Trillions of dollars shifting toward aerospace and defense will drain elite systems engineering talent, increasing its structural premium."
         }
       ]
+    },
+    {
+      "date": "2026-04-05",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Gamification of Low-Level Systems Engineering",
+          "url": null,
+          "source": "mvidia",
+          "direction": "up",
+          "reasoning": "The viral embrace of a GPU architecture game confirms that low-level hardware and systems understanding is rapidly becoming the new high-value frontier for engineers."
+        }
+      ]
     }
   ],
   "37": [],
@@ -606,7 +645,21 @@
   "40": [],
   "41": [],
   "42": [],
-  "43": [],
+  "43": [
+    {
+      "date": "2026-04-05",
+      "delta": 4,
+      "signals": [
+        {
+          "title": "Multimodal Coding Workflows Go Native with Pluck",
+          "url": null,
+          "source": "Pluck",
+          "direction": "up",
+          "reasoning": "The release of Pluck validates the shift toward multimodal UI-to-code pipelines, making visual context ingestion a baseline requirement for developer workflows."
+        }
+      ]
+    }
+  ],
   "44": [
     {
       "date": "2026-03-29",
@@ -631,6 +684,19 @@
           "source": "adlrocha.substack.com",
           "direction": "up",
           "reasoning": "If the industry successfully pivots toward mathematical and algorithmic efficiency rather than sheer RAM reliance, inference costs could plummet in line with this prediction."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-05",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "The Rise of Fractional Node Splitting (sllm)",
+          "url": null,
+          "source": "sllm",
+          "direction": "up",
+          "reasoning": "By splitting 8xH100 clusters into $5/month cohorts, sllm is building the infrastructure necessary to drive individual developer token costs functionally to zero."
         }
       ]
     }
