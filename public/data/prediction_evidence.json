@@ -91,7 +91,21 @@
       ]
     }
   ],
-  "5": [],
+  "5": [
+    {
+      "date": "2026-04-07",
+      "delta": -4,
+      "signals": [
+        {
+          "title": "macOS System Vulnerabilities Highlight Brittle Foundations",
+          "url": null,
+          "source": null,
+          "direction": "down",
+          "reasoning": "The discovery of deep system vulnerabilities in macOS underscores the danger of training AI models on human-written codebases that are already riddled with undocumented security flaws."
+        }
+      ]
+    }
+  ],
   "6": [
     {
       "date": "2026-04-01",
@@ -140,6 +154,19 @@
           "reasoning": "Microsoft legally downgrading Copilot to an entertainment tool accelerates the likelihood of imminent enterprise rollbacks."
         }
       ]
+    },
+    {
+      "date": "2026-04-07",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "Freestyle Launches Cloud Sandboxes for Coding Agents",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "The necessity of entirely new infrastructure platforms like Freestyle to sandbox unpredictable coding agents highlights the systemic security and cost risks that currently prevent safe enterprise deployment."
+        }
+      ]
     }
   ],
   "8": [
@@ -183,6 +210,19 @@
           "source": "Hacker News",
           "direction": "up",
           "reasoning": "Vocal pushback from infrastructure teams against running unverified AI code indicates they are actively bracing for catastrophic failures."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-07",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "Rising Pushback Against the \"Vibe Coding\" Movement",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "Bram Cohen's sharp critique of vibe coding signals growing industry recognition that generating code without understanding it is creating dangerous technical debt."
         }
       ]
     }
@@ -295,6 +335,19 @@
           "source": "adlrocha.substack.com",
           "direction": "up",
           "reasoning": "The theoretical shift from RAM scaling to mathematical optimization suggests current hardware-based scaling laws may be hitting a wall, increasing the likelihood of a performance plateau."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-07",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "Claude Code Suffers Major Regressions for Complex Tasks",
+          "url": null,
+          "source": "GitHub",
+          "direction": "up",
+          "reasoning": "The reported regressions making Claude Code unusable for complex tasks provide strong evidence that major labs are hitting architectural or alignment walls in coding reliability."
         }
       ]
     }
@@ -709,6 +762,19 @@
           "source": "Pluck",
           "direction": "up",
           "reasoning": "The release of Pluck validates the shift toward multimodal UI-to-code pipelines, making visual context ingestion a baseline requirement for developer workflows."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-07",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "Ghost Pepper Proves Demand for Local, Multimodal Workflows",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "The launch and immediate traction of Ghost Pepper's local voice-to-text interface demonstrates a clear, growing appetite for dictating complex logic to agents via speech."
         }
       ]
     }
