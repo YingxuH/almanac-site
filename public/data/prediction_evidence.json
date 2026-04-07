@@ -104,6 +104,19 @@
           "reasoning": "The discovery of deep system vulnerabilities in macOS underscores the danger of training AI models on human-written codebases that are already riddled with undocumented security flaws."
         }
       ]
+    },
+    {
+      "date": "2026-04-08",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Anthropic Pivots to AI Security with Project Glasswing and Claude Mythos",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "Anthropic's launch of Project Glasswing and the Claude Mythos Preview supports the thesis that AI models will proactively secure codebases better than human reviewers."
+        }
+      ]
     }
   ],
   "6": [
@@ -225,6 +238,19 @@
           "reasoning": "Bram Cohen's sharp critique of vibe coding signals growing industry recognition that generating code without understanding it is creating dangerous technical debt."
         }
       ]
+    },
+    {
+      "date": "2026-04-08",
+      "delta": -5,
+      "signals": [
+        {
+          "title": "\"Vibe Coding\" Achieves Complex State in Constrained Environments",
+          "url": null,
+          "source": null,
+          "direction": "down",
+          "reasoning": "A developer successfully vibe-coding a complex interactive map mid-flight demonstrates that AI can safely produce functional consumer applications without catastrophic failures."
+        }
+      ]
     }
   ],
   "11": [
@@ -307,6 +333,19 @@
           "source": "The ladder is missing rungs",
           "direction": "up",
           "reasoning": "With mid-level engineering roles being automated away, remaining engineers are effectively leveraging AI to operate with the output and judgment of traditional seniors."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-08",
+      "delta": -3,
+      "signals": [
+        {
+          "title": "Engineering Skills Shift from Syntax to \"Taste\"",
+          "url": null,
+          "source": null,
+          "direction": "down",
+          "reasoning": "Growing industry consensus around \"Taste\" suggests human architectural curation is becoming the true bottleneck, challenging the idea that AI will commoditize senior-level insight."
         }
       ]
     }
@@ -525,6 +564,19 @@
           "source": "Startup founder report",
           "direction": "up",
           "reasoning": "The highly pessimistic realization that traditional vulnerability research is obsolete and actual losses from API key exploitation will accelerate demand for AI-aware dynamic scanning."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-08",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "Anthropic Pivots to AI Security with Project Glasswing and Claude Mythos",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "Anthropic's Project Glasswing launch signals that AI-code-specific scanning rules will increasingly become standard features in enterprise tools."
         }
       ]
     }
