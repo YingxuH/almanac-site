@@ -117,6 +117,19 @@
           "reasoning": "Anthropic's launch of Project Glasswing and the Claude Mythos Preview supports the thesis that AI models will proactively secure codebases better than human reviewers."
         }
       ]
+    },
+    {
+      "date": "2026-04-09",
+      "delta": -5,
+      "signals": [
+        {
+          "title": "Formal Verification Exposes AI Code Vulnerabilities",
+          "url": null,
+          "source": "Formal Verification Study",
+          "direction": "down",
+          "reasoning": "A formal verification study showing a 55.8% vulnerability rate across frontier models directly contradicts expectations of secure AI code."
+        }
+      ]
     }
   ],
   "6": [
@@ -143,6 +156,19 @@
           "source": "Oracle",
           "direction": "down",
           "reasoning": "Oracle's strategy of pairing mass domestic layoffs with aggressive H-1B visa filings suggests headcount growth is being suppressed by AI automation and geographic wage arbitrage."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-09",
+      "delta": -1,
+      "signals": [
+        {
+          "title": "Dueling Realities in the Developer Job Market",
+          "url": null,
+          "source": "CNN / Academic paper",
+          "direction": "down",
+          "reasoning": "An academic paper introducing mathematical frameworks for optimizing 'AI-Collapsed Software Development Stacks' maintains slightly negative labor sentiment."
         }
       ]
     }
@@ -389,6 +415,19 @@
           "reasoning": "The reported regressions making Claude Code unusable for complex tasks provide strong evidence that major labs are hitting architectural or alignment walls in coding reliability."
         }
       ]
+    },
+    {
+      "date": "2026-04-09",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "Claude Code Faces User Backlash Over Quality and Limits",
+          "url": null,
+          "source": "Hacker News",
+          "direction": "up",
+          "reasoning": "Widespread complaints that Claude Code is actively degrading in quality suggest inference-time scaling and model updates are hitting sustained friction points."
+        }
+      ]
     }
   ],
   "15": [],
@@ -577,6 +616,19 @@
           "source": null,
           "direction": "up",
           "reasoning": "Anthropic's Project Glasswing launch signals that AI-code-specific scanning rules will increasingly become standard features in enterprise tools."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-09",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Formal Verification Exposes AI Code Vulnerabilities",
+          "url": null,
+          "source": "Formal Verification Study",
+          "direction": "up",
+          "reasoning": "Proving mathematically that frontier models generate exploitable code by default necessitates a massive industry shift toward specialized AI-native SAST tools."
         }
       ]
     }
