@@ -459,6 +459,19 @@
           "reasoning": "The development of review dashboards like Agents Observe indicates engineers are shifting away from text editors toward filtering and auditing AI-generated code."
         }
       ]
+    },
+    {
+      "date": "2026-04-11",
+      "delta": 4,
+      "signals": [
+        {
+          "title": "The Rise of Asynchronous Cloud Agents (Twill.ai & Eve)",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "The launch of asynchronous agent platforms like Twill.ai and Eve directly accelerates this exact workflow, replacing real-time autocomplete with background PR generation."
+        }
+      ]
     }
   ],
   "18": [
@@ -588,6 +601,19 @@
           "source": "Axios",
           "direction": "up",
           "reasoning": "The highly-tailored Axios social engineering supply chain attack previews exactly how malicious actors will trick AI coding agents into importing compromised dependencies at scale."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-11",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Developer Supply Chain Under Coordinated Siege",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "Hostile code injected into compromised developer environments can easily be ingested and hallucinated into production by overly permissive AI agents."
         }
       ]
     }
@@ -798,6 +824,19 @@
           "reasoning": "The rise of pure-JAX autonomous agents like Nanocode acting as Claude Code replacements further distances the developer from manual syntax authoring."
         }
       ]
+    },
+    {
+      "date": "2026-04-11",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "The Rise of Asynchronous Cloud Agents (Twill.ai & Eve)",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "The deeply positive sentiment in workflow changes driven by Eve and Twill.ai confirms a rapid transition toward a delegation-and-review engineering culture."
+        }
+      ]
     }
   ],
   "35": [],
@@ -845,6 +884,19 @@
           "source": "mvidia",
           "direction": "up",
           "reasoning": "The viral embrace of a GPU architecture game confirms that low-level hardware and systems understanding is rapidly becoming the new high-value frontier for engineers."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-11",
+      "delta": -1,
+      "signals": [
+        {
+          "title": "Linux Kernel Formalizes AI Assistance Guidelines",
+          "url": null,
+          "source": "Linux kernel repository",
+          "direction": "down",
+          "reasoning": "The Linux kernel officially accommodating AI assistants suggests that the barrier to entry for systems programming is lowering, which may exert downward pressure on salary premiums."
         }
       ]
     }
