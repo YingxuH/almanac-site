@@ -1,5 +1,19 @@
 {
-  "1": [],
+  "1": [
+    {
+      "date": "2026-04-12",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Benchmark Fragility and the \"Hand-Written\" Counter-Movement",
+          "url": null,
+          "source": "UC Berkeley (RDI)",
+          "direction": "up",
+          "reasoning": "The viral essay arguing that \"now is the best time to write code by hand\" reflects a growing developer fatigue that could suppress long-term adoption rates."
+        }
+      ]
+    }
+  ],
   "2": [
     {
       "date": "2026-03-30",
@@ -128,6 +142,19 @@
           "source": "Formal Verification Study",
           "direction": "down",
           "reasoning": "A formal verification study showing a 55.8% vulnerability rate across frontier models directly contradicts expectations of secure AI code."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-12",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Small Models Match 'Mythos' in Vulnerability Detection",
+          "url": null,
+          "source": "Research",
+          "direction": "up",
+          "reasoning": "The revelation that optimized small models can successfully identify complex vulnerabilities suggests continuous, localized AI security scanning will drastically reduce committed code flaws."
         }
       ]
     }
@@ -428,6 +455,19 @@
           "reasoning": "Widespread complaints that Claude Code is actively degrading in quality suggest inference-time scaling and model updates are hitting sustained friction points."
         }
       ]
+    },
+    {
+      "date": "2026-04-12",
+      "delta": 4,
+      "signals": [
+        {
+          "title": "Benchmark Fragility and the \"Hand-Written\" Counter-Movement",
+          "url": null,
+          "source": "UC Berkeley (RDI)",
+          "direction": "up",
+          "reasoning": "Researchers detailing how they broke top AI agent benchmarks highlights the extreme fragility of current metrics, foreshadowing an imminent ceiling in measurable frontier model capabilities."
+        }
+      ]
     }
   ],
   "15": [],
@@ -513,6 +553,19 @@
           "source": "OpenAI / YC",
           "direction": "up",
           "reasoning": "OpenAI's acquisition of TBPN and ecosystem friction with YC startup Delve signal that the anticipated wave of AI tool consolidation is actively underway."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-12",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "OpenAI Acquires Cirrus Labs, Signaling AI DevOps Era",
+          "url": null,
+          "source": "OpenAI",
+          "direction": "up",
+          "reasoning": "OpenAI's acquisition of Cirrus Labs exemplifies the ongoing talent consolidation stripping independent DevOps and tooling startups of their elite engineering teams."
         }
       ]
     }
@@ -616,6 +669,19 @@
           "reasoning": "Hostile code injected into compromised developer environments can easily be ingested and hallucinated into production by overly permissive AI agents."
         }
       ]
+    },
+    {
+      "date": "2026-04-12",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Rockstar Games Hack Deepens Security Pessimism",
+          "url": null,
+          "source": "ShinyHunters",
+          "direction": "up",
+          "reasoning": "The massive Rockstar Games hack and data leak threat reinforces the sustained negative security sentiment and the perilous state of current enterprise software defenses."
+        }
+      ]
     }
   ],
   "27": [
@@ -689,7 +755,21 @@
       ]
     }
   ],
-  "30": [],
+  "30": [
+    {
+      "date": "2026-04-12",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "OpenAI Acquires Cirrus Labs, Signaling AI DevOps Era",
+          "url": null,
+          "source": "OpenAI",
+          "direction": "up",
+          "reasoning": "OpenAI explicitly acquiring an elite CI/CD platform team strongly signals an acceleration toward fully autonomous testing and deployment infrastructure."
+        }
+      ]
+    }
+  ],
   "31": [],
   "32": [],
   "33": [
@@ -835,6 +915,19 @@
           "source": null,
           "direction": "up",
           "reasoning": "The deeply positive sentiment in workflow changes driven by Eve and Twill.ai confirms a rapid transition toward a delegation-and-review engineering culture."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-12",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "\"Reading LM Output\" Emerges as a Core Tacit Skill",
+          "url": null,
+          "source": "Industry Sentiment",
+          "direction": "up",
+          "reasoning": "The formal recognition of reading language model output as a core tacit skill reflects that developers will increasingly spend more time reviewing code than generating it."
         }
       ]
     }
