@@ -12,6 +12,19 @@
           "reasoning": "The viral essay arguing that \"now is the best time to write code by hand\" reflects a growing developer fatigue that could suppress long-term adoption rates."
         }
       ]
+    },
+    {
+      "date": "2026-04-16",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "The \"OpenClaw\" Adoption Disconnect",
+          "url": null,
+          "source": "Hacker News",
+          "direction": "up",
+          "reasoning": "Community skepticism regarding actual usage of hyped AI tools suggests a widening gap between market noise and enterprise adoption, validating the risk of revenue plateauing."
+        }
+      ]
     }
   ],
   "2": [
@@ -302,6 +315,19 @@
           "source": null,
           "direction": "down",
           "reasoning": "A developer successfully vibe-coding a complex interactive map mid-flight demonstrates that AI can safely produce functional consumer applications without catastrophic failures."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-16",
+      "delta": -5,
+      "signals": [
+        {
+          "title": "Libretto Shifts Automation from Runtime Prompts to Deterministic Scripts",
+          "url": null,
+          "source": "Product Launch",
+          "direction": "down",
+          "reasoning": "The industry's active embrace of deterministic, debug-first automation approaches mitigates the risk of catastrophic failures stemming from unpredictable vibe coding."
         }
       ]
     }
@@ -682,6 +708,19 @@
           "reasoning": "The massive Rockstar Games hack and data leak threat reinforces the sustained negative security sentiment and the perilous state of current enterprise software defenses."
         }
       ]
+    },
+    {
+      "date": "2026-04-16",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "Gas Town Accused of \"Siphoning\" User LLM Credits",
+          "url": null,
+          "source": "GitHub",
+          "direction": "up",
+          "reasoning": "Accusations of resource hijacking introduce complex supply-chain vulnerabilities, expanding the definition of a massive breach to include financial and compute theft."
+        }
+      ]
     }
   ],
   "27": [
@@ -751,6 +790,19 @@
           "source": "Researchers",
           "direction": "up",
           "reasoning": "The Kitchen Loop framework operationalizes 'Unbeatable Tests' and synthetic power users operating at 1,000x human speeds to achieve zero-regression development."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-16",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "Libretto Shifts Automation from Runtime Prompts to Deterministic Scripts",
+          "url": null,
+          "source": "Product Launch",
+          "direction": "up",
+          "reasoning": "Generating inspectable, deterministic browser automations provides the scaffolding needed to safely scale end-to-end AI test generation at early-adopter companies."
         }
       ]
     }
@@ -930,9 +982,36 @@
           "reasoning": "The formal recognition of reading language model output as a core tacit skill reflects that developers will increasingly spend more time reviewing code than generating it."
         }
       ]
+    },
+    {
+      "date": "2026-04-16",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "Libretto Shifts Automation from Runtime Prompts to Deterministic Scripts",
+          "url": null,
+          "source": "Product Launch",
+          "direction": "up",
+          "reasoning": "Shifting agents from runtime black boxes to script generators developers can inspect perfectly crystallizes the transition toward a review-centric workflow."
+        }
+      ]
     }
   ],
-  "35": [],
+  "35": [
+    {
+      "date": "2026-04-16",
+      "delta": -5,
+      "signals": [
+        {
+          "title": "\"Back-to-Basics\" Cognition Outperforms AI Analysis",
+          "url": null,
+          "source": "Academic Study",
+          "direction": "down",
+          "reasoning": "Evidence validating unassisted cognition outperformance may stall computer science enrollment declines as elite institutions re-market degrees for vital cognitive conditioning."
+        }
+      ]
+    }
+  ],
   "36": [
     {
       "date": "2026-03-29",
@@ -999,7 +1078,21 @@
   "39": [],
   "40": [],
   "41": [],
-  "42": [],
+  "42": [
+    {
+      "date": "2026-04-16",
+      "delta": -3,
+      "signals": [
+        {
+          "title": "Cal.com Closes Source Code Due to \"AI Threats\"",
+          "url": null,
+          "source": "Cal.com Announcement",
+          "direction": "down",
+          "reasoning": "The accelerating retreat of commercial entities from open-source models to protect IP from AI cloning limits the availability of projects for agents to autonomously maintain."
+        }
+      ]
+    }
+  ],
   "43": [
     {
       "date": "2026-04-05",
