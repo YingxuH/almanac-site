@@ -116,6 +116,19 @@
           "reasoning": "The physical destruction of Amazon's Availability Zones violently underscores the fragility of cloud-dependent proprietary models, driving enterprises to localized alternatives."
         }
       ]
+    },
+    {
+      "date": "2026-04-17",
+      "delta": -2,
+      "signals": [
+        {
+          "title": "The Open vs. Closed Frontier Model Race Accelerates",
+          "url": null,
+          "source": "Simon Willison",
+          "direction": "down",
+          "reasoning": "Qwen3.6 outperforming Claude Opus 4.7 locally strongly challenges the idea that open-weight models will lose market share."
+        }
+      ]
     }
   ],
   "5": [
@@ -261,6 +274,19 @@
           "reasoning": "Qwen-3.6-Plus processing 1 trillion tokens daily strongly validates the accelerating global dominance of Chinese open-weight models in developer workflows."
         }
       ]
+    },
+    {
+      "date": "2026-04-17",
+      "delta": 4,
+      "signals": [
+        {
+          "title": "The Open vs. Closed Frontier Model Race Accelerates",
+          "url": null,
+          "source": "Alibaba",
+          "direction": "up",
+          "reasoning": "Alibaba's Qwen3.6-35B-A3B model's success among Western developers demonstrates China's expanding influence in the coding tool market."
+        }
+      ]
     }
   ],
   "9": [
@@ -328,6 +354,19 @@
           "source": "Product Launch",
           "direction": "down",
           "reasoning": "The industry's active embrace of deterministic, debug-first automation approaches mitigates the risk of catastrophic failures stemming from unpredictable vibe coding."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-17",
+      "delta": 4,
+      "signals": [
+        {
+          "title": "The Financial Perils of \"Vibe Coding\"",
+          "url": null,
+          "source": "Developer report",
+          "direction": "up",
+          "reasoning": "A \u20ac54k billing spike highlights the catastrophic financial risks of integrating AI without strict guardrails."
         }
       ]
     }
@@ -721,6 +760,19 @@
           "reasoning": "Accusations of resource hijacking introduce complex supply-chain vulnerabilities, expanding the definition of a massive breach to include financial and compute theft."
         }
       ]
+    },
+    {
+      "date": "2026-04-17",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "AI Agents Weaponized for Hardware Hacking",
+          "url": null,
+          "source": "Security researchers",
+          "direction": "up",
+          "reasoning": "Security researchers demonstrated Codex autonomously hacking a Samsung TV, elevating the risk profile for major AI-generated exploits."
+        }
+      ]
     }
   ],
   "27": [
@@ -848,6 +900,19 @@
           "source": "viral postmortem",
           "direction": "up",
           "reasoning": "A developer shipping an 8-year backlog idea in three months using AI illustrates the collapse of traditional MVP development timelines."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-17",
+      "delta": 4,
+      "signals": [
+        {
+          "title": "Android CLI Delivers Massive Workflow Speedups",
+          "url": null,
+          "source": "Google",
+          "direction": "up",
+          "reasoning": "Google's agent-driven Android CLI claims a 3x speedup in app development, directly accelerating the timeline for rapid MVP deployments."
         }
       ]
     }
@@ -1091,6 +1156,19 @@
           "reasoning": "The accelerating retreat of commercial entities from open-source models to protect IP from AI cloning limits the availability of projects for agents to autonomously maintain."
         }
       ]
+    },
+    {
+      "date": "2026-04-17",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Cloudflare Pivots Infrastructure Toward Agents",
+          "url": null,
+          "source": "Cloudflare",
+          "direction": "up",
+          "reasoning": "Cloudflare's launch of Artifacts provides the versioned storage primitives required for AI agents to autonomously manage codebases."
+        }
+      ]
     }
   ],
   "43": [
@@ -1179,7 +1257,21 @@
   "46": [],
   "47": [],
   "48": [],
-  "49": [],
+  "49": [
+    {
+      "date": "2026-04-17",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Kampala (YC W26) Replaces Brittle Automation with Deterministic APIs",
+          "url": null,
+          "source": "Kampala",
+          "direction": "up",
+          "reasoning": "Kampala's launch highlights how new YC cohorts are building products heavily leveraging AI-native, agentic architectures."
+        }
+      ]
+    }
+  ],
   "50": [],
   "51": [],
   "52": [
