@@ -25,6 +25,19 @@
           "reasoning": "Community skepticism regarding actual usage of hyped AI tools suggests a widening gap between market noise and enterprise adoption, validating the risk of revenue plateauing."
         }
       ]
+    },
+    {
+      "date": "2026-04-19",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Opus 4.7 Token Inflation Reaches ~45%",
+          "url": "https://tokens.billchambers.me/leaderboard",
+          "source": "tokens.billchambers.me",
+          "direction": "up",
+          "reasoning": "The 45% effective API cost increase driven by Opus 4.7 token inflation directly threatens enterprise scaling margins, signaling economic constraints may cap AI coding adoption."
+        }
+      ]
     }
   ],
   "2": [
@@ -1075,6 +1088,19 @@
           "reasoning": "Evidence validating unassisted cognition outperformance may stall computer science enrollment declines as elite institutions re-market degrees for vital cognitive conditioning."
         }
       ]
+    },
+    {
+      "date": "2026-04-19",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Academic Backlash Forces Regression to Analog",
+          "url": "https://sentinelcolorado.com/uncategorized/a-college-instructor-turns-to-typewriters-to-curb-ai-written-work-and-teach-life-lessons/",
+          "source": "sentinelcolorado.com",
+          "direction": "up",
+          "reasoning": "The reversion to typewriters to curb AI-written work highlights a growing disconnect between traditional academic computer science and modern developer realities, potentially accelerating the degree's perceived obsolescence."
+        }
+      ]
     }
   ],
   "36": [
@@ -1134,6 +1160,26 @@
           "source": "Linux kernel repository",
           "direction": "down",
           "reasoning": "The Linux kernel officially accommodating AI assistants suggests that the barrier to entry for systems programming is lowering, which may exert downward pressure on salary premiums."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-19",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "WireGuard 1.0 Released for Windows",
+          "url": "https://lore.kernel.org/wireguard/CAHmME9pDd2JMcEuSgOKpXPhUB8FSO+rNJdTkXRzpLhK1_xW9Cg@mail.gmail.com/",
+          "source": "lore.kernel.org",
+          "direction": "up",
+          "reasoning": "The native kernel integration of WireGuard 1.0 for Windows reinforces the enduring necessity of deep systems and kernel-level expertise that LLMs cannot reliably automate."
+        },
+        {
+          "title": "Database Architecture Reality Checks",
+          "url": "https://www.sqlservercentral.com/articles/i-too-have-a-production-story-a-downtime-caused-by-postgres-transaction-id-wraparound-problem",
+          "source": "sqlservercentral.com",
+          "direction": "up",
+          "reasoning": "Complex PostgreSQL transaction wraparound incidents reinforce the enduring necessity of deep systems-level expertise that LLMs cannot yet reliably automate."
         }
       ]
     }
@@ -1249,6 +1295,19 @@
           "source": "open-source project",
           "direction": "up",
           "reasoning": "The launch of Nanocode as a flat-rate alternative introduces severe downward pricing pressure on the per-token economics of proprietary coding agents."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-19",
+      "delta": -1,
+      "signals": [
+        {
+          "title": "Opus 4.7 Token Inflation Reaches ~45%",
+          "url": "https://tokens.billchambers.me/leaderboard",
+          "source": "tokens.billchambers.me",
+          "direction": "down",
+          "reasoning": "The revelation of a roughly 45% token inflation rate across Claude versions severely complicates the prediction of a 90% cost drop, as the effective cost to perform the same task is quietly rising."
         }
       ]
     }
