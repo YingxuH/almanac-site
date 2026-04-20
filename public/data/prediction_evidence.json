@@ -155,6 +155,19 @@
           "reasoning": "Qwen3.6 outperforming Claude Opus 4.7 locally strongly challenges the idea that open-weight models will lose market share."
         }
       ]
+    },
+    {
+      "date": "2026-04-21",
+      "delta": -2,
+      "signals": [
+        {
+          "title": "Local Open-Source Models Hit Desktop Performance Breakthroughs",
+          "url": null,
+          "source": "Independent benchmarks",
+          "direction": "down",
+          "reasoning": "Qwen3.5-27B achieving 207 tok/s on consumer GPUs directly challenges the premise that proprietary cloud models will dominate, proving local open-source deployment is now highly viable."
+        }
+      ]
     }
   ],
   "5": [
@@ -346,6 +359,19 @@
           "reasoning": "Alibaba's Qwen3.6-35B-A3B model's success among Western developers demonstrates China's expanding influence in the coding tool market."
         }
       ]
+    },
+    {
+      "date": "2026-04-21",
+      "delta": 4,
+      "signals": [
+        {
+          "title": "Local Open-Source Models Hit Desktop Performance Breakthroughs",
+          "url": null,
+          "source": "Moonshot AI",
+          "direction": "up",
+          "reasoning": "The rapid iteration and high performance of Chinese models highlighted today\u2014specifically Kimi K2.6 and Qwen3.6-Max\u2014strongly support this trajectory."
+        }
+      ]
     }
   ],
   "9": [
@@ -515,6 +541,26 @@
           "source": "open routing networks",
           "direction": "up",
           "reasoning": "The massive volume of tokens routed through Qwen-3.6-Plus indicates Western developers are comfortably offloading inference to non-US architectures."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-21",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Local Open-Source Models Hit Desktop Performance Breakthroughs",
+          "url": null,
+          "source": "Independent benchmarks",
+          "direction": "up",
+          "reasoning": "The appeal of highly efficient, non-US models like Qwen and Kimi is accelerating international market fragmentation."
+        },
+        {
+          "title": "OpenAI Pivots to \"Prompt-Relevance\" Ad Placements",
+          "url": null,
+          "source": "StackAdapt",
+          "direction": "up",
+          "reasoning": "US frontier models are facing token inflation and introducing ads, making non-US open-source models more appealing."
         }
       ]
     }
@@ -865,6 +911,19 @@
           "reasoning": "Security researchers demonstrated Codex autonomously hacking a Samsung TV, elevating the risk profile for major AI-generated exploits."
         }
       ]
+    },
+    {
+      "date": "2026-04-21",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "Atlassian Opts Users Into Default AI Data Collection",
+          "url": null,
+          "source": "Atlassian",
+          "direction": "up",
+          "reasoning": "Atlassian\u2019s move to default data collection for AI training expands the attack surface for training data extraction, increasing the likelihood of proprietary IP leaking into generated code."
+        }
+      ]
     }
   ],
   "27": [
@@ -919,6 +978,19 @@
           "source": "Security researchers",
           "direction": "up",
           "reasoning": "Cloudflare's necessity to intercept ChatGPT outputs based on React state highlights an emerging vulnerability surface between LLM generation and application execution."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-21",
+      "delta": 4,
+      "signals": [
+        {
+          "title": "OpenAI Pivots to \"Prompt-Relevance\" Ad Placements",
+          "url": null,
+          "source": "StackAdapt",
+          "direction": "up",
+          "reasoning": "With ChatGPT monetizing \"prompt relevance\" for ad targeting, prompt injection attacks will inevitably evolve from simple jailbreaks into lucrative ad-fraud and traffic-hijacking vectors."
         }
       ]
     }
@@ -1150,6 +1222,19 @@
           "source": "Product Launch",
           "direction": "up",
           "reasoning": "Shifting agents from runtime black boxes to script generators developers can inspect perfectly crystallizes the transition toward a review-centric workflow."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-21",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "Claude Design Disrupts Figma's Frontend Stronghold",
+          "url": null,
+          "source": "Claude Design",
+          "direction": "up",
+          "reasoning": "Claude Design's disruption of Figma indicates a rapid, structural shift in frontend engineering, where developers specify layout requirements rather than manually translating designs into CSS/React components."
         }
       ]
     }
@@ -1387,6 +1472,19 @@
           "source": "tokens.billchambers.me",
           "direction": "down",
           "reasoning": "The revelation of a roughly 45% token inflation rate across Claude versions severely complicates the prediction of a 90% cost drop, as the effective cost to perform the same task is quietly rising."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-21",
+      "delta": -2,
+      "signals": [
+        {
+          "title": "OpenAI Pivots to \"Prompt-Relevance\" Ad Placements",
+          "url": null,
+          "source": "StackAdapt",
+          "direction": "down",
+          "reasoning": "OpenAI's pivot toward ad-supported prompt monetization signals that the underlying compute costs for frontier models may be hitting a floor, necessitating new revenue streams rather than pure price cuts."
         }
       ]
     }
