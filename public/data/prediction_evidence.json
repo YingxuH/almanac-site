@@ -924,6 +924,19 @@
           "reasoning": "Atlassian\u2019s move to default data collection for AI training expands the attack surface for training data extraction, increasing the likelihood of proprietary IP leaking into generated code."
         }
       ]
+    },
+    {
+      "date": "2026-04-22",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "The Vercel OAuth Breach Exposes Platform Vulnerabilities",
+          "url": null,
+          "source": "Trend Micro, Hacker News",
+          "direction": "up",
+          "reasoning": "The Vercel OAuth attack, which utilized an AI tool as an attack vector to expose environment variables, accelerates the timeline for a catastrophic, AI-facilitated supply chain breach."
+        }
+      ]
     }
   ],
   "27": [
@@ -1038,7 +1051,21 @@
       ]
     }
   ],
-  "31": [],
+  "31": [
+    {
+      "date": "2026-04-22",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Mozilla Deploys Anthropic's Mythos to Automate Bug Fixing",
+          "url": null,
+          "source": "Wired",
+          "direction": "up",
+          "reasoning": "Mozilla's successful deployment of Anthropic's Mythos to autonomously squash 271 bugs in Firefox serves as profound real-world validation of AI's defensive capabilities."
+        }
+      ]
+    }
+  ],
   "32": [],
   "33": [
     {
@@ -1350,7 +1377,21 @@
   ],
   "37": [],
   "38": [],
-  "39": [],
+  "39": [
+    {
+      "date": "2026-04-22",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Anthropic's $100B Cloud Anchor and Pricing Shifts",
+          "url": "claude.com",
+          "source": "TechCrunch, claude.com",
+          "direction": "up",
+          "reasoning": "Anthropic\u2019s removal of Claude Code from its standard Pro tier highlights the mounting pressure of inference costs, creating a widening vulnerability that deep-pocketed platform owners like Microsoft can exploit via bundling."
+        }
+      ]
+    }
+  ],
   "40": [],
   "41": [],
   "42": [
@@ -1508,7 +1549,21 @@
       ]
     }
   ],
-  "50": [],
+  "50": [
+    {
+      "date": "2026-04-22",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Daemons Pivots from Generating Code to \"Cleaning Up\" After Agents",
+          "url": "charlielabs.ai",
+          "source": "charlielabs.ai",
+          "direction": "up",
+          "reasoning": "The emergence of companies specifically branded to clean up after agents suggests that managing AI technical debt is rapidly becoming a specialized, distinct engineering discipline."
+        }
+      ]
+    }
+  ],
   "51": [],
   "52": [
     {
