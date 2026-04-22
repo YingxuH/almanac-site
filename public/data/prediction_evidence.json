@@ -372,6 +372,19 @@
           "reasoning": "The rapid iteration and high performance of Chinese models highlighted today\u2014specifically Kimi K2.6 and Qwen3.6-Max\u2014strongly support this trajectory."
         }
       ]
+    },
+    {
+      "date": "2026-04-23",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Alibaba releases Qwen3.6-27B model",
+          "url": null,
+          "source": "Alibaba",
+          "direction": "up",
+          "reasoning": "The release of the highly capable, 27-billion parameter Qwen3.6-27B model reinforces the sustained momentum and global competitiveness of Chinese open-weight labs."
+        }
+      ]
     }
   ],
   "9": [
@@ -563,6 +576,19 @@
           "reasoning": "US frontier models are facing token inflation and introducing ads, making non-US open-source models more appealing."
         }
       ]
+    },
+    {
+      "date": "2026-04-23",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Alibaba releases Qwen3.6-27B model",
+          "url": null,
+          "source": "Alibaba",
+          "direction": "up",
+          "reasoning": "Qwen's continued cadence of releasing hyper-efficient, flagship-level coding models adds upward pressure to the global adoption of non-US AI architectures."
+        }
+      ]
     }
   ],
   "13": [
@@ -713,6 +739,19 @@
           "source": null,
           "direction": "up",
           "reasoning": "The launch of asynchronous agent platforms like Twill.ai and Eve directly accelerates this exact workflow, replacing real-time autocomplete with background PR generation."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-23",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Launch of the Broccoli automated workflow framework",
+          "url": null,
+          "source": "Broccoli",
+          "direction": "up",
+          "reasoning": "The emergence of cloud-sandboxed frameworks like Broccoli builds the infrastructure needed to execute AI generation in isolation, making humans the final reviewers."
         }
       ]
     }
@@ -1106,6 +1145,19 @@
           "reasoning": "Google's agent-driven Android CLI claims a 3x speedup in app development, directly accelerating the timeline for rapid MVP deployments."
         }
       ]
+    },
+    {
+      "date": "2026-04-23",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Zed introduces native support for parallel agents",
+          "url": null,
+          "source": "Zed",
+          "direction": "up",
+          "reasoning": "The integration of parallel agents in Zed points to a compounding acceleration in scaffolding and deployment speeds for developers."
+        }
+      ]
     }
   ],
   "34": [
@@ -1418,6 +1470,19 @@
           "source": "Cloudflare",
           "direction": "up",
           "reasoning": "Cloudflare's launch of Artifacts provides the versioned storage primitives required for AI agents to autonomously manage codebases."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-23",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Asynchronous orchestration tools for automated ticket resolution",
+          "url": null,
+          "source": "Broccoli",
+          "direction": "up",
+          "reasoning": "New orchestration tools that spin up independent environments for isolated ticket resolution provide the exact architectural primitives necessary for fully autonomous repository maintenance."
         }
       ]
     }
