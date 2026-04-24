@@ -331,6 +331,19 @@
           "reasoning": "Skyrocketing retry rates in Claude Opus 4.7 compound quality issues, adding further pressure for enterprise deployments to be rolled back."
         }
       ]
+    },
+    {
+      "date": "2026-04-25",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Claude 4.7 Reliability Crisis and Ignored Stop Hooks",
+          "url": null,
+          "source": "Developer forums",
+          "direction": "up",
+          "reasoning": "Claude 4.7's documented failure to respect deterministic stop hooks directly accelerates the risk that enterprise teams will have to roll back autonomous agents that run amok in production."
+        }
+      ]
     }
   ],
   "8": [
@@ -697,6 +710,26 @@
           "reasoning": "Explicit data showing Claude Opus 4.7 regressing in one-shot coding accuracy is the strongest signal to date that a capability plateau is already here."
         }
       ]
+    },
+    {
+      "date": "2026-04-25",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Claude 4.7 Reliability Crisis and Ignored Stop Hooks",
+          "url": null,
+          "source": "Developer forums",
+          "direction": "up",
+          "reasoning": "Vocal user backlash regarding Claude's declining quality and token issues suggests Anthropic may be hitting an architectural plateau."
+        },
+        {
+          "title": "Emergence of AI Regression Trackers (CC-Canary)",
+          "url": null,
+          "source": "Open-source",
+          "direction": "up",
+          "reasoning": "The need for regression tracking tools like CC-Canary further indicates Anthropic may be struggling with a sustained plateau in coding benchmark performance."
+        }
+      ]
     }
   ],
   "15": [],
@@ -1045,6 +1078,19 @@
           "reasoning": "With ChatGPT monetizing \"prompt relevance\" for ad targeting, prompt injection attacks will inevitably evolve from simple jailbreaks into lucrative ad-fraud and traffic-hijacking vectors."
         }
       ]
+    },
+    {
+      "date": "2026-04-25",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "Browser Harness Strips LLM Restrictions",
+          "url": null,
+          "source": "Open-source project",
+          "direction": "up",
+          "reasoning": "Frameworks like Browser Harness that intentionally remove LLM guardrails for maximum browser autonomy expand the attack surface for agentic prompt injection dramatically."
+        }
+      ]
     }
   ],
   "29": [
@@ -1344,6 +1390,19 @@
           "reasoning": "The reversion to typewriters to curb AI-written work highlights a growing disconnect between traditional academic computer science and modern developer realities, potentially accelerating the degree's perceived obsolescence."
         }
       ]
+    },
+    {
+      "date": "2026-04-25",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Recurse Center Redesigns for \"Curious Programmers\"",
+          "url": null,
+          "source": "Recurse Center",
+          "direction": "up",
+          "reasoning": "The Recurse Center's pivot toward \"curious programming\" signals a broader cultural shift where developers seek out alternative, holistic educational hubs over traditional, degree-based syntax factories."
+        }
+      ]
     }
   ],
   "36": [
@@ -1428,7 +1487,21 @@
     }
   ],
   "37": [],
-  "38": [],
+  "38": [
+    {
+      "date": "2026-04-25",
+      "delta": -5,
+      "signals": [
+        {
+          "title": "Google Plans Up to $40B Mega-Investment in Anthropic",
+          "url": null,
+          "source": "Report",
+          "direction": "down",
+          "reasoning": "Google's planned $40B investment into Anthropic suggests pure-play AI coding companies will either be absorbed or priced out, accelerating market consolidation and hindering independent valuation growth."
+        }
+      ]
+    }
+  ],
   "39": [
     {
       "date": "2026-04-22",
