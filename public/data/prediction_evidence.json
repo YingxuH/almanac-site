@@ -235,6 +235,19 @@
           "reasoning": "Sustained negative security sentiment and recent incidents show that rapid AI-assisted development is increasing attack surfaces, not shrinking them."
         }
       ]
+    },
+    {
+      "date": "2026-04-26",
+      "delta": -3,
+      "signals": [
+        {
+          "title": "\"Black-Hat LLMs\" Escalate the Security Threat Landscape",
+          "url": null,
+          "source": "Nicholas Carlini",
+          "direction": "down",
+          "reasoning": "Nicholas Carlini's demonstration of Black-hat LLMs suggests that offensive AI capabilities are rapidly maturing, potentially arming attackers to exploit AI-generated code."
+        }
+      ]
     }
   ],
   "6": [
@@ -498,6 +511,19 @@
           "source": "BleepingComputer, Twitter/X",
           "direction": "up",
           "reasoning": "The simultaneous rise in critical infrastructure vulnerabilities illustrates how rapid coding cycles are outpacing governance, increasing the likelihood of mass production failures."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-26",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "OpenAI Announces GPT-5.5 Bio Bug Bounty",
+          "url": null,
+          "source": "OpenAI",
+          "direction": "up",
+          "reasoning": "OpenAI\u2019s preemptive GPT-5.5 Bio Bug Bounty signals an acute awareness of catastrophic physical-world failures, increasing the likelihood of eventual regulatory crackdowns."
         }
       ]
     }
@@ -1009,6 +1035,26 @@
           "reasoning": "The Vercel OAuth attack, which utilized an AI tool as an attack vector to expose environment variables, accelerates the timeline for a catastrophic, AI-facilitated supply chain breach."
         }
       ]
+    },
+    {
+      "date": "2026-04-26",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "\"Black-Hat LLMs\" Escalate the Security Threat Landscape",
+          "url": null,
+          "source": "Nicholas Carlini",
+          "direction": "up",
+          "reasoning": "The rise of offensive Black-hat LLMs highlights the massive target surface area presented by poorly secured, AI-generated infrastructure deployments."
+        },
+        {
+          "title": "Niche Tooling and K8s Security Persist Beyond the AI Hype",
+          "url": null,
+          "source": "Kloak",
+          "direction": "up",
+          "reasoning": "The release of Kloak for K8s secret management intersects with offensive LLMs to underscore the vulnerabilities in automated infrastructure."
+        }
+      ]
     }
   ],
   "27": [
@@ -1202,6 +1248,19 @@
           "source": "Zed",
           "direction": "up",
           "reasoning": "The integration of parallel agents in Zed points to a compounding acceleration in scaffolding and deployment speeds for developers."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-26",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Developers Turn AI on Abandoned Projects, Shifting Workflow Sentiment",
+          "url": null,
+          "source": "A widely circulated post",
+          "direction": "up",
+          "reasoning": "The surge in developers successfully using AI tools to resurrect and finish long-abandoned side projects provides strong behavioral evidence that shipping velocity is accelerating."
         }
       ]
     }
