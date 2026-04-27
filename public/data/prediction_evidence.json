@@ -168,6 +168,26 @@
           "reasoning": "Qwen3.5-27B achieving 207 tok/s on consumer GPUs directly challenges the premise that proprietary cloud models will dominate, proving local open-source deployment is now highly viable."
         }
       ]
+    },
+    {
+      "date": "2026-04-28",
+      "delta": -2,
+      "signals": [
+        {
+          "title": "GitHub Copilot Shifts to Usage-Based Billing Amidst Platform Outages",
+          "url": null,
+          "source": "GitHub",
+          "direction": "down",
+          "reasoning": "The shift to variable usage-based billing directly undermines the narrative of proprietary dominance."
+        },
+        {
+          "title": "OSS Agents Outperform Proprietary Baselines on TerminalBench 2.0",
+          "url": null,
+          "source": "TerminalBench 2.0",
+          "direction": "down",
+          "reasoning": "Open-source agents like Dirac beating proprietary baselines challenges the idea that proprietary models will dominate enterprise coding tools."
+        }
+      ]
     }
   ],
   "5": [
@@ -422,6 +442,19 @@
           "source": "Alibaba",
           "direction": "up",
           "reasoning": "The release of the highly capable, 27-billion parameter Qwen3.6-27B model reinforces the sustained momentum and global competitiveness of Chinese open-weight labs."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-28",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Geopolitics Intervene: China Blocks Meta's Acquisition of Manus",
+          "url": null,
+          "source": "Chinese regulators",
+          "direction": "up",
+          "reasoning": "China actively blocking Meta's acquisition of Manus proves Beijing is fiercely protecting and ring-fencing its domestic AI engineering intellectual property."
         }
       ]
     }
@@ -822,6 +855,19 @@
           "source": "Hacker News",
           "direction": "up",
           "reasoning": "Developer debate over workflow trade-offs between Claude and ChatGPT highlights deep market volatility and weak vendor lock-in."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-28",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "GitHub Copilot Shifts to Usage-Based Billing Amidst Platform Outages",
+          "url": null,
+          "source": "GitHub",
+          "direction": "up",
+          "reasoning": "Simultaneous GitHub downtime and the deeply unpopular shift to usage-based billing create the perfect storm for a mass enterprise exodus to competitors."
         }
       ]
     }
@@ -1808,7 +1854,21 @@
   "45": [],
   "46": [],
   "47": [],
-  "48": [],
+  "48": [
+    {
+      "date": "2026-04-28",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "Geopolitics Intervene: China Blocks Meta's Acquisition of Manus",
+          "url": null,
+          "source": "Chinese regulators",
+          "direction": "up",
+          "reasoning": "State-level blocks on corporate M&A represent the non-technical regulatory barriers actively splitting the global developer toolchain."
+        }
+      ]
+    }
+  ],
   "49": [
     {
       "date": "2026-04-17",
@@ -1882,7 +1942,21 @@
       ]
     }
   ],
-  "53": [],
+  "53": [
+    {
+      "date": "2026-04-28",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "GitHub Copilot Shifts to Usage-Based Billing Amidst Platform Outages",
+          "url": null,
+          "source": "GitHub",
+          "direction": "up",
+          "reasoning": "GitHub officially announced the move to usage-based billing today, definitively triggering this outcome."
+        }
+      ]
+    }
+  ],
   "54": [],
   "55": []
 }
