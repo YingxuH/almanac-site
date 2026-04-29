@@ -687,6 +687,19 @@
           "reasoning": "Qwen's continued cadence of releasing hyper-efficient, flagship-level coding models adds upward pressure to the global adoption of non-US AI architectures."
         }
       ]
+    },
+    {
+      "date": "2026-04-30",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Non-US Models and Deterministic Benchmarks Advance",
+          "url": null,
+          "source": "Mistral AI",
+          "direction": "up",
+          "reasoning": "The release of Mistral Medium 3.5 indicates sustained momentum for non-US models capturing vital developer mindshare."
+        }
+      ]
     }
   ],
   "13": [
@@ -868,6 +881,19 @@
           "source": "GitHub",
           "direction": "up",
           "reasoning": "Simultaneous GitHub downtime and the deeply unpopular shift to usage-based billing create the perfect storm for a mass enterprise exodus to competitors."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-30",
+      "delta": 4,
+      "signals": [
+        {
+          "title": "The Push for a Federation of Forges",
+          "url": null,
+          "source": "Developer Community",
+          "direction": "up",
+          "reasoning": "Calls for a decentralized 'federation of forges' threaten GitHub's lock-in and amplify recent developer migration trends."
         }
       ]
     }
@@ -1166,6 +1192,19 @@
           "reasoning": "The release of Kloak for K8s secret management intersects with offensive LLMs to underscore the vulnerabilities in automated infrastructure."
         }
       ]
+    },
+    {
+      "date": "2026-04-30",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "Enterprise AI Security Breaches Materialize",
+          "url": null,
+          "source": "Ramp",
+          "direction": "up",
+          "reasoning": "Severe security failures like Ramp's Sheets AI data exfiltration strongly indicate that catastrophic AI-linked breaches are accelerating."
+        }
+      ]
     }
   ],
   "27": [
@@ -1248,6 +1287,19 @@
           "reasoning": "Frameworks like Browser Harness that intentionally remove LLM guardrails for maximum browser autonomy expand the attack surface for agentic prompt injection dramatically."
         }
       ]
+    },
+    {
+      "date": "2026-04-30",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "Prompt Injection Hits the Wallet",
+          "url": null,
+          "source": "Claude Code",
+          "direction": "up",
+          "reasoning": "The HERMES.md exploit affecting Claude Code causes direct financial damage via prompt injection, accelerating the necessity for formal OWASP recognition."
+        }
+      ]
     }
   ],
   "29": [
@@ -1274,6 +1326,19 @@
           "source": "Product Launch",
           "direction": "up",
           "reasoning": "Generating inspectable, deterministic browser automations provides the scaffolding needed to safely scale end-to-end AI test generation at early-adopter companies."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-30",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "Agentic QA Outpaces Feature Generation",
+          "url": null,
+          "source": "Developer Community",
+          "direction": "up",
+          "reasoning": "The successful deployment of agentic test harnesses for complex game play-testing highlights that QA automation is advancing highly reliably."
         }
       ]
     }
@@ -1910,6 +1975,19 @@
           "source": "OpenAI",
           "direction": "up",
           "reasoning": "With the deadline just three days away, OpenAI's confirmation that their models have outgrown the benchmark indicates the 80% threshold has practically been met."
+        }
+      ]
+    },
+    {
+      "date": "2026-04-30",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Non-US Models and Deterministic Benchmarks Advance",
+          "url": null,
+          "source": "Mistral AI",
+          "direction": "up",
+          "reasoning": "The sudden release of Mistral Medium 3.5 may provide the final benchmark validation needed to resolve the prediction in the coming 48 hours."
         }
       ]
     }
