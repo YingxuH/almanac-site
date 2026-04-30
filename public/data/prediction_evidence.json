@@ -896,6 +896,19 @@
           "reasoning": "Calls for a decentralized 'federation of forges' threaten GitHub's lock-in and amplify recent developer migration trends."
         }
       ]
+    },
+    {
+      "date": "2026-05-01",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Aggressive Vendor Lock-In & Behavioral Engineering in AI Tools",
+          "url": null,
+          "source": "Microsoft",
+          "direction": "up",
+          "reasoning": "Microsoft's forced auto-attribution of GitHub Copilot in VS Code commits is causing community backlash, increasing the likelihood developers will defect to competitors."
+        }
+      ]
     }
   ],
   "17": [
@@ -1763,6 +1776,19 @@
           "reasoning": "Anthropic\u2019s removal of Claude Code from its standard Pro tier highlights the mounting pressure of inference costs, creating a widening vulnerability that deep-pocketed platform owners like Microsoft can exploit via bundling."
         }
       ]
+    },
+    {
+      "date": "2026-05-01",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "Aggressive Vendor Lock-In & Behavioral Engineering in AI Tools",
+          "url": null,
+          "source": "Microsoft",
+          "direction": "up",
+          "reasoning": "VS Code's forced integration of Copilot attribution highlights Microsoft's strategy of leveraging its IDE dominance to enforce its AI tools across workflows."
+        }
+      ]
     }
   ],
   "40": [],
@@ -1804,6 +1830,19 @@
           "source": "Broccoli",
           "direction": "up",
           "reasoning": "New orchestration tools that spin up independent environments for isolated ticket resolution provide the exact architectural primitives necessary for fully autonomous repository maintenance."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-01",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Financial Agency Unlocked for Autonomous Agents",
+          "url": null,
+          "source": "Stripe",
+          "direction": "up",
+          "reasoning": "Stripe's 'Link for AI' enables autonomous agents to securely execute transactions, removing financial friction for self-maintaining open-source projects."
         }
       ]
     }
