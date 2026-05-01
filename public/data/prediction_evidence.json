@@ -856,7 +856,21 @@
       ]
     }
   ],
-  "15": [],
+  "15": [
+    {
+      "date": "2026-05-02",
+      "delta": 4,
+      "signals": [
+        {
+          "title": "The Rejection of \"Black Box\" AI: Adam's CAD Harness",
+          "url": null,
+          "source": "Adam",
+          "direction": "up",
+          "reasoning": "The release of Adam's AI CAD harness accelerates the trend of autonomous feature-tree manipulation in traditional mechanical engineering and manufacturing workflows."
+        }
+      ]
+    }
+  ],
   "16": [
     {
       "date": "2026-03-29",
@@ -1311,6 +1325,19 @@
           "source": "Claude Code",
           "direction": "up",
           "reasoning": "The HERMES.md exploit affecting Claude Code causes direct financial damage via prompt injection, accelerating the necessity for formal OWASP recognition."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-02",
+      "delta": 4,
+      "signals": [
+        {
+          "title": "\"The Gay Jailbreak\" Proves LLM Vulnerabilities Remain Unsolved",
+          "url": null,
+          "source": "GitHub",
+          "direction": "up",
+          "reasoning": "The publication of the \"Gay Jailbreak\" technique highlights the rapid evolution of prompt injection vulnerabilities that increasingly threaten integrated AI coding agents."
         }
       ]
     }
