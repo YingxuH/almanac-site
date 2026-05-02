@@ -741,6 +741,19 @@
           "reasoning": "Prevailing industry discourse arguing that AI should elevate thinking rather than replace it supports the thesis that AI acts primarily as a multiplier for senior-level judgment."
         }
       ]
+    },
+    {
+      "date": "2026-05-03",
+      "delta": -3,
+      "signals": [
+        {
+          "title": "Senior Labor Market Defies Automation Pessimism",
+          "url": null,
+          "source": "LinkedIn",
+          "direction": "down",
+          "reasoning": "Strong anecdotal evidence of senior engineers receiving multiple job offers contradicts the narrative that AI tools are substituting for senior-level judgment."
+        }
+      ]
     }
   ],
   "14": [
@@ -1982,7 +1995,21 @@
       ]
     }
   ],
-  "45": [],
+  "45": [
+    {
+      "date": "2026-05-03",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "VS Code Forces Copilot Commit Attributions",
+          "url": null,
+          "source": "VS Code",
+          "direction": "up",
+          "reasoning": "The automatic tagging of Copilot contributions establishes a preemptive compliance architecture, making future government traceability mandates technologically feasible to enforce."
+        }
+      ]
+    }
+  ],
   "46": [],
   "47": [],
   "48": [
