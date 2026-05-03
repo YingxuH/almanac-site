@@ -882,6 +882,19 @@
           "reasoning": "The release of Adam's AI CAD harness accelerates the trend of autonomous feature-tree manipulation in traditional mechanical engineering and manufacturing workflows."
         }
       ]
+    },
+    {
+      "date": "2026-05-04",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "Kepler Deploys Verifiable AI with Claude in Finance",
+          "url": null,
+          "source": "Kepler",
+          "direction": "up",
+          "reasoning": "Kepler's successful deployment of verifiable AI provides strong evidence that traditional, highly-regulated enterprises are successfully internalizing frontier models."
+        }
+      ]
     }
   ],
   "16": [
@@ -1704,6 +1717,19 @@
           "reasoning": "The Recurse Center's pivot toward \"curious programming\" signals a broader cultural shift where developers seek out alternative, holistic educational hubs over traditional, degree-based syntax factories."
         }
       ]
+    },
+    {
+      "date": "2026-05-04",
+      "delta": 4,
+      "signals": [
+        {
+          "title": "Academic Backlash Over Autonomous AI Course Creation",
+          "url": null,
+          "source": "Arizona State University",
+          "direction": "up",
+          "reasoning": "The ASU scandal regarding unauthorized AI course generation severely damages the perceived value and integrity of traditional university curricula."
+        }
+      ]
     }
   ],
   "36": [
@@ -1911,6 +1937,19 @@
           "source": null,
           "direction": "up",
           "reasoning": "The launch and immediate traction of Ghost Pepper's local voice-to-text interface demonstrates a clear, growing appetite for dictating complex logic to agents via speech."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-04",
+      "delta": 4,
+      "signals": [
+        {
+          "title": "The Model Context Protocol (MCP) Reaches Audio Workflows",
+          "url": null,
+          "source": "Independent developer",
+          "direction": "up",
+          "reasoning": "The integration of MCP into Ableton Live demonstrates the rapid, protocol-driven expansion of AI tooling into complex, non-textual domains."
         }
       ]
     }
