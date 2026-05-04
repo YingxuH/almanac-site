@@ -1299,6 +1299,26 @@
           "reasoning": "Proving mathematically that frontier models generate exploitable code by default necessitates a massive industry shift toward specialized AI-native SAST tools."
         }
       ]
+    },
+    {
+      "date": "2026-05-05",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "Microsoft Edge Plaintext Password Vulnerability",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "Catastrophic human-oversight failures highlight an urgent market gap that next-generation, context-aware AI scanning tools will be forced to fill."
+        },
+        {
+          "title": "DoD Contractor Multi-Tenant Auth Vulnerability",
+          "url": null,
+          "source": "Strix",
+          "direction": "up",
+          "reasoning": "Severe auth bypasses emphasize the ongoing failure of traditional QA, driving the need for AI-code-specific scanning rules."
+        }
+      ]
     }
   ],
   "28": [
@@ -1827,6 +1847,19 @@
           "reasoning": "Google's planned $40B investment into Anthropic suggests pure-play AI coding companies will either be absorbed or priced out, accelerating market consolidation and hindering independent valuation growth."
         }
       ]
+    },
+    {
+      "date": "2026-05-05",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "Sierra Raises $950M at $15B Valuation",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "Sierra\u2019s massive $950M raise provides substantial upward momentum for the aggregate market capitalization of pure-play AI agent startups."
+        }
+      ]
     }
   ],
   "39": [
@@ -1911,6 +1944,19 @@
           "reasoning": "Stripe's 'Link for AI' enables autonomous agents to securely execute transactions, removing financial friction for self-maintaining open-source projects."
         }
       ]
+    },
+    {
+      "date": "2026-05-05",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Stripe Formats 25M-Line Codebase Overnight",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "Stripe's successful zero-downtime formatting proves that the underlying infrastructure for massive, automated structural transformations is production-ready."
+        }
+      ]
     }
   ],
   "43": [
@@ -1950,6 +1996,19 @@
           "source": "Independent developer",
           "direction": "up",
           "reasoning": "The integration of MCP into Ableton Live demonstrates the rapid, protocol-driven expansion of AI tooling into complex, non-textual domains."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-05",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "OpenAI Delivers Low-Latency Voice AI at Scale",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "OpenAI's successful deployment of low-latency voice AI at scale resolves a major technical hurdle for real-time, voice-driven programming interfaces to become viable daily drivers."
         }
       ]
     }
@@ -2030,6 +2089,19 @@
           "source": "StackAdapt",
           "direction": "down",
           "reasoning": "OpenAI's pivot toward ad-supported prompt monetization signals that the underlying compute costs for frontier models may be hitting a floor, necessitating new revenue streams rather than pure price cuts."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-05",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "Transformers Are Inherently Succinct",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "New foundational research suggests that further algorithmic efficiencies in neural network architectures are imminent, supporting the trajectory of rapidly decreasing inference costs."
         }
       ]
     }
