@@ -268,6 +268,19 @@
           "reasoning": "Nicholas Carlini's demonstration of Black-hat LLMs suggests that offensive AI capabilities are rapidly maturing, potentially arming attackers to exploit AI-generated code."
         }
       ]
+    },
+    {
+      "date": "2026-05-06",
+      "delta": -4,
+      "signals": [
+        {
+          "title": "The Emergence of the \"Volume-Quality Inverse Law\" in AI Code",
+          "url": null,
+          "source": "Academic research",
+          "direction": "down",
+          "reasoning": "New empirical evidence of an AI Volume-Quality Inverse Law creating architectural bloat pulls down expectations for structurally secure, highly-maintainable AI codebases."
+        }
+      ]
     }
   ],
   "6": [
@@ -307,6 +320,19 @@
           "source": "CNN / Academic paper",
           "direction": "down",
           "reasoning": "An academic paper introducing mathematical frameworks for optimizing 'AI-Collapsed Software Development Stacks' maintains slightly negative labor sentiment."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-06",
+      "delta": -5,
+      "signals": [
+        {
+          "title": "The \"AI Efficiency\" Layoff Wave Begins in Earnest",
+          "url": null,
+          "source": "Corporate announcements",
+          "direction": "down",
+          "reasoning": "Explicit AI-driven layoffs at PayPal and Coinbase exert strong downward pressure on long-term headcount growth narratives."
         }
       ]
     }
@@ -388,6 +414,19 @@
           "source": "Twitter",
           "direction": "up",
           "reasoning": "The viral deletion of a production database by an autonomous agent provides massive momentum for corporate rollbacks as organizations reassess unbounded execution privileges."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-06",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "The Economics of Agents: 45x More Expensive Than APIs",
+          "url": null,
+          "source": "Developer benchmarks",
+          "direction": "up",
+          "reasoning": "The revelation that agentic computer-use frameworks are significantly more expensive than APIs increases the likelihood of companies rolling back autonomous AI deployments."
         }
       ]
     }
@@ -988,6 +1027,19 @@
           "source": "Broccoli",
           "direction": "up",
           "reasoning": "The emergence of cloud-sandboxed frameworks like Broccoli builds the infrastructure needed to execute AI generation in isolation, making humans the final reviewers."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-06",
+      "delta": -5,
+      "signals": [
+        {
+          "title": "AI Pull Requests are Bypassing Human Oversight",
+          "url": null,
+          "source": "AIDev dataset",
+          "direction": "down",
+          "reasoning": "Findings that AI-generated PRs are largely reviewed by other AI agents directly threatens the human-review component of this forecast."
         }
       ]
     }
