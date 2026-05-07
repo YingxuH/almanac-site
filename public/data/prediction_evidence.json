@@ -778,6 +778,19 @@
           "reasoning": "DeepSeek's rapid technical and financial ascent validates that developers will have highly capable, cost-effective alternatives to US models."
         }
       ]
+    },
+    {
+      "date": "2026-05-08",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "DeepSeek Deepens Local Ecosystem Penetration",
+          "url": null,
+          "source": "DeepSeek",
+          "direction": "up",
+          "reasoning": "DeepSeek 4 Flash's new local inference engine tailored for Apple's Metal hardware directly accelerates Western adoption of non-US models by lowering friction for offline Mac users."
+        }
+      ]
     }
   ],
   "13": [
@@ -1109,6 +1122,19 @@
           "reasoning": "OpenAI's statement that frontier models no longer align with SWE-bench Verified suggests the 90% threshold has either been breached internally or is practically imminent."
         }
       ]
+    },
+    {
+      "date": "2026-05-08",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "AlphaEvolve Demonstrates Cross-Domain Agentic Scaling",
+          "url": null,
+          "source": "Google DeepMind",
+          "direction": "up",
+          "reasoning": "Google DeepMind's newly announced AlphaEvolve framework indicates that Gemini-powered agents are making significant architectural leaps in cross-domain task execution, pushing closer to benchmark saturation."
+        }
+      ]
     }
   ],
   "19": [
@@ -1408,6 +1434,19 @@
           "source": "Strix",
           "direction": "up",
           "reasoning": "Severe auth bypasses emphasize the ongoing failure of traditional QA, driving the need for AI-code-specific scanning rules."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-08",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "Automated Security Scanning Crosses the Efficacy Threshold",
+          "url": null,
+          "source": "Mozilla",
+          "direction": "up",
+          "reasoning": "Mozilla's Mythos AI-powered vulnerability scanner achieving near-perfect precision demonstrates that AI-specific scanning rules are rapidly maturing to standard enterprise deployment."
         }
       ]
     }
