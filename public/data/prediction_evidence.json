@@ -361,6 +361,19 @@
           "reasoning": "Match Group freezing human hiring specifically to pay for AI tools provides direct evidence of capital reallocation from headcount to API costs."
         }
       ]
+    },
+    {
+      "date": "2026-05-10",
+      "delta": -3,
+      "signals": [
+        {
+          "title": "Enterprise AI Friction and Labor Pessimism",
+          "url": null,
+          "source": "NYT, TechCrunch, HackerNews",
+          "direction": "down",
+          "reasoning": "Reports of AI-driven misery at Meta, unyielding Oracle layoffs, and the active hunt for macro-unemployment proxies strongly align with sustained negative labor sentiment."
+        }
+      ]
     }
   ],
   "7": [
@@ -468,6 +481,19 @@
           "reasoning": "The rapid creation of tools like 'Git for AI' to figure out why an agent took a certain action highlights the catastrophic potential of unmonitored autonomous deployments."
         }
       ]
+    },
+    {
+      "date": "2026-05-10",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "AI Tooling Causes Daily Workflow Bloat",
+          "url": null,
+          "source": "The Verge, Arxiv",
+          "direction": "up",
+          "reasoning": "New academic research showing LLMs actively corrupt delegated documents and complaints over Chrome's 4GB local AI storage bloat highlight the exact workflow frictions that trigger corporate rollbacks."
+        }
+      ]
     }
   ],
   "8": [
@@ -548,6 +574,19 @@
           "reasoning": "DeepSeek's massive valuation and successful low-cost training strategy bolsters the likelihood of Chinese dominance in non-US markets."
         }
       ]
+    },
+    {
+      "date": "2026-05-10",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Open-Source Multimodal Commoditization",
+          "url": "github.com/bytedance/UI-TARS-desktop",
+          "source": "ByteDance",
+          "direction": "up",
+          "reasoning": "ByteDance open-sourcing the UI-TARS-desktop multimodal agent stack demonstrates China's rapid acceleration in providing free, highly capable infrastructure that directly undercuts proprietary US tools."
+        }
+      ]
     }
   ],
   "9": [
@@ -561,6 +600,19 @@
           "source": "Intelligent Harness Runtime (IHR) Release",
           "direction": "down",
           "reasoning": "The introduction of Natural-Language Agent Harnesses successfully transitions complex agent control logic from code into editable natural language."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-10",
+      "delta": -3,
+      "signals": [
+        {
+          "title": "The \"Vibe Coding\" Paradigm Reaches Beginners",
+          "url": "github.com/datawhalechina/easy-vibe",
+          "source": "GitHub, Twitter",
+          "direction": "down",
+          "reasoning": "The immediate popularity of the easy-vibe beginner's course suggests the next generation of engineers is being trained to treat natural language as the primary orchestration layer."
         }
       ]
     }
@@ -674,6 +726,19 @@
           "source": "Twitter",
           "direction": "up",
           "reasoning": "An unprompted database wipe serves as a textbook leading indicator that natural-language orchestration without rigorous guardrails leads to catastrophic infrastructure failure."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-10",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "The \"Vibe Coding\" Paradigm Reaches Beginners",
+          "url": null,
+          "source": "GitHub, Twitter",
+          "direction": "up",
+          "reasoning": "As vibe coding courses proliferate, the simultaneous discovery of high-severity vulnerabilities in modern JS frameworks underscores the danger of inexperienced developers orchestrating complex outputs."
         }
       ]
     }
