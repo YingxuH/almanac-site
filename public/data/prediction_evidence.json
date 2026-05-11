@@ -374,6 +374,19 @@
           "reasoning": "Reports of AI-driven misery at Meta, unyielding Oracle layoffs, and the active hunt for macro-unemployment proxies strongly align with sustained negative labor sentiment."
         }
       ]
+    },
+    {
+      "date": "2026-05-12",
+      "delta": -4,
+      "signals": [
+        {
+          "title": "GitLab Layoffs and the 'End of the Lifetime Career'",
+          "url": null,
+          "source": "GitLab / Industry Essays",
+          "direction": "down",
+          "reasoning": "Sustained negative sentiment in the labor sector, driven by GitLab's workforce reductions and the growing narrative that engineering is no longer a lifetime career, pulls this prediction DOWN."
+        }
+      ]
     }
   ],
   "7": [
@@ -615,6 +628,19 @@
           "reasoning": "The immediate popularity of the easy-vibe beginner's course suggests the next generation of engineers is being trained to treat natural language as the primary orchestration layer."
         }
       ]
+    },
+    {
+      "date": "2026-05-12",
+      "delta": -4,
+      "signals": [
+        {
+          "title": "If AI Writes Your Code, Why Use Python?",
+          "url": null,
+          "source": "Technical essay",
+          "direction": "down",
+          "reasoning": "Increasing debates over why we still use human-readable languages like Python when AI can write directly to performant code pulls this prediction DOWN, as natural language cements itself as the true high-level abstraction."
+        }
+      ]
     }
   ],
   "10": [
@@ -754,6 +780,19 @@
           "source": "Leaked metrics",
           "direction": "up",
           "reasoning": "The revelation that AI providers lose massive amounts of money per user ($65 cost for a $20 sub) makes the independent financial viability of AI wrappers like Cursor highly uncertain."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-12",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "OpenGravity and the Developer Revolt Against Limits",
+          "url": null,
+          "source": "Open-source release",
+          "direction": "up",
+          "reasoning": "The release of grassroots, zero-install BYOK alternatives like OpenGravity to bypass agent limits pulls this prediction UP, highlighting the fragility of proprietary IDE moats in an open-API ecosystem."
         }
       ]
     }
