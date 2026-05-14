@@ -66,6 +66,19 @@
           "reasoning": "Reports that AI is eating the middle engineering layer severely challenge the assumption that companies will aggressively hire and train traditional juniors."
         }
       ]
+    },
+    {
+      "date": "2026-05-15",
+      "delta": -2,
+      "signals": [
+        {
+          "title": "MIT Leadership Addresses Talent Pipeline Fragility",
+          "url": "president.mit.edu",
+          "source": "president.mit.edu",
+          "direction": "down",
+          "reasoning": "The MIT President's public address regarding institutional funding and the talent pipeline reflects deep, systemic anxiety that junior placement pipelines are permanently contracting."
+        }
+      ]
     }
   ],
   "3": [
@@ -767,6 +780,19 @@
           "reasoning": "As vibe coding courses proliferate, the simultaneous discovery of high-severity vulnerabilities in modern JS frameworks underscores the danger of inexperienced developers orchestrating complex outputs."
         }
       ]
+    },
+    {
+      "date": "2026-05-15",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Developers Warn of Cognitive Atrophy (\"AI is making me dumb\")",
+          "url": "jpain.io",
+          "source": "jpain.io",
+          "direction": "up",
+          "reasoning": "Viral developer confessions that \"AI is making me dumb\" perfectly capture the cognitive atrophy that makes catastrophic, unrecoverable \"vibe coding\" deployments inevitable."
+        }
+      ]
     }
   ],
   "11": [
@@ -1088,6 +1114,19 @@
           "reasoning": "OpenAI explicitly retiring SWE-bench Verified because their models have outgrown it strongly contradicts the idea of an impending capability plateau."
         }
       ]
+    },
+    {
+      "date": "2026-05-15",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Institutional Crackdown on AI Hallucinations",
+          "url": "twitter.com/tdietterich",
+          "source": "twitter.com/tdietterich",
+          "direction": "up",
+          "reasoning": "ArXiv's draconian 1-year ban for hallucinated references highlights that fundamental model reasoning and hallucination rates remain stubbornly unresolved despite massive compute scaling."
+        }
+      ]
     }
   ],
   "15": [
@@ -1114,6 +1153,19 @@
           "source": "Kepler",
           "direction": "up",
           "reasoning": "Kepler's successful deployment of verifiable AI provides strong evidence that traditional, highly-regulated enterprises are successfully internalizing frontier models."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-15",
+      "delta": 4,
+      "signals": [
+        {
+          "title": "Anthropic Pivots to Non-Tech Verticals with \"Claude for Legal\"",
+          "url": "github.com/anthropics",
+          "source": "github.com/anthropics",
+          "direction": "up",
+          "reasoning": "Anthropic\u2019s release of \"Claude for Legal\" explicitly demonstrates frontier labs pivoting their customized AI workflows toward lucrative, non-tech professional services."
         }
       ]
     }
@@ -2295,6 +2347,19 @@
           "source": null,
           "direction": "up",
           "reasoning": "OpenAI's successful deployment of low-latency voice AI at scale resolves a major technical hurdle for real-time, voice-driven programming interfaces to become viable daily drivers."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-15",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Codex Goes Mobile via ChatGPT",
+          "url": "openai.com",
+          "source": "openai.com",
+          "direction": "up",
+          "reasoning": "OpenAI's rollout of Codex access via the ChatGPT mobile app fundamentally expands the interface of coding away from the traditional keybo"
         }
       ]
     }
