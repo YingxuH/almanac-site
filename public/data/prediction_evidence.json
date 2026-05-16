@@ -79,6 +79,19 @@
           "reasoning": "The MIT President's public address regarding institutional funding and the talent pipeline reflects deep, systemic anxiety that junior placement pipelines are permanently contracting."
         }
       ]
+    },
+    {
+      "date": "2026-05-17",
+      "delta": -3,
+      "signals": [
+        {
+          "title": "Mainstream Media Diagnoses the \"AI Jobs Apocalypse\"",
+          "url": null,
+          "source": "Bloomberg / The Economist",
+          "direction": "down",
+          "reasoning": "Stark reports confirming realized job losses in AI-exposed technical roles lower the outlook for future junior developer hiring."
+        }
+      ]
     }
   ],
   "3": [
@@ -398,6 +411,19 @@
           "source": "GitLab / Industry Essays",
           "direction": "down",
           "reasoning": "Sustained negative sentiment in the labor sector, driven by GitLab's workforce reductions and the growing narrative that engineering is no longer a lifetime career, pulls this prediction DOWN."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-17",
+      "delta": -5,
+      "signals": [
+        {
+          "title": "Mainstream Media Diagnoses the \"AI Jobs Apocalypse\"",
+          "url": null,
+          "source": "Bloomberg / The Economist",
+          "direction": "down",
+          "reasoning": "The materialized labor disruption and resulting negative sentiment drastically increase headwinds against overall headcount growth."
         }
       ]
     }
@@ -945,6 +971,19 @@
           "source": "DeepSeek",
           "direction": "up",
           "reasoning": "DeepSeek 4 Flash's new local inference engine tailored for Apple's Metal hardware directly accelerates Western adoption of non-US models by lowering friction for offline Mac users."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-17",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "DeepSeek-V4-Flash Reignites LLM Steering",
+          "url": null,
+          "source": "Sean Goedecke",
+          "direction": "up",
+          "reasoning": "Growing developer enthusiasm for highly optimized, non-US models for granular control boosts the likelihood of widespread adoption."
         }
       ]
     }
@@ -2226,6 +2265,19 @@
           "reasoning": "VS Code's forced integration of Copilot attribution highlights Microsoft's strategy of leveraging its IDE dominance to enforce its AI tools across workflows."
         }
       ]
+    },
+    {
+      "date": "2026-05-17",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "OpenAI Consolidates ChatGPT and Codex",
+          "url": null,
+          "source": "TechCrunch",
+          "direction": "up",
+          "reasoning": "OpenAI's shift towards unified multimodal reasoning accelerates Microsoft's timeline to natively bundle these capabilities into the VS ecosystem."
+        }
+      ]
     }
   ],
   "40": [],
@@ -2466,6 +2518,19 @@
           "source": "Not specified",
           "direction": "up",
           "reasoning": "The introduction of a successful Small Language Model replacing frontier models for agentic execution proves expensive LLMs will be rapidly optimized out of routine tasks."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-17",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "OpenClaw's Unsustainable $1.3M Token Bill",
+          "url": null,
+          "source": "Twitter/steipete",
+          "direction": "up",
+          "reasoning": "Staggering API bills highlight that the massive absolute volume of tokens required for modern agentic workflows guarantees further drastic cost-per-token reductions."
         }
       ]
     }
