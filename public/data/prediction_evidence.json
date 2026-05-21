@@ -680,6 +680,19 @@
           "reasoning": "Increasing debates over why we still use human-readable languages like Python when AI can write directly to performant code pulls this prediction DOWN, as natural language cements itself as the true high-level abstraction."
         }
       ]
+    },
+    {
+      "date": "2026-05-22",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "The Rise of Agent-Native Authentication (Agent.email / YC S25)",
+          "url": null,
+          "source": "AgentMail",
+          "direction": "up",
+          "reasoning": "AgentMail's reliance on curl commands for agentic signup reinforces that deterministic, code-based interfaces remain necessary for reliable machine-to-machine interaction."
+        }
+      ]
     }
   ],
   "10": [
@@ -1205,6 +1218,19 @@
           "source": "github.com/anthropics",
           "direction": "up",
           "reasoning": "Anthropic\u2019s release of \"Claude for Legal\" explicitly demonstrates frontier labs pivoting their customized AI workflows toward lucrative, non-tech professional services."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-22",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Sandboxed Agents for Non-Engineers (Runtime / YC P26)",
+          "url": null,
+          "source": "Runtime",
+          "direction": "up",
+          "reasoning": "Runtime's explicit focus on allowing non-engineers and PMs to interact directly with codebases accelerates the democratization of software creation outside traditional tech hubs."
         }
       ]
     }
