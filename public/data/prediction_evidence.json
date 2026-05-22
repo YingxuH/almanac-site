@@ -1053,6 +1053,19 @@
           "reasoning": "Strong anecdotal evidence of senior engineers receiving multiple job offers contradicts the narrative that AI tools are substituting for senior-level judgment."
         }
       ]
+    },
+    {
+      "date": "2026-05-23",
+      "delta": -4,
+      "signals": [
+        {
+          "title": "AI as a Multiplier for Pre-Existing Technical Skills",
+          "url": null,
+          "source": "Engineering commentary",
+          "direction": "down",
+          "reasoning": "Analysis detailing AI as a strict multiplier for deep technical skills suggests senior-level judgment remains a critical, un-automatable bottleneck."
+        }
+      ]
     }
   ],
   "14": [
@@ -1761,6 +1774,19 @@
           "source": "GitHub",
           "direction": "up",
           "reasoning": "The publication of the \"Gay Jailbreak\" technique highlights the rapid evolution of prompt injection vulnerabilities that increasingly threaten integrated AI coding agents."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-23",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "Domain-Camouflaged Injection Attacks in Multi-Agent Systems",
+          "url": null,
+          "source": "arXiv",
+          "direction": "up",
+          "reasoning": "A paper demonstrating domain-camouflaged injection attacks specifically evading multi-agent LLM detection strongly accelerates the likelihood of prompt injection becoming an OWASP Top 10 category."
         }
       ]
     }
@@ -2559,6 +2585,19 @@
           "reasoning": "Staggering API bills highlight that the massive absolute volume of tokens required for modern agentic workflows guarantees further drastic cost-per-token reductions."
         }
       ]
+    },
+    {
+      "date": "2026-05-23",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "DeepSeek v4 Pro API Permanent 75% Discount",
+          "url": null,
+          "source": "DeepSeek",
+          "direction": "up",
+          "reasoning": "DeepSeek's permanent 75% price reduction practically guarantees the model cost drop prediction will resolve positively ahead of schedule."
+        }
+      ]
     }
   ],
   "45": [
@@ -2604,6 +2643,19 @@
           "source": "Kampala",
           "direction": "up",
           "reasoning": "Kampala's launch highlights how new YC cohorts are building products heavily leveraging AI-native, agentic architectures."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-23",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "Launch of Superset (YC P26): The Open-Source Agentic IDE",
+          "url": null,
+          "source": "YC P26",
+          "direction": "up",
+          "reasoning": "The emergence of Superset as a dedicated platform for running parallel agents is actively supplying the tooling to make zero-human-code milestones a reality."
         }
       ]
     }
