@@ -320,6 +320,19 @@
           "reasoning": "The emerging consensus that AI is breaking vulnerability cultures and introducing non-determinism into CVE patching severely challenges the assumption that AI will inherently write more secure code."
         }
       ]
+    },
+    {
+      "date": "2026-05-24",
+      "delta": -2,
+      "signals": [
+        {
+          "title": "\"Megaladon\" Attack Compromises 5.5K+ GitHub Repositories",
+          "url": null,
+          "source": null,
+          "direction": "down",
+          "reasoning": "The catastrophic Megaladon attack compromising thousands of repositories highlights the fragility of automated supply chains, pushing security sentiment negative."
+        }
+      ]
     }
   ],
   "6": [
@@ -1709,6 +1722,19 @@
           "reasoning": "Mozilla's Mythos AI-powered vulnerability scanner achieving near-perfect precision demonstrates that AI-specific scanning rules are rapidly maturing to standard enterprise deployment."
         }
       ]
+    },
+    {
+      "date": "2026-05-24",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "\"Megaladon\" Attack Compromises 5.5K+ GitHub Repositories",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "The Megaladon fallout guarantees that enterprise security budgets will rapidly reallocate toward pipeline scanners capable of identifying domain-camouflaged AI injections."
+        }
+      ]
     }
   ],
   "28": [
@@ -2333,7 +2359,21 @@
     }
   ],
   "40": [],
-  "41": [],
+  "41": [
+    {
+      "date": "2026-05-24",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "AlphaProof Nexus Masters Advanced Formal Reasoning",
+          "url": null,
+          "source": "DeepMind",
+          "direction": "up",
+          "reasoning": "AlphaProof Nexus solving 9 Erd\u0151s problems demonstrates that the deep foundational reasoning necessary to crush rigorous, logic-heavy benchmarks is rapidly coming online."
+        }
+      ]
+    }
+  ],
   "42": [
     {
       "date": "2026-04-16",
@@ -2596,6 +2636,19 @@
           "source": "DeepSeek",
           "direction": "up",
           "reasoning": "DeepSeek's permanent 75% price reduction practically guarantees the model cost drop prediction will resolve positively ahead of schedule."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-24",
+      "delta": -1,
+      "signals": [
+        {
+          "title": "Data Centers Hit 6% of US Electricity Consumption",
+          "url": null,
+          "source": null,
+          "direction": "down",
+          "reasoning": "Physical power constraints and public backlash pose a massive threat to the compute scale required to continually drive frontier model token costs to zero."
         }
       ]
     }
