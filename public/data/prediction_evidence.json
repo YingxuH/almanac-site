@@ -51,6 +51,19 @@
           "reasoning": "Uber's $3.4B AI budget wall strongly supports the thesis that enterprise willingness to pay for coding copilots has an impending, hard ceiling."
         }
       ]
+    },
+    {
+      "date": "2026-05-26",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Uber Scrutinizes the ROI of \"Tokenmaxxing\"",
+          "url": null,
+          "source": "Business Insider",
+          "direction": "up",
+          "reasoning": "Uber's pushback against the ROI of continuous AI usage indicates enterprise willingness to pay for unconstrained AI coding tools is plateauing."
+        }
+      ]
     }
   ],
   "2": [
@@ -437,6 +450,19 @@
           "source": "Bloomberg / The Economist",
           "direction": "down",
           "reasoning": "The materialized labor disruption and resulting negative sentiment drastically increase headwinds against overall headcount growth."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-26",
+      "delta": -5,
+      "signals": [
+        {
+          "title": "ClickUp Swaps Hundreds of Humans for AI Agents",
+          "url": null,
+          "source": "TechCrunch",
+          "direction": "down",
+          "reasoning": "ClickUp's mass replacement of human employees with AI agents severely lowers labor sentiment regarding developer headcount."
         }
       ]
     }
@@ -843,6 +869,19 @@
           "source": "jpain.io",
           "direction": "up",
           "reasoning": "Viral developer confessions that \"AI is making me dumb\" perfectly capture the cognitive atrophy that makes catastrophic, unrecoverable \"vibe coding\" deployments inevitable."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-26",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "The \"Anti-Slop\" Movement Materializes",
+          "url": null,
+          "source": "GitHub",
+          "direction": "up",
+          "reasoning": "Developer backlash and new repositories to scrub generic AI tells highlight that unchecked generation is degrading codebase quality."
         }
       ]
     }
