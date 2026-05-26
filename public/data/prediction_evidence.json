@@ -64,6 +64,19 @@
           "reasoning": "Uber's pushback against the ROI of continuous AI usage indicates enterprise willingness to pay for unconstrained AI coding tools is plateauing."
         }
       ]
+    },
+    {
+      "date": "2026-05-27",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Minicor (YC P26) Bridges the Agent-to-Desktop Gap",
+          "url": null,
+          "source": "Y Combinator",
+          "direction": "up",
+          "reasoning": "Minicor's YC launch explicitly linking AI agent deployment to desktop RPA tools reinforces the convergence of AI coding tools with traditional enterprise process automation."
+        }
+      ]
     }
   ],
   "2": [
@@ -463,6 +476,26 @@
           "source": "TechCrunch",
           "direction": "down",
           "reasoning": "ClickUp's mass replacement of human employees with AI agents severely lowers labor sentiment regarding developer headcount."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-27",
+      "delta": -4,
+      "signals": [
+        {
+          "title": "Outsourcing + Local AI Re-writes Labor Economics",
+          "url": null,
+          "source": "SignalBloom",
+          "direction": "down",
+          "reasoning": "The ascendant offshore outsourcing plus local AI economic model exerts heavy downward pressure on the likelihood of aggregate global headcount growth."
+        },
+        {
+          "title": "Tech Leadership Churn and the Anti-Labor Playbook",
+          "url": null,
+          "source": "Reports",
+          "direction": "down",
+          "reasoning": "Sustained negative labor sentiment and the structural weakening of software engineering labor exert downward pressure on overall headcount."
         }
       ]
     }
@@ -1518,7 +1551,21 @@
       ]
     }
   ],
-  "21": [],
+  "21": [
+    {
+      "date": "2026-05-27",
+      "delta": 5,
+      "signals": [
+        {
+          "title": "Outsourcing + Local AI Re-writes Labor Economics",
+          "url": null,
+          "source": "SignalBloom",
+          "direction": "up",
+          "reasoning": "The thesis that offshore outsourcing combined with local AI models is economically outcompeting US-based frontier lab usage directly accelerates this geopolitical shift in tool adoption."
+        }
+      ]
+    }
+  ],
   "22": [],
   "23": [
     {
@@ -2690,6 +2737,19 @@
           "reasoning": "Physical power constraints and public backlash pose a massive threat to the compute scale required to continually drive frontier model token costs to zero."
         }
       ]
+    },
+    {
+      "date": "2026-05-27",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "Xiaomi Drops MiMo-v2.5 API Prices by 99%",
+          "url": null,
+          "source": "Xiaomi",
+          "direction": "up",
+          "reasoning": "Xiaomi's permanent 99% price reduction on its MiMo-v2.5 API perfectly illustrates the hyper-deflationary curve of AI inference costs."
+        }
+      ]
     }
   ],
   "45": [
@@ -2804,6 +2864,19 @@
           "source": "Mistral AI",
           "direction": "up",
           "reasoning": "The sudden release of Mistral Medium 3.5 may provide the final benchmark validation needed to resolve the prediction in the coming 48 hours."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-27",
+      "delta": -4,
+      "signals": [
+        {
+          "title": "DeepSWE Unveils Contamination-Free Agent Benchmarking",
+          "url": null,
+          "source": "DataCurve",
+          "direction": "down",
+          "reasoning": "The introduction of DeepSWE's contamination-free benchmark signals skepticism about current SWE-bench scores, prompting downward revisions in perceived capabilities."
         }
       ]
     }
