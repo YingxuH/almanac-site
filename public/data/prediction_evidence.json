@@ -77,6 +77,19 @@
           "reasoning": "Minicor's YC launch explicitly linking AI agent deployment to desktop RPA tools reinforces the convergence of AI coding tools with traditional enterprise process automation."
         }
       ]
+    },
+    {
+      "date": "2026-05-28",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "The AI Interface Backlash and \"AI Psychosis\"",
+          "url": null,
+          "source": "PC Gamer / Orchidfiles / TechCrunch",
+          "direction": "up",
+          "reasoning": "The rising tide of AI fatigue and backlash against conversational interfaces strongly reinforces the likelihood of a near-term revenue plateau as organizations struggle with UI friction."
+        }
+      ]
     }
   ],
   "2": [
@@ -763,6 +776,19 @@
           "source": "AgentMail",
           "direction": "up",
           "reasoning": "AgentMail's reliance on curl commands for agentic signup reinforces that deterministic, code-based interfaces remain necessary for reliable machine-to-machine interaction."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-28",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "The AI Interface Backlash and \"AI Psychosis\"",
+          "url": null,
+          "source": "PC Gamer / Orchidfiles / TechCrunch",
+          "direction": "up",
+          "reasoning": "Widespread complaints about being tired of talking to AI validate the thesis that conversational natural language is too imprecise and exhausting to serve as the ultimate engineering specification medium."
         }
       ]
     }
@@ -1547,6 +1573,19 @@
           "source": null,
           "direction": "up",
           "reasoning": "Engineers actively debugging AI process lifecycles proves that interacting with AI is becoming a deeply technical systems engineering task rather than natural language prompting."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-28",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "Engineering Teams Pivot to In-House Model Training",
+          "url": null,
+          "source": "PostHog",
+          "direction": "up",
+          "reasoning": "The engineering pivot toward actual in-house model training accelerates the obsolescence of mere prompt engineering as organizations demand robust data pipelines and MLOps skills instead."
         }
       ]
     }
