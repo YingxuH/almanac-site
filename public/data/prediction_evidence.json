@@ -511,6 +511,19 @@
           "reasoning": "Sustained negative labor sentiment and the structural weakening of software engineering labor exert downward pressure on overall headcount."
         }
       ]
+    },
+    {
+      "date": "2026-05-29",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "AI Labor Apocalypse Narrative Officially Deflates",
+          "url": null,
+          "source": "fortune.com",
+          "direction": "up",
+          "reasoning": "Public walk-backs of job apocalypse claims by top AI executives reinforce the premise that overall developer headcount will grow."
+        }
+      ]
     }
   ],
   "7": [
@@ -2877,6 +2890,19 @@
           "reasoning": "The emergence of tools allowing humans to bisect, rewind, and audit autonomous AI actions directly supports the growing need for specialists who diagnose and fix AI-generated code."
         }
       ]
+    },
+    {
+      "date": "2026-05-29",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "The Rise of \"LLM Smells\" and Context Layers (Ktx)",
+          "url": null,
+          "source": "github.com/Kaelio/ktx / shvbsle.in",
+          "direction": "up",
+          "reasoning": "The formalization of AI anti-patterns and tools built to correct agent logic suggest that AI debugging is rapidly becoming a specialized discipline."
+        }
+      ]
     }
   ],
   "51": [
@@ -2944,6 +2970,19 @@
           "source": "Anthropic's Mythos leak / Hacker News",
           "direction": "up",
           "reasoning": "The leak of 3,000 files from Anthropic's \"Mythos\" project hints at major internal developments and upcoming architectural shifts that could precede a new model launch."
+        }
+      ]
+    },
+    {
+      "date": "2026-05-29",
+      "delta": -4,
+      "signals": [
+        {
+          "title": "Anthropic's $65B Series H and the Release of Claude Opus 4.8",
+          "url": null,
+          "source": "anthropic.com",
+          "direction": "down",
+          "reasoning": "Although Anthropic successfully released the new architecture, they missed the prediction's specific May 15 deadline by two weeks."
         }
       ]
     }
