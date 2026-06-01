@@ -956,6 +956,19 @@
           "reasoning": "Developer backlash and new repositories to scrub generic AI tells highlight that unchecked generation is degrading codebase quality."
         }
       ]
+    },
+    {
+      "date": "2026-06-02",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Florida Sues OpenAI and CEO Sam Altman Over \"AI Harms\"",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "Florida's aggressive lawsuit against OpenAI indicates that regulators are already primed to intervene aggressively before catastrophic technical failures even reach their peak."
+        }
+      ]
     }
   ],
   "11": [
@@ -1558,6 +1571,19 @@
           "source": "OpenAI",
           "direction": "up",
           "reasoning": "OpenAI's acquisition of Cirrus Labs exemplifies the ongoing talent consolidation stripping independent DevOps and tooling startups of their elite engineering teams."
+        }
+      ]
+    },
+    {
+      "date": "2026-06-02",
+      "delta": 2,
+      "signals": [
+        {
+          "title": "Anthropic Files Confidential S-1 for IPO",
+          "url": null,
+          "source": null,
+          "direction": "up",
+          "reasoning": "Anthropic's move toward an IPO establishes a massive structural advantage for frontier labs, which will likely accelerate the death or acquisition of smaller, pure-play AI coding wrappers."
         }
       ]
     }
