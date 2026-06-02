@@ -90,6 +90,19 @@
           "reasoning": "The rising tide of AI fatigue and backlash against conversational interfaces strongly reinforces the likelihood of a near-term revenue plateau as organizations struggle with UI friction."
         }
       ]
+    },
+    {
+      "date": "2026-06-03",
+      "delta": -2,
+      "signals": [
+        {
+          "title": "Microsoft Unveils the \"MAI\" Model Family",
+          "url": "microsoft.ai/news/introducingmai-code-1-flash/",
+          "source": "microsoft.ai",
+          "direction": "down",
+          "reasoning": "Microsoft's massive investment in the new MAI-Code-1-Flash models pushes against the plateau narrative, signaling sustained capital injection and product expansion."
+        }
+      ]
     }
   ],
   "2": [
@@ -1437,6 +1450,19 @@
           "reasoning": "Microsoft's forced auto-attribution of GitHub Copilot in VS Code commits is causing community backlash, increasing the likelihood developers will defect to competitors."
         }
       ]
+    },
+    {
+      "date": "2026-06-03",
+      "delta": -2,
+      "signals": [
+        {
+          "title": "GitHub Decouples Copilot from the IDE",
+          "url": "github.com/features/preview/github-app",
+          "source": "github.com",
+          "direction": "down",
+          "reasoning": "The release of a standalone GitHub Copilot App demonstrates GitHub's aggressive strategy to embed its ecosystem deeper into the OS, defending its market leadership."
+        }
+      ]
     }
   ],
   "17": [
@@ -2518,6 +2544,19 @@
           "source": "TechCrunch",
           "direction": "up",
           "reasoning": "OpenAI's shift towards unified multimodal reasoning accelerates Microsoft's timeline to natively bundle these capabilities into the VS ecosystem."
+        }
+      ]
+    },
+    {
+      "date": "2026-06-03",
+      "delta": -1,
+      "signals": [
+        {
+          "title": "GitHub Decouples Copilot from the IDE",
+          "url": "github.com/features/preview/github-app",
+          "source": "github.com",
+          "direction": "down",
+          "reasoning": "The creation of a standalone GitHub Copilot app pushes the assistant outside traditional IDE boundaries, lowering the probability of it being strictly bundled within VS Code for free."
         }
       ]
     }
