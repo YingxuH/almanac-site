@@ -385,6 +385,19 @@
           "reasoning": "The catastrophic Megaladon attack compromising thousands of repositories highlights the fragility of automated supply chains, pushing security sentiment negative."
         }
       ]
+    },
+    {
+      "date": "2026-06-05",
+      "delta": 1,
+      "signals": [
+        {
+          "title": "State-Level Militarization of AI Models",
+          "url": "github.com/anthropics/defending-code-reference-harness",
+          "source": "GitHub",
+          "direction": "up",
+          "reasoning": "Anthropic's release of an open-source framework for automated AI vulnerability discovery actively accelerates the timeline for self-auditing models to outpace human security reviews."
+        }
+      ]
     }
   ],
   "6": [
@@ -815,6 +828,19 @@
           "source": "PC Gamer / Orchidfiles / TechCrunch",
           "direction": "up",
           "reasoning": "Widespread complaints about being tired of talking to AI validate the thesis that conversational natural language is too imprecise and exhausting to serve as the ultimate engineering specification medium."
+        }
+      ]
+    },
+    {
+      "date": "2026-06-05",
+      "delta": -4,
+      "signals": [
+        {
+          "title": "\"Spec-Driven Development\" Codified by GitHub",
+          "url": "github.com/github/spec-kit",
+          "source": "GitHub",
+          "direction": "down",
+          "reasoning": "GitHub's trending spec-kit and the industry pivot toward \"Spec-Driven Development\" apply significant downward pressure on this prediction, as formal specification displaces raw coding."
         }
       ]
     }
@@ -1340,6 +1366,19 @@
           "source": "twitter.com/tdietterich",
           "direction": "up",
           "reasoning": "ArXiv's draconian 1-year ban for hallucinated references highlights that fundamental model reasoning and hallucination rates remain stubbornly unresolved despite massive compute scaling."
+        }
+      ]
+    },
+    {
+      "date": "2026-06-05",
+      "delta": -4,
+      "signals": [
+        {
+          "title": "Opus 4.8 Achieves Zero-Shot Formal Verification",
+          "url": "github.com/schildep/verified-polygon-intersection",
+          "source": "GitHub",
+          "direction": "down",
+          "reasoning": "Opus 4.8's unprecedented ability to zero-shot mathematically verified algorithms indicates that labs are still ascending a steep capability curve rather than hitting a wall."
         }
       ]
     }
@@ -2393,6 +2432,19 @@
           "source": "Arizona State University",
           "direction": "up",
           "reasoning": "The ASU scandal regarding unauthorized AI course generation severely damages the perceived value and integrity of traditional university curricula."
+        }
+      ]
+    },
+    {
+      "date": "2026-06-05",
+      "delta": 3,
+      "signals": [
+        {
+          "title": "Foundational CS Education in Crisis",
+          "url": "dailycal.org",
+          "source": "dailycal.org",
+          "direction": "up",
+          "reasoning": "A massive spike in failure rates across computer science classes exposes a critical vulnerability in the talent pipeline, increasing the likelihood of significant enrollment declines."
         }
       ]
     }
